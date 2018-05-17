@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9e09d426-c4de-4351-9bee-97795f6d2d1d" name="domotics" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Users\Giulio\drive\progetti\domotics" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
