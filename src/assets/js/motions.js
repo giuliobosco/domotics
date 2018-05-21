@@ -16,3 +16,30 @@
  *
  * file: app.js
  */
+
+var usernameDisplay = 0;
+
+function toggleUsername(obj) {
+	var value = obj.value;
+	if (value.length == 0 && usernameDisplay == 1) {
+		$('#username-p').slideUp("fast");
+		$('#white-username').slideDown("fast");
+	} else if (value.length == 1 && usernameDisplay == 0) {
+		$('#username-p').slideDown("fast");
+		$('#white-username').slideUp("fast");
+	}
+	usernameDisplay = value.length;
+}
+
+var passwordDisplay = 0;
+function togglePassword(obj) {
+	var value = obj.value;
+	if (value.length == 0 && passwordDisplay == 1) {
+		$('#password-p').slideUp("fast");
+		$('#white-password').slideDown("fast");
+	} else if (value.length == 1 && passwordDisplay == 0) {
+		$('#password-p').slideDown("fast");
+		$('#white-password').slideUp("fast");
+	}
+	passwordDisplay = value.length;
+}

@@ -16,7 +16,116 @@
  *
  * file: style.css
  */
+
+@font-face {
+	font-family: 'OpenSans-light';
+	src: url('../../lib/font/OpenSans-Light.ttf');
+}
+
+@font-face {
+	font-family: 'OpenSans-bold';
+	src: url('../../lib/font/OpenSans-Bold.ttf');
+}
+
+body {
+	background: url("../img/bg/bg1.png");
+	background-size: 100%;
+	padding: 10px;
+	font-family: 'OpenSans-light';
+}
+
 .form-login {
-	max-width: 300px;
-	height:400px;
+	background-color: #fff;
+	border: 1px solid rgba(255,255,255,0);
+	border-radius: 2px;
+	width: 300px;
+	position: absolute;
+	left: 25%;
+	top: 50%;
+
+	-webkit-transform: translate(0,-50%);
+	-moz-transform: translate(0,-50%);
+	-ms-transform: translate(0,-50%);
+	-o-transform: translate(0,-50%);
+	transform: translate(0,-50%);
+}
+
+.form-login h3 {
+	margin: 30px 0 0 0;
+
+}
+
+.login-container {
+	margin-top: 40px;
+}
+
+.box-container {
+	padding: 7px;
+	margin:5px 0 15px 0;
+}
+
+.box {
+	padding: 3px;
+	width:100%;
+	border: 0;
+	border-bottom: 1px solid #808080;
+	margin-bottom: 20px;
+}
+
+.box-container p {
+	color: #777;
+	display: none;
+}
+
+.box-container p small {
+	color: #777;
+}
+
+#white-username, #white-password {
+	display: block;
+}
+
+#white-username small, #white-password small {
+	color: #fff;
+}
+
+.box::placeholder,
+.box::-moz-placeholder,
+.box::-webkit-input-placeholder,
+.box:-ms-input-placeholder {
+	color: #777;
+}
+
+.login-btn {
+	border: 2px solid #0090c2;
+	border-radius: 2px;
+	background-color: #0090c2;
+	color: #eee;
+	font-family: 'OpenSans-bold';
+	margin-bottom: 20px;
+	padding: 4px;
+}
+
+.copyright {
+	padding-top: 40px;
+}
+
+
+
+@media screen and (max-width: 368px){
+	body {
+		background-size: 200%;
+	}
+
+	.form-login {
+		max-width: 300px;
+		position: relative;
+		left: 0;
+		top:0;
+		-webkit-transform: translate(0,0);
+		-moz-transform: translate(0,0);
+		-ms-transform: translate(0,0);
+		-o-transform: translate(0,0);
+		transform: translate(0,0);
+	}
 }

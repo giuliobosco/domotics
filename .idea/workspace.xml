@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql/create_db.sql" afterPath="$PROJECT_DIR$/mysql/create_db.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/style.css" afterPath="$PROJECT_DIR$/src/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/js/motions.js" afterPath="$PROJECT_DIR$/src/assets/js/motions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login.php" afterPath="$PROJECT_DIR$/src/login.php" />
@@ -44,7 +42,7 @@
           <file leaf-file-name="info.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/info.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
+                <state relative-caret-position="0">
                   <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
                   <folding />
                 </state>
@@ -71,15 +69,15 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/login.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="19">
-                  <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+                <state relative-caret-position="986">
+                  <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
                   <folding>
-                    <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-                    <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-                    <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+                    <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+                    <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+                    <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
                   </folding>
                 </state>
               </provider>
@@ -89,17 +87,7 @@
             <entry file="file://$PROJECT_DIR$/src/assets/js/motions.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="578">
-                  <caret line="41" column="34" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="create_db.sql" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mysql/create_db.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                  <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -115,7 +103,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="session.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="session.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/session.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
@@ -144,8 +132,8 @@
           <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/assets/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+                <state relative-caret-position="716">
+                  <caret line="87" column="44" lean-forward="false" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
@@ -309,18 +297,20 @@
       <workItem from="1526544448259" duration="3230000" />
       <workItem from="1526555868764" duration="23169000" />
       <workItem from="1526908140088" duration="2324000" />
-      <workItem from="1526920780789" duration="325000" />
+      <workItem from="1526920780789" duration="4397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37411000" />
+    <option name="totallyTimeSpent" value="41483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18070363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18070363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -331,7 +321,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -374,9 +363,9 @@
         <state relative-caret-position="510">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
@@ -444,9 +433,9 @@
         <state relative-caret-position="544">
           <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
@@ -514,9 +503,9 @@
         <state relative-caret-position="544">
           <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
@@ -574,9 +563,9 @@
         <state relative-caret-position="544">
           <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
           <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
@@ -654,9 +643,9 @@
         <state relative-caret-position="697">
           <caret line="41" column="86" lean-forward="false" selection-start-line="41" selection-start-column="86" selection-end-line="41" selection-end-column="86" />
           <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
@@ -671,7 +660,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/info.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="0">
           <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
           <folding />
         </state>
@@ -700,40 +689,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/5bcc931a/e9898351-6ac1-453d-b8ae-d7157453b620/db_domotics.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/logout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domotics.mdj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysql/create_db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -746,40 +705,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/motions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="41" column="34" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
-          <folding>
-            <marker date="1526653258600" expanded="true" signature="918:966" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
-            <marker date="1526653258600" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding>
             <marker date="1526468717053" expanded="true" signature="116:173" ph="select usern... admin" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domotics.mdj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/create_db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="140" column="50" lean-forward="true" selection-start-line="140" selection-start-column="50" selection-end-line="140" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/5bcc931a/e9898351-6ac1-453d-b8ae-d7157453b620/db_domotics.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="87" column="44" lean-forward="false" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/js/motions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding>
+            <marker date="1526925070211" expanded="true" signature="918:966" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1393:1462" ph="SELECT id FR... user" />
+            <marker date="1526925070211" expanded="true" signature="1434:1462" ph="SELECT id FR... user" />
           </folding>
         </state>
       </provider>
