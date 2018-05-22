@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
 	//$sql = "SELECT id FROM db_domotics.user WHERE user.username = '$myusername' and user.password = '$mypassword'";
-	$sql = "SELECT id FROM db_domotics.user";
+	$sql = "SELECT id FROM db_domotics.user WHERE username = '$myusername' AND password = '$mypassword'";
 	$result = mysqli_query($db, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$active = $row['active'];
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//session_register("myusername");
 		$_SESSION['login_user'] = $myusername;
 
-		header("location: welcome.php");
+		header("location: dashboard.php");
 	} else {
 		$error = "Your Login Name or Password is invalid";
 	}
@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<script src="lib/js/jquery.js"></script>
-	<script>console.log('<?php echo $debugger; ?>' + "s");</script>
 </head>
 
 <body>
@@ -55,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>
 
 		<div class="login-container">
-
+			<!-- TODO: edit action with echo htmlspecialchars form validation-->
 			<form action="login.php?_ijt=k3vu23bmmc0gqsmlhulscj9rf7" method="post">
 				<div class="box-container">
 					<p id="white-username">
