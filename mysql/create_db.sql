@@ -117,6 +117,7 @@ CREATE TABLE sensor (
 	value       INT,
 	pin         INT,
 	station_id  INT,
+	icon        VARCHAR(30),
 	FOREIGN KEY (station_id) REFERENCES station (id)
 );
 
@@ -138,5 +139,6 @@ CREATE TABLE relay (
 	status      TINYINT(1),
 	pin         INT,
 	station_id  INT,
+	icon        VARCHAR(30),
 	FOREIGN KEY (station_id) REFERENCES station (id)
 );
