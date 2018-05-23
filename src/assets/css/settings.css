@@ -1,0 +1,239 @@
+/*
+ * Copyright 2018 Giulio Bosco (giuliobva@gmail.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+/*
+ * project: Domotics (https://github.com/giuliobosco/domotics.git)
+ * description: Home made domotics with control by web interface and arduino.
+ *
+ * author: Giulio Bosco (giuliobva@gmail.com)
+ * version: 1.0
+ * date: 22.05.2018
+ *
+ * file: settings.css
+ */
+
+@font-face {
+	font-family: 'OpenSans-light';
+	src: url('../../lib/font/OpenSans-Light.ttf');
+}
+
+@font-face {
+	font-family: 'OpenSans-bold';
+	src: url('../../lib/font/OpenSans-Bold.ttf');
+}
+
+html, body {
+	background-color: #fff;
+	padding: 10px;
+	font-family: 'OpenSans-light';
+
+	height: 100%;
+
+	margin: 0;
+	padding:0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.mobile {
+	display: none;
+}
+
+h4.col-md-8 {
+	padding: 0;
+}
+
+/* Side navigation bar */
+.navbar h1, .navbar h4 {
+	margin-top:0;
+	margin-bottom: 0;
+}
+
+.navbar {
+	height: 100%;
+	background-color: #0090C2;
+	border-radius: 0;
+	color: #fff;
+	padding-top: 30px;
+}
+
+.navbar ul {
+	margin-top: 40px;
+	padding: 0;
+}
+
+.navbar ul li {
+	list-style-type: none;
+	font-size: 1.4em;
+	padding:4px;
+	padding-right:8px;
+	margin-top: 4px;
+	border-radius: 4px;
+}
+
+.navbar ul li a {
+	color: #fff;
+}
+
+.navbar ul li:hover {
+	background-color: #2e6da4;
+}
+
+.navbar ul li i {
+	padding-top: 3px;
+}
+
+.navbar ul li.active {
+	background-color: #204d74;
+}
+
+.navbar h4 a {
+	position: absolute;
+	bottom: 0;
+
+	color: #fff;
+}
+
+.navbar .col-md-8 {
+	padding: 0;
+}
+.bottom {
+	position: absolute;
+	bottom: 30px;
+}
+
+/*  main container */
+.container {
+	background-color: #e8e8e8;
+
+	min-height: 100%;
+}
+
+.settings-section {
+	background-color: #fff;
+	border-radius: 3px;
+	padding-bottom: 6px;
+}
+
+.settings-section h2 {
+	margin: 6px 0px;
+}
+
+.content-elem {
+	padding-top:8px;
+	padding-bottom: 8px;
+
+	border-bottom: 0.1em #adadad solid;
+	border-top: 0.1em #adadad solid;
+}
+
+.content-elem h3 {
+	padding:0;
+	margin:0;
+	font-size:1.5em;
+}
+
+.content-elem h3 i {
+	padding: 0 5px;
+}
+
+.content-elem h3 i.fa-ellipsis-v {
+	padding-left:20px;
+}
+
+/* switch */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #2196F3;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+	.mobile {
+		display: inline-block;
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+
+	.navbar {
+		display: none;
+	}
+
+	.container {
+		padding:0;
+		background-color: #fff;
+	}
+
+	.container-header {
+		padding-bottom: 5px;
+	}
+
+	.rooms {
+		background-color: #e8e8e8;
+		min-height: 100%;
+	}
+
+	h4.col-md-8 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
