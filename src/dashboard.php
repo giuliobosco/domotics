@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	<!-- stylesheet - CSS -->
 	<link rel="stylesheet" type="text/css" href="lib/font/font-awesome.min.css">             <!-- special characters -->
 	<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">                          <!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="assets/css/home.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
 
 	<!-- Scripts - JavaScript -->
 	<script src="lib/js/jquery.js"></script>                                                          <!--- jQuery ---->
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	<h1 class="col-md-offset-2">domotics</h1>
 	<h4 class="col-md-offset-2">home controller</h4>
 	<ul class=" col-md-offset-2 col-md-8">
-		<li>dashboard<i class="fa fa-dashboard pull-right"></i></li>
-		<li>rooms<i class="fa fa-bed pull-right"></i></li>
-		<li>settings<i class="fa fa-cog pull-right"></i></li>
+		<li class="active"><a href="dashboard.php">dashboard<i class="fa fa-dashboard pull-right"></i></a></li>
+		<li><a href="#">rooms<i class="fa fa-bed pull-right"></i></a></li>
+		<li><a href="settings.php">settings<i class="fa fa-cog pull-right"></i></a></li>
 	</ul>
 	<div class="bottom col-md-offset-2 col-md-8">
 		<h4 class="pull-left">
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 </div>
 <div class="col-md-9 container">
 	<div class="container-header col-md-12">
-		<h1><i class="fa fa-bars mobile"></i> dashboard: <?php echo $user['name']; ?></h1>
+		<h1><i class="fa fa-bars mobile"></i><?php echo $user['name']; ?>&apos;s dashboard</h1>
 	</div>
 	<div class="rooms col-md-12">
 		<?php
