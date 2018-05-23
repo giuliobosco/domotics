@@ -14,7 +14,7 @@
  * version: 1.0
  * date: 22.05.2018
  *
- * file: home.css
+ * file: dashboard.css
  */
 
 @font-face {
@@ -68,6 +68,26 @@ h4.col-md-8 {
 .navbar ul li {
 	list-style-type: none;
 	font-size: 1.4em;
+	padding:4px;
+	padding-right:8px;
+	margin-top: 4px;
+	border-radius: 4px;
+}
+
+.navbar ul li a {
+	color: #fff;
+}
+
+.navbar ul li:hover {
+	background-color: #2e6da4;
+}
+
+.navbar ul li i {
+	padding-top: 3px;
+}
+
+.navbar ul li.active {
+	background-color: #204d74;
 }
 
 .navbar h4 a {
