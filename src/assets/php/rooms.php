@@ -20,7 +20,7 @@
 
 /**
  * Get the controllable rooms from user id.
- * @param $db mysqli_driver Database where run the query.
+ * @param $db mysqli Database where run the query.
  * @param $id int ID of the user for select rooms.
  * @return mysqli_result Result of the query, id and name of the room.
  */
@@ -46,7 +46,7 @@ WHERE user.id = '$id';
 
 /**
  * Get Relays aveable in the room selected by id.
- * @param $db mysqli_driver Database where run the query.
+ * @param $db mysqli Database where run the query.
  * @param $id int ID of the user for select rooms.
  * @return bool|mysqli_result Result of the query, id, name, status, icon of the relay.
  */
@@ -61,7 +61,21 @@ FROM db_domotics.relay
 		ON relay.station_id = station.id
 WHERE room_id = '$id';";
 	
-	return mysqli_query($db, $id);
+	return mysqli_query($db, $relay_query);
+}
+
+function temperatureSensorByRoomId($db, $id) {
+	$temperature_query = "SELECT sensor.value
+FROM db_domotics.sensor
+JOIN station
+ON sensor.station_id = station.id
+JOIN room
+ON station.room_id = room.id
+WHERE sensor.name = 'temperature'
+AND station.room_id = '$id'
+LIMIT 1;";
+	
+	return mysqli_query($db, $temperature_query);
 }
 
 ?>
