@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+include('assets/php/rooms.php');
 /*
  * Copyright 2018 Giulio Bosco (giuliobva@gmail.com)
  *
@@ -41,7 +42,7 @@ include('session.php');
 	<!-- Scripts - JavaScript -->
 	<script src="lib/js/jquery.js"></script>                                                          <!--- jQuery ---->
 	<script src="lib/js/utility.js"></script>                                                         <!--- Utility --->
-	<script src="assets/js/lights-manager.js"></script>
+	<script src="assets/js/settings-manager.js"></script>
 </head>
 
 <body>
@@ -122,13 +123,22 @@ WHERE room_id = ".$room_row['id'].";";
 				<h3 class="pull-right"><i class="fa fa-lightbulb-o"></i></h3>
 
 				<div class="col-md-12 cont-elem-intern">
-					<h4 class="pull-left">Light Name</h4>
-					<h4 class="pull-left"><i class="fa fa-edit"></i></h4>
+					<h4 class="pull-left"><i class="fa fa-lightbulb-o"></i> </h4>
+					<h4 class="pull-left"> Light Name</h4>
 
 					<label class="switch pull-right">
 						<input type="checkbox" name="r1" onclick="relayOn(this)">
 						<span class="slider round"></span>
 					</label>
+
+					<h4 class="pull-right"><i class="fa fa-edit"></i></h4>
+
+					<div class="pull-right edit">
+						name: <input type="text">
+						description: <input type="text">
+						station: <input type="text"> <!-- TODO: create select for stations in room -->
+						pin: <input> <!-- TODO: create select for aveables pin in station -->
+					</div>
 
 				</div>
 			</div>
