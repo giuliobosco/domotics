@@ -78,37 +78,15 @@ include('assets/php/rooms.php');
 			<?php
 			$user_id = $user['id'];
 			// SELECT ROOMS WITH USERNAME ID
-			$rooms_query = "SELECT
-	room.id,
-	room.name
-FROM db_domotics.room
-	JOIN users_group_control ugc
-		ON room.id = ugc.room_id
-	JOIN users_group ug
-		ON ugc.users_group_id = ug.id
-	JOIN user_appertain ua
-		ON ug.id = ua.users_group_id
-	JOIN user
-		ON ua.user_id = user.id
-WHERE user.id = '$user_id';";
-
-			$rooms_result = mysqli_query($db, $rooms_query);
+			$rooms_result = roomsByUserId($db, $user['id']);
+			
 			if (mysqli_num_rows($rooms_result)>0) {
 
 				while ($room_row = mysqli_fetch_assoc($rooms_result)) {
 					//TODO: add html
-					$light_query = "SELECT
-	relay.id,
-	relay.name,
-	relay.status,
-	relay.icon
-FROM db_domotics.relay
-	JOIN station
-		ON relay.station_id = station.id
-WHERE room_id = ".$room_row['id'].";";
-
-
-					$light_result = mysqli_query($db, $light_query);
+					
+					$relay_result = relayByRoomId($db, $room_row['id']);
+					
 					if (mysqli_num_rows($light_result)>0) {
 						while ($light_row = mysqli_fetch_assoc($light_result)) {
 
