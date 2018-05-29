@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="" />
+    <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/readHttpRequest/readHttpRequest.ino" afterPath="$PROJECT_DIR$/arduino/readHttpRequest/readHttpRequest.ino" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/readHttpRequestDHCP/readHttpRequestDHCP.ino" afterPath="$PROJECT_DIR$/arduino/readHttpRequestDHCP/readHttpRequestDHCP.ino" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,8 +80,8 @@
           <file leaf-file-name="relay_controller.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/assets/php/relay_controller.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="17">
-                  <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="18" selection-end-column="3" />
+                <state relative-caret-position="187">
+                  <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
                   <folding>
                     <marker date="1527596153599" expanded="true" signature="1421:1527" ph="SELECT r.pin... relay" />
                     <marker date="1527596153599" expanded="true" signature="1421:1528" ph="SELECT r.pin... relay" />
@@ -452,12 +455,12 @@
       <workItem from="1527448990071" duration="583000" />
       <workItem from="1527496601444" duration="417000" />
       <workItem from="1527525856114" duration="1206000" />
-      <workItem from="1527578640022" duration="7759000" />
+      <workItem from="1527578640022" duration="8237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92396000" />
+    <option name="totallyTimeSpent" value="92874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -985,8 +988,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/php/relay_controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="18" selection-end-column="3" />
+        <state relative-caret-position="187">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
           <folding>
             <marker date="1527596153599" expanded="true" signature="1421:1527" ph="SELECT r.pin... relay" />
             <marker date="1527596153599" expanded="true" signature="1421:1528" ph="SELECT r.pin... relay" />

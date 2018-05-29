@@ -14,7 +14,7 @@
  * version: 1.0
  * date: 29.05.2018
  *
- * file: readHttpRequest.ino
+ * file: readHttpRequestDHCP.ino
  */
 
 #include <SPI.h>
@@ -97,7 +97,9 @@ void loop() {
         if (c == 0x0D) {
           // Returns to client HTTP response.
           httpClient.println("HTTP/1.1 200 OK");
-
+          httpClient.println("Content-Type: text/html"); 
+          httpClient.println();
+          
           // Delay 10 milliseconds.
           delay(10);
           // End client connection.
