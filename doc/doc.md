@@ -38,3 +38,42 @@ interface for adapt at the smallest needs.
 
 ### Specific Analysis of the requirements
 The product needs to be easy to use. 
+INSERT MORE
+
+
+### Planning
+![Project Planning](https://raw.githubusercontent.com/giuliobosco/domotics/master/doc/img/plan.JPG )
+
+#### Project Planning
+- Project Database (14.05)
+- Project Graphical Interface Design (16.05-18.05)
+- Project MySQL Queries (21.05-22.05)
+- Project connectino Arduino <-> PHP
+  
+#### Implementation Planning
+- Implements Database And Run Tests (14.05-15.05)
+- Implements Graphical Interface (17.05-21.05)
+- Implements MySQL Queries in PHP (22.05-25.05) 
+- Implements connection Arduinio <-> PHP (28.05-29.05)
+
+
+### Resources Analysis
+
+#### Software
+To carry out this project, has been used many software.
+- [StarUML](http://staruml.io/) - (Used for project the database and the procedures)
+- [PhpStorm](https://www.jetbrains.com/phpstorm/) - (Used for write the code [HTML CSS JS PHP MySQL])
+- [Arduino IDE](https://www.arduino.cc/en/Main/Software) - (Used for write Arduino's Code)
+- [NGINX](https://www.nginx.com/) - (Used for the web server)
+- [PHP 7.2.3](http://php.net/) - (Used for backend interpreter)
+- [MySQL Server](https://www.mysql.com/) - (Used for store data in databases)
+- [Fedora](https://getfedora.org/) - (OS Used for develop the project)
+- [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) - (OS Used for the server)
+
+#### Hardware
+- [Arduino UNO / Genuino UNO (with alimentator)](https://store.arduino.cc/arduino-uno-rev3)
+  - [Arduino Ethernet Shield](https://store.arduino.cc/arduino-ethernet-shield-2) 
+  - [Relay 1 Channel](https://www.adafruit.com/product/3191)
+  - [Jumpers 150mm (Male To Female)](https://store.arduino.cc/10-jumper-wires-150mm-male)
+- [Raspberry PI 3 (with alimentator)](https://www.raspberrypi.org/)
+- [NETGEAR Switch](http://www.netgear.com/home/products/networking/switches/soho-ethernet-switches/default.aspx)
