@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/php/relay_controller.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/arduino/readHttpRequest/readHttpRequest.ino" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dashboard.php" afterPath="$PROJECT_DIR$/src/dashboard.php" />
-    </list>
+    <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +118,7 @@
           <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/dashboard.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
+                <state relative-caret-position="-1246">
                   <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="83" />
                   <folding>
                     <marker date="1527592422903" expanded="true" signature="284:327" ph="UPDATE db_do... " />
@@ -457,12 +452,12 @@
       <workItem from="1527448990071" duration="583000" />
       <workItem from="1527496601444" duration="417000" />
       <workItem from="1527525856114" duration="1206000" />
-      <workItem from="1527578640022" duration="7160000" />
+      <workItem from="1527578640022" duration="7759000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91797000" />
+    <option name="totallyTimeSpent" value="92396000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -974,7 +969,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="-1246">
           <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="83" />
           <folding>
             <marker date="1527592422903" expanded="true" signature="284:327" ph="UPDATE db_do... " />
