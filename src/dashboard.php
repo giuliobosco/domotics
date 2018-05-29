@@ -1,6 +1,7 @@
 <?php
 include('session.php');
 include('assets/php/rooms.php');
+include('assets/php/relay_controller.php');
 
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	if (sizeof($_GET) == 1 && !empty($_GET['r'])) {
@@ -8,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 		$relay_name = explode("-", $relay);
 		$relay_status_sql = "UPDATE db_domotics.relay SET relay.status = '$relay_name[1]' WHERE relay.id = '$relay_name[0]';";
 		mysqli_query($db, $relay_status_sql);
+		
+		$topen = dmt_changeRelayStatus($db,$relay_name[0],$relay_name[1]);
 	}
 }
 
@@ -65,6 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	<script src="lib/js/jquery.js"></script>                                                          <!--- jQuery ---->
 	<script src="lib/js/utility.js"></script>                                                         <!--- Utility --->
 	<script src="assets/js/lights-manager.js"></script>
+	
+	<script>
+		$.ajax({
+			type: 'GET',
+			url: '<?php echo $topen ?>',
+			dataType: 'xml',
+			success: function (data) {
+			}
+		});
+	</script>
 </head>
 
 <body>
