@@ -20,74 +20,103 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
-// Enter a MAC address for your controller below.
-// Newer Ethernet shields have a MAC address printed on a sticker on the shield
+/**
+ * Ehternet Shield Mac Address.
+ */
 byte mac[] = {  
   0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02 };
 
-// Initialize the Ethernet client library
-// with the IP address and port of the server 
-// that you want to connect to (port 80 is default for HTTP):
+/**
+ * Initialize Ethernet DHCP Client.
+ */
 EthernetClient client;
 
+/**
+ * Initialize Ethernet Web Server.
+ */
 EthernetServer server(80);
 
+/**
+ * String used for the http request from the client.
+ */
 String readString;
 
+/**
+ * Setup Method.
+ */
 void setup() {
-  // start the serial library:
+  // Begin the Serial port for tests.
   Serial.begin(9600);
-  // start the Ethernet connection:
+  
+  // Start Ethernet Client.
   if (Ethernet.begin(mac) == 0) {
     Serial.println("Failed to configure Ethernet using DHCP");
     // no point in carrying on, so do nothing forevermore:
     for(;;)
       ;
   }
-  // print your local IP address:
+
+  // Print on serial Ip address.
   Serial.println(Ethernet.localIP());
+  // Start web Server.
   server.begin();
 
+  // Setup Test relay.
+  // Setup GND Pin of the relay.
   pinMode(7,OUTPUT);
   digitalWrite(7, LOW);
+  // Setup +5V Pin of the relay.
   pinMode(6,OUTPUT);
   digitalWrite(6,HIGH);
+  // Setup Data Pin of the relay.
   pinMode(5,OUTPUT);
 }
 
+/**
+ * Main method.
+ * Used for the operation of the webserver and controll lights.
+ */
 void loop() {
-  
+  // Initialize web Client.
   EthernetClient httpClient = server.available();
+
+  // Check if the web client is aveable.
   if (httpClient) {
+    // On client connected
     while(httpClient.connected()) {
+      // Check if the web client is connected.
       if (httpClient.available()) {
+        // char of the request
         char c = httpClient.read();
 
+        // Add char to the http request if request no complet.
         if (readString.length() < 100) {
           readString += c;
         }
 
+        // On client http request return.
         if (c == 0x0D) {
+          // Returns to client HTTP response.
           httpClient.println("HTTP/1.1 200 OK");
-          client.println("Content-Type: text/html"); 
-          client.println();
-
-          client.println(); 
-          //Serial.println(analogRead(0));
-                    
+          httpClient.println("Content-Type: text/html"); 
+          httpClient.println();
+          
+          // Delay 10 milliseconds.
           delay(10);
+          // End client connection.
           httpClient.stop();
 
+          // Analize request string for get options.
+          // Check for relay on pin 5.
           if (readString.indexOf("?pin5=1") > -1) {
             digitalWrite(5, HIGH);
-            Serial.println("yep");
           } else {
             if (readString.indexOf("?pin5=0") > -1) {
-              Serial.println("nop");
               digitalWrite(5, LOW);
             }
           }
 
+          // Empty request string.
           readString = "";
         }
       }
