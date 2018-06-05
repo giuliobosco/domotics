@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870fe648-ff25-489a-83db-975eb53e3201" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/fritzing-schemas/a1_shield-e_1-relay.fzz" afterPath="$PROJECT_DIR$/arduino/fritzing-schemas/a1_shield-e_1-relay.fzz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/doc.md" afterPath="$PROJECT_DIR$/doc/doc.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domotics.mdj" afterPath="$PROJECT_DIR$/domotics.mdj" />
     </list>
@@ -40,8 +39,8 @@
         <entry file="file://$PROJECT_DIR$/doc/doc.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="713">
-                <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
+              <first_editor relative-caret-position="730">
+                <caret line="138" column="1" lean-forward="true" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -420,12 +419,12 @@
       <workItem from="1527680679562" duration="2521000" />
       <workItem from="1528108216573" duration="43000" />
       <workItem from="1528180533237" duration="112000" />
-      <workItem from="1528187478246" duration="2868000" />
+      <workItem from="1528187478246" duration="3137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107470000" />
+    <option name="totallyTimeSpent" value="107739000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,8 +938,8 @@
     <entry file="file://$PROJECT_DIR$/doc/doc.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="713">
-            <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="42" selection-end-line="137" selection-end-column="42" />
+          <first_editor relative-caret-position="730">
+            <caret line="138" column="1" lean-forward="true" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
             <folding />
           </first_editor>
           <second_editor />
