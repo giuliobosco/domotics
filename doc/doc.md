@@ -42,7 +42,7 @@ INSERT MORE
 
 
 ### Planning
-![Project Planning](https://raw.githubusercontent.com/giuliobosco/domotics/master/doc/img/plan.JPG )
+![Project Planning](img/plan.JPG )
 
 #### Project Planning
 - Project Database (14.05)
@@ -67,8 +67,8 @@ To carry out this project, has been used many software.
 - [NGINX](https://www.nginx.com/) - (Used for the web server)
 - [PHP 7.2.3](http://php.net/) - (Used for backend interpreter)
 - [MySQL Server](https://www.mysql.com/) - (Used for store data in databases)
-- [Fedora](https://getfedora.org/) - (OS Used for develop the project)
 - [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) - (OS Used for the server)
+- [Fedora](https://getfedora.org/) - (OS Used for develop the project)
 
 #### Hardware
 - [Arduino UNO / Genuino UNO (with alimentator)](https://store.arduino.cc/arduino-uno-rev3)
@@ -77,3 +77,36 @@ To carry out this project, has been used many software.
   - [Jumpers 150mm (Male To Female)](https://store.arduino.cc/10-jumper-wires-150mm-male)
 - [Raspberry PI 3 (with alimentator)](https://www.raspberrypi.org/)
 - [NETGEAR Switch](http://www.netgear.com/home/products/networking/switches/soho-ethernet-switches/default.aspx)
+
+
+## Project
+
+### Design of the system architecture
+The software store all the data in the MySQL database. PHP is the interpreter from the data to 
+the user-interface. The relay are commanded by the Arduino, there are tree type of Arduino Shield
+that can be used: 
+- [Arduino UNO](https://store.arduino.cc/usa/arduino-uno-rev3) - 
+	with Shields ([Ethernet](https://store.arduino.cc/usa/arduino-ethernet-shield-2) 
+	or [Wifi](https://store.arduino.cc/arduino-wifi-shield))
+- [Arduino Ethernet](https://store.arduino.cc/arduino-ethernet-rev3-without-poe)
+- [Arduino Wifi](https://store.arduino.cc/arduino-uno-wifi)
+
+### Design of the database
+![UML diagram - database](img/uml_db.JPG)
+
+### Design of the interfaces
+In the software there is only one interface, the web-app for controls everything.
+The web-app is aveable for desktop and for mobile. 
+
+#### Login mask
+![Login mask - screenshot](img/login_mask.JPG)
+
+
+#### Dashboard mask
+![Dashmoard mask - screenshot](img/dashboard_mask.JPG)
+
+### Design of the procedures
+In this project there are some procedures:
+- login mask > database
+- database data > views
+- views > arduino
