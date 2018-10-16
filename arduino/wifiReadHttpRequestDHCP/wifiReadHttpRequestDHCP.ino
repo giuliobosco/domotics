@@ -30,13 +30,15 @@
 
 #include <UnoWiFiDevEd.h>
 
+const char SSID[] = "network-name";
+const char PASSWORD[] = "network-password";
 
 void setup()
 {
   Serial.begin(115200);
   Serial.println();
 
-  WiFi.begin("network-name", "pass-to-network");
+  WiFi.begin(SSID, PASSWORD);
 
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED)
