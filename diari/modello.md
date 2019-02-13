@@ -5,7 +5,7 @@
 ### Canobbio, 13.02.2019
 
 ## Lavori svolti
-Quello che faccio
+Oggi ho fatto il Gantt
 
 
 |Orario        |Lavoro svolto                 |
