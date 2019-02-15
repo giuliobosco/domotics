@@ -12,7 +12,7 @@ Oggi ho fatto il Gantt
 |--------------|------------------------------|
 |8:15 - 9:50   |Installato blablabla          |
 |10:05 - 11:00 |Migliorato documentazione     |
-|...           |...                           |
+|...           |ciao                          |
 
 ##  Problemi riscontrati e soluzioni adottate
 
