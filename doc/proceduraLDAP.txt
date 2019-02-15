@@ -1,0 +1,14 @@
+https://samjlevy.com/php-login-script-using-ldap-verify-group-membership/
+ovviamente devi avere la libreria ldap php
+
+poi devi sostituire i diversi nomi in authenticate.php:
+$ldap_host sarà 'cpt.local'
+$ldap_dn sarà l'indirizzo fqdn, esepio, per degli allievi di 3a info: 'OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local'
+$ldap_user_group sarà: 'SAM-IN-I-3'
+$ldap_usr_dom sarà : '@cpt.local'
+La struttura che devi utilizzare la puoi analizzare con AdExplorer.exe che trovi a questo percorso:
+\\sv-104-info1.cpt.local\dati\SW\Tools\AD-Ldap-Explorer.
+
+
+devi solo copiartelo da qualche parte, eseguirlo ed inserire il nome del sever del dominio: cpt.local
+ed accedere con il tuo account.
