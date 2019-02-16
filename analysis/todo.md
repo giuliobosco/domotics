@@ -73,6 +73,38 @@ DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST-ABCDEFABCDEF-192.168.1.2-ACCEPTED
 
 L'indirizzo IP e la KEY dovranno essere salvati in delle variabili sull Arduino.
 
+**Comunicazione ACC-Client -> ACC-Server:**
+
+La comunicazione fra i due elementi ACC deve avvenire tramite HTTP, utilizzando il metodo GET, che
+aspettac che venga ritornato un file JSON.
+
+Per esempio quando viene cliccato un bottone l'ACC-Client, invia una richiesta al server simile alla
+seguente:
+
+```
+http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&type=send&pin=13&value=1
+```
+
+Tutte le richieste referenti all'ACC dovranno essere fatte verso l'IP del server domotics sulla
+porta `8080`, alla pagina `acc`, e inviando la KEY di comunicazione dell'Arduino (AC-Client-KEY) con
+il parametro `key` a valore della KEY.
+
+Per le richieste di invio di dati bisogna inserire il parametro `type` a `send`, questo per
+segnalare al che &egrave; una richiesta HTTP di invio dati, poi settare il parametro `pin` al numero
+del pin (nel caso sia un pin analogico inserire un `a` prima del numero) ed infine settare il
+parametro `value` al valore del pin.
+
+Il server ritorner&agrave; una risposta simile alla seguente.
+
+```JSON
+{
+    "response": "OK",
+    "message": ""
+}
+```
+
+Il parametro `response` della risposta del server, segnala se la richiesta &egrave; stata ricevuta
+correttamente, altrimenti ritorna `FAILED` con un messaggio d'errore.
 
 ## Arduino controller (Python)
 
