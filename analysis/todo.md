@@ -106,6 +106,46 @@ Il server ritorner&agrave; una risposta simile alla seguente.
 Il parametro `response` della risposta del server, segnala se la richiesta &egrave; stata ricevuta
 correttamente, altrimenti ritorna `FAILED` con un messaggio d'errore.
 
+**Comunicazione ACC-Server -> ACC-Client:**
+
+La comunicazione fra i due elementi avviene anche qui tramite http, le richieste dovranno essere
+effettuate con il metodo GET e le risposte saranno dei file JSON.
+
+Le richieste potranno essere di due tipi:
+
+- `send`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
+- `get`, che serve per richiedere dei dati all'Arduino, per esempio richiedere il valore di un pin
+
+Esempio di richiesta _send_:
+
+```
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=send&pin=4&value=1
+```
+
+risposta:
+
+```JSON
+{
+    "pin":4,
+    "value":1
+}
+```
+
+Esempio di richiesta _get_:
+
+```
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=get&pin=a0
+```
+
+risposta:
+
+```JSON
+{
+    "pin":"a0",
+    "value":"123"
+}
+```
+
 ## Arduino controller (Python)
 
 ## Database
