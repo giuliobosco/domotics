@@ -146,15 +146,22 @@ risposta:
 }
 ```
 
-## Arduino controller (Python)
+**ACC-AutoConfiguation:**
+
+Siccome si vuole avere un sistema di comunicazione autonomo. Il quale deve essere in grado di
+richiedere al server la sua configuazione, la quale deve essere richiesta dal arduino al server
+tramite la ACC-Authentication-Request.
+
+Se il server gi&agrave; conosce l'Arduino (ACC-Client-ID), gli invia la chiave, e nel caso sia
+cambiato l'IP del server lo aggiona sul database (questo per permettere un buon funzionamento con
+DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata una KEY (che deve
+seguire i parametri indicati in ACC-Client-KEY).
 
 ## Database
 
 ## Back-end
 
 ### LDAP
-
-JSON based
 
 ### Moduli
 
