@@ -75,8 +75,8 @@ L'indirizzo IP e la KEY dovranno essere salvati in delle variabili sull Arduino.
 
 **Comunicazione ACC-Client -> ACC-Server:**
 
-La comunicazione fra i due elementi ACC deve avvenire tramite HTTP, utilizzando il metodo GET, che
-aspettac che venga ritornato un file JSON.
+La comunicazione fra i due elementi ACC deve avvenire tramite HTTP, utilizzando il metodo GET, la
+risposta dovr&agrave; essere un file JSON.
 
 Per esempio quando viene cliccato un bottone l'ACC-Client, invia una richiesta al server simile alla
 seguente:
