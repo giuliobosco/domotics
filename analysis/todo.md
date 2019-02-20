@@ -154,8 +154,13 @@ tramite la ACC-Authentication-Request.
 
 Se il server gi&agrave; conosce l'Arduino (ACC-Client-ID), gli invia la chiave, e nel caso sia
 cambiato l'IP del server lo aggiona sul database (questo per permettere un buon funzionamento con
-DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata una KEY (che deve
-seguire i parametri indicati in ACC-Client-KEY).
+DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
+`ACC-Client-KEY-Generator` una KEY.
+
+**ACC-Client-KEY-Generator:**
+
+Deve generare casualmente una chiava di 12 caratteri esadecimali (`01234567890ABCDEF`), controllare
+che non ve ne siano gia di uguali nel database (nel caso ri generarne un'altra).
 
 ## Database
 
