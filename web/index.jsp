@@ -6,5 +6,6 @@
 </head>
 <body>
 <h1>It works!</h1>
+<p><a href="HelloWorld">HelloWorldServlet</a></p>
 </body>
 </html>
