@@ -27,6 +27,8 @@ Set the java environment, editing the following file.
 Insert in the file the variable `JAVA_HOME` as follows:
 ```
 JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jre"
+/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
+
 ```
 
 then edit the profile bash script (`~/.bash_profile`) and insert the following lines.
@@ -74,11 +76,13 @@ yum install wget
 Download tomcat, with the software just installed.
 ```
 wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
+http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.16/bin/apache-tomcat-9.0.16.tar.gz
 ```
 
 Decompress the files of tomcat
 ```
 tar -xzvf apache-tomcat-9.0.13.tar.gz
+tar -xzvf apache-tomcat-9.0.16.tar.gz
 ```
 
 Move the files of tomcat to the tomcat user home directory
