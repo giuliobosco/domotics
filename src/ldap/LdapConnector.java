@@ -24,6 +24,7 @@
 
 package ldap;
 
+import javax.naming.AuthenticationException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
@@ -266,4 +267,25 @@ public class LdapConnector {
 
     // --------------------------------------------------------------------------- Static Components
 
+    /**
+     * Main method of the class, for test LdapConnector.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        String domain = "cpt.local";
+        String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
+        LdapConnector ldacC = new LdapConnector(domain, base);
+        try {
+            ldacC.getDirContext("user", "pass");
+            // user is authenticated
+            System.out.println("Authenticated");
+        } catch (AuthenticationException ae) {
+            // authentication failed
+            System.out.println("Authentication Error");
+            ae.printStackTrace();
+        } catch (NamingException ne) {
+            ne.printStackTrace();
+        }
+    }
 }
