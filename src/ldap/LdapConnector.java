@@ -56,6 +56,11 @@ public class LdapConnector {
      */
     private String base;
 
+    /**
+     * LDAP connection security type.
+     */
+    private String security;
+
     // --------------------------------------------------------------------------- Getters & Setters
 
     /**
@@ -112,19 +117,39 @@ public class LdapConnector {
         return this.base;
     }
 
+    /**
+     * Set the LDAP connection security type.
+     *
+     * @param security LDAP connection security type.
+     */
+    private void setSecurity(String security) {
+        this.security = security;
+    }
+
+    /**
+     * Get the LDAP connection security type.
+     *
+     * @return LDAP connection security type.
+     */
+    public String getSecurity() {
+        return this.security;
+    }
+
     // -------------------------------------------------------------------------------- Constructors
 
     /**
      * Create the LDAP connector.
      *
-     * @param domain LDAP server address.
-     * @param port   LDAP server port.
-     * @param base   LDAP base ou.
+     * @param domain   LDAP server address.
+     * @param port     LDAP server port.
+     * @param base     LDAP base ou.
+     * @param security LDAP connection security type.
      */
-    public LdapConnector(String domain, int port, String base) {
+    public LdapConnector(String domain, int port, String base, String security) {
         this.setDomain(domain);
         this.setBase(base);
         this.setPort(port);
+        this.setSecurity(security);
     }
 
     // -------------------------------------------------------------------------------- Help Methods
@@ -162,7 +187,7 @@ public class LdapConnector {
 
         environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
         environment.put(Context.PROVIDER_URL, getConnectionString());
-        environment.put(Context.SECURITY_AUTHENTICATION, "simple");
+        environment.put(Context.SECURITY_AUTHENTICATION, getSecurity());
         environment.put(Context.SECURITY_PRINCIPAL, getDn(username));
         environment.put(Context.SECURITY_CREDENTIALS, password);
 
