@@ -1,0 +1,191 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2019 giuliobosco.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+package ldap;
+
+import javax.naming.Context;
+import javax.naming.NamingException;
+import javax.naming.directory.DirContext;
+import javax.naming.directory.InitialDirContext;
+import java.util.Hashtable;
+
+/**
+ * LDAP connector, checks if an username is right connected and return the DirContext.
+ *
+ * @author giuliobosco (giuliobva@gmail.com)
+ * @version 1.0 (2019-02-27)
+ */
+public class LdapConnector {
+
+    // ------------------------------------------------------------------------------------ Costants
+    // ---------------------------------------------------------------------------------- Attributes
+
+    /**
+     * LDAP server address.
+     */
+    private String domain;
+
+    /**
+     * LDAP server port.
+     */
+    private int port;
+
+    /**
+     * LDAP base ou.
+     */
+    private String base;
+
+    // --------------------------------------------------------------------------- Getters & Setters
+
+    /**
+     * Se the LDAP server address.
+     *
+     * @param domain LDAP server address.
+     */
+    private void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    /**
+     * Get the LDAP server address.
+     *
+     * @return LDAP server address.
+     */
+    public String getDomain() {
+        return this.domain;
+    }
+
+    /**
+     * Set the LDAP server port.
+     *
+     * @param port LDAP server port.
+     */
+    private void setPort(int port) {
+        this.port = port;
+    }
+
+    /**
+     * Get the LDAP server port.
+     *
+     * @return LDAP server port.
+     */
+    public int getPort() {
+        return this.port;
+    }
+
+    /**
+     * Set the LDAP base ou.
+     *
+     * @param base LDAP base ou.
+     */
+    private void setBase(String base) {
+        this.base = base;
+    }
+
+    /**
+     * Get the LDAP base ou.
+     *
+     * @return LDAP base ou.
+     */
+    public String getBase() {
+        return this.base;
+    }
+
+    // -------------------------------------------------------------------------------- Constructors
+
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain LDAP server address.
+     * @param port   LDAP server port.
+     * @param base   LDAP base ou.
+     */
+    public LdapConnector(String domain, int port, String base) {
+        this.setDomain(domain);
+        this.setBase(base);
+        this.setPort(port);
+    }
+
+    // -------------------------------------------------------------------------------- Help Methods
+
+    /**
+     * Get the connection string to the LDAP server.
+     * Like "ldap://host.local:389".
+     *
+     * @return Connection string to the LDAP server.
+     */
+    private String getConnectionString() {
+        return "ldap://" + getDomain() + ":" + getPort();
+    }
+
+    /**
+     * Get the DN for ldap.
+     * Like "CN=username, OU=ldapExample,DC=host,DC=local".
+     *
+     * @param username Username of the DN.
+     * @return DN String.
+     */
+    private String getDn(String username) {
+        return "CN=" + username + "," + getBase();
+    }
+
+    /**
+     * Get the hashtable environment of the connection.
+     *
+     * @param username Username of the connection.
+     * @param password Password of the connection.
+     * @return Hashtable Environment of the connection.
+     */
+    private Hashtable<String, String> getEnvironment(String username, String password) {
+        Hashtable<String, String> environment = new Hashtable<String, String>();
+
+        environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+        environment.put(Context.PROVIDER_URL, getConnectionString());
+        environment.put(Context.SECURITY_AUTHENTICATION, "simple");
+        environment.put(Context.SECURITY_PRINCIPAL, getDn(username));
+        environment.put(Context.SECURITY_CREDENTIALS, password);
+
+        return environment;
+    }
+
+    // ----------------------------------------------------------------------------- General Methods
+
+    /**
+     * Check the user and connect it, get the Dir context.
+     * Handle the AuthenticationException, used for the wrong credentials, separately from the
+     * NamingException, used for connection errors.
+     *
+     * @param username Username of the connection.
+     * @param password Password of the connection.
+     * @return Dir context of the connection.
+     * @throws NamingException Error with the connection to the LDAP server. Wrong credentials or
+     *                         connection error.
+     */
+    public DirContext getDirContext(String username, String password) throws NamingException {
+        return new InitialDirContext(getEnvironment(username, password));
+    }
+
+    // --------------------------------------------------------------------------- Static Components
+
+}
