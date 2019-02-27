@@ -28,6 +28,7 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+import java.io.IOException;
 import java.util.Hashtable;
 
 /**
@@ -104,9 +105,14 @@ public class LdapConnector {
      * Set the LDAP server port.
      *
      * @param port LDAP server port.
+     * @throws IOException Port not valid.
      */
-    private void setPort(int port) {
-        this.port = port;
+    private void setPort(int port) throws IOException {
+        if (port > 0 && port < 65535) {
+            this.port = port;
+        } else {
+            throw new IOException("The port:" + port + "is not valid. Must be in between 1-65535");
+        }
     }
 
     /**
@@ -164,7 +170,7 @@ public class LdapConnector {
      * @param base     LDAP base ou.
      * @param security LDAP connection security type.
      */
-    public LdapConnector(String domain, int port, String base, String security) {
+    public LdapConnector(String domain, int port, String base, String security) throws IOException {
         this.setDomain(domain);
         this.setBase(base);
         this.setPort(port);
@@ -174,22 +180,29 @@ public class LdapConnector {
     /**
      * Create the LDAP connector.
      *
-     * @param domain   LDAP server address.
-     * @param port     LDAP server port.
-     * @param base     LDAP base ou.
+     * @param domain LDAP server address.
+     * @param port   LDAP server port.
+     * @param base   LDAP base ou.
      */
-    public LdapConnector(String domain, int port, String base) {
+    public LdapConnector(String domain, int port, String base) throws IOException {
         this(domain, port, base, DEFAULT_SECURITY_AUTHENTICATION);
     }
 
     /**
      * Create the LDAP connector.
      *
-     * @param domain   LDAP server address.
-     * @param base     LDAP base ou.
+     * @param domain LDAP server address.
+     * @param base   LDAP base ou.
      */
     public LdapConnector(String domain, String base) {
-        this(domain, DEFAULT_PORT, base);
+        try {
+            this.setDomain(domain);
+            this.setBase(base);
+            this.setPort(DEFAULT_PORT);
+            this.setSecurity(DEFAULT_SECURITY_AUTHENTICATION);
+        } catch (IOException ignored) {
+            // ignored because the port default port is in the range (and is a constant).
+        }
     }
 
     // -------------------------------------------------------------------------------- Help Methods
