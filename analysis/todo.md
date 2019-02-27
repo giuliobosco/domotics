@@ -190,6 +190,17 @@ che non ve ne siano gia di uguali nel database (nel caso ri generarne un'altra).
 
 ## Controllo luci
 
+### Auto
+
+Le luci regolano l'intensità tramite i dati ricevuti dai sensori di luce posti nell'aula.
+Se la luce esterna è molto intensa si spengono.
+
 ## Controllo tende
 
+### Auto
+
+Quando la luce esterna è molto intensa chiude le tende e accende le luci ad un'intensità di default.
+
 ## Controllo beamer
+
+### Auto
