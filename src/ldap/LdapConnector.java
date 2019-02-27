@@ -39,6 +39,25 @@ import java.util.Hashtable;
 public class LdapConnector {
 
     // ------------------------------------------------------------------------------------ Costants
+
+    /**
+     * Default LDAP server port.
+     * Value: 389.
+     */
+    public static final int DEFAULT_PORT = 389;
+
+    /**
+     * Default security authentication.
+     * Value: "simple".
+     */
+    public static final String DEFAULT_SECURITY_AUTHENTICATION = "simple";
+
+    /**
+     * Default initial context factory connection.
+     * Value: "com.sun.jndi.ldap.LdapCtxFactory".
+     */
+    public static final String DEFAULT_INITIAL_CONTEXT_FACTORY = "com.sun.jndi.ldap.LdapCtxFactory";
+
     // ---------------------------------------------------------------------------------- Attributes
 
     /**
@@ -152,6 +171,27 @@ public class LdapConnector {
         this.setSecurity(security);
     }
 
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain   LDAP server address.
+     * @param port     LDAP server port.
+     * @param base     LDAP base ou.
+     */
+    public LdapConnector(String domain, int port, String base) {
+        this(domain, port, base, DEFAULT_SECURITY_AUTHENTICATION);
+    }
+
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain   LDAP server address.
+     * @param base     LDAP base ou.
+     */
+    public LdapConnector(String domain, String base) {
+        this(domain, DEFAULT_PORT, base);
+    }
+
     // -------------------------------------------------------------------------------- Help Methods
 
     /**
@@ -185,7 +225,7 @@ public class LdapConnector {
     private Hashtable<String, String> getEnvironment(String username, String password) {
         Hashtable<String, String> environment = new Hashtable<String, String>();
 
-        environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+        environment.put(Context.INITIAL_CONTEXT_FACTORY, DEFAULT_INITIAL_CONTEXT_FACTORY);
         environment.put(Context.PROVIDER_URL, getConnectionString());
         environment.put(Context.SECURITY_AUTHENTICATION, getSecurity());
         environment.put(Context.SECURITY_PRINCIPAL, getDn(username));
