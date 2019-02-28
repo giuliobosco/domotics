@@ -13,4 +13,13 @@
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<url-pattern>/HelloWorld</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>portal.authentication.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
 </web-app>
