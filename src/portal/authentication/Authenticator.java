@@ -24,13 +24,14 @@
 
 package portal.authentication;
 
-import javax.naming.AuthenticationException;
+import javax.naming.NamingException;
+import java.io.IOException;
 
 /**
  * User authenticator.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-02-28)
+ * @version 1.0.1 (2019-02-28)
  */
 public interface Authenticator {
 
@@ -41,5 +42,5 @@ public interface Authenticator {
      * @param password Password of the username to authenticate.
      * @return True if the user has right credentials.
      */
-    boolean authenticate(String username, String password) throws AuthenticationException;
+    boolean authenticate(String username, String password) throws NamingException, IOException;
 }
