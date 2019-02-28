@@ -170,6 +170,7 @@ public class LdapConnector {
      * @param port     LDAP server port.
      * @param base     LDAP base ou.
      * @param security LDAP connection security type.
+     * @throws IOException Port not valid.
      */
     public LdapConnector(String domain, int port, String base, String security) throws IOException {
         this.setDomain(domain);
@@ -184,6 +185,7 @@ public class LdapConnector {
      * @param domain LDAP server address.
      * @param port   LDAP server port.
      * @param base   LDAP base ou.
+     * @throws IOException Port not valid.
      */
     public LdapConnector(String domain, int port, String base) throws IOException {
         this(domain, port, base, DEFAULT_SECURITY_AUTHENTICATION);
