@@ -52,8 +52,8 @@ public class TestLdapCPT {
         // check if args is bigger than 1
         if (args.length > 1) {
             String domain = "cpt.local";
-            String username = "args[0]";
-            String password = "args[1]";
+            String username = args[0];
+            String password = args[1];
             String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
             String dn = "CN=" + username + "," + base;
             String ldapURL = "ldap://" + domain +":389"; // Setup environment for authenticating
