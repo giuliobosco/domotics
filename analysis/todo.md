@@ -195,6 +195,22 @@ login.html -> LoginServlet
 
 ## Controllo luci
 
+### Auto
+
+Le luci regolano l'intensità tramite i dati ricevuti dai sensori di luce posti nell'aula.
+Se la luce esterna è molto intensa si spengono.
+Dopo un certo orario le luci si spengono in automatico.
+
 ## Controllo tende
 
+### Auto
+
+Quando la luce esterna è molto intensa chiude le tende e accende le luci ad un'intensità di default.
+Dopo un certo orario le tende si aprono in automatico.
+
 ## Controllo beamer
+
+### Auto
+
+Quando si accende il beamer le tende si chiudono e e luci si spengono.
+Il beamer si spegne dopo un certo orario.

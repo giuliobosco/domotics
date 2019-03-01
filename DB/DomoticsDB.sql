@@ -1,37 +1,38 @@
-CREATE TABLE `beamer` 
+CREATE TABLE `beamer`
 (
-	`pin` varchar(255),
-	`arduino` varchar(255)
+	`pin` varchar(255) PRIMARY KEY,
+	`arduino` varchar(255) PRIMARY KEY
 );
 
-CREATE TABLE `light` 
+CREATE TABLE `light`
 (
-	`pin` varchar(255),
-	`arduino` varchar(255)
+	`pin` varchar(255) PRIMARY KEY,
+	`arduino` varchar(255) PRIMARY KEY
 );
 
-CREATE TABLE `curtain` 
+CREATE TABLE `curtain`
 (
-	`pin` varchar(255),
-	`arduino` varchar(255)
+	`pin` varchar(255) PRIMARY KEY,
+	`arduino` varchar(255) PRIMARY KEY
 );
 
-CREATE TABLE `sensor` 
+CREATE TABLE `sensor`
 (
-	`pin` varchar(255),
-	`arduino` varchar(255)
+	`pin` varchar(255) PRIMARY KEY,
+	`arduino` varchar(255) PRIMARY KEY
 );
 
-CREATE TABLE `arduino` 
+CREATE TABLE `arduino`
 (
+	`id` varchar(255) PRIMARY KEY,
 	`ip` varchar(255),
 	`key` varchar(255),
 	`room` varchar(255)
 );
 
-CREATE TABLE `room` 
+CREATE TABLE `room`
 (
-	`name` varchar(255)
+	`name` varchar(255) PRIMARY KEY
 );
 
 ALTER TABLE `room` ADD FOREIGN KEY (`name`) REFERENCES `arduino` (`room`);
