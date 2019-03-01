@@ -16,7 +16,7 @@
 
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>portal.authentication.Login</servlet-class>
+		<servlet-class>portal.authentication.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>

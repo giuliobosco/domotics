@@ -33,13 +33,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Login to portal servlet.
+ * LoginServlet to portal servlet.
  *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0 (2019-02-28)
  */
-@WebServlet(name = "Login")
-public class Login extends HttpServlet {
+@WebServlet(name = "LoginServlet")
+public class LoginServlet extends HttpServlet {
 
     /**
      * On get request try to login, if right credentials login and redirect to App.jsp, other ways,
