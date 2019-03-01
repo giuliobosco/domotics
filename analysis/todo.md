@@ -168,6 +168,11 @@ che non ve ne siano gia di uguali nel database (nel caso ri generarne un'altra).
 
 ### LDAP
 
+Richiede ad LDAP, se l'utente &egrave; corretto, dopo di che esegue il login e salva le credenziali
+nei cookies. Quali permettono poi di aprire le pagine successive.
+
+login.html -> LoginServlet
+
 ### Moduli
 
 - modulo aula

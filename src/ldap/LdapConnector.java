@@ -24,10 +24,12 @@
 
 package ldap;
 
+import javax.naming.AuthenticationException;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+import java.io.IOException;
 import java.util.Hashtable;
 
 /**
@@ -39,6 +41,25 @@ import java.util.Hashtable;
 public class LdapConnector {
 
     // ------------------------------------------------------------------------------------ Costants
+
+    /**
+     * Default LDAP server port.
+     * Value: 389.
+     */
+    public static final int DEFAULT_PORT = 389;
+
+    /**
+     * Default security authentication.
+     * Value: "simple".
+     */
+    public static final String DEFAULT_SECURITY_AUTHENTICATION = "simple";
+
+    /**
+     * Default initial context factory connection.
+     * Value: "com.sun.jndi.ldap.LdapCtxFactory".
+     */
+    public static final String DEFAULT_INITIAL_CONTEXT_FACTORY = "com.sun.jndi.ldap.LdapCtxFactory";
+
     // ---------------------------------------------------------------------------------- Attributes
 
     /**
@@ -55,6 +76,11 @@ public class LdapConnector {
      * LDAP base ou.
      */
     private String base;
+
+    /**
+     * LDAP connection security type.
+     */
+    private String security;
 
     // --------------------------------------------------------------------------- Getters & Setters
 
@@ -80,9 +106,14 @@ public class LdapConnector {
      * Set the LDAP server port.
      *
      * @param port LDAP server port.
+     * @throws IOException Port not valid.
      */
-    private void setPort(int port) {
-        this.port = port;
+    private void setPort(int port) throws IOException {
+        if (port > 0 && port < 65535) {
+            this.port = port;
+        } else {
+            throw new IOException("The port:" + port + "is not valid. Must be in between 1-65535");
+        }
     }
 
     /**
@@ -112,7 +143,41 @@ public class LdapConnector {
         return this.base;
     }
 
+    /**
+     * Set the LDAP connection security type.
+     *
+     * @param security LDAP connection security type.
+     */
+    private void setSecurity(String security) {
+        this.security = security;
+    }
+
+    /**
+     * Get the LDAP connection security type.
+     *
+     * @return LDAP connection security type.
+     */
+    public String getSecurity() {
+        return this.security;
+    }
+
     // -------------------------------------------------------------------------------- Constructors
+
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain   LDAP server address.
+     * @param port     LDAP server port.
+     * @param base     LDAP base ou.
+     * @param security LDAP connection security type.
+     * @throws IOException Port not valid.
+     */
+    public LdapConnector(String domain, int port, String base, String security) throws IOException {
+        this.setDomain(domain);
+        this.setBase(base);
+        this.setPort(port);
+        this.setSecurity(security);
+    }
 
     /**
      * Create the LDAP connector.
@@ -120,11 +185,27 @@ public class LdapConnector {
      * @param domain LDAP server address.
      * @param port   LDAP server port.
      * @param base   LDAP base ou.
+     * @throws IOException Port not valid.
      */
-    public LdapConnector(String domain, int port, String base) {
-        this.setDomain(domain);
-        this.setBase(base);
-        this.setPort(port);
+    public LdapConnector(String domain, int port, String base) throws IOException {
+        this(domain, port, base, DEFAULT_SECURITY_AUTHENTICATION);
+    }
+
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain LDAP server address.
+     * @param base   LDAP base ou.
+     */
+    public LdapConnector(String domain, String base) {
+        try {
+            this.setDomain(domain);
+            this.setBase(base);
+            this.setPort(DEFAULT_PORT);
+            this.setSecurity(DEFAULT_SECURITY_AUTHENTICATION);
+        } catch (IOException ignored) {
+            // ignored because the port default port is in the range (and is a constant).
+        }
     }
 
     // -------------------------------------------------------------------------------- Help Methods
@@ -160,9 +241,9 @@ public class LdapConnector {
     private Hashtable<String, String> getEnvironment(String username, String password) {
         Hashtable<String, String> environment = new Hashtable<String, String>();
 
-        environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+        environment.put(Context.INITIAL_CONTEXT_FACTORY, DEFAULT_INITIAL_CONTEXT_FACTORY);
         environment.put(Context.PROVIDER_URL, getConnectionString());
-        environment.put(Context.SECURITY_AUTHENTICATION, "simple");
+        environment.put(Context.SECURITY_AUTHENTICATION, getSecurity());
         environment.put(Context.SECURITY_PRINCIPAL, getDn(username));
         environment.put(Context.SECURITY_CREDENTIALS, password);
 
@@ -188,4 +269,25 @@ public class LdapConnector {
 
     // --------------------------------------------------------------------------- Static Components
 
+    /**
+     * Main method of the class, for test LdapConnector.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        String domain = "cpt.local";
+        String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
+        LdapConnector ldacC = new LdapConnector(domain, base);
+        try {
+            ldacC.getDirContext("user", "pass");
+            // user is authenticated
+            System.out.println("Authenticated");
+        } catch (AuthenticationException ae) {
+            // authentication failed
+            System.out.println("Authentication Error");
+            ae.printStackTrace();
+        } catch (NamingException ne) {
+            ne.printStackTrace();
+        }
+    }
 }
