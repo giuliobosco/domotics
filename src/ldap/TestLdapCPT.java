@@ -35,7 +35,7 @@ import javax.naming.directory.InitialDirContext;
  * Test LDAP authentication on CPT (Centro Professionale Trevano) LAN.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-02-22)
+ * @version 1.0.1 (2019-02-22 - 2019-03-07 fix comments)
  */
 public class TestLdapCPT {
 
@@ -51,12 +51,13 @@ public class TestLdapCPT {
 
         // check if args is bigger than 1
         if (args.length > 1) {
-            String domain = "cpt.local";
-            String username = args[0];
-            String password = args[1];
-            String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
-            String dn = "CN=" + username + "," + base;
-            String ldapURL = "ldap://" + domain +":389"; // Setup environment for authenticating
+            String domain = "cpt.local"; // ldap domain
+            String username = args[0]; // ldap username (use first command line argument)
+            String password = args[1]; // ldap password (use second command line argument)
+            String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local"; // ldap OU tree
+            String dn = "CN=" + username + "," + base; 
+            String ldapURL = "ldap://" + domain +":389"; 
+            // Setup environment for authenticating
             Hashtable<String, String> environment = new Hashtable<String, String>();
             environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
             environment.put(Context.PROVIDER_URL, ldapURL);
