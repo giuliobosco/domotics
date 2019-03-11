@@ -89,9 +89,17 @@ void loop() {
     bool currentLineIsBlank = true;
     while (client.connected()) {
       if (client.available()) {
-        char c = client.read();
-        Serial.println(c);
-
+        Serial.println();
+        String url;
+        char c;
+        while(true){
+          c = client.read();
+          url += c;
+          if(c == '\n'){
+            break;
+          }
+        }
+        Serial.println(url);
         if (c == '\n') {
           // send a standard http response header
           client.println("HTTP/1.1 200 OK");
