@@ -41,14 +41,8 @@ byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 // create an Ethernet web server listening on the port 80
 EthernetServer server(80);
 
-<<<<<<< HEAD
 // Variable to store the HTTP request
 String header;
-
-=======
-// temp variable, for read lines
->>>>>>> d15728ef3bd7f2edf7c73237247a122c9678a637
-String readString;
 
 /**
  * Setup the Arduino.
