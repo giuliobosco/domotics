@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
         try {
             if (authenticator.authenticate(requestUsername, requestPassword)) {
                 HttpSession session = request.getSession();
+                session.setAttribute("user", requestUsername);
                 //setting session to expiry in 30 mins
                 session.setMaxInactiveInterval(30*60);
                 Cookie userName = new Cookie("user", requestUsername);
