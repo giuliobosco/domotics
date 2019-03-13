@@ -6,7 +6,7 @@ public class JDBCApp {
          	String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
          	Class.forName(driver);
  			// Creiamo la stringa di connessione
-         	String url = "jdbc:odbc:myDataSource";
+         	String url = "jdbc:mysql://localhost:3306/domotics";
  			// Otteniamo una connessione con username e password
         	Connection con = DriverManager.getConnection (url, "myUserName", "myPassword");
  			// Creiamo un oggetto Statement per poter interrogare il db

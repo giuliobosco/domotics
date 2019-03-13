@@ -35,26 +35,25 @@ CREATE DATABASE domotics;
 
 /* create the room table */
 CREATE TABLE domotics.room (
-    name VARCHAR(255) PRIMARY KEY;
+    name VARCHAR(255) PRIMARY KEY
 );
 
 /* create the arduino table */
 CREATE TABLE domotics.arduino (
-	id varchar(255) PRIMARY KEY,
+	client_id varchar(255) PRIMARY KEY,
 	ip varchar(255),
-	key varchar(255),
+	client_key varchar(255),
 	room varchar(255),
 	
-	FOREIGN KEY (room) REFERENCES domotics.room(name);
+	FOREIGN KEY (room) REFERENCES domotics.room(name)
 );
 
 /* create the light table */
 CREATE TABLE domotics.light (
     pin varchar(255),
 	arduino varchar(255),
-	
 	PRIMARY KEY (pin, arduino),
-	FOREGIN KEY (arduino) REFERENCES domotics.arduino(id)
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 
 
@@ -64,7 +63,7 @@ CREATE TABLE domotics.beamer (
 	arduino varchar(255),
 	
 	PRIMARY KEY (pin, arduino),
-	FOREGIN KEY (arduino) REFERENCES domotics.arduino(id)
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 
 /* create the curtain table */
@@ -73,7 +72,7 @@ CREATE TABLE domotics.curtain (
 	arduino varchar(255),
 	
 	PRIMARY KEY (pin, arduino),
-	FOREGIN KEY (arduino) REFERENCES domotics.arduino(id)
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 
 /* create the sensor table */
@@ -82,5 +81,5 @@ CREATE TABLE domotics.sensor (
 	arduino varchar(255),
 	
 	PRIMARY KEY (pin, arduino),
-	FOREGIN KEY (arduino) REFERENCES domotics.arduino(id)
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
