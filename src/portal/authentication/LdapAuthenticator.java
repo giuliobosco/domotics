@@ -26,6 +26,7 @@ package portal.authentication;
 
 import ldap.LdapConnector;
 
+import javax.naming.AuthenticationException;
 import javax.naming.NamingException;
 import java.io.IOException;
 
@@ -132,5 +133,24 @@ public class LdapAuthenticator implements Authenticator {
     }
 
     // --------------------------------------------------------------------------- Static Components
-    
+
+    /**
+     * Main method of the class, for test LdapAuthenticator.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        Authenticator authenticator = new LdapAuthenticator("");
+        try {
+            authenticator.authenticate("user", "pass");
+            // user is authenticated
+            System.out.println("Authenticated");
+        } catch (AuthenticationException ae) {
+            // authentication failed
+            System.out.println("Authentication failed");
+            ae.printStackTrace();
+        } catch (NamingException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
