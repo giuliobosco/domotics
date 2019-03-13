@@ -36,7 +36,7 @@ import java.util.Hashtable;
  * LDAP connector, checks if an username is right connected and return the DirContext.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-02-27)
+ * @version 1.0 (2019-02-27 - 2019-03-07 fix comments, javadoc, constructors)
  */
 public class LdapConnector {
 
@@ -109,6 +109,7 @@ public class LdapConnector {
      * @throws IOException Port not valid.
      */
     private void setPort(int port) throws IOException {
+        // check if the port is in the right range for network logical port
         if (port > 0 && port < 65535) {
             this.port = port;
         } else {
@@ -194,18 +195,30 @@ public class LdapConnector {
     /**
      * Create the LDAP connector.
      *
-     * @param domain LDAP server address.
-     * @param base   LDAP base ou.
+     * @param domain   LDAP server address.
+     * @param base     LDAP base ou.
+     * @param security LDAP Security type.
      */
-    public LdapConnector(String domain, String base) {
+    public LdapConnector(String domain, String base, String security) {
         try {
             this.setDomain(domain);
             this.setBase(base);
             this.setPort(DEFAULT_PORT);
-            this.setSecurity(DEFAULT_SECURITY_AUTHENTICATION);
+            this.setSecurity(security);
         } catch (IOException ignored) {
             // ignored because the port default port is in the range (and is a constant).
         }
+    }
+
+
+    /**
+     * Create the LDAP connector.
+     *
+     * @param domain LDAP server address.
+     * @param base   LDAP base ou.
+     */
+    public LdapConnector(String domain, String base) {
+        this(domain, base, DEFAULT_SECURITY_AUTHENTICATION);
     }
 
     // -------------------------------------------------------------------------------- Help Methods
@@ -275,9 +288,14 @@ public class LdapConnector {
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
+        // set the test LDAP domain
         String domain = "cpt.local";
+        // set the test LDAP OU three
         String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
+        // create the LDAP Connector with the domain and the base
         LdapConnector ldacC = new LdapConnector(domain, base);
+        
+        // try to connect to LDAP
         try {
             ldacC.getDirContext("user", "pass");
             // user is authenticated
