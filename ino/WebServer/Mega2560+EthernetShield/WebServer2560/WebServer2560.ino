@@ -41,8 +41,8 @@ byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 // create an Ethernet web server listening on the port 80
 EthernetServer server(80);
 
-// temp variable, for read lines
-String readString;
+// Variable to store the HTTP request
+String header;
 
 /**
  * Setup the Arduino.
@@ -89,17 +89,9 @@ void loop() {
     bool currentLineIsBlank = true;
     while (client.connected()) {
       if (client.available()) {
-        Serial.println();
-        String url;
-        char c;
-        while(true){
-          c = client.read();
-          url += c;
-          if(c == '\n'){
-            break;
-          }
-        }
-        Serial.println(url);
+        char c = client.read();             // read a byte, then
+        Serial.write(c);                    // print it out the serial monitor
+        header += c;
         if (c == '\n') {
           // send a standard http response header
           client.println("HTTP/1.1 200 OK");
@@ -112,8 +104,14 @@ void loop() {
           client.println("<head>");
           client.println("<title>Web Server</title>");
           client.println("</head>");
-          client.println("<body>");
-          client.println("<h1>It's work</h1>");
+          client.println("<body>");  
+          if (header.indexOf("GET /on") >= 0) {
+            client.println("<h1>On</h1>");
+          } else if (header.indexOf("GET /off") >= 0) {
+            client.println("<h1>Off</h1>");
+          }else{
+            client.println("<h1>Undefined</h1>");
+          }
           client.println("</body>");
           client.println("</html>");
           
