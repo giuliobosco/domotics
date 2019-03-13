@@ -34,7 +34,7 @@ import java.io.IOException;
  * Ldap authenticator for the portal.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-02-28)
+ * @version 1.0.1 (2019-02-28)
  */
 public class LdapAuthenticator implements Authenticator {
 
@@ -75,7 +75,7 @@ public class LdapAuthenticator implements Authenticator {
      * @return LDAP base ou, with sub ou.
      */
     private String getBaseOu() {
-        return BASE_OU + this.subOu;
+        return this.subOu + BASE_OU;
     }
 
     // -------------------------------------------------------------------------------- Constructors
@@ -123,7 +123,6 @@ public class LdapAuthenticator implements Authenticator {
      * @param password Password of the username to authenticate.
      * @return True if the user has right credentials.
      * @throws NamingException Wrong credentials.
-     * @throws IOException LDAP server port not valid.
      */
     @Override
     public boolean authenticate(String username, String password) throws NamingException, IOException {
