@@ -140,7 +140,7 @@ public class LdapAuthenticator implements Authenticator {
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-        Authenticator authenticator = new LdapAuthenticator("");
+        Authenticator authenticator = new LdapAuthenticator("OU=3,OU=I,OU=IN,OU=SAM,OU=allievi");
         try {
             authenticator.authenticate("user", "pass");
             // user is authenticated
