@@ -1,0 +1,41 @@
+.log{
+    max-width: 20%;
+    background-color: #fff;
+    margin-left: 10%;
+    margin-top: 10%;
+    padding: 1% 2%;
+    overflow: auto;
+}
+
+.text{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    display: block;
+    margin-bottom: 10%;
+    width: 100%;
+}
+
+.but{
+    background-color: #009fc6;
+    border: none;
+    color: white;
+    width: 70%;
+    padding: 1%;
+}
+
+.right{
+    float: right;
+}
+
+.text:active{
+    border-bottom: 1px solid #a8a8a8;
+}
+
+
+
+html, body{
+    font-family: Corbel;
+    margin: 0px;
+    background-color: #009fc6;
+}
