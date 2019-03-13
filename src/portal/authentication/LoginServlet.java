@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException Error on the system.
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Authenticator authenticator = new LdapAuthenticator(null);
+        Authenticator authenticator = new LdapAuthenticator("OU=3,OU=I,OU=IN,OU=SAM,OU=allievi");
 
         // analyze request get username and password
         String requestUsername = request.getParameter("username");
