@@ -23,63 +23,52 @@
  */
 package portal.authentication;
 
-import javax.naming.AuthenticationException;
-import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
- * Login to portal servlet.
+ * Logout from portal servlet.
  *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0 (2019-02-28)
  */
-@WebServlet(name = "Login")
-public class Login extends HttpServlet {
+@WebServlet(name = "LogoutServlet")
+public class LogoutServlet extends HttpServlet {
 
     /**
-     * On get request try to login, if right credentials login and redirect to App.jsp, other ways,
-     * returns to login.html.
+     * On request logout, invalidate session if exists.
      *
-     * @param request Http login request.
-     * @param response Http login response.
+     * @param request Http logout request.
+     * @param response Http logout response.
      * @throws ServletException Error while processing the servlet.
      * @throws IOException Error on the system.
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Authenticator authenticator = new LdapAuthenticator(null);
-
-        // analyze request get username and password
-        String requestUsername = request.getParameter("username");
-        String requestPassword = request.getParameter("password");
-
-        try {
-            if (authenticator.authenticate(requestUsername, requestPassword)) {
-                HttpSession session = request.getSession();
-                //setting session to expiry in 30 mins
-                session.setMaxInactiveInterval(30*60);
-                Cookie userName = new Cookie("user", requestUsername);
-                response.addCookie(userName);
-                //Get the encoded URL string
-                String encodedURL = response.encodeRedirectURL("App.jsp");
-                response.sendRedirect(encodedURL);
+        response.setContentType("text/html");
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null){
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("JSESSIONID")){
+                    System.out.println("JSESSIONID="+cookie.getValue());
+                }
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
             }
-        } catch (AuthenticationException ae) {
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-            PrintWriter out= response.getWriter();
-            out.println("<font color=red>Either user name or password is wrong.</font>");
-            rd.include(request, response);
-        } catch (NamingException | IOException error) {
-            response.sendError(500);
         }
+        // invalidate the session if exists
+        HttpSession session = request.getSession(false);
+        System.out.println("User="+session.getAttribute("user"));
+        if(session != null){
+            session.invalidate();
+        }
+        //no encoding because we have invalidated the session
+        response.sendRedirect("login.html");
     }
 
     /**
-     * Returns to login.html, because password must send by HTTP POST method.
+     * redirect to doPost method.
      *
      * @param request Http request.
      * @param response Http response.
@@ -87,6 +76,6 @@ public class Login extends HttpServlet {
      * @throws IOException Error on the system.
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/login.html");
+        doPost(request, response);
     }
 }

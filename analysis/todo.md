@@ -157,6 +157,25 @@ cambiato l'IP del server lo aggiona sul database (questo per permettere un buon 
 DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
 `ACC-Client-KEY-Generator` una KEY.
 
+In oltre viene inviata la configurazione dei vari pin. Come segue:
+
+```JSON
+{
+    "acc-client-id": "<ACC-Client-ID>",
+    "acc-client-key": "<ACC-Client-KEY>",
+    "digital": [
+        { 
+            "pin": 13,
+            "type": "out"
+        },
+        { 
+            "pin": 13,
+            "type": "out"
+        }
+    ]
+}
+```
+
 **ACC-Client-KEY-Generator:**
 
 Deve generare casualmente una chiava di 12 caratteri esadecimali (`01234567890ABCDEF`), controllare
