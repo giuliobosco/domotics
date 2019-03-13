@@ -6,63 +6,53 @@ home controller
 INSERIRE ANCORA
 
 
-### abstract 
-In this there is the documentation of the domotics project, domotics an opensource domotics system
-based on PHP, MySQL and Arduino. 
+### abstract
+This file is the documentation of the domotics project, it's an opensource project that is
+based on Java, MySQL and Arduino.
 
-- PHP is the programming language for interpret the data.
-- MySQL is the database system for store the data.
-- Arduino is the microcomputer used for control the relays and manage the sensors datas.
+- Java is the programming language to interpret the data and to connect the website to arduino.
+- MySQL is the database system to store the data.
+- Arduino Yún is the microcomputer used to control the relays, motors and manage the sensors.
+
+In this project we need to create a website that manages the domotics in our school rooms,
+to do that we connect one Arduino per room. This Arduino will be connected to the lights and the curtains
+our webpage is on a Tomcat webserver, from the website you can send a command to the Arduino that receives
+it and executes it. You can also from the web site set automatic mode that mnages automatically the Arduino.
+The server will also memorize the data of the Arduinos on a MySql based database.
 
 
 ### scope
-The scope of the project is make domotics a house with a normal eletrical plan with low costs
-and also is the final project of Giulio Bosco for the Modulo 121 (Implementare funzioni di 
-controllo - [Scuola Arti e Mestieri di Trevano](https://www.cpttrevano.ti.ch/)). 
+Lo scopo di questo progetto e di gestire la domotica di diverse aule modularmente tramite arduino e sito web.
+Ma i veri scopi principali del progetto sono imparare ad usare nuovi linguaggi/librerie e imparare a lavorare
+i gruppo come un team e non come tre singoli individui. Quindi dobbiamo imparare a gestire i tempi delle consegne
+e riuscire a suddividere il lavoro equamente evitando di lasciare un componente del team senza lavoro.
 
 
-### Domain Analysis 
-This product well be used in houses or buildings where is unavailable a domotic system. 
-The contest where the product well be used is structured by rooms, elements in rooms, people 
-and groups of peoples.
-
-Actually there are many products like this. There are two kind of products, home made products,
-or complicated systems produced by big companies. All the home made products are not very good 
-documented and big's products are too much expensive. 
-
-The users of the products are normal people, with no IT knowledge. They need a easy and useful 
-interface. For install the products is required a base of knowledge of web development, 
-systems management and electronics. For install the main server, do small changes of the 
-interface for adapt at the smallest needs.
+### Domain Analysis
+Questo prodotto è molto interessante visto che non esistono prodotti simili che possono essere applicati allo stesso
+prezzo qui a scuola e ha il vantaggio di essere già interfacciato appositamente per la scuola. In più questo progetto
+ha il vantaggio di essere modulare quindi se in futuro si vuole amplire il sito con gli orari e magari una gestione
+migliore delle assenze si può fare facilmente.
 
 
 ### Specific Analysis of the requirements
-The product needs to be easy to use. 
-INSERT MORE
+
 
 
 ### Planning
 ![Project Planning](img/plan.JPG )
 
 #### Project Planning
-- Project Database (14.05)
-- Project Graphical Interface Design (16.05-18.05)
-- Project MySQL Queries (21.05-22.05)
-- Project connectino Arduino <-> PHP
-  
-#### Implementation Planning
-- Implements Database And Run Tests (14.05-15.05)
-- Implements Graphical Interface (17.05-21.05)
-- Implements MySQL Queries in PHP (22.05-25.05) 
-- Implements connection Arduinio <-> PHP (28.05-29.05)
 
+
+#### Implementation Planning
 
 ### Resources Analysis
 
 #### Software
 To carry out this project, has been used many software.
 - [StarUML](http://staruml.io/) - (Used for project the database and the procedures)
-- [PhpStorm](https://www.jetbrains.com/phpstorm/) - (Used for write the code [HTML CSS JS PHP MySQL])
+- [IntelliJ](https://www.jetbrains.com/idea/) - (Used for write the code [HTML CSS JS PHP MySQL])
 - [Arduino IDE](https://www.arduino.cc/en/Main/Software) - (Used for write Arduino's Code)
 - [NGINX](https://www.nginx.com/) - (Used for the web server)
 - [PHP 7.2.3](http://php.net/) - (Used for backend interpreter)
@@ -71,22 +61,18 @@ To carry out this project, has been used many software.
 - [Fedora](https://getfedora.org/) - (OS Used for develop the project)
 
 #### Hardware
-- [Arduino UNO / Genuino UNO (with alimentator)](https://store.arduino.cc/arduino-uno-rev3)
-  - [Arduino Ethernet Shield](https://store.arduino.cc/arduino-ethernet-shield-2) 
+- [Arduino Yún](https://store.arduino.cc/arduino-yun-rev-2)
   - [Relay 1 Channel](https://www.adafruit.com/product/3191)
-  - [Jumpers 150mm (Male To Female)](https://store.arduino.cc/10-jumper-wires-150mm-male)
-- [Raspberry PI 3 (with alimentator)](https://www.raspberrypi.org/)
-- [NETGEAR Switch](http://www.netgear.com/home/products/networking/switches/soho-ethernet-switches/default.aspx)
 
 
 ## Project
 
 ### Design of the system architecture
-The software store all the data in the MySQL database. PHP is the interpreter from the data to 
+The software store all the data in the MySQL database. PHP is the interpreter from the data to
 the user-interface. The relay are commanded by the Arduino, there are tree type of Arduino Shield
-that can be used: 
-- [Arduino UNO](https://store.arduino.cc/usa/arduino-uno-rev3) - 
-	with Shields ([Ethernet](https://store.arduino.cc/usa/arduino-ethernet-shield-2) 
+that can be used:
+- [Arduino UNO](https://store.arduino.cc/usa/arduino-uno-rev3) -
+	with Shields ([Ethernet](https://store.arduino.cc/usa/arduino-ethernet-shield-2)
 	or [Wifi](https://store.arduino.cc/arduino-wifi-shield))
 - [Arduino Ethernet](https://store.arduino.cc/arduino-ethernet-rev3-without-poe)
 - [Arduino Wifi](https://store.arduino.cc/arduino-uno-wifi)
@@ -96,7 +82,7 @@ that can be used:
 
 ### Design of the interfaces
 In the software there is only one interface, the web-app for controls everything.
-The web-app is aveable for desktop and for mobile. 
+The web-app is aveable for desktop and for mobile.
 
 #### Login mask
 ![Login mask - screenshot](img/login_mask.JPG)
@@ -113,27 +99,26 @@ In this project there are some procedures:
 
 ## Implementation
 This project is expendables, so for test we just implemented width only one relay.
-In the first version (1.0) there remote sensor controls is not available and also the management 
-of the system. 
+In the first version (1.0) there remote sensor controls is not available and also the management
+of the system.
 The main control server runs on a Raspberry PI 3, this is connected to lan of the structure,
-on the same lan have to be connected the Arduino Ethernet or Wi-Fi. 
+on the same lan have to be connected the Arduino Ethernet or Wi-Fi.
 Insert in the database the users, groups, rooms, stations (= Arduino) and the relay details.
 
 ### network schema
 ![Network schema](img/network.jpg)
 
-### circuit schema 
+### circuit schema
 ![Circuit schema](img/a1_shield-e_1-relay.jpg)
 
 ## Tests
-For test the project there will be used the domotics web app from a smartphone 
+For test the project there will be used the domotics web app from a smartphone
 (for check responsive) and from one desktop computer. It well be tried to turn off and on from
-two different users a relay. 
- 
+two different users a relay.
+
  User | Begin Status | After status
  --- | --- | ---
 `rosso` | on | off
 `user2` | off | on
 
-The whole domotics system works correctly. 
- 
+The whole domotics system works correctly.
