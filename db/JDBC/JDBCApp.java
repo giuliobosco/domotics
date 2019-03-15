@@ -23,9 +23,9 @@ public class JDBCApp {
       		cmd.close();
       		con.close();
     	} catch (SQLException e) {
-        	System.out.println("Error: "+e.getMessage());
+        	System.out.println("Error1: "+e.getMessage());
     	} catch (ClassNotFoundException e) {
-        	System.out.println("Error: "+e.getMessage());
+        	System.out.println("Error2: "+e.getMessage());
        	}
     }
 }
