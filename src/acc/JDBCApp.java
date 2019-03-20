@@ -1,3 +1,5 @@
+package acc;
+
 import java.sql.*;
 
 public class JDBCApp {
