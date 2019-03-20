@@ -9,7 +9,7 @@ public class JDBCApp {
             String query = "SELECT * FROM luogo";
             Class.forName("com.mysql.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/esercizio1", "root", "rooot");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/esercizio1", "root", "root");
 
             System.out.println("a");
             Statement st = con.createStatement();
