@@ -88,8 +88,8 @@ CREATE TABLE domotics.sensor (
 /* create the sensor table */
 CREATE TABLE domotics.lightButton (
   pin varchar(255),
-	light varchar(255),
+	arduino varchar(255),
 
-	PRIMARY KEY (pin, light),
-	FOREIGN KEY (light) REFERENCES domotics.light(arduino)
+	PRIMARY KEY (pin, arduino),
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
