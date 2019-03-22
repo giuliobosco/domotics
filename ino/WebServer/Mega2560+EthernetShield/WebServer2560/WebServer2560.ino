@@ -49,16 +49,16 @@ String header;
  */
 void setup() {
   // configure the serial port at 9600 bit/s
-  Serial.begin(9600);
+  SERIAL_PORT_USBVIRTUAL.begin(115200);
   // print on the serial the string
-  Serial.println("Ethernet WebServer Example");
+  SERIAL_PORT_HARDWARE.println("Ethernet WebServer Example");
 
   // Start the ethernet shield with the mac address.
   Ethernet.begin(mac);
 
   // check if the ethernet shield is connected to the Arduino
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
+    SERIAL_PORT_HARDWARE.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
     while (true) {
       delay(1); // do nothing, no point running without Ethernet hardware
     }
@@ -66,13 +66,13 @@ void setup() {
   
   // check if the cable is connected to the ethernet shield
   if (Ethernet.linkStatus() == LinkOFF) {
-    Serial.println("Ethernet cable is not connected.");
+    SERIAL_PORT_HARDWARE.println("Ethernet cable is not connected.");
   }
 
   // start the server
   server.begin();
-  Serial.print("server is at ");
-  Serial.println(Ethernet.localIP());
+  SERIAL_PORT_HARDWARE.print("server is at ");
+  SERIAL_PORT_HARDWARE.println(Ethernet.localIP());
 }
 
 /*
@@ -84,13 +84,13 @@ void loop() {
   
   // on client connected
   if (client) {
-    Serial.println("new client");
+    SERIAL_PORT_HARDWARE.println("new client");
     // an http request ends with a blank line
     bool currentLineIsBlank = true;
     while (client.connected()) {
       if (client.available()) {
         char c = client.read();             // read a byte, then
-        Serial.write(c);                    // print it out the serial monitor
+        SERIAL_PORT_HARDWARE.write(c);                    // print it out the serial monitor
         header += c;
         if (c == '\n') {
           // send a standard http response header
@@ -117,7 +117,7 @@ void loop() {
           
           delay(1);
           client.stop();
-          Serial.println("client disconnected");
+          SERIAL_PORT_HARDWARE.println("client disconnected");
         }
       }
     }
