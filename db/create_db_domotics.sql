@@ -1,3 +1,4 @@
+
 /*
  * The MIT License
  *
@@ -21,10 +22,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 /**
  * SQL Create database script.
- * 
+ *
  * @author paologuebeli (paolo.guebeli@samtrevano.ch)
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0.1 (2019-02-22 - 2019-03-07 fix primary key, foreign key)
@@ -44,13 +45,13 @@ CREATE TABLE domotics.arduino (
 	ip varchar(255),
 	client_key varchar(255),
 	room varchar(255),
-	
+
 	FOREIGN KEY (room) REFERENCES domotics.room(name)
 );
 
 /* create the light table */
 CREATE TABLE domotics.light (
-    pin varchar(255),
+  pin varchar(255),
 	arduino varchar(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
@@ -59,27 +60,36 @@ CREATE TABLE domotics.light (
 
 /* create the beamer table */
 CREATE TABLE domotics.beamer (
-    pin varchar(255),
+  pin varchar(255),
 	arduino varchar(255),
-	
+
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 
 /* create the curtain table */
 CREATE TABLE domotics.curtain (
-    pin varchar(255),
+  pin varchar(255),
 	arduino varchar(255),
-	
+
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 
 /* create the sensor table */
 CREATE TABLE domotics.sensor (
-    pin varchar(255),
+  pin varchar(255),
 	arduino varchar(255),
-	
+
+	PRIMARY KEY (pin, arduino),
+	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
+);
+
+/* create the sensor table */
+CREATE TABLE domotics.lightButton (
+  pin varchar(255),
+	arduino varchar(255),
+
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
