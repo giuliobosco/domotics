@@ -47,6 +47,9 @@
 
 html, body{
     font-family: Corbel;
-    margin: 0px;
+    margin: 0;
+}
+
+.logbg{
     background-color: #009fc6;
 }
