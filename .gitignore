@@ -1,6 +1,7 @@
 *.idea*
 domotics.iml
 out/*
+*cmake*
 
 # Compiled class file
 *.class
