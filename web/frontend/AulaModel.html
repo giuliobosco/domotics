@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            position: relative;
+            float: right;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .menuSettings {
+            background-color: white;
+            margin-left: 50px;
+            margin-top: 50px;
+            width: 300px;
+            border-radius: 25px;
+        }
+
+        .checkBoxSlider {
+            padding-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        .textDesc {
+            font-size: 30px;
+        }
+
+        .menu {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            background-color: #e8e8e8;
+            border-radius: 25px 25px 0px 0px;
+        }
+
+        .textTemp{
+            position: relative;
+            float: right;
+            font-size: 30px;
+            padding-right: 20px;
+        }
+
+        .label {
+            position: relative;
+            display: inline-block;
+            font-size: 30px;
+        }
+        .settings{
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="menuSettings">
+    <div class="menu">
+        <label class="textDesc">
+            Aula 132
+        </label>
+        <label class="textTemp">
+            21 °C
+        </label>
+    </div>
+    <div class="settings">
+        <div class="checkBoxSlider">
+            <label class="label">
+                Luce 1
+            </label>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="checkBoxSlider">
+            <label class="label">
+                Luce 2
+            </label>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="checkBoxSlider">
+            <label class="label">
+                Beamer
+            </label>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div class="checkBoxSlider">
+            <label class="label">
+                Tende
+            </label>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
+</body>
+</html>
