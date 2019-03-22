@@ -50,6 +50,42 @@ html, body{
     margin: 0;
 }
 
-.logbg{
+.defaultBg{
     background-color: #009fc6;
 }
+
+nav{
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    min-width: 150px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+}
+
+li a {
+    display: block;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover ~ li a{
+    color: #e8e8e8;
+}
+
+.settings{
+    width: 25px;
+    height: 25px;
+}
+
+.settings:hover{
+    animation:spin 1s linear;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
