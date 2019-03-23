@@ -1,22 +1,22 @@
+package jdbc;
+
 import java.sql.*;
 
 public class JDBCApp {
     public static void main(String[] args) {
         try {
-            System.out.println("c");
-            String query = "SELECT * FROM luogo";
-            Class.forName("com.mysql.jdbc.Driver");
+            String query = "SELECT * FROM dati";
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/esercizio1", "root", "rooot");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/domotics", "root", "root");
 
-            System.out.println("a");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
 
-            rs.next();
-            String sname = rs.getString(1);
-            System.out.println(sname);
-            System.out.println("c");
+            while(rs.next()){
+           	String sname = rs.getString("nome");
+            	System.out.println(sname);
+            }
             con.close();
         } catch (SQLException ex) {
             System.out.println("Error: " + ex.getMessage());
