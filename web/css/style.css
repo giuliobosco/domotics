@@ -58,34 +58,46 @@ nav{
     position: fixed;
     height: 100%;
     overflow: auto;
-    min-width: 150px;
+    min-width: 10%;
 }
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin-top: 10%;
     padding: 0;
     width: 25%;
 }
 
 li a {
     display: block;
-    color: #fff;
+    color: #e8e8e8;
     padding: 8px 16px;
     text-decoration: none;
 }
 
-li a:hover ~ li a{
-    color: #e8e8e8;
+li a:hover{
+    color: #fff;
 }
 
-.settings{
+.icon{
     width: 25px;
     height: 25px;
 }
 
 .settings:hover{
-    animation:spin 1s linear;
+    transform: rotate(90deg);
 }
 
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.right{
+    float: right;
+}
+
+.bottomContainer{
+    width: 60%;
+    padding: 10%;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
