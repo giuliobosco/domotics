@@ -21,6 +21,11 @@ Dopo che l'arduino si &egrave; registrato sul server se questo &egrave; gi&agrav
 server, il server configura l'arduino, il quale poi inizia a lavorare. Altrimenti il server
 configura l'arduino, il quale poi inizia a lavorare.
 
+Siccome si utilizza l'Arduino Yun, e vi è una parte del codice da eseguire sull'arduino, ed una su
+OpenWRT, si divideranno anche queste due parti del programma:
+- arduino: ACC-Client.ino
+- python: ACC-Client.py
+
 #### Protocollo
 
 Il Protocollo ACC per domotics &egrave; molto semplice, &egrave; basato su un codice univoco
