@@ -25,9 +25,10 @@
 #include <stdio.h>
 
 # Arduino blink on pin 13 sketch
+# For use this script is required to load on the arduino the script ../../ino/MyBridge/MyBridge.ino
 #
 # @author giuliobosco (giuliobva@gmail.com)
-# @version 1.0 (2019-03-20 - 2019-03-20)
+# @version 1.0.1 (2019-03-20 - 2019-03-27)
 
 import sys
 sys.path.insert(0, '/usr/lib/python2.7/bridge')
@@ -37,10 +38,22 @@ from bridgeclient import BridgeClient as bridgeclient
 
 value = bridgeclient()
 
+
+
 for idx in range(0, 100):
+
+    value.put('D12','0')
+
     value.put('D13','1')
+
     sleep(0.1)
+
+    value.put('D12','1')
+
     value.put('D13','0')
+
     sleep(0.1)
+
+
 
 print("I hope you enjoyed the light show\n")
