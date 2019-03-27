@@ -164,11 +164,11 @@ In oltre viene inviata la configurazione dei vari pin. Come segue:
     "acc-client-id": "<ACC-Client-ID>",
     "acc-client-key": "<ACC-Client-KEY>",
     "digital": [
-        { 
+        {
             "pin": 13,
             "type": "out"
         },
-        { 
+        {
             "pin": 13,
             "type": "out"
         }
@@ -180,6 +180,18 @@ In oltre viene inviata la configurazione dei vari pin. Come segue:
 
 Deve generare casualmente una chiava di 12 caratteri esadecimali (`01234567890ABCDEF`), controllare
 che non ve ne siano gia di uguali nel database (nel caso ri generarne un'altra).
+
+### Arduino conf
+
+- curtain l (11)
+- curtain r (10)
+- light window (13)
+- light port (12)
+- button l window (6)
+- button l port (5)
+- beamer (9)
+- light sensor (a0)
+- temp sensor (a1)
 
 ## Database
 

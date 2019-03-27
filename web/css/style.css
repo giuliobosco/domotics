@@ -21,18 +21,17 @@
     border: none;
     color: white;
     width: 70%;
-    padding: 1%;
     border-bottom: 2px solid #0090c2;
 }
 
 .but:hover{
-    background-color: #32a3cd;
+background-color: #32a3cd;
 }
 
 .but:active{
-    outline: none;
-    border-bottom: none;
-    margin-top: 2px;
+outline: none;
+border-bottom: none;
+margin-top: 2px;
 }
 
 .right{
@@ -47,6 +46,57 @@
 
 html, body{
     font-family: Corbel;
-    margin: 0px;
+    margin: 0;
+}
+
+.defaultBg{
     background-color: #009fc6;
 }
+
+nav{
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    min-width: 10%;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 10%;
+    padding: 0;
+    width: 25%;
+}
+
+li a {
+    display: block;
+    color: #e8e8e8;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    color: #fff;
+}
+
+.icon{
+    width: 25px;
+    height: 25px;
+}
+
+.settings:hover{
+    transform: rotate(90deg);
+}
+
+.right{
+    float: right;
+}
+
+.bottomContainer{
+    width: 60%;
+    padding: 10%;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
