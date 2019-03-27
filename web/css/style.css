@@ -53,31 +53,6 @@ html, body{
     background-color: #009fc6;
 }
 
-nav{
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-    min-width: 10%;
-}
-
-ul {
-    list-style-type: none;
-    margin-top: 10%;
-    padding: 0;
-    width: 25%;
-}
-
-li a {
-    display: block;
-    color: #e8e8e8;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-
-li a:hover{
-    color: #fff;
-}
-
 .icon{
     width: 25px;
     height: 25px;
@@ -99,4 +74,10 @@ li a:hover{
     right: 5%;
 }
 
-@keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
+.gray{
+    background-color: #e8e8e8;
+}
+
+.config{
+    color: white;
+}
