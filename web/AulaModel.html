@@ -64,11 +64,12 @@
         }
 
         .menuSettings {
-            background-color: white;
+            background-color: transparent;
             margin-left: 50px;
             margin-top: 50px;
             width: 300px;
-            border-radius: 25px;
+            border-radius: 15px;
+            height: auto;
         }
 
         .checkBoxSlider {
@@ -77,20 +78,19 @@
         }
 
         .textDesc {
-            font-size: 30px;
+            font-size: 35px;
         }
 
         .menu {
-            margin-bottom: 20px;
-            padding-left: 20px;
+            padding-left: 10px;
             background-color: #e8e8e8;
-            border-radius: 25px 25px 0px 0px;
+            border-radius: 15px 15px 0px 0px;
         }
 
         .textTemp{
             position: relative;
             float: right;
-            font-size: 30px;
+            font-size: 35px;
             padding-right: 20px;
         }
 
@@ -101,12 +101,26 @@
         }
         .settings{
             padding-left: 20px;
+            padding-top: 20px;
+            background-color: red;
+        }
+
+        .img{
+            width: 8%;
+            height: 8%;
         }
     </style>
+    <script>
+        function myFunction() {
+            document.getElementById("settings").style.visibility = 'hidden';
+            document.getElementById("settings").style.border-radius = 0px;
+        }
+    </script>
 </head>
 <body>
 <div class="menuSettings">
-    <div class="menu">
+    <div id="id" class="menu" onclick="myFunction()">
+        <img class="img" src="../img/MenuThreePoints.png" alt="Girl in a jacket">
         <label class="textDesc">
             Aula 132
         </label>
@@ -114,7 +128,7 @@
             21 °C
         </label>
     </div>
-    <div class="settings">
+    <div id="settings" class="settings">
         <div class="checkBoxSlider">
             <label class="label">
                 Luce 1
