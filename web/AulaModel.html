@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         .switch {
             position: relative;
@@ -65,11 +65,8 @@
 
         .menuSettings {
             background-color: transparent;
-            margin-left: 50px;
-            margin-top: 50px;
             width: 300px;
             border-radius: 15px;
-            height: auto;
         }
 
         .checkBoxSlider {
@@ -99,28 +96,31 @@
             display: inline-block;
             font-size: 30px;
         }
-        .settings{
+        .aulaSettings{
             padding-left: 20px;
             padding-top: 20px;
-            background-color: red;
+            background-color: #42bad5;
         }
 
-        .img{
+        .imgAula{
             width: 8%;
             height: 8%;
         }
     </style>
     <script>
         function myFunction() {
-            document.getElementById("settings").style.visibility = 'hidden';
-            document.getElementById("settings").style.border-radius = 0px;
+            if(document.getElementById("aulaSettings").style.display == "block"){
+                document.getElementById("aulaSettings").style.display = "none";
+            }else{
+                document.getElementById("aulaSettings").style.display = "block"
+            }
         }
     </script>
 </head>
 <body>
 <div class="menuSettings">
     <div id="id" class="menu" onclick="myFunction()">
-        <img class="img" src="../img/MenuThreePoints.png" alt="Girl in a jacket">
+        <img class="imgAula" src="../img/MenuThreePoints.png">
         <label class="textDesc">
             Aula 132
         </label>
@@ -128,7 +128,7 @@
             21 °C
         </label>
     </div>
-    <div id="settings" class="settings">
+    <div id="aulaSettings" class="aulaSettings">
         <div class="checkBoxSlider">
             <label class="label">
                 Luce 1
