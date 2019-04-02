@@ -62,10 +62,6 @@ html, body{
     transform: rotate(90deg);
 }
 
-.right{
-    float: right;
-}
-
 .bottomContainer{
     width: 60%;
     padding: 10%;
@@ -78,6 +74,104 @@ html, body{
     background-color: #e8e8e8;
 }
 
-.config{
+.text-white{
     color: white;
+}
+
+.nav-element{
+    color: #e8e8e8;
+    width: 84%;
+    text-align: left;
+    padding: 8%;
+    font-size: 20px;
+    font-size: 2vw;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.nav-element:hover{
+    color: white;
+    background-color: #0090c2;
+}
+
+nav{
+    background-color: #009fc6;
+    position: absolute;
+    height: 100%;
+    width: 250px;
+}
+
+.nav-item{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-li{
+    text-align: left;
+}
+
+.nav-container{
+}
+
+.config:hover{
+    color: #e8e8e8;
+}
+
+.nav-title{
+    text-align: center;
+    font-size: 25px;
+}
+
+.fixed{
+    position: fixed;
+}
+.hide-nav{
+    background-color: #009fc6;
+    border-radius: 100%;
+    text-align: center;
+    width: 37px;
+    color: white;
+    margin: 10px;
+}
+
+.nav-element{
+    font-size: 35px;
+}
+
+.nav-title{
+    font-size: 45px;
+}
+
+.config {
+    font-size: 30px;
+    color: white;
+}
+
+@media only screen and (min-width: 100px) {
+    #mainNav{
+        visibility: hidden;
+    }
+
+    #triggerShow{
+        visibility: visible;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #mainNav{
+        width: 250px;
+        visibility: visible;
+    }
+
+    #triggerShow{
+        visibility: hidden;
+    }
+
+    #triggerHide{
+        visibility: hidden;
+    }
 }
