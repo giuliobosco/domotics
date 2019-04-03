@@ -208,4 +208,68 @@ comment the rows 19,20:
     </Context>
 ```
 
-reboot the server and try to connet again on `ip:8080`
+reboot the server and try to connect again on `ip:8080`
+
+## configure Apache Reverse Proxy
+
+Apache will be used as Reverse Proxy, for redirect the requests from the apache web server to
+Apache Tomcat.
+
+Install Apache on CentOS, enable it and start it.
+
+```
+yum install httpd           # install
+systemctl enable httpd      # enable
+systemctl start httpd       # start
+```
+
+Then create the virtual host. Create the file `/etc/httpd/conf.d/tomcat_rev_proxy.conf`.
+
+```
+<VirtualHost example.domain.com:80>
+  ServerName domotics.domain.com
+
+  ProxyRequests Off
+  ProxyPass /examples ajp://localhost:8009/examples
+  ProxyPassReverse /examples ajp://localhost:8009/examples
+</VirtualHost>
+```
+
+With this it will be displayed the the Apache Tomcat web-app `/example` on the request to the Proxy
+`example.domain.com/examples`.
+
+After configured the reverse proxy, check the configuration:
+
+```
+apachectl configtest
+```
+
+It should return something like `Syntax OK`, if it returns it, restart Apache httpd, with:
+
+```
+systemctl restart httpd
+```
+
+Now configure tomcat for accept connection from the Apache httpd reverse proxy.  
+Edit configuration file of tomcat, `/opt/tomcat/conf/server.xml`, and go to the line that contains
+`Connector` and edit it as follow:
+
+```
+<Connector address="127.0.0.1" port="8009"...
+```
+
+Then restart tomcat:
+
+```
+/opt/tomcat/bin/shutdown.sh
+/opt/tomcat/bin/startup.sh
+```
+
+Before test if everything works open the port 80 on the firewall, with the command:
+
+```
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --reload
+```
+
+Now open your browser and open the page `example.domain.com/example`.
