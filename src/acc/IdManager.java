@@ -22,37 +22,46 @@
  * THE SOFTWARE.
  */
 
+package acc;
+
 import java.sql.*;
 
 /**
+ * Manage ACC-Client-ID and ACC-Client-KEY, collecting data from the domotics database.
  *
  * @author guebe
+ * @author giuliobosco
+ * @version 1.0.1 (2019-04-05)
  */
 public class IdManager {
 
     /**
-     * This method connects to the database
-     * @param user User to log in
-     * @param pass Password to log in
-     * @param databaseURL Url of the database e.g.:"jdbc:msql://localhost:3306/Demo"
-     * @return the connection to the database
-     * @throws SQLException
-     * @throws ClassNotFoundException
+     * Get the connection to the database.
+     *
+     * @param username Database username.
+     * @param password Database password.
+     * @param server   Database server address.
+     * @param port     Database port.
+     * @param database Database.
+     * @return Database connection.
+     * @throws SQLException           Error with the sql server.
+     * @throws ClassNotFoundException Jdbc Driver not found.
      */
-    public Connection connectDB(String user, String pass, String databaseURL) throws SQLException, ClassNotFoundException{
+    public Connection getDbConnection(String username, String password, String server, int port, String database) throws SQLException, ClassNotFoundException {
+        String connectionString = "jdbc:mysql://" + server + ":" + port + "/" + database;
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(databaseURL, user, pass);
-        return conn;
+        return DriverManager.getConnection(connectionString, username, password);
     }
 
     /**
-     * This method does a query on the database
-     * @param c Connection to the database
-     * @param query Query to execute
-     * @return Returns the query
-     * @throws SQLException
+     * Execute query on database.
+     *
+     * @param c     Database connection.
+     * @param query Query to execute on the database.
+     * @return Query result set.
+     * @throws SQLException Error with the sql server.
      */
-    public ResultSet query(Connection c, String query) throws SQLException{
+    public ResultSet query(Connection c, String query) throws SQLException {
         // create the java statement
         Statement st = c.createStatement();
 
@@ -64,50 +73,54 @@ public class IdManager {
     }
 
     /**
-     * This method does an update on the database
-     * @param c Connection to the database
-     * @param update Update to execute
+     * Execute update query on database.
+     *
+     * @param connection Database connection.
+     * @param update     Update to execute on the database.
      * @throws SQLException
      */
-    public void update(Connection c, String update) throws SQLException{
-        Statement st = c.createStatement();
+    public void update(Connection connection, String update) throws SQLException {
+        Statement st = connection.createStatement();
         st.executeUpdate(update);
     }
 
     /**
-     * This method controls if the arduiino's ip is changed
-     * @param c Connection to the database
-     * @param id Arduino's id
-     * @param ip Arduino's ip
-     * @throws SQLException
+     * Check arduino IP address.
+     * If the IP is different on the database and the actual, it will be updated.
+     *
+     * @param connection Database connectino.
+     * @param id         Arduino's ACC-Client-ID.
+     * @param ip         Arduino's IP Address.
+     * @throws SQLException Error with the sql server.
      */
-    public void checkIp(Connection c, String id, String ip) throws SQLException{
-        ResultSet rs = query(c, "SELECT ip from arduino where client_id="+id);
-        if(ip != rs.getString("ip")){
-            update(c,"update arduino set ip ="+ip+" where client_id="+id);
+    public void checkIp(Connection connection, String id, String ip) throws SQLException {
+        ResultSet rs = query(connection, "SELECT ip from arduino where client_id=" + id);
+        if (!ip.equals(rs.getString("ip"))) {
+            update(connection, "update arduino set ip =" + ip + " where client_id=" + id);
         }
     }
 
     /**
-     * This method checks if the key exists, if it doesn't exists it creates one
-     * @param c Connection to the database
-     * @param id Arduino's id
-     * @return returns the key
-     * @throws SQLException
+     * Check the arduino ACC-Client-Key by the ID.
+     *
+     * @param connection Connection to the database.
+     * @param id         Arduino ACC-Client-ID.
+     * @return Arduino ACC-Client-KEY.
+     * @throws SQLException Error with the sql server.
      */
-    public String checkKey(Connection c, String id) throws SQLException{
-        ResultSet rs = query(c, "SELECT ip from arduino where client_id="+id);
-        if(rs.getString("client_key")!= null){
+    public String getAccClientKey(Connection connection, String id) throws SQLException {
+        ResultSet rs = query(connection, "SELECT ip from arduino where client_id=" + id);
+        if (rs.getString("client_key") != null) {
             return rs.getString("client_key");
         }
-        ResultSet ds = query(c, "SELECT ip from arduino where client_id="+id);
+        ResultSet ds = query(connection, "SELECT ip from arduino where client_id=" + id);
         boolean flag = true;
         String key = "";
-        while(flag){
+        while (flag) {
             key = createKey();
             flag = false;
-            while(ds.next()){
-                if(ds.getString("client_key").equals(key)){
+            while (ds.next()) {
+                if (ds.getString("client_key").equals(key)) {
                     flag = true;
                 }
             }
@@ -116,14 +129,15 @@ public class IdManager {
     }
 
     /**
-     * This method creates a random hexadecimal key for the Arduino
-     * @return Hexadecimal key
+     * Generate a random ACC-Client-KEY.
+     *
+     * @return Hexadecimal ACC-Client-KEY.
      */
-    public String createKey(){
-        char[] hex = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    public String createKey() {
+        char[] hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         String result = "";
-        for(int i = 0; i < 12; i++){
-            int rand = (int)(Math.random()*16);
+        for (int i = 0; i < 12; i++) {
+            int rand = (int) (Math.random() * 16);
             result += hex[rand];
         }
         return result;
