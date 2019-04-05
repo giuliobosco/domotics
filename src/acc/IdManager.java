@@ -60,9 +60,9 @@ public class IdManager {
      * @throws SQLException Error with the sql server.
      */
     public void checkIp(String id, String ip) throws SQLException {
-        ResultSet rs = this.connector.query("SELECT ip from arduino where client_id=" + id);
+        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         if (!ip.equals(rs.getString("ip"))) {
-            this.connector.update("update arduino set ip =" + ip + " where client_id=" + id);
+            this.connector.update("UPDATE arduino SET ip =" + ip + " WHERE client_id=" + id);
         }
     }
 
@@ -74,11 +74,11 @@ public class IdManager {
      * @throws SQLException Error with the sql server.
      */
     public String getAccClientKey(String id) throws SQLException {
-        ResultSet rs = this.connector.query("SELECT ip from arduino where client_id=" + id);
+        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         if (rs.getString("client_key") != null) {
             return rs.getString("client_key");
         }
-        ResultSet ds = this.connector.query("SELECT ip from arduino where client_id=" + id);
+        ResultSet ds = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         boolean flag = true;
         String key = "";
         while (flag) {
