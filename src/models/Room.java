@@ -21,14 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package models;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Domotics room.
- * 
+ *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-05)
+ * @version 1.0.1 (2019-04-05)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
@@ -64,5 +69,22 @@ public class Room {
     // -------------------------------------------------------------------------------- Help Methods
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
-    
+
+    /**
+     * Get the rooms from the sql result set, of the query to the domotics database.
+     *
+     * @param sqlResultSet Sql result set.
+     * @return Rooms in the result set.
+     * @throws SQLException Error on the database.
+     */
+    public static List<Room> getRooms(ResultSet sqlResultSet) throws SQLException {
+        List<Room> rooms = new ArrayList<>();
+
+        while (sqlResultSet.next()) {
+            rooms.add(new Room(sqlResultSet.getString("name")));
+        }
+
+        return rooms;
+    }
+
 }
