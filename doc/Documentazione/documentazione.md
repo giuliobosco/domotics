@@ -159,7 +159,9 @@ LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuat
 
 #### 2.1.2 Architettura Data Base
 
+![Gantt](img/gantt.png)
 
+Questo è il gantt che rappresenta la nostra pianificazione di base. La nostra pianificazione è stata abbastanza superfi
 
 #### 2.1.3 Architettura LDAP connector
 
