@@ -147,12 +147,19 @@ Hardware utilizzati:
 
 #### 2.1.1 Architettura progetto
 
-![fullStructure](../img/full_system_architetture.png)
+![fullStructure](img/full_system_architetture.png)
 
-Questo è lo schema che rappresenta il nostro progetto. Infatti il nostro progetto è strutturato nel seguente modo: 
-Ci saranno i vari componenti dell'aula, in questo caso le luci, il beamer, le tende e i vari sensori che saranno connessi all'arduino. Automatic mode è un sistema a parte indipendente che si occupa di gestire tende, luci e beamer in modo autonomo tramite i sensori. L'arduino tramite l'Arduino Connection Controller Server e Client comunica con il sito web, da cui si può accedere e tramite il login alla dashboard iniziale. Il sito web è messo su da Tomcat e Domotics Server si occupa di gestire il codice PHP del sito. LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente. Domotics server si connette poi al database per ricavare tutte le informazioni come le varie chiavi, il pin e gli indirizzi ip.
+Questo è lo schema che rappresenta il nostro progetto. 
+Il nostro progetto è strutturato nel seguente modo: 
+Nella parte fisica ci saranno i vari componenti dell'aula, come le luci, il beamer, le tende e i vari sensori che verranno utilizzati dal sistema Automatic mode. 
+Automatic mode è un sistema a parte indipendente che si occupa di gestire tende, luci e beamer in modo autonomo tramite i sensori. 
+L'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere e tramite il login, una volta che si ci logga il sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire. 
+Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro data base dove salviamo le seguenti informazioni. 
+LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente.
 
 #### 2.1.2 Architettura Data Base
+
+
 
 #### 2.1.3 Architettura LDAP connector
 
