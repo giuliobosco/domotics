@@ -43,8 +43,6 @@ char D12value[2]; // port light
 char D13value[2]; // window light
 
 // input pin variables
-char A0value[2];  // light sensor
-char A1value[2];  // temperature sensor
 char D5value[2];  // port light button
 char D6value[2];  // window light button
 
@@ -65,8 +63,6 @@ void setup() {
     }
 
     // set the memory to use - input pin
-    memset(A0value, 0, 2);
-    memset(A1value, 0, 2);
     memset(D5value, 0, 2);
     memset(D6value, 0, 2);
 
@@ -103,6 +99,22 @@ void loop() {
     Bridge.get("D13", D13value, 2);
     int D13int = atoi(D13value);
     digitalWrite(13, D13int);
+
+    // update variable of pin d6
+    int D6int = digitalRead(6);
+    itoa (D6int,D6value,2);
+    Bridge.put("D6", D6value);
+
+    // update variable of pin d5
+    int D5int = digitalRead(5);
+    itoa (D5int,D5value,2);
+    Bridge.put("D5", D5value);
+
+    // update variable of pin a0 converting it as string
+    Bridge.put("A0", String(analogRead(0)));
+
+    // update variable of pin a0 converting it as string
+    Bridge.put("A1", String(analogRead(1)));
 
     delay(10);
 }
