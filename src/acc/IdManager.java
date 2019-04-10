@@ -31,7 +31,7 @@ import java.sql.*;
 /**
  * Manage ACC-Client-ID and ACC-Client-KEY, collecting data from the domotics database.
  *
- * @author guebe
+ * @author paologuebeli
  * @author giuliobosco
  * @version 1.1 (2019-04-05)
  */
