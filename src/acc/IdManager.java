@@ -24,6 +24,8 @@
 
 package acc;
 
+import jdbc.JdbcConnector;
+
 import java.sql.*;
 
 /**
@@ -31,89 +33,52 @@ import java.sql.*;
  *
  * @author guebe
  * @author giuliobosco
- * @version 1.0.1 (2019-04-05)
+ * @version 1.1 (2019-04-05)
  */
 public class IdManager {
 
     /**
-     * Get the connection to the database.
-     *
-     * @param username Database username.
-     * @param password Database password.
-     * @param server   Database server address.
-     * @param port     Database port.
-     * @param database Database.
-     * @return Database connection.
-     * @throws SQLException           Error with the sql server.
-     * @throws ClassNotFoundException Jdbc Driver not found.
+     * Jdbc connection manager.
      */
-    public Connection getDbConnection(String username, String password, String server, int port, String database) throws SQLException, ClassNotFoundException {
-        String connectionString = "jdbc:mysql://" + server + ":" + port + "/" + database;
-        Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection(connectionString, username, password);
-    }
+    private JdbcConnector connector;
 
     /**
-     * Execute query on database.
+     * Create the IdManager with the jdbc connector.
      *
-     * @param c     Database connection.
-     * @param query Query to execute on the database.
-     * @return Query result set.
-     * @throws SQLException Error with the sql server.
+     * @param connector Jdbc connection manager.
      */
-    public ResultSet query(Connection c, String query) throws SQLException {
-        // create the java statement
-        Statement st = c.createStatement();
-
-        // execute the query, and get a java resultset
-        ResultSet rs = st.executeQuery(query);
-        st.close();
-
-        return rs;
-    }
-
-    /**
-     * Execute update query on database.
-     *
-     * @param connection Database connection.
-     * @param update     Update to execute on the database.
-     * @throws SQLException
-     */
-    public void update(Connection connection, String update) throws SQLException {
-        Statement st = connection.createStatement();
-        st.executeUpdate(update);
+    public IdManager(JdbcConnector connector) {
+        this.connector = connector;
     }
 
     /**
      * Check arduino IP address.
      * If the IP is different on the database and the actual, it will be updated.
      *
-     * @param connection Database connectino.
      * @param id         Arduino's ACC-Client-ID.
      * @param ip         Arduino's IP Address.
      * @throws SQLException Error with the sql server.
      */
-    public void checkIp(Connection connection, String id, String ip) throws SQLException {
-        ResultSet rs = query(connection, "SELECT ip from arduino where client_id=" + id);
+    public void checkIp(String id, String ip) throws SQLException {
+        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         if (!ip.equals(rs.getString("ip"))) {
-            update(connection, "update arduino set ip =" + ip + " where client_id=" + id);
+            this.connector.update("UPDATE arduino SET ip =" + ip + " WHERE client_id=" + id);
         }
     }
 
     /**
      * Check the arduino ACC-Client-Key by the ID.
      *
-     * @param connection Connection to the database.
      * @param id         Arduino ACC-Client-ID.
      * @return Arduino ACC-Client-KEY.
      * @throws SQLException Error with the sql server.
      */
-    public String getAccClientKey(Connection connection, String id) throws SQLException {
-        ResultSet rs = query(connection, "SELECT ip from arduino where client_id=" + id);
+    public String getAccClientKey(String id) throws SQLException {
+        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         if (rs.getString("client_key") != null) {
             return rs.getString("client_key");
         }
-        ResultSet ds = query(connection, "SELECT ip from arduino where client_id=" + id);
+        ResultSet ds = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
         boolean flag = true;
         String key = "";
         while (flag) {
