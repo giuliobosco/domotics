@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-# Test program for read from the arduino BridgeClient the value of the Thermistor.
+# Domotics thermistor module
 # -
 # @author giuliobosco
 # @version 1.0 (2019-04-12 - 2019-04-12)
