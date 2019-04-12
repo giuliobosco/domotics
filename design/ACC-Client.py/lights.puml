@@ -1,5 +1,5 @@
 @startuml
-class {
+class Lights {
     void __init__(bridge)
     void lightSet(pin, value)
     void lightOn(pin)
