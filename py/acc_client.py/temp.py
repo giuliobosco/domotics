@@ -32,7 +32,7 @@ sys.path.insert(0, '/usr/lib/python2.7/bridge')
 
 from time import sleep                                      # import sleep function
 from bridgeclient import BridgeClient as bridgeclient       # import arduino bridge client
-from math import log;                                       # import log function from math class
+from math import log                                        # import log function from math class
 
 bridge = bridgeclient()                                     # initialize the bridge
 
@@ -50,7 +50,7 @@ while True:
     VR = VCC - VRT                                          # inverse of voltage
     RT = VRT / (VR / R)                                     # resistence of RT
     # ---
-    ln = math.log(RT / RT0)                                 # logarithm of RT by RT0
+    ln = log(RT / RT0)                                 # logarithm of RT by RT0
     TX = (1 / ((ln / B) + (1 / T0)))                        # temperature on the thermistor
     # ---
     TX = TX - 273.15                                        # conversion from kelvin to celsius
