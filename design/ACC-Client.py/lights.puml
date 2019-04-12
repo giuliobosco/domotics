@@ -1,0 +1,8 @@
+@startuml
+class {
+    void __init__(bridge)
+    void lightSet(pin, value)
+    void lightOn(pin)
+    void lightOff(pin)
+}
+@enduml
