@@ -1,0 +1,12 @@
+@startuml
+class Thermistor {
+  float RT0
+  float B
+  float T0
+  float vcc
+  float r
+  void __init__(float vcc, float r)
+  float getKelvin(voltage)
+  float getCelsius(voltage)
+}
+@enduml
