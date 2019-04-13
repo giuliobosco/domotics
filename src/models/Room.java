@@ -125,4 +125,19 @@ public class Room {
         jdbcConnector.closeStatement();
         return null;
     }
+
+    /**
+     * Test if the get method works.
+     *
+     * @param args Command line arguments.
+     * @throws SQLException Error with the MySQL Server.
+     * @throws ClassNotFoundException MySQL Driver class not found.
+     */
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        JdbcConnector jdbc = new JdbcConnector("root", "1234qwer", "localhost", "domotics");
+        jdbc.openConnection();
+        System.out.println(get("A102", jdbc).getName());
+        jdbc.closeConnection();
+    }
+
 }
