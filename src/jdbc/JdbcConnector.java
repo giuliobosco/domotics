@@ -30,7 +30,7 @@ import java.sql.*;
  * Manage connection to databases with JDBC Driver.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.3 (2019-04-05)
+ * @version 1.0.4 (2019-04-05)
  */
 public class JdbcConnector {
     // ------------------------------------------------------------------------------------ Costants
@@ -145,7 +145,7 @@ public class JdbcConnector {
      *
      * @throws SQLException Error on the MySQL Server.
      */
-    private void createStatement() throws SQLException {
+    public void createStatement() throws SQLException {
         if (this.statement != null && !this.statement.isClosed()) {
             this.closeStatement();
         }
@@ -158,7 +158,7 @@ public class JdbcConnector {
      *
      * @throws SQLException Error on the MySQL Server.
      */
-    private void closeStatement() throws SQLException {
+    public void closeStatement() throws SQLException {
         if (!this.statement.isClosed()) {
             this.statement.close();
         }
@@ -210,6 +210,7 @@ public class JdbcConnector {
      * @throws SQLException Error on the MySQL Server.
      */
     public void closeConnection() throws SQLException {
+        this.closeStatement();
         if (this.connection != null) {
             this.connection.close();
         }
