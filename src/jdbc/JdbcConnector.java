@@ -217,4 +217,27 @@ public class JdbcConnector {
 
     // --------------------------------------------------------------------------- Static Components
 
+    /**
+     * Test JdbcConnector, select all rooms from the domotics database.
+     *
+     * @param args Command line arguments (not used).
+     * @throws SQLException Error on the MySQL Server.
+     * @throws ClassNotFoundException MySQL Driver class not found.
+     */
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        JdbcConnector jdbcConnector = new JdbcConnector("root", "1234qwer", "localhost", "domotics");
+        jdbcConnector.openConnection();
+
+        String query = "SELECT * FROM domotics.room";
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        while (resultSet.next()) {
+            System.out.println(resultSet.getString("name"));
+        }
+
+        resultSet.close();
+        jdbcConnector.closeStatement();
+        jdbcConnector.closeConnection();
+    }
+
 }
