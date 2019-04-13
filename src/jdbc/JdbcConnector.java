@@ -30,7 +30,7 @@ import java.sql.*;
  * Manage connection to databases with JDBC Driver.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-04-05)
+ * @version 1.0.3 (2019-04-05)
  */
 public class JdbcConnector {
     // ------------------------------------------------------------------------------------ Costants
@@ -76,6 +76,11 @@ public class JdbcConnector {
      * Connection to the database.
      */
     private Connection connection;
+
+    /**
+     * Connection statement.
+     */
+    private Statement statement;
 
     // --------------------------------------------------------------------------- Getters & Setters
     // -------------------------------------------------------------------------------- Constructors
@@ -135,6 +140,30 @@ public class JdbcConnector {
         return DriverManager.getConnection(connectionString, username, password);
     }
 
+    /**
+     * Create the statement by the connection to database.
+     *
+     * @throws SQLException Error on the MySQL Server.
+     */
+    private void createStatement() throws SQLException {
+        if (this.statement != null && !this.statement.isClosed()) {
+            this.closeStatement();
+        }
+
+        this.statement = this.connection.createStatement();
+    }
+
+    /**
+     * Close the statement by the connection to the database.
+     *
+     * @throws SQLException Error on the MySQL Server.
+     */
+    private void closeStatement() throws SQLException {
+        if (!this.statement.isClosed()) {
+            this.statement.close();
+        }
+    }
+
     // ----------------------------------------------------------------------------- General Methods
 
     /**
@@ -158,13 +187,10 @@ public class JdbcConnector {
      */
     public ResultSet query(String query) throws SQLException {
         // create the java statement
-        Statement st = this.connection.createStatement();
+        this.createStatement();
 
-        // execute the query, and get a java resultset
-        ResultSet rs = st.executeQuery(query);
-        st.close();
-
-        return rs;
+        // execute the query, and get a java result set
+        return this.statement.executeQuery(query);
     }
 
     /**
@@ -176,6 +202,17 @@ public class JdbcConnector {
     public void update(String update) throws SQLException {
         Statement st = this.connection.createStatement();
         st.executeUpdate(update);
+    }
+
+    /**
+     * IF connection to the database is open, close it.
+     *
+     * @throws SQLException Error on the MySQL Server.
+     */
+    public void closeConnection() throws SQLException {
+        if (this.connection != null) {
+            this.connection.close();
+        }
     }
 
     // --------------------------------------------------------------------------- Static Components
