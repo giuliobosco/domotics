@@ -91,6 +91,7 @@ public class JdbcConnector {
         this.host = host;
         this.port = port;
         this.database = database;
+        this.connection = null;
     }
 
 
@@ -136,7 +137,7 @@ public class JdbcConnector {
      * @throws ClassNotFoundException Jdbc Driver not found.
      */
     public void openConnection() throws SQLException, ClassNotFoundException {
-        if (this.connection != null) {
+        if (this.connection == null) {
             this.connection = getDbConnection(this.username, this.password, this.host, this.port, this.database);
         }
     }
