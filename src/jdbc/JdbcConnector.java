@@ -30,7 +30,7 @@ import java.sql.*;
  * Manage connection to databases with JDBC Driver.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-04-05)
+ * @version 1.0.2 (2019-04-05)
  */
 public class JdbcConnector {
     // ------------------------------------------------------------------------------------ Costants
@@ -39,6 +39,11 @@ public class JdbcConnector {
      * MySQL Default connection port.
      */
     public static final int DEFAULT_PORT = 3306;
+
+    /**
+     * Set timezone to UTC, for connection string.
+     */
+    public final String TIMEZONE_UTC = "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     // ---------------------------------------------------------------------------------- Attributes
 
@@ -123,7 +128,9 @@ public class JdbcConnector {
      * @throws ClassNotFoundException Jdbc Driver not found.
      */
     protected Connection getDbConnection(String username, String password, String host, int port, String database) throws SQLException, ClassNotFoundException {
-        String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database;
+        String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database + "?";
+        connectionString += TIMEZONE_UTC;
+
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(connectionString, username, password);
     }
