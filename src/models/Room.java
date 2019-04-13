@@ -24,6 +24,8 @@
 
 package models;
 
+import jdbc.JdbcConnector;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ import java.util.List;
  * Domotics room.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-04-05)
+ * @version 1.0.2 (2019-04-05)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
@@ -87,4 +89,40 @@ public class Room {
         return rooms;
     }
 
+    /**
+     * Get room by name.
+     *
+     * @param name Name of the room.
+     * @return Room.
+     */
+    public static Room get(String name) {
+        return new Room(name);
+    }
+
+    /**
+     * Get the room by name from the domotics database.
+     *
+     * @param name Name of the room.
+     * @param jdbcConnector Connection to the database.
+     * @return Room created from the database.
+     * @throws SQLException Error on the my sql server.
+     * @throws ClassNotFoundException MySQL Driver not found.
+     */
+    public static Room get(String name, JdbcConnector jdbcConnector) throws SQLException, ClassNotFoundException {
+        String query = "SELECT * FROM domotics.room WHERE name = '" + name + "';";
+
+        jdbcConnector.openConnection();
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        while (resultSet.next()) {
+            Room room =  get(resultSet.getString("name"));
+            resultSet.close();
+            jdbcConnector.closeStatement();
+            return room;
+        }
+
+        resultSet.close();
+        jdbcConnector.closeStatement();
+        return null;
+    }
 }
