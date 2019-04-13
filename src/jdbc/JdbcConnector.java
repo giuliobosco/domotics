@@ -30,7 +30,7 @@ import java.sql.*;
  * Manage connection to databases with JDBC Driver.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-05)
+ * @version 1.0.1 (2019-04-05)
  */
 public class JdbcConnector {
     // ------------------------------------------------------------------------------------ Costants
@@ -124,7 +124,7 @@ public class JdbcConnector {
      */
     protected Connection getDbConnection(String username, String password, String host, int port, String database) throws SQLException, ClassNotFoundException {
         String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database;
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(connectionString, username, password);
     }
 
