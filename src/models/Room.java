@@ -35,7 +35,7 @@ import java.util.List;
  * Domotics room.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-04-05)
+ * @version 1.0.2 (2019-04-13)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
