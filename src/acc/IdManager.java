@@ -33,7 +33,7 @@ import java.sql.*;
  *
  * @author paologuebeli
  * @author giuliobosco
- * @version 1.1.2 (2019-04-05)
+ * @version 1.1.3 (2019-04-05)
  */
 public class IdManager {
 
@@ -65,10 +65,12 @@ public class IdManager {
      * @throws SQLException Error with the sql server.
      */
     public void checkIp(String id, String ip) throws SQLException {
-        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
+        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id='" + id + "';");
+        rs.next();
         if (!ip.equals(rs.getString("ip"))) {
-            this.connector.update("UPDATE arduino SET ip =" + ip + " WHERE client_id=" + id);
+            this.connector.update("UPDATE arduino SET ip ='" + ip + "' WHERE client_id='" + id + "';");
         }
+        rs.close();
     }
 
     /**
@@ -99,6 +101,8 @@ public class IdManager {
             }
         }
 
+        rs.close();
+        this.connector.closeStatement();
         this.connector.update("UPDATE domotics.arduino SET client_key ='" + clientKey + "' WHERE client_id='" + id + "';");
         return clientKey;
     }
