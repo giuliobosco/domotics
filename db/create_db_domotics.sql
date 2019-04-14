@@ -43,7 +43,7 @@ CREATE TABLE domotics.room (
 CREATE TABLE domotics.arduino (
 	client_id varchar(255) PRIMARY KEY,
 	ip varchar(255),
-  password varchar(255),
+  root_password varchar(255),
 	client_key varchar(255),
 	room varchar(255),
 
