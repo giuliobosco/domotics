@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2 (2019-04-05)
+ * @version 1.2.1 (2019-04-05)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -103,6 +103,27 @@ public class Arduino {
         this.key = idManager.getAccClientKey(id);
         this.id = id;
         this.room = idManager.getRoomById(id);
+    }
+
+    /**
+     * Create the room from the database with the ACC-Client-ID of the arduino.
+     *
+     * @param jdbcConnector Connection to the MySQL Server.
+     * @param id ACC-Client-ID.
+     * @throws SQLException Error on the MySQL Server.
+     * @throws ClassNotFoundException MySQL Driver class not found.
+     */
+    public Arduino(JdbcConnector jdbcConnector, String id) throws SQLException, ClassNotFoundException {
+        String query = "SELECT * FROM domotics.arduino WHERE client_id='" + id + "';";
+        jdbcConnector.openConnection();
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        resultSet.next();
+        this.id = resultSet.getString("client_id");
+        this.ip = resultSet.getString("ip");
+        this.key = resultSet.getString("client_key");
+        this.rootPassword = resultSet.getString("root_password");
+        this.room = Room.get(resultSet.getString("room"));
     }
 
     // -------------------------------------------------------------------------------- Help Methods
