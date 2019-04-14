@@ -178,5 +178,7 @@ public class Arduino {
         for (Arduino a : arduinos) {
             System.out.println(a.id);
         }
+
+        System.out.println(new Arduino(jdbcConnector, "156EA1165EE4").id);
     }
 }
