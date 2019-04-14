@@ -33,9 +33,14 @@ import java.sql.*;
  *
  * @author paologuebeli
  * @author giuliobosco
- * @version 1.1.1 (2019-04-05)
+ * @version 1.1.2 (2019-04-05)
  */
 public class IdManager {
+
+    /**
+     * ACC-Client-KEY
+     */
+    public final int CLIENT_KEY_LENGTH = 12;
 
     /**
      * Jdbc connection manager.
@@ -74,23 +79,28 @@ public class IdManager {
      * @throws SQLException Error with the sql server.
      */
     public String getAccClientKey(String id) throws SQLException {
-        ResultSet rs = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
-        if (rs.getString("client_key") != null) {
+        ResultSet rs = this.connector.query("SELECT client_key FROM domotics.arduino WHERE client_id='" + id + "';");
+        rs.next();
+        String clientKey = rs.getString("client_key");
+        if (clientKey != null && clientKey.length() == CLIENT_KEY_LENGTH) {
             return rs.getString("client_key");
         }
-        ResultSet ds = this.connector.query("SELECT ip FROM arduino WHERE client_id=" + id);
-        boolean flag = true;
-        String key = "";
-        while (flag) {
-            key = createKey();
-            flag = false;
-            while (ds.next()) {
-                if (ds.getString("client_key").equals(key)) {
-                    flag = true;
+        rs.close();
+
+        rs = this.connector.query("SELECT client_key FROM domotics.arduino WHERE client_id='" + id + "';");
+        boolean foundEqualClientKey = true;
+        while (foundEqualClientKey) {
+            clientKey = IdManager.createKey();
+            foundEqualClientKey = false;
+            while (rs.next()) {
+                if (rs.getString("client_key").equals(clientKey)) {
+                    foundEqualClientKey = true;
                 }
             }
         }
-        return key;
+
+        this.connector.update("UPDATE domotics.arduino SET client_key ='" + clientKey + "' WHERE client_id='" + id + "';");
+        return clientKey;
     }
 
     /**
