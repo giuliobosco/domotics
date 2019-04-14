@@ -27,7 +27,10 @@ package models;
 import acc.IdManager;
 import jdbc.JdbcConnector;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Domotics arduino.
@@ -105,7 +108,30 @@ public class Arduino {
     // -------------------------------------------------------------------------------- Help Methods
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
-    
+
+    /**
+     * Get the arduinos from the sql result set, of the query to the domotics database.
+     *
+     * @param sqlResultSet Sql result set.
+     * @return Arduinos in the result set.
+     * @throws SQLException Error on the database.
+     */
+    public static List<Arduino> getArduinos(ResultSet sqlResultSet) throws SQLException {
+        List<Arduino> arduinos = new ArrayList<>();
+
+        while (sqlResultSet.next()) {
+            arduinos.add(new Arduino(
+                    sqlResultSet.getString("client_id"),
+                    sqlResultSet.getString("ip"),
+                    sqlResultSet.getString("client_key"),
+                    sqlResultSet.getString("root_password"),
+                    Room.get(sqlResultSet.getString("room"))
+            ));
+        }
+
+        return arduinos;
+    }
+
     /**
      * Test the class Arduino.
      *
