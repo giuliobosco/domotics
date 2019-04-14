@@ -33,7 +33,7 @@ import java.sql.*;
  *
  * @author paologuebeli
  * @author giuliobosco
- * @version 1.1 (2019-04-05)
+ * @version 1.1.1 (2019-04-05)
  */
 public class IdManager {
 
@@ -55,8 +55,8 @@ public class IdManager {
      * Check arduino IP address.
      * If the IP is different on the database and the actual, it will be updated.
      *
-     * @param id         Arduino's ACC-Client-ID.
-     * @param ip         Arduino's IP Address.
+     * @param id Arduino's ACC-Client-ID.
+     * @param ip Arduino's IP Address.
      * @throws SQLException Error with the sql server.
      */
     public void checkIp(String id, String ip) throws SQLException {
@@ -69,7 +69,7 @@ public class IdManager {
     /**
      * Check the arduino ACC-Client-Key by the ID.
      *
-     * @param id         Arduino ACC-Client-ID.
+     * @param id Arduino ACC-Client-ID.
      * @return Arduino ACC-Client-KEY.
      * @throws SQLException Error with the sql server.
      */
@@ -98,7 +98,7 @@ public class IdManager {
      *
      * @return Hexadecimal ACC-Client-KEY.
      */
-    public String createKey() {
+    public static String createKey() {
         char[] hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         String result = "";
         for (int i = 0; i < 12; i++) {
@@ -106,5 +106,14 @@ public class IdManager {
             result += hex[rand];
         }
         return result;
+    }
+
+    /**
+     * Test the class IdManager.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        System.out.println(IdManager.createKey());
     }
 }
