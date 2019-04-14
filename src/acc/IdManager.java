@@ -156,5 +156,7 @@ public class IdManager {
         System.out.println(new IdManager(jdbcConnector).getAccClientKey("156EA1165EE4"));
 
         new IdManager(jdbcConnector).checkIp("156EA1165EE4", "10.20.4.103");
+
+        System.out.println(new IdManager(jdbcConnector).getRoomById("156EA1165EE4").getName());
     }
 }
