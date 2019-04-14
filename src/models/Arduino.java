@@ -149,5 +149,13 @@ public class Arduino {
         System.out.println(arduino.rootPassword);
         System.out.println(arduino.ip);
         System.out.println(arduino.room.getName());
+
+        // getArduinos
+        String query = "SELECT * FROM domotics.arduino";
+        List<Arduino> arduinos = Arduino.getArduinos(jdbcConnector.query(query));
+
+        for (Arduino a : arduinos) {
+            System.out.println(a.id);
+        }
     }
 }
