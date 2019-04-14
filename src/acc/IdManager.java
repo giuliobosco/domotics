@@ -123,7 +123,11 @@ public class IdManager {
      *
      * @param args Command line arguments.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         System.out.println(IdManager.createKey());
+
+        JdbcConnector jdbcConnector = new JdbcConnector("root", "1234qwer", "localhost", "domotics");
+        jdbcConnector.openConnection();
+        System.out.println(new IdManager(jdbcConnector).getAccClientKey("156EA1165EE4"));
     }
 }
