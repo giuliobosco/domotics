@@ -106,4 +106,22 @@ public class Arduino {
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
     
+    /**
+     * Test the class Arduino.
+     *
+     * @param args Command line arguments.
+     * @throws SQLException Error on the MySQL Server.
+     * @throws ClassNotFoundException MySQL Driver class
+     */
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        JdbcConnector jdbcConnector = new JdbcConnector("root", "1234qwer", "localhost", "domotics");
+        jdbcConnector.openConnection();
+        IdManager idManager = new IdManager(jdbcConnector);
+        Arduino arduino = new Arduino(idManager, "156EA1165EE4", "10.20.4.103");
+        System.out.println(arduino.id);
+        System.out.println(arduino.key);
+        System.out.println(arduino.rootPassword);
+        System.out.println(arduino.ip);
+        System.out.println(arduino.room.getName());
+    }
 }
