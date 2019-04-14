@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.1 (2019-04-05)
+ * @version 1.2.2 (2019-04-14)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -68,16 +68,53 @@ public class Arduino {
     private Room room;
 
     // --------------------------------------------------------------------------- Getters & Setters
+
+    /**
+     * Get the ACC-Client-ID.
+     *
+     * @return ACC-Client-ID.
+     */
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Get the ip of the arduino.
+     *
+     * @return ACC-Client-ID.
+     */
+    public String getIp() {
+        return this.ip;
+    }
+
+    /**
+     * Get the ACC-Client-KEY.
+     *
+     * @return ACC-Client-KEY.
+     */
+    public String getKey() {
+        return key;
+    }
+
+    /**
+     * Get the room of the arduino.
+     *
+     * @return Room of the arduino.
+     */
+    public Room getRoom() {
+        return room;
+    }
+
     // -------------------------------------------------------------------------------- Constructors
 
     /**
      * Create arduino with the ip, the ACC-Client-KEY, the ACC-Client-ID and the domotics room.
      *
-     * @param ip   Ip of the arduino.
-     * @param key  ACC-Client-KEY.
-     * @param id   ACC-Client-ID.
+     * @param ip           Ip of the arduino.
+     * @param key          ACC-Client-KEY.
+     * @param id           ACC-Client-ID.
      * @param rootPassword Root password of the arduino.
-     * @param room Room of the arduino.
+     * @param room         Room of the arduino.
      */
     public Arduino(String id, String ip, String key, String rootPassword, Room room) {
         this.id = id;
@@ -109,8 +146,8 @@ public class Arduino {
      * Create the room from the database with the ACC-Client-ID of the arduino.
      *
      * @param jdbcConnector Connection to the MySQL Server.
-     * @param id ACC-Client-ID.
-     * @throws SQLException Error on the MySQL Server.
+     * @param id            ACC-Client-ID.
+     * @throws SQLException           Error on the MySQL Server.
      * @throws ClassNotFoundException MySQL Driver class not found.
      */
     public Arduino(JdbcConnector jdbcConnector, String id) throws SQLException, ClassNotFoundException {
@@ -157,7 +194,7 @@ public class Arduino {
      * Test the class Arduino.
      *
      * @param args Command line arguments.
-     * @throws SQLException Error on the MySQL Server.
+     * @throws SQLException           Error on the MySQL Server.
      * @throws ClassNotFoundException MySQL Driver class
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -165,20 +202,19 @@ public class Arduino {
         jdbcConnector.openConnection();
         IdManager idManager = new IdManager(jdbcConnector);
         Arduino arduino = new Arduino(idManager, "156EA1165EE4", "10.20.4.103");
-        System.out.println(arduino.id);
-        System.out.println(arduino.key);
-        System.out.println(arduino.rootPassword);
-        System.out.println(arduino.ip);
-        System.out.println(arduino.room.getName());
+        System.out.println(arduino.getId());
+        System.out.println(arduino.getKey());
+        System.out.println(arduino.getIp());
+        System.out.println(arduino.getRoom().getName());
 
         // getArduinos
         String query = "SELECT * FROM domotics.arduino";
         List<Arduino> arduinos = Arduino.getArduinos(jdbcConnector.query(query));
 
         for (Arduino a : arduinos) {
-            System.out.println(a.id);
+            System.out.println(a.getId());
         }
 
-        System.out.println(new Arduino(jdbcConnector, "156EA1165EE4").id);
+        System.out.println(new Arduino(jdbcConnector, "156EA1165EE4").getId());
     }
 }
