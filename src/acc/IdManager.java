@@ -25,6 +25,7 @@
 package acc;
 
 import jdbc.JdbcConnector;
+import models.Room;
 
 import java.sql.*;
 
@@ -33,7 +34,7 @@ import java.sql.*;
  *
  * @author paologuebeli
  * @author giuliobosco
- * @version 1.1.3 (2019-04-05)
+ * @version 1.1.4 (2019-04-05)
  */
 public class IdManager {
 
@@ -105,6 +106,26 @@ public class IdManager {
         this.connector.closeStatement();
         this.connector.update("UPDATE domotics.arduino SET client_key ='" + clientKey + "' WHERE client_id='" + id + "';");
         return clientKey;
+    }
+
+    /**
+     * Get the room from the id of the arduino.
+     *
+     * @param id Id of the arduino.
+     * @return Room of the arduino.
+     * @throws SQLException Error with the MySQL Server, or no room with the selected arduino.
+     */
+    public Room getRoomById(String id) throws SQLException {
+        String query = "SELECT * FROM domotics.arduino WHERE arduino.client_id='" + id + "';";
+        ResultSet resultset = this.connector.query(query);
+        resultset.next();
+
+        String roomName = resultset.getString("room");
+        if (roomName != null && roomName.length() > 0) {
+            return Room.get(roomName);
+        } else {
+            throw new SQLException("No room with id " + id + " found!");
+        }
     }
 
     /**
