@@ -133,5 +133,7 @@ public class IdManager {
         JdbcConnector jdbcConnector = new JdbcConnector("root", "1234qwer", "localhost", "domotics");
         jdbcConnector.openConnection();
         System.out.println(new IdManager(jdbcConnector).getAccClientKey("156EA1165EE4"));
+
+        new IdManager(jdbcConnector).checkIp("156EA1165EE4", "10.20.4.103");
     }
 }
