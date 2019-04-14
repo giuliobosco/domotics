@@ -21,10 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package models;
 
 import acc.IdManager;
+import jdbc.JdbcConnector;
 
 import java.sql.SQLException;
 
@@ -32,11 +33,16 @@ import java.sql.SQLException;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-05)
+ * @version 1.2 (2019-04-05)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
     // ---------------------------------------------------------------------------------- Attributes
+
+    /**
+     * ACC-Client-ID.
+     */
+    private String id;
 
     /**
      * Ip of of the arduino.
@@ -49,9 +55,9 @@ public class Arduino {
     private String key;
 
     /**
-     * ACC-Client-ID.
+     * Root password of the arduino.
      */
-    private String id;
+    private String rootPassword;
 
     /**
      * Room of the arduino.
@@ -64,35 +70,36 @@ public class Arduino {
     /**
      * Create arduino with the ip, the ACC-Client-KEY, the ACC-Client-ID and the domotics room.
      *
-     * @param ip Ip of the arduino.
-     * @param key ACC-Client-KEY.
-     * @param id ACC-Client-ID.
+     * @param ip   Ip of the arduino.
+     * @param key  ACC-Client-KEY.
+     * @param id   ACC-Client-ID.
+     * @param rootPassword Root password of the arduino.
      * @param room Room of the arduino.
      */
-    public Arduino(String ip, String key, String id, Room room) {
+    public Arduino(String id, String ip, String key, String rootPassword, Room room) {
+        this.id = id;
         this.ip = ip;
         this.key = key;
-        this.id = id;
+        this.rootPassword = rootPassword;
         this.room = room;
     }
 
     /**
-     * Create arduino with the ip, the ACC-Client-ID and the room, this will require also an
-     * domotics IdManager, for check the ACC-Client-ID, update the IP on the database and generate
-     * a new ACC-Client-KEY.
+     * Create arduino with ACC-Client-ID and the Ip of the arduino, this will require also an
+     * domotics IdManager, for check the ACC-Client-ID, update the IP on the database, generate a
+     * new ACC-Client-KEY and get the room of the Arduino.
      *
      * @param idManager Domotics Id Manager.
-     * @param ip Ip of the arduino.
-     * @param id ACC-Client-ID.
-     * @param room Room of the arduino.
-     * @throws SQLException
+     * @param id        ACC-Client-ID.
+     * @param ip        Ip of the arduino.
+     * @throws SQLException Error with MySQL Server.
      */
-    public Arduino(IdManager idManager, String ip, String id, Room room) throws SQLException {
+    public Arduino(IdManager idManager, String id, String ip) throws SQLException {
         idManager.checkIp(id, ip);
         this.ip = ip;
         this.key = idManager.getAccClientKey(id);
         this.id = id;
-        this.room = room;
+        this.room = idManager.getRoomById(id);
     }
 
     // -------------------------------------------------------------------------------- Help Methods
