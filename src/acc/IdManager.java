@@ -34,7 +34,7 @@ import java.sql.*;
  *
  * @author paologuebeli
  * @author giuliobosco
- * @version 1.1.4 (2019-04-05)
+ * @version 1.1.4 (2019-04-14)
  */
 public class IdManager {
 
