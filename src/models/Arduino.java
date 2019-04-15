@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.3 (2019-04-15)
+ * @version 1.2.4 (2019-04-15)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -231,5 +231,11 @@ public class Arduino {
         }
 
         System.out.println(new Arduino(jdbcConnector, "156EA1165EE4").getId());
+
+        arduinos = getArduinosByRoom(jdbcConnector, "A100");
+
+        for (Arduino a : arduinos) {
+            System.out.println(a.getId());
+        }
     }
 }
