@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.2 (2019-04-14)
+ * @version 1.2.3 (2019-04-15)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -188,6 +188,21 @@ public class Arduino {
         }
 
         return arduinos;
+    }
+
+    /**
+     * Get all the arduino in a room.
+     *
+     * @param jdbcConnector Connection to the MySQL domotics database.
+     * @param roomName Name of the room.
+     * @return List of arduino in the room.
+     * @throws SQLException Error on the MySQL Server.
+     */
+    public static List<Arduino> getArduinosByRoom(JdbcConnector jdbcConnector, String roomName) throws SQLException {
+        String query = "SELECT * FROM domotics.arduino WHERE room='" + roomName + "';";
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        return Arduino.getArduinos(resultSet);
     }
 
     /**
