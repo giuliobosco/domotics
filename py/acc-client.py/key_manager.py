@@ -33,7 +33,10 @@ class KeyManager:
         self.key = key
 
     def check_key(self, key):
-        return self.key == key
+        if len(self.key) > 0:
+            return self.key == key
+        else:
+            return True
 
     def get_key(self):
         return self.key
