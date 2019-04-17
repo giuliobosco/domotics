@@ -25,9 +25,11 @@ THE SOFTWARE.
 # Base http server
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-17 - 2019-04-12)
+# @version 1.1 (2019-04-17 - 2019-04-17)
 
 from http.server import BaseHTTPRequestHandler
+
+from response_render import ResponseRender
 
 
 class HttpServer(BaseHTTPRequestHandler):
@@ -38,5 +40,5 @@ class HttpServer(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_header_json()
-        self.wfile.write(bytes("{\"status\":\"OK\",\"key\":\"" + self.server.key_manager.get_key() + "\"}", "utf-8"))
+        self.wfile.write(ResponseRender.render(self.path, self.server.key_manager))
 
