@@ -18,20 +18,14 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ### 1.5 Analisi e specifica dei requisiti
 
-|		   |ID: REQ-01    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Domotizzazione dell'aula                ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Scegliere quale arduino utilizzare <br> ||
-|002:      |Gestione tende<br>                      ||
-|003:      |Gestione beamer<br>                     ||
-|004:      |Gestione luci<br>                       ||
-|005:      |Front-end<br>                           ||
-|006:      |Back-end<br>                            ||
-|007:      |Guide di utilizzo<br>                   ||
+|		   |ID: REQ-01    |	    		                       |
+|:---------|:-------------|:-----------------------------------|
+|Nome:     |Domotizzazione dell'aula                          ||
+|Priorità: |1                                                 ||
+|Versione: |1.0                                               ||
+|Note:     |                                                  ||
+|          |Sotto requisiti                                    |
+|001:      |Gestione luci, tende e beamer tramite un sito web ||
 
 |		   |ID: REQ-02    |	    		             |
 |:---------|:-------------|:-------------------------|
@@ -44,103 +38,100 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 |		   |ID: REQ-03    |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Sito Web                                ||
+|Nome:     |Frontend                                ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
-|001:      |modulo gestione dell'aula               ||
-|002:      |modulo gestione delle aule              ||
-|003:      |modulo luci/tende/beamer                ||
-|004:      |modulo login                            ||
+|001:      |Sito Web                                 |    
+|002:      |Modulo gestione dell'aula               ||
+|003:      |Modulo gestione delle aule              ||
+|004:      |Modulo luci/tende/beamer                ||
+|005:      |Modulo login                            ||
 
 |		   |ID: REQ-04    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |Back-end                                         ||
+|Nome:     |Backend                                          ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 |          |Sotto requisiti                                   |
 |001:      |Server in python                                 ||
-|002:      |GServer in TomCat                                ||
+|002:      |Server in TomCat                                 ||
 |003:      |Client in arduino                                ||
 |004:      |LDap connector per il login                      ||
-|005:      |JDBC per prendere i valori dal data base con java||
-|006:      |Back-end<br>                                     ||
-|007:      |Guide di utilizzo<br>                            ||
+|005:      |JDBC con Java e MySQL                            ||
 
 |		   |ID: REQ-05    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
-|Priorità: |1                                                       ||
+|Priorità: |2                                                       ||
 |Versione: |1.0                                                     ||
 |Note:     |                                                        ||
 |          |Sotto requisiti                                          |
-|001:      |Guida di utilizzo dell'arduino yun                      ||
-|002:      |Guida di utilizzo e implementazione del server in Tomcat||
+|001:      |Arduino yun                                             ||
+|002:      |Server in Tomcat                                        ||
 
-|		   |ID: REQ-06    |	    		                                       |
-|:---------|:-------------|:---------------------------------------------------|
-|Nome:     |Simulazione controllo delle luci                                  ||
-|Priorità: |1                                                                 ||
-|Versione: |1.0                                                               ||
-|Note:     |                                                                  ||
-|          |Sotto requisiti                                                    |
-|001:      |Simulazione del controllo delle luci con l'arduino tramite dei led||
+|		   |ID: REQ-06    |	    		               |
+|:---------|:-------------|:---------------------------|
+|Nome:     |Simulazione luci                          ||
+|Priorità: |1                                         ||
+|Versione: |1.0                                       ||
+|Note:     |                                          ||
+|          |Sotto requisiti                            |
+|001:      |Controllo dei led tramite l'arduino       ||
 
-|		   |ID: REQ-07    |	    		                                           |
-|:---------|:-------------|:-------------------------------------------------------|
-|Nome:     |Simulazione controllo tende                                           ||
-|Priorità: |1                                                                     ||
-|Versione: |1.0                                                                   ||
-|Note:     |                                                                      ||
-|          |Sotto requisiti                                                        |
-|001:      |Simulazione del controllo delle luci con l'arduino tramite dei motori ||
-|002:      |Decidere quali motori utilizzare                                      ||
+|		   |ID: REQ-07    |	                                      |
+|:---------|:-------------|:--------------------------------------|
+|Nome:     |Simulazione tende                                    ||
+|Priorità: |1                                                    ||
+|Versione: |1.0                                                  ||
+|Note:     |                                                     ||
+|          |Sotto requisiti                                       |
+|001:      |Controllo dei motori tramite l'arduino               ||
 
 |		   |ID: REQ-08    |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Implementazione modulo fisico del beamer||
+|Nome:     |Modulo luci                             ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
-|001:      |Controllare le tende tramite l'arduino  ||
+|001:      |Implementazione modulo luci delle tende ||
 
-|		   |ID: REQ-09    |	    		             |
+|		   |ID: REQ-09    |      		               |
+|:---------|:-------------|:---------------------------|
+|Nome:     |Modulo tende                              ||
+|Priorità: |1                                         ||
+|Versione: |1.0                                       ||
+|Note:     |                                          ||
+|          |Sotto requisiti                            |
+|001:      |Implementazione modulo fisico delle tende ||
+
+|		   |ID: REQ-010   |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Implementazione modulo fisico delle luci||
+|Nome:     |Modulo beamer                           ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
-|001:      |Controllare le luci attraverso l'arduino||
-
-|		   |ID: REQ-010   |	    		                               |
-|:---------|:-------------|:-------------------------------------------|
-|Nome:     |Implementazione modulo fisico delle tende                 ||
-|Priorità: |1                                                         ||
-|Versione: |1.0                                                       ||
-|Note:     |                                                          ||
-|          |Sotto requisiti                                            |
-|001:      |Controllare le tende attraverso l'arduino con dei motori  ||
+|001:      |Implementazione modulo fisico del beamer||
 
 ###  1.6 Pianificazione
 
 ### 1.7 Analisi dei mezzi
 
 #### 1.7.1 Software
-Software utilizzati:
-*WebStorm
-*Clion
-*IntelliJ
+Software utilizzati:<br>
+WebStorm<br>
+Clion<br>
+IntelliJ
 
 #### 1.7.2 Hardware
-Hardware utilizzati:
-*Asus Republic Of Gamers
-*Mac Book Pro
-*Obera
-*HP OMEN
+Hardware utilizzati:<br>
+Asus Republic Of Gamers<br>
+Mac Book Pro<br>
+Obera<br>
 
 ## 2.0 Progettazione
 
