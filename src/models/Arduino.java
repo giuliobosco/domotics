@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.6 (2019-04-15 - 2019-04-17)
+ * @version 1.3 (2019-04-15 - 2019-04-17)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -155,6 +155,26 @@ public class Arduino {
         jdbcConnector.openConnection();
         ResultSet resultSet = jdbcConnector.query(query);
 
+        this.set(resultSet);
+    }
+
+    public Arduino(JdbcConnector jdbcConnector, String ip, String key) throws SQLException, ClassNotFoundException {
+        String query = "SELECT  * FROM domoitcs.arduino WHERE ip='" + ip + "' AND client_key='" + key + "';";
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        this.set(resultSet);
+    }
+
+    // -------------------------------------------------------------------------------- Help Methods
+
+    /**
+     * Set the parameters of the arduino from the Result set.
+     * The result set have to be of one row, with the id, ip, key, rootPassword and the room.
+     *
+     * @param resultSet Result set for set the parameters of the arduino.
+     * @throws SQLException Error on the MySQL Server.
+     */
+    private void set(ResultSet resultSet) throws SQLException {
         resultSet.next();
         this.id = resultSet.getString("client_id");
         this.ip = resultSet.getString("ip");
@@ -163,7 +183,6 @@ public class Arduino {
         this.room = Room.get(resultSet.getString("room"));
     }
 
-    // -------------------------------------------------------------------------------- Help Methods
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
 
@@ -206,21 +225,6 @@ public class Arduino {
     }
 
     /**
-     * Get the arduino by the IP.
-     *
-     * @param jdbcConnector Connection to the MySQL domotics database.
-     * @param ip Ip of the arduino.
-     * @return Arduino object.
-     * @throws SQLException Error on the MySQL Server.
-     */
-    public static Arduino getArduinoByIp(JdbcConnector jdbcConnector, String ip) throws SQLException {
-        String query = "SELECT * FROM domotics.arduino WHERE ip='" + ip + "';";
-        ResultSet resultSet = jdbcConnector.query(query);
-
-        return getArduinos(resultSet).get(0);
-    }
-
-    /**
      * Test the class Arduino.
      *
      * @param args Command line arguments.
@@ -253,7 +257,7 @@ public class Arduino {
             System.out.println(a.getId());
         }
 
-        arduino = Arduino.getArduinoByIp(jdbcConnector, "10.20.4.102");
+        arduino = new Arduino(jdbcConnector, "10.20.4.102", "000000000000");
         System.out.println(arduino.getId());
     }
 }
