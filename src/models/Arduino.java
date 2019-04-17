@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.4 (2019-04-15)
+ * @version 1.2.5 (2019-04-15 - 2019-04-17)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -203,6 +203,21 @@ public class Arduino {
         ResultSet resultSet = jdbcConnector.query(query);
 
         return Arduino.getArduinos(resultSet);
+    }
+
+    /**
+     * Get the arduino by the IP.
+     *
+     * @param jdbcConnector Connection to the MySQL domotics database.
+     * @param ip Ip of the arduino.
+     * @return Arduino object.
+     * @throws SQLException Error on the MySQL Server.
+     */
+    public static Arduino getArduinoByIp(JdbcConnector jdbcConnector, String ip) throws SQLException {
+        String query = "SELECT * FROM domotics.arduino WHERE ip='" + ip + "';";
+        ResultSet resultSet = jdbcConnector.query(query);
+
+        return getArduinos(resultSet).get(0);
     }
 
     /**
