@@ -25,12 +25,13 @@ THE SOFTWARE.
 # ACC-Client key manager
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-17 - 2019-04-17)
+# @version 1.0.1 (2019-04-17 - 2019-04-19)
 
 
 class KeyManager:
-    def __init__(self, key=''):
+    def __init__(self, id, key=''):
         self.key = key
+        self.id = id
 
     def check_key(self, key):
         if len(self.key) > 0:
