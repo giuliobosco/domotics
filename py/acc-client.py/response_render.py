@@ -25,12 +25,16 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.1.2 (2019-04-17 - 2019-04-20)
+# @version 1.2 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
 
 class ResponseRender:
+    error = "ERROR"
+    ok = "OK"
+    ok_msg = "ok"
+    warring = "WARRING"
 
     def __init__(self, key_manager):
         self.key_manager = key_manager
@@ -43,7 +47,17 @@ class ResponseRender:
         return bytes("ACC")
 
     def alive(self):
-        return bytes("{\"status\":\"OK\",\"id\":\"" + self.key_manager.id + "\",\"date\":\"" + str(datetime.now()) + "\"}")
+        other = [("date", str(datetime.now())), ("id", self.key_manager.id)]
+        return self.build(self.ok, self.ok_msg, other)
 
     def not_found(self, path):
-        return bytes("{\"status\":\"ERROR\",\"message\":\"Page " + path + " not found\",\"id\":\"" + self.key_manager.id + "\"}")
+        return self.build("ERROR", "Page " + path + " not found")
+
+    def build(self, status, message, other=[]):
+        string = "{\"status\":\"" + status + "\""
+        string += ",\"message\":\"" + message + "\""
+        for item in other:
+            if len(item) == 2:
+                string += ",\"" + item[0] + "\":\"" + item[1] + "\""
+        string += "}"
+        return bytes(string)
