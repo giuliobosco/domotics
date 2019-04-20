@@ -25,21 +25,22 @@ THE SOFTWARE.
 # Domotics lights module
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-12 - 2019-04-12)
+# @version 1.0.1 (2019-04-12 - 2019-04-12)
+
 
 class Lights:
-    # create light controller with the arduino bridge
+    # create light controller with the arduino bridge
     def __init__(self, bridge):
         self.bridge = bridge
 
     # light set value
-    def lightSet(self, pin = '13', value = '0'):
-        self.bridge.put('D' + str(pin), str(value))
+    def light_set(self, pin='D13', value='0'):
+        self.bridge.put(str(pin), str(value))
 
     # turn light on
-    def lightOn(self, pin = '13'):
-        self.lightSet(pin, '1')
+    def light_on(self, pin='D13'):
+        self.light_set(pin, '1')
 
     # turn light off
-    def lightOff(self, pin = '13'):
-        self.lightSet(pin, '0')
+    def light_off(self, pin='D13'):
+        self.light_set(pin, '0')
