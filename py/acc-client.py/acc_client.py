@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client
 # -
 # @author giuliobosco
-# @version 1.0.1 (2019-04-17 - 2019-04-17)
+# @version 1.0.1 (2019-04-17 - 2019-04-20)
 
 
 # from http.server import HTTPServer

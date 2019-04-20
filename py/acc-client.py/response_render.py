@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.1 (2019-04-17 - 2019-04-20)
+# @version 1.2.2 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
@@ -59,9 +59,28 @@ class ResponseRender:
     def check_parameters(self):
         if not len(self.pin) > 0:
             raise Exception("No pin in request")
+        if not self.is_pin(self.pin):
+            raise Exception("Pin not valid")
         if not self.get:
             if not len(self.value) > 0:
                 raise Exception("No value to set in request")
+
+    def is_pin(self, pin):
+        try:
+            pin = str(pin)
+            if pin.startswith("a") and len(pin) == 2:
+                pin = pin.replace("a", "")
+                pin = int(pin)
+                if 0 <= pin <= 5:
+                    return True
+                else:
+                    return False
+            pin = int(pin)
+            if 0 <= pin <= 13:
+                return True
+        except Exception as e:
+            return False
+        return False
 
     def alive(self):
         other = [("date", str(datetime.now())), ("id", self.key_manager.id)]
