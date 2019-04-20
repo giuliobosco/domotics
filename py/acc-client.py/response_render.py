@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.1.1 (2019-04-17 - 2019-04-20)
+# @version 1.1.2 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
@@ -34,6 +34,14 @@ class ResponseRender:
 
     def __init__(self, key_manager):
         self.key_manager = key_manager
+        self.key = ''
+        self.pin = ''
+        self.value = ''
+        self.get = True
+
+    def acc(self):
+        return bytes("ACC", "utf-8")
+
     def alive(self):
         return bytes("{\"status\":\"OK\",\"id\":\"" + self.key_manager.id + "\",\"date\":\"" + str(datetime.now()) +
                      "\"}", "utf-8")
