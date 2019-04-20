@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.9 (2019-04-17 - 2019-04-20)
+# @version 1.2.10 (2019-04-17 - 2019-04-20)
 
 import sys
 sys.path.insert(0, '/usr/lib/python2.7/bridge')
@@ -33,6 +33,7 @@ sys.path.insert(0, '/usr/lib/python2.7/bridge')
 from datetime import datetime
 from bridgeclient import BridgeClient
 from thermistor import get_celsius
+from lights import Lights
 
 
 class ResponseRender:
@@ -66,6 +67,8 @@ class ResponseRender:
             value = self.bridge.get(pin)
 
             return self.build(self.ok, str(value))
+
+        Lights(self.bridge).light_set(self.get_pin(), self.value)
 
         return self.build(self.ok, self.value)
 
