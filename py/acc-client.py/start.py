@@ -25,9 +25,9 @@ THE SOFTWARE.
 # Start the ACC-Client
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-17 - 2019-04-17)
+# @version 1.0.1 (2019-04-17 - 2019-04-20)
 
 from acc_client import AccClient
 from key_manager import KeyManager
 
-AccClient.start(KeyManager("000000000000"))
+AccClient.start(KeyManager(id="000000000000", key="000000001234"))
