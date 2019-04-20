@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2 (2019-04-17 - 2019-04-20)
+# @version 1.2.1 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
@@ -44,7 +44,24 @@ class ResponseRender:
         self.get = True
 
     def acc(self):
-        return bytes("ACC")
+        if not self.key_manager.check_key(self.key):
+            return self.build(self.error, "Wrong key")
+        try:
+            self.check_parameters()
+        except Exception as e:
+            return self.build(self.error, e.message)
+
+        if self.get:
+            return self.build(self.ok, "get")
+
+        return self.build(self.ok, self.value)
+
+    def check_parameters(self):
+        if not len(self.pin) > 0:
+            raise Exception("No pin in request")
+        if not self.get:
+            if not len(self.value) > 0:
+                raise Exception("No value to set in request")
 
     def alive(self):
         other = [("date", str(datetime.now())), ("id", self.key_manager.id)]
