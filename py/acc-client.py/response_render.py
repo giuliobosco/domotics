@@ -25,7 +25,10 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.6 (2019-04-17 - 2019-04-20)
+# @version 1.2.7 (2019-04-17 - 2019-04-20)
+
+import sys
+sys.path.insert(0, '/usr/lib/python2.7/bridge')
 
 from datetime import datetime
 from bridgeclient import BridgeClient
