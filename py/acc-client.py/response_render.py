@@ -25,9 +25,11 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.5 (2019-04-17 - 2019-04-20)
+# @version 1.2.6 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
+from bridgeclient import BridgeClient
+from thermistor import getCelsius
 
 
 class ResponseRender:
@@ -42,6 +44,7 @@ class ResponseRender:
         self.pin = ''
         self.value = ''
         self.get = True
+        self.bridge = BridgeClient()
 
     def acc(self):
         if not self.key_manager.check_key(self.key):
@@ -52,7 +55,14 @@ class ResponseRender:
             return self.build(self.error, e.message)
 
         if self.get:
-            return self.build(self.ok, "get")
+            pin = self.get_pin()
+            if pin == 'A1':
+                voltage = self.bridge.get(pin)
+                return self.build(self.ok, getCelsius(voltage))
+
+            value = self.bridge.get(pin)
+
+            return self.build(self.ok, str(value))
 
         return self.build(self.ok, self.value)
 
