@@ -25,9 +25,10 @@ THE SOFTWARE.
 # Domotics thermistor module
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-12 - 2019-04-12)
+# @version 1.0.1 (2019-04-12 - 2019-04-12)
 
 from math import log
+
 
 class Thermistor:
     # thermistor datasheet values
@@ -36,25 +37,27 @@ class Thermistor:
     B = 3977
     # temperature T0 from thermistor datasheet
     T0 = 25 + 273.15
-    def __init__(self, vcc = 5, r = 10000):
+
+    def __init__(self, vcc=5, r=10000):
         self.vcc = vcc
         self.r = r
 
-    def getKelvin(self, voltage):
-        voltage = (5.00 / 1023.00) * voltage
-        voltageReverse = self.vcc - voltage
-        resistence = voltage / (voltageReverse / self.r)
-        ln = log(resistence / self.RT0)
-        return (1 / ((ln / self.B) + (1 / self.T0)))
+    def get_kelvin(self, voltage):
+        voltage = (5.00 / 1023.00) * float(voltage)
+        voltage_reverse = self.vcc - voltage
+        resistance = voltage / (voltage_reverse / self.r)
+        ln = log(resistance / self.RT0)
+        return 1 / ((ln / self.B) + (1 / self.T0))
 
-    def getCelsius(self, voltage):
-        return self.getKelvin(voltage) - 273.15
+    def get_celsius(self, voltage):
+        return self.get_kelvin(voltage) - 273.15
 
 
-def getCelsius(voltage, vcc = 5, r = 10000):
+def get_celsius(voltage, vcc=5, r=10000):
     therm = Thermistor(vcc, r)
-    return therm.getCelsius(voltage)
+    return therm.get_celsius(voltage)
 
-def getKelvin(voltage, vcc = 5, r = 10000):
+
+def get_kelvin(voltage, vcc=5, r=10000):
     therm = Thermistor(vcc, r)
-    return therm.getKelvin(voltage)
+    return therm.get_kelvin(voltage)

@@ -25,14 +25,14 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.8 (2019-04-17 - 2019-04-20)
+# @version 1.2.9 (2019-04-17 - 2019-04-20)
 
 import sys
 sys.path.insert(0, '/usr/lib/python2.7/bridge')
 
 from datetime import datetime
 from bridgeclient import BridgeClient
-from thermistor import getCelsius
+from thermistor import get_celsius
 
 
 class ResponseRender:
@@ -61,7 +61,7 @@ class ResponseRender:
             pin = self.get_pin()
             if pin == 'A1':
                 voltage = self.bridge.get(pin)
-                return self.build(self.ok, getCelsius(voltage))
+                return self.build(self.ok, str(get_celsius(voltage)))
 
             value = self.bridge.get(pin)
 
