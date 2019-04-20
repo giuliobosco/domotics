@@ -40,12 +40,10 @@ class ResponseRender:
         self.get = True
 
     def acc(self):
-        return bytes("ACC", "utf-8")
+        return bytes("ACC")
 
     def alive(self):
-        return bytes("{\"status\":\"OK\",\"id\":\"" + self.key_manager.id + "\",\"date\":\"" + str(datetime.now()) +
-                     "\"}", "utf-8")
+        return bytes("{\"status\":\"OK\",\"id\":\"" + self.key_manager.id + "\",\"date\":\"" + str(datetime.now()) + "\"}")
 
     def not_found(self, path):
-        return bytes("{\"status\":\"ERROR\",\"message\":\"Page " + path + " not found\",\"id\":\"" + self.key_manager.id
-                     + "\"}", "utf-8")
+        return bytes("{\"status\":\"ERROR\",\"message\":\"Page " + path + " not found\",\"id\":\"" + self.key_manager.id + "\"}")

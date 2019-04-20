@@ -25,10 +25,12 @@ THE SOFTWARE.
 # Base http server
 # -
 # @author giuliobosco
-# @version 1.2 (2019-04-17 - 2019-04-20)
+# @version 1.2.1 (2019-04-17 - 2019-04-20)
 
-from http.server import BaseHTTPRequestHandler
-from urllib.parse import parse_qsl
+# from http.server import BaseHTTPRequestHandler
+from BaseHTTPServer import BaseHTTPRequestHandler
+# from urllib.parse import parse_qsl
+from urlparse import parse_qsl
 
 from response_render import ResponseRender
 

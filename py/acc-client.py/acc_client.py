@@ -25,15 +25,16 @@ THE SOFTWARE.
 # ACC-Client
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-17 - 2019-04-17)
+# @version 1.0.1 (2019-04-17 - 2019-04-17)
 
 
-from http.server import HTTPServer
+# from http.server import HTTPServer
+from BaseHTTPServer import HTTPServer
 import time
 
 from http_server import HttpServer
 
-hostName = "localhost"
+hostName = "0.0.0.0"
 hostPort = 8080
 
 
