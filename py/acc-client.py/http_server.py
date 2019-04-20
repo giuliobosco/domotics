@@ -25,9 +25,10 @@ THE SOFTWARE.
 # Base http server
 # -
 # @author giuliobosco
-# @version 1.1 (2019-04-17 - 2019-04-17)
+# @version 1.2 (2019-04-17 - 2019-04-20)
 
 from http.server import BaseHTTPRequestHandler
+from urllib.parse import parse_qsl
 
 from response_render import ResponseRender
 
@@ -39,6 +40,29 @@ class HttpServer(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        self.send_header_json()
-        self.wfile.write(ResponseRender.render(self.path, self.server.key_manager))
+        if "/acc?" in self.path:
+            self.acc()
+        elif ("/alive" == self.path) or ("/" == self.path):
+            self.alive()
+        else:
+            self.send_response(404, "page not found")
+            self.end_headers()
+            self.wfile.write(ResponseRender(self.server.key_manager).not_found(self.path))
 
+    def acc(self):
+        self.send_header_json()
+        attributes = parse_qsl(self.path.split("?")[1])
+        response_render = ResponseRender(self.server.key_manager)
+        for attribute in attributes:
+            if attribute[0] == "key":
+                response_render.key = attribute[1]
+            if attribute[0] == "pin":
+                response_render.pin = attribute[1]
+            if attribute[0] == "set":
+                response_render.get = False
+                response_render.value = attribute[1]
+        self.wfile.write(response_render.acc())
+
+    def alive(self):
+        self.send_header_json()
+        self.wfile.write(ResponseRender(self.server.key_manager).alive())
