@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.2 (2019-04-17 - 2019-04-20)
+# @version 1.2.3 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
@@ -67,9 +67,9 @@ class ResponseRender:
 
     def is_pin(self, pin):
         try:
-            pin = str(pin)
-            if pin.startswith("a") and len(pin) == 2:
-                pin = pin.replace("a", "")
+            pin = str(pin).upper()
+            if pin.startswith("A") and len(pin) == 2:
+                pin = pin.replace("A", "")
                 pin = int(pin)
                 if 0 <= pin <= 5:
                     return True
