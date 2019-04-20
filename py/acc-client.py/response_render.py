@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.7 (2019-04-17 - 2019-04-20)
+# @version 1.2.8 (2019-04-17 - 2019-04-20)
 
 import sys
 sys.path.insert(0, '/usr/lib/python2.7/bridge')
@@ -80,9 +80,8 @@ class ResponseRender:
 
     def get_pin(self):
         pin = str(self.pin)
-        if pin.startswith("a"):
-            pin = pin.upper()
-        else:
+        pin = pin.upper()
+        if not pin.startswith('A'):
             pin = 'D' + pin
         return pin
 
