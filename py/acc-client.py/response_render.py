@@ -25,13 +25,19 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.1 (2019-04-17 - 2019-04-20)
+# @version 1.1.1 (2019-04-17 - 2019-04-20)
+
+from datetime import datetime
 
 
 class ResponseRender:
 
     def __init__(self, key_manager):
         self.key_manager = key_manager
+    def alive(self):
+        return bytes("{\"status\":\"OK\",\"id\":\"" + self.key_manager.id + "\",\"date\":\"" + str(datetime.now()) +
+                     "\"}", "utf-8")
+
     def not_found(self, path):
         return bytes("{\"status\":\"ERROR\",\"message\":\"Page " + path + " not found\",\"id\":\"" + self.key_manager.id
                      + "\"}", "utf-8")
