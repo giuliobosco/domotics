@@ -25,11 +25,13 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-17 - 2019-04-17)
+# @version 1.1 (2019-04-17 - 2019-04-20)
 
 
 class ResponseRender:
-    @staticmethod
-    def render(path, key_manager):
-        return bytes("{\"status\":\"OK\",\"key\":\"" + key_manager.get_key() + "\",\"path\":\"" + path + "\"}", "utf-8")
 
+    def __init__(self, key_manager):
+        self.key_manager = key_manager
+    def not_found(self, path):
+        return bytes("{\"status\":\"ERROR\",\"message\":\"Page " + path + " not found\",\"id\":\"" + self.key_manager.id
+                     + "\"}", "utf-8")
