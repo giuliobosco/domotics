@@ -25,7 +25,7 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.3 (2019-04-17 - 2019-04-20)
+# @version 1.2.4 (2019-04-17 - 2019-04-20)
 
 from datetime import datetime
 
@@ -64,6 +64,14 @@ class ResponseRender:
         if not self.get:
             if not len(self.value) > 0:
                 raise Exception("No value to set in request")
+
+    def get_pin(self, pin):
+        pin = str(pin)
+        if pin.startswith("a"):
+            pin = pin.upper()
+        else:
+            pin = 'D' + pin
+        return pin
 
     def is_pin(self, pin):
         try:
