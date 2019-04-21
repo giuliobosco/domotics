@@ -23,12 +23,19 @@
  */
 package acc;
 
+import jdbc.DomoticsJdbcC;
+import jdbc.JdbcConnector;
+import models.Arduino;
+import org.json.JSONObject;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
 
 /**
  * Acc servlet.
@@ -38,11 +45,35 @@ import java.io.IOException;
  */
 @WebServlet(name = "AccServlet")
 public class AccServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    private final String AUTOCONF = "autoconf";
+
+    private final String REQUEST = "request";
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Map<String, String[]> parameters = request.getParameterMap();
+        try {
+            JdbcConnector jdbc = DomoticsJdbcC.getConnector();
+            jdbc.openConnection();
+            IdManager idManager = new IdManager(jdbc);
+            if (parameters.containsKey("autoconf") && parameters.containsKey("id")) {
+                String arduinoId = parameters.get("id")[0];
+                String arduinoIp = request.getRemoteAddr();
 
+                Arduino arduino = new Arduino(idManager, arduinoId, arduinoIp);
+                JSONObject json = new JSONObject();
+                json.put("id", arduino.getId());
+                json.put("key", arduino.getKey());
+                json.put("server_address", request.getLocalAddr());
+                response.getOutputStream().println(json.toString());
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            response.sendError(500, "Internal Server ERROR");
+            e.printStackTrace();
+        }
     }
 }
