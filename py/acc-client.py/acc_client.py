@@ -25,13 +25,9 @@ THE SOFTWARE.
 # ACC-Client
 # -
 # @author giuliobosco
-# @version 1.0.2 (2019-04-17 - 2019-04-21)
+# @version 1.2 (2019-04-17 - 2019-04-21)
 
-import sys
-sys.path.insert(0, '/usr/lib/python2.7/bridge')
-
-from bridgeclient import BridgeClient
-# from http.server import HTTPServer
+from bridge_global import BridgeGlobal
 from BaseHTTPServer import HTTPServer
 import time
 
@@ -48,14 +44,15 @@ class AccClient:
         try:
             server = HTTPServer((hostName, hostPort), HttpServer)
             server.key_manager = key_manager
-            print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
             buttons = {'D5', 'D6'}
-            bridge = BridgeClient()
+            bridge = BridgeGlobal()
+            server.bridge = bridge
             threads = []
             for button in buttons:
                 thread = PinThread(key_manager=key_manager, pin=button, bridge=bridge)
                 thread.start()
                 threads.append(thread)
+            print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
             server.serve_forever()
         except KeyboardInterrupt:
             server.server_close()

@@ -25,13 +25,9 @@ THE SOFTWARE.
 # ACC-Client response render
 # -
 # @author giuliobosco
-# @version 1.2.10 (2019-04-17 - 2019-04-20)
-
-import sys
-sys.path.insert(0, '/usr/lib/python2.7/bridge')
+# @version 1.3 (2019-04-17 - 2019-04-21)
 
 from datetime import datetime
-from bridgeclient import BridgeClient
 from thermistor import get_celsius
 from lights import Lights
 
@@ -42,13 +38,13 @@ class ResponseRender:
     ok_msg = "ok"
     warring = "WARRING"
 
-    def __init__(self, key_manager):
+    def __init__(self, key_manager, bridge):
         self.key_manager = key_manager
         self.key = ''
         self.pin = ''
         self.value = ''
         self.get = True
-        self.bridge = BridgeClient()
+        self.bridge = bridge
 
     def acc(self):
         if not self.key_manager.check_key(self.key):

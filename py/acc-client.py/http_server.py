@@ -25,11 +25,9 @@ THE SOFTWARE.
 # Base http server
 # -
 # @author giuliobosco
-# @version 1.2.1 (2019-04-17 - 2019-04-20)
+# @version 13 (2019-04-17 - 2019-04-21)
 
-# from http.server import BaseHTTPRequestHandler
 from BaseHTTPServer import BaseHTTPRequestHandler
-# from urllib.parse import parse_qsl
 from urlparse import parse_qsl
 
 from response_render import ResponseRender
@@ -49,12 +47,12 @@ class HttpServer(BaseHTTPRequestHandler):
         else:
             self.send_response(404, "page not found")
             self.end_headers()
-            self.wfile.write(ResponseRender(self.server.key_manager).not_found(self.path))
+            self.wfile.write(ResponseRender(self.server.key_manager, self.server.bridge).not_found(self.path))
 
     def acc(self):
         self.send_header_json()
         attributes = parse_qsl(self.path.split("?")[1])
-        response_render = ResponseRender(self.server.key_manager)
+        response_render = ResponseRender(self.server.key_manager, self.server.bridge)
         for attribute in attributes:
             if attribute[0] == "key":
                 response_render.key = attribute[1]
@@ -67,4 +65,4 @@ class HttpServer(BaseHTTPRequestHandler):
 
     def alive(self):
         self.send_header_json()
-        self.wfile.write(ResponseRender(self.server.key_manager).alive())
+        self.wfile.write(ResponseRender(self.server.key_manager, self.server.bridge).alive())
