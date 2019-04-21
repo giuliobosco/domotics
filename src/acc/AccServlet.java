@@ -41,7 +41,7 @@ import java.util.Map;
  * Acc servlet.
  *
  * @author giuliobosco
- * @version 1.0 (2019-04-21)
+ * @version 1.0.1 (2019-04-21 - 2019-04-22)
  */
 @WebServlet(name = "AccServlet")
 public class AccServlet extends HttpServlet {
@@ -63,13 +63,10 @@ public class AccServlet extends HttpServlet {
             if (parameters.containsKey("autoconf") && parameters.containsKey("id")) {
                 String arduinoId = parameters.get("id")[0];
                 String arduinoIp = request.getRemoteAddr();
+                String serverAddress = request.getLocalAddr();
 
-                Arduino arduino = new Arduino(idManager, arduinoId, arduinoIp);
-                JSONObject json = new JSONObject();
-                json.put("id", arduino.getId());
-                json.put("key", arduino.getKey());
-                json.put("server_address", request.getLocalAddr());
-                response.getOutputStream().println(json.toString());
+                Autoconf autoconf = new Autoconf(idManager, arduinoId, arduinoIp, serverAddress);
+                response.getOutputStream().println(autoconf.getJson());
             }
         } catch (SQLException | ClassNotFoundException e) {
             response.sendError(500, "Internal Server ERROR");
