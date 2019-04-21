@@ -1,0 +1,96 @@
+@startuml
+class Thermistor {
+  RT0 : float
+  B : float
+  T0 : float
+  vcc : float
+  r : float
+  __init__(vcc:float,  r:float) : void
+  getKelvin(voltage:int) : float
+  getCelsius(voltage:int) : float
+}
+
+class BridgeGlobal {
+    bridge : BridgeClient
+    lock : Lock
+    __init__() : void
+    get(key) : string
+    put(key:string, value:string) : void
+}
+
+class fuctions {
+    acc_autoconf(id:string, server_address:string) : KeyManager
+}
+
+class Lights {
+    __init__(bridge:BridgeGlobal) : void
+    lightSet(pin:string, value:string) : void
+    lightOn(pin:string) : void
+    lightOff(pin:string) : void
+}
+Lights o-- BridgeGlobal : bridge
+
+class KeyManager {
+    key : string
+    id : string
+    server_address : string
+    __init__(id:string, key='':string, server_address='localhost':string) : void
+    check_key(key:string) : boolean
+    get_key() : string
+}
+
+class AccClient {
+    start(key_manager:KeyManager) : static void
+}
+
+class BaseHTTPRequestHandler {
+
+}
+
+class HttpServer {
+    send_header_json() : void
+    do_GET() : void
+    acc() : void
+    alive() : void
+}
+BaseHTTPRequestHandler <|-- HttpServer
+
+class Thread {
+
+}
+
+class PinThread {
+    _stop_event : threading.Event
+    pin : string
+    pin : string
+    interrupt() : void
+    is_interrupted() : boolean
+    is_status_changed() : boolean
+    execute_http_req() : void
+    run() : void
+}
+Thread <|-- PinThread
+PinThread o-- KeyManager : key_manager
+PinThread o-- BridgeGlobal : bridge
+
+class ResponseRender {
+    error : string
+    ok : string
+    ok_msg : string
+    warring : string
+    key : string
+    pin : string
+    value : string
+    get : boolean
+    __init__(key_manager:KeyManager, bridge:BridgeGlobal) : void
+    acc() : bytes
+    check_parameters() : void
+    get_pin() : string
+    is_pin(pin:string) : boolean
+    alive() : bytes
+    not_found(path:string) : bytes
+    build(status:string, message:string, other=[]:list) : bytes
+}
+ResponseRender o-- KeyManager : key_manager
+ResponseRender o-- BridgeGlobal : bridge
+@enduml
