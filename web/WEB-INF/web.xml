@@ -60,4 +60,13 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>/Logout</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AccServlet</servlet-name>
+		<servlet-class>acc.AccServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccServlet</servlet-name>
+		<url-pattern>/acc</url-pattern>
+	</servlet-mapping>
 </web-app>
