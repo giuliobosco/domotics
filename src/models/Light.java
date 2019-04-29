@@ -24,11 +24,18 @@
 
 package models;
 
+import acc.GetRequest;
+import jdbc.DomoticsJdbcC;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.sql.SQLException;
+
 /**
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-05)
+ * @version 1.1 (2019-04-05 - 2019-04-29)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -69,7 +76,7 @@ public class Light {
     /**
      * Create the light with the pin and his arduino.
      *
-     * @param pin Pin of the light on the arduino.
+     * @param pin     Pin of the light on the arduino.
      * @param arduino Arduino of the light.
      */
     public Light(int pin, Arduino arduino) {
@@ -79,6 +86,60 @@ public class Light {
 
     // -------------------------------------------------------------------------------- Help Methods
     // ----------------------------------------------------------------------------- General Methods
+
+    /**
+     * Get request string by the status of the light.
+     *
+     * @param status Status of the light to insert in the string request. (0-1)
+     * @return Url get request string.
+     */
+    private String getRequestString(int status) {
+        return "http://" + this.arduino.getIp() + ":8080/acc?key=" + this.arduino.getKey() + "&pin=" + this.pin + "&set=" + status;
+    }
+
+    /**
+     * Turn the light on.
+     *
+     * @throws IOException Http get request error.
+     */
+    public void turnOn() throws IOException {
+        try {
+            GetRequest.get(this.getRequestString(1));
+        } catch (MalformedURLException mue) {
+
+        }
+    }
+
+    /**
+     * Turn the light off.
+     *
+     * @throws IOException Http get request error.
+     */
+    public void turnOff() throws IOException {
+        try {
+            GetRequest.get(this.getRequestString(0));
+        } catch (MalformedURLException mue) {
+
+        }
+    }
+
     // --------------------------------------------------------------------------- Static Components
 
+    /**
+     * Main method of the class, used for test.
+     * <ul>
+     *     <li>turnOn()</li>
+     *     <li>turnOff()</li>
+     * </ul>
+     *
+     * @param args Command line arguments.
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
+        Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "127.0.0.1");
+        new Light(13, arduino).turnOn();
+        new Light(13, arduino).turnOff();
+    }
 }
