@@ -24,9 +24,12 @@
 
 package models;
 
+import acc.GetRequest;
 import acc.IdManager;
 import jdbc.JdbcConnector;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3 (2019-04-15 - 2019-04-17)
+ * @version 1.3.1 (2019-04-15 - 2019-04-29)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -184,6 +187,28 @@ public class Arduino {
     }
 
     // ----------------------------------------------------------------------------- General Methods
+
+    /**
+     * Check if the arduino is alive.
+     *
+     * @return True if the arduino is alive.
+     * @throws IOException Error with the http get request.
+     */
+    public boolean isAlive() throws IOException {
+        try {
+            String urlString = "http://" + this.getIp() + ":8080/alive";
+            String response = GetRequest.get(urlString);
+
+            if (response.contains("\"status\":\"OK\"")) {
+                return true;
+            }
+        } catch (MalformedURLException ignored) {
+
+        }
+
+        return false;
+    }
+
     // --------------------------------------------------------------------------- Static Components
 
     /**
