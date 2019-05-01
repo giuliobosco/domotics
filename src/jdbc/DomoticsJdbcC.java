@@ -21,14 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package jdbc;
+
+import acc.IdManager;
+
+import java.sql.SQLException;
 
 /**
  * Get the JDBC connector for domotics database.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-21)
+ * @version 1.0.1 (2019-04-21 2019-04-29)
  */
 public class DomoticsJdbcC {
 
@@ -40,7 +44,7 @@ public class DomoticsJdbcC {
     /**
      * Domotics database password.
      */
-    private static final String PASSWORD = "123qwe";
+    private static final String PASSWORD = "1234qwer";
 
     /**
      * Domotics database host.
@@ -65,5 +69,18 @@ public class DomoticsJdbcC {
     public static JdbcConnector getConnector() {
         return new JdbcConnector(USERNAME, PASSWORD, HOSTNAME, PORT, DATABASE);
     }
-    
+
+    /**
+     * Get the domotics id mananger with the domotics JDBC Connector for domotics datatabase.
+     *
+     * @return Domotics id mananger with the domotics JDBC Connector for domotics datatabase.
+     * @throws SQLException           Error on the MySQL Database.
+     * @throws ClassNotFoundException MySQL jdbc Driver not found.
+     */
+    public static IdManager getIdManager() throws SQLException, ClassNotFoundException {
+        JdbcConnector jdbcConnector = getConnector();
+        jdbcConnector.openConnection();
+        return new IdManager(jdbcConnector);
+    }
+
 }
