@@ -121,7 +121,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ![Gantt](img/gantt.png)
 
-Questo è il gantt che rappresenta la nostra pianificazione di base. La nostra pianificazione è stata abbastanza superfi
+Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà il circuito dell'arduino. Dopo la progettazione incomincia la parte di implementazione. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test, viene fatta la presentazione ed infine la consegna del progetto.
 
 ### 1.7 Analisi dei mezzi
 

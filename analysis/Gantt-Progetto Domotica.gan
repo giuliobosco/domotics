@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-02-11" view-index="0" gantt-divider-location="496" resource-divider-location="300" version="2.8.5" locale="it">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-02-01" view-index="0" gantt-divider-location="496" resource-divider-location="300" version="2.8.9" locale="it">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Nome" width="318" order="0"/>
-        <field id="tpd4" name="Data d'inizio" width="65" order="1"/>
-        <field id="tpd5" name="Data di fine" width="94" order="2"/>
+    <view zooming-state="default:9" id="gantt-chart">
+        <field id="tpd3" name="Nome" width="323" order="0"/>
+        <field id="tpd4" name="Data d'inizio" width="70" order="1"/>
+        <field id="tpd5" name="Data di fine" width="99" order="2"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Nome" width="210" order="0"/>
@@ -35,49 +35,49 @@
         </taskproperties>
         <task id="0" name="Progetto Domotica" meeting="false" start="2019-02-13" duration="68" complete="0" expand="true">
             <task id="23" name="Documentazione" meeting="false" start="2019-02-13" duration="68" complete="0" expand="true"/>
-            <task id="51" name="Intervista al committente" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
+            <task id="51" name="Intervista al committente" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
             <task id="1" name="Progettazione" color="#000000" meeting="false" start="2019-02-15" duration="13" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
-                <task id="55" name="Stesura Gantt" color="#8cb6ce" meeting="false" start="2019-02-15" duration="1" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
+                <task id="55" name="Stesura Gantt" color="#8cb6ce" meeting="false" start="2019-02-15" duration="1" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
                 <task id="34" name="Analisi del dominio" color="#8cb6ce" meeting="false" start="2019-02-15" duration="1" complete="0" thirdDate="2019-02-20" thirdDate-constraint="0" expand="true"/>
                 <task id="85" name="Analisi dei requisiti" color="#8cb6ce" meeting="false" start="2019-02-15" duration="4" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
-                <task id="86" name="Schema Arduino" color="#8cb6ce" meeting="false" start="2019-02-20" duration="1" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                <task id="24" name="Frontend" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-02-20" thirdDate-constraint="0" expand="true">
-                    <task id="59" name="Login" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="60" name="Dashboard" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="61" name="Pannello di controllo dell'aula" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
+                <task id="86" name="Schema Arduino" color="#8cb6ce" meeting="false" start="2019-02-20" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                <task id="24" name="Frontend" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-02-20" thirdDate-constraint="0" expand="false">
+                    <task id="59" name="Login" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="60" name="Dashboard" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="61" name="Pannello di controllo dell'aula" color="#8cb6ce" meeting="false" start="2019-02-20" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
                 </task>
                 <task id="38" name="Backend" color="#000000" meeting="false" start="2019-02-22" duration="11" complete="0" thirdDate="2019-02-22" thirdDate-constraint="0" expand="true">
-                    <task id="68" name="Data Base" color="#8cb6ce" meeting="false" start="2019-02-22" duration="4" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="64" name="Web Server" color="#8cb6ce" meeting="false" start="2019-02-22" duration="4" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="67" name="JDBC" color="#8cb6ce" meeting="false" start="2019-02-27" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="66" name="LDAP" color="#8cb6ce" meeting="false" start="2019-02-27" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="65" name="Domotics Server" color="#8cb6ce" meeting="false" start="2019-03-01" duration="3" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
+                    <task id="68" name="Data Base" color="#8cb6ce" meeting="false" start="2019-02-22" duration="4" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="64" name="Web Server" color="#8cb6ce" meeting="false" start="2019-02-22" duration="4" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="67" name="JDBC" color="#8cb6ce" meeting="false" start="2019-02-27" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="66" name="LDAP" color="#8cb6ce" meeting="false" start="2019-02-27" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="65" name="Domotics Server" color="#8cb6ce" meeting="false" start="2019-03-01" duration="3" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
                     <task id="156" name="Inizio Implementazione" color="#8cb6ce" meeting="true" start="2019-03-08" duration="0" complete="0" expand="true"/>
-                    <task id="62" name="Arduino Connection Controller Server" color="#8cb6ce" meeting="false" start="2019-03-01" duration="9" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
-                    <task id="63" name="Arduino Connection Controller Client" color="#8cb6ce" meeting="false" start="2019-03-01" duration="9" complete="0" thirdDate="2019-01-28" thirdDate-constraint="0" expand="true"/>
+                    <task id="62" name="Arduino Connection Controller Server" color="#8cb6ce" meeting="false" start="2019-03-01" duration="9" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
+                    <task id="63" name="Arduino Connection Controller Client" color="#8cb6ce" meeting="false" start="2019-03-01" duration="9" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
                 </task>
             </task>
             <task id="7" name="Implementazione moduli" color="#000000" meeting="false" start="2019-03-13" duration="17" complete="0" thirdDate="2019-03-13" thirdDate-constraint="0" expand="true">
                 <task id="47" name="Implementazione Frontend" meeting="false" start="2019-03-13" duration="5" complete="0" expand="true">
-                    <task id="122" name="login" color="#8cb6ce" meeting="false" start="2019-03-13" duration="3" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="123" name="dashboard" color="#8cb6ce" meeting="false" start="2019-03-15" duration="4" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="124" name="Pannello di controllo aula" color="#8cb6ce" meeting="false" start="2019-03-20" duration="3" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
+                    <task id="122" name="login" color="#8cb6ce" meeting="false" start="2019-03-13" duration="3" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="123" name="dashboard" color="#8cb6ce" meeting="false" start="2019-03-15" duration="4" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="124" name="Pannello di controllo aula" color="#8cb6ce" meeting="false" start="2019-03-20" duration="3" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
                 </task>
                 <task id="48" name="Arduino" color="#8cb6ce" meeting="false" start="2019-03-22" duration="6" complete="0" thirdDate="2019-03-27" thirdDate-constraint="0" expand="true"/>
                 <task id="158" name="Definizione dei tempi" color="#8cb6ce" meeting="true" start="2019-04-03" duration="0" complete="0" expand="true"/>
                 <task id="42" name="Implementazione Backend" color="#8cb6ce" meeting="false" start="2019-03-29" duration="12" complete="0" thirdDate="2019-02-27" thirdDate-constraint="0" expand="true">
-                    <task id="133" name="Database" color="#8cb6ce" meeting="false" start="2019-03-29" duration="1" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="134" name="Web Server" color="#8cb6ce" meeting="false" start="2019-03-29" duration="4" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="137" name="Domotics Server" color="#8cb6ce" meeting="false" start="2019-04-03" duration="3" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="139" name="LDAP con java" color="#8cb6ce" meeting="false" start="2019-04-05" duration="3" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="138" name="JDBC con java" color="#8cb6ce" meeting="false" start="2019-04-10" duration="4" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="136" name="Arduino Connection Controller Server" color="#8cb6ce" meeting="false" start="2019-04-12" duration="6" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-                    <task id="135" name="Arduino Connection Controller Client" color="#8cb6ce" meeting="false" start="2019-04-12" duration="6" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
+                    <task id="133" name="Database" color="#8cb6ce" meeting="false" start="2019-03-29" duration="1" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="134" name="Web Server" color="#8cb6ce" meeting="false" start="2019-03-29" duration="4" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="137" name="Domotics Server" color="#8cb6ce" meeting="false" start="2019-04-03" duration="3" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="139" name="LDAP con java" color="#8cb6ce" meeting="false" start="2019-04-05" duration="3" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="138" name="JDBC con java" color="#8cb6ce" meeting="false" start="2019-04-10" duration="4" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="136" name="Arduino Connection Controller Server" color="#8cb6ce" meeting="false" start="2019-04-12" duration="6" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+                    <task id="135" name="Arduino Connection Controller Client" color="#8cb6ce" meeting="false" start="2019-04-12" duration="6" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
                     <task id="162" name="Installazione Arduino nell'aula" meeting="false" start="2019-04-24" duration="5" complete="0" expand="true"/>
                 </task>
             </task>
-            <task id="152" name="Implementazione moduli" color="#8cb6ce" meeting="false" start="2019-04-17" duration="7" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
-            <task id="117" name="Integrazione moduli" color="#8cb6ce" meeting="false" start="2019-04-12" duration="10" complete="0" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true"/>
+            <task id="152" name="Implementazione moduli" color="#8cb6ce" meeting="false" start="2019-04-17" duration="7" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
+            <task id="117" name="Integrazione moduli" color="#8cb6ce" meeting="false" start="2019-04-12" duration="10" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
             <task id="8" name="Test" color="#8cb6ce" meeting="false" start="2019-04-26" duration="7" complete="0" thirdDate="2019-04-17" thirdDate-constraint="0" expand="true"/>
             <task id="49" name="Presentazione" color="#8cb6ce" meeting="false" start="2019-05-10" duration="3" complete="0" thirdDate="2019-02-01" thirdDate-constraint="0" expand="true"/>
             <task id="9" name="Consegna progetto" color="#8cb6ce" meeting="false" start="2019-05-17" duration="1" complete="0" thirdDate="2019-05-01" thirdDate-constraint="0" expand="true"/>
