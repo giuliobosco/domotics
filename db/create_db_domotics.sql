@@ -28,7 +28,7 @@
  *
  * @author paologuebeli (paolo.guebeli@samtrevano.ch)
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-02-22 - 2019-03-07 fix primary key, foreign key)
+ * @version 1.0.2 (2019-02-22 - 2019-05-03)
  */
 
 /* create the database */
@@ -54,6 +54,7 @@ CREATE TABLE domotics.arduino (
 CREATE TABLE domotics.light (
   pin varchar(255),
 	arduino varchar(255),
+	status INT (1),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
