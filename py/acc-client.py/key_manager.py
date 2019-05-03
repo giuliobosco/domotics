@@ -26,7 +26,7 @@ THE SOFTWARE.
 # ACC-Client key manager
 # -
 # @author giuliobosco
-# @version 1.0.2 (2019-04-17 - 2019-04-21)
+# @version 1.0.3 (2019-04-17 - 2019-04-21)
 
 
 class KeyManager:
@@ -36,7 +36,7 @@ class KeyManager:
         self.server_address = server_address
 
     def check_key(self, key):
-        if len(self.key) > 0:
+        if len(self.key) > 0 and len(self.server_address) > 0:
             return self.key == key
         else:
             return True
