@@ -183,9 +183,15 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 
 Questa &egrave; il design del sito web dopo che si &egrave; fatto il login, che le credenziali sono state convalidate e confermate. Il sito porta in questa pagina dove si posssono visualizzare le varie aule con la possibilità di modificare le luci, le tende e il beamer.
 
-#### 2.1.3 Architettura Domotics Server
+### 2.7 Arduino Connection Controller Client
 
-#### 2.1.4 Architettura Web App (Tomcat)
+![Login](img/ACC_Client/ACC_Client_UML.png)
+
+Queste classi rappresentano la connessione fra l'arduino e il server. 
+
+### 2.1.3 Architettura Domotics Server
+
+### 2.1.4 Architettura Web App (Tomcat)
 
 
 
