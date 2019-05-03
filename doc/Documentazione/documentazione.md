@@ -238,9 +238,50 @@ CREATE TABLE domotics.light (
 );
 ```
 
-
 ### 3.4 Lightweight Directory Access Protocol (LDAP)
+Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul data base della scuola in questo caso e controlla se le credenziali corrispondono a un docente o no.
 
+Per fare questo serve server una stringa di connessione che dice a LDAP dove andare a connettersi. Che deve contenere il domimio e la porta del server LDAP.
+```java
+    private String getConnectionString() {
+        return "ldap://" + getDomain() + ":" + getPort();
+    }
+```
+Questo metodo vine utilizzato per creare e poi ritorna DN, è simile a un percorso assoluto solo che invece scendere l'albero da sinistra a destra scendono.
+Ecco un esempio di DN:
+CN=john.doe,OU=People,DC=example,DC=com
+CN è il nome utente, OU è l'unita organizzativa a cui deve puntare(che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
+```java
+    private String getDn(String username) {
+        return "CN=" + username + "," + getBase();
+    }
+```
+Il metodo sottostante si occupa di creare una Hashtable che contiene tutti i parametri che poi verranno inviati.
+I parametri che andranno inviati sono:
+DEFAULT_INITIAL_CONTEXT_FACTORY, Connessione iniziale predefinita del contesto iniziale di fabbrica.
+getConnectionString(), stringa di connessione.
+getDn(username), percorso a cui deve puntare.
+password, password con cui si è tentato di accedere e che deve essere controllata.
+```java
+    private Hashtable<String, String> getEnvironment(String username, String password) {
+        Hashtable<String, String> environment = new Hashtable<String, String>();
+
+        environment.put(Context.INITIAL_CONTEXT_FACTORY, DEFAULT_INITIAL_CONTEXT_FACTORY);
+        environment.put(Context.PROVIDER_URL, getConnectionString());
+        environment.put(Context.SECURITY_AUTHENTICATION, getSecurity());
+        environment.put(Context.SECURITY_PRINCIPAL, getDn(username));
+        environment.put(Context.SECURITY_CREDENTIALS, password);
+
+        return environment;
+    }
+```
+Quest'ultimo metodo invece utilizza l'Hashtable per collegarsi e controllare se l'utente è presente all'interno dell'unità organizzativa a cui gli è detto di andare a contrallare.
+Se l'autentificazione è valida continua altrimenti richiama un eccezzione.
+```java
+public DirContext getDirContext(String username, String password) throws NamingException {
+        return new InitialDirContext(getEnvironment(username, password));
+    }
+```
 ### 3.5 Implementazione Java DataBase Connectivity (JDBC)
 
 ### Arduino Connection Controller Client
