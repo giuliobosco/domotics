@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-02-01" view-index="0" gantt-divider-location="496" resource-divider-location="300" version="2.8.9" locale="it">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-02-11" view-index="0" gantt-divider-location="496" resource-divider-location="300" version="2.8.9" locale="it">
     <description/>
-    <view zooming-state="default:9" id="gantt-chart">
+    <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Nome" width="323" order="0"/>
         <field id="tpd4" name="Data d'inizio" width="70" order="1"/>
         <field id="tpd5" name="Data di fine" width="99" order="2"/>
@@ -33,8 +33,8 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Progetto Domotica" meeting="false" start="2019-02-13" duration="68" complete="0" expand="true">
-            <task id="23" name="Documentazione" meeting="false" start="2019-02-13" duration="68" complete="0" expand="true"/>
+        <task id="0" name="Progetto Domotica" meeting="false" start="2019-02-13" duration="28" complete="0" expand="true">
+            <task id="23" name="Documentazione" color="#8cb6ce" meeting="false" start="2019-02-13" duration="28" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true"/>
             <task id="51" name="Intervista al committente" color="#8cb6ce" meeting="false" start="2019-02-13" duration="1" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
             <task id="1" name="Progettazione" color="#000000" meeting="false" start="2019-02-15" duration="13" complete="0" thirdDate="2019-02-13" thirdDate-constraint="0" expand="true">
                 <task id="55" name="Stesura Gantt" color="#8cb6ce" meeting="false" start="2019-02-15" duration="1" complete="0" thirdDate="2019-01-30" thirdDate-constraint="0" expand="true"/>
