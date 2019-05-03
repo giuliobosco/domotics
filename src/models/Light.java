@@ -26,6 +26,7 @@ package models;
 
 import acc.GetRequest;
 import jdbc.DomoticsJdbcC;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -35,7 +36,7 @@ import java.sql.SQLException;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.1 (2019-04-05 - 2019-04-29)
+ * @version 1.2 (2019-04-05 - 2019-05-03)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -85,6 +86,18 @@ public class Light {
     }
 
     // -------------------------------------------------------------------------------- Help Methods
+
+    /**
+     * Get the object as JSON string.
+     * @return JSON Object string.
+     */
+    public String getJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("pin", this.pin);
+        jo.put("arduino", this.arduino.getId());
+        return jo.toString();
+    }
+
     // ----------------------------------------------------------------------------- General Methods
 
     /**
@@ -130,6 +143,7 @@ public class Light {
      * <ul>
      *     <li>turnOn()</li>
      *     <li>turnOff()</li>
+     *     <li>getJson()</li>
      * </ul>
      *
      * @param args Command line arguments.
@@ -139,7 +153,8 @@ public class Light {
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
         Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "127.0.0.1");
-        new Light(13, arduino).turnOn();
-        new Light(13, arduino).turnOff();
+        // new Light(13, arduino).turnOn();
+        // new Light(13, arduino).turnOff();
+        System.out.println(new Light(13, arduino).getJson());
     }
 }
