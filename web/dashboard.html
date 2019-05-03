@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="lib/angular-1.7.8/angular.min.js"></script>
+    <script src="lib/angular-1.7.8/angular-route.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="lib/font/font-awesome.min.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
@@ -28,8 +30,9 @@
      - THE SOFTWARE.
      -->
     <title>Dashboard</title>
-    <script src="js/navJs.js"></script>
-<body class="gray">
+    <script src="js/roomManagement.js"></script>
+</head>
+<body class="gray" ng-app="App">
     <div class="hide-nav fixed" id="triggerShow" onclick="showNav()"><span class="config"><i class="fa fa-bars"></i></span></div>
     <nav class="text-white" id="mainNav">
         <div class="hide-nav right" id="triggerHide" onclick="hideNav()"><span class="config"><i class="fa fa-times"></i></span></div>
@@ -44,7 +47,11 @@
         <div class="bottomContainer">
             <a><span class="config"><i class="fa fa-cog right"></i></span></a>
             <a href="login.html"><span class="config"><i class="fa fa-power-off"></i></span></a>
+            <p><a href="#/!">Main</a></p>
         </div>
     </nav>
+    <div ng-view>
+
+    </div>
 </body>
 </html>
