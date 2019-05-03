@@ -36,10 +36,21 @@ import java.sql.SQLException;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.1 (2019-04-05 - 2019-05-03)
+ * @version 1.2.2 (2019-04-05 - 2019-05-03)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
+
+    /**
+     * Light on status.
+     */
+    public final int LIGHT_ON = 1;
+
+    /**
+     * Light off status.
+     */
+    public final int LIGHT_OFF = 0;
+
     // ---------------------------------------------------------------------------------- Attributes
 
     /**
@@ -89,6 +100,7 @@ public class Light {
 
     /**
      * Get the object as JSON string.
+     *
      * @return JSON Object string.
      */
     public String getJson() {
@@ -107,7 +119,16 @@ public class Light {
      * @return Url get request string.
      */
     private String getRequestString(int status) {
-        return "http://" + this.arduino.getIp() + ":8080/acc?key=" + this.arduino.getKey() + "&pin=" + this.pin + "&set=" + status;
+        return this.getRequestString() + "&set=" + status;
+    }
+
+    /**
+     * Get the request string of the status of the light.
+     *
+     * @return Url get request string.
+     */
+    private String getRequestString() {
+        return "http://" + this.arduino.getIp() + ":8080/acc?key=" + this.arduino.getKey() + "&pin=" + this.pin;
     }
 
     /**
@@ -136,14 +157,30 @@ public class Light {
         }
     }
 
+    /**
+     * Get the actual status of the arduino.
+     *
+     * @return Status of the arduino. -1 if IOException or NumberFormatException.
+     * @throws IOException Error while http request.
+     */
+    public int getStatus() throws IOException {
+        try {
+            String response = GetRequest.get(this.getRequestString());
+            JSONObject jo = new JSONObject(response);
+            return Integer.parseInt(jo.getString("message"));
+        } catch (MalformedURLException | NumberFormatException ignored) {
+            return -1;
+        }
+    }
+
     // --------------------------------------------------------------------------- Static Components
 
     /**
      * Main method of the class, used for test.
      * <ul>
-     *     <li>turnOn()</li>
-     *     <li>turnOff()</li>
-     *     <li>getJson()</li>
+     * <li>turnOn()</li>
+     * <li>turnOff()</li>
+     * <li>getJson()</li>
      * </ul>
      *
      * @param args Command line arguments.
@@ -155,6 +192,7 @@ public class Light {
         Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "127.0.0.1");
         // new Light(13, arduino).turnOn();
         // new Light(13, arduino).turnOff();
-        System.out.println(new Light(13, arduino).getJson());
+        //System.out.println(new Light(13, arduino).getJson());
+        System.out.println(new Light(13, arduino).getStatus());
     }
 }
