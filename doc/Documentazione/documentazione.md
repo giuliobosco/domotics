@@ -1,4 +1,4 @@
-## 1 Introduzione sul progetto
+## 1 Introduzione
 
 ### 1.1 Informazioni sul progetto
 
@@ -119,9 +119,10 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ###  1.6 Pianificazione
 
-![Gantt](img/gantt.png)
+![Gantt](img/Gantt.png)
 
-Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà il circuito dell'arduino. Dopo la progettazione incomincia la parte di implementazione. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test, viene fatta la presentazione ed infine la consegna del progetto.
+Il progetto ci è stato commissionato il 13 Febbraio 2019 e programmiamo di completarlo il 17 Maggio 2019.
+Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
 
 ### 1.7 Analisi dei mezzi
 
@@ -137,11 +138,9 @@ Asus Republic Of Gamers<br>
 Mac Book Pro<br>
 Obera<br>
 
-## 2.0 Progettazione
+## 2 Progettazione
 
-### 2.1 Design dell'architettura
-
-#### 2.1.1 Architettura progetto
+### 2.1 Architettura progetto
 
 ![fullStructure](img/full_system_architetture.png)
 
@@ -153,40 +152,40 @@ L'arduino viene controllato tramite l'Arduino Connection Controller Server e Cli
 Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro data base dove salviamo le seguenti informazioni.
 LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente.
 
-#### 2.1.2 Architettura Data Base
+### 2.2 Architettura Data Base
 
 ![DataBase](img/db/DbDiagram.png)
 
 Questo è il design del data base, il data base è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro nome, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino gestisce i bottoni delle luci di cui vengono memorizzati i suoi pin e le luci. Gestisce anche le luci, il beamer, le tende e i sensori di cui vengono memorizzati i loro pin.
 
-#### 2.1.3 Architettura LDAP connector
+### 2.3 Architettura LDAP connector
 
 ![LDAP](img/ldap/uml.png)
 
 La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e questa classe va a confrontarle con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che va a leggere i dati i modo criptato dato che fa tutto lui.
 Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autentificazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci saranno tre costruttori, uno in cui gli viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno in cui non gli viene passato il tipo di sicurezza e nel terzo gli viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione e getDirContext che ritorna se l'utente ha i permessi o no. 
 
-#### 2.1.3 Architettura Arduino Yun
+### 2.4 Architettura Arduino Yun
 
 ![SchemaArduino](img/arduino/SchemaArduino.PNG)
 
 Questo è il design dello schema dell'arduino, come si può notare l'arduino YUN e questo particolare schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servi che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono simulate con dei led, sempre collegate a dei relays dato che fisicamente per attaccarsi alle luci bisogna collegarsi ai ralays che si trovanno nelle aule collegati alle luci. Gli interruttori delle luci delle aule vengono anch'essi simulate con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura.
 
-#### 2.1.3 Architettura Domotics Server
-
-#### 2.1.4 Architettura Web App (Tomcat)
-
-#### 2.1.3 Design dell'interfaccia di login
+### 2.5 Design dell'interfaccia di login
 
 ![Login](img/sito/Login.JPG)
 
 Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto semplice infatti ci sar&agrave; un semplice form di login che richieder&agrave; nome untente e password.
 
-#### 2.1.4 Design della dashboard del sito web
+### 2.6 Design della dashboard del sito web
 
 ![Login](img/sito/Portal.JPG)
 
 Questa &egrave; il design del sito web dopo che si &egrave; fatto il login, che le credenziali sono state convalidate e confermate. Il sito porta in questa pagina dove si posssono visualizzare le varie aule con la possibilità di modificare le luci, le tende e il beamer.
+
+#### 2.1.3 Architettura Domotics Server
+
+#### 2.1.4 Architettura Web App (Tomcat)
 
 
 
