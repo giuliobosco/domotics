@@ -187,7 +187,13 @@ Questa &egrave; il design del sito web dopo che si &egrave; fatto il login, che 
 
 ![Login](img/ACC_Client/ACC_Client_UML.png)
 
-Queste classi rappresentano la connessione fra l'arduino e il server. 
+Queste classi rappresentano la connessione fra l'arduino e il server.
+
+### 2.8 Progettazione JDBC 
+
+![JDBC](img/JDBC/JDBC_UML.JPG)
+
+Queste classi rappresentano il programma che permette di connettersi tramite java al nostro database, la classe DomoticsJdbcC rappresenta le informazioni per accedere al nostro data base utilizzato nel progetto per memorizzare i dati mentre la classe JdbcConnector permette di connettersi al database utilizzando le informazioni di DomoticsJdbcC.
 
 ### 2.1.3 Architettura Domotics Server
 
