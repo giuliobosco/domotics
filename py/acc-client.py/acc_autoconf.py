@@ -35,12 +35,24 @@ from key_manager import KeyManager
 
 
 def acc_autoconf(id, server_address):
+    """
+    Auto configure the arduino ACC-Client.
+    :param id: Id of the arduino.
+    :param server_address: Domotics server IP address.
+    :return: Configured KeyManager.
+    """
     try:
+        # generate the http get request for the auto configuration
         request = "http://" + server_address + "/acc?autoconf=request&id=" + id
+        # execute the http get request
         response = urlopen(request).read()
+        # load the http response as json
         data = json.loads(response)
+        # if the json response contains the right parameters
         if 'key' in data and 'id' in data and 'server_address' in data:
+            # create the key manager with the paramters
             return KeyManager(id=data['id'], key=data['key'], server_address=data['server_address'])
     except:
         pass
+    # if something goes wrong, create the key manager, with the id
     return KeyManager(id=id)

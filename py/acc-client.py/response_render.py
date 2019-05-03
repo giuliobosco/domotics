@@ -33,21 +33,37 @@ from lights import Lights
 
 
 class ResponseRender:
+    # error string
     error = "ERROR"
+    # ok string
     ok = "OK"
+    # ok message string
     ok_msg = "ok"
+    # warring string
     warring = "WARRING"
 
     def __init__(self, key_manager, bridge):
+        """
+        Create the response render with global bridge client or bridge client and KeyManager
+        :param key_manager:
+        :param bridge:
+        """
+        # set KeyManager
         self.key_manager = key_manager
+        # set key
         self.key = ''
+        # set pin
         self.pin = ''
+        # set value
         self.value = ''
+        # set get request true
         self.get = True
+        # set the bridge client or global bridge client
         self.bridge = bridge
 
     def acc(self):
         if not self.key_manager.check_key(self.key):
+            # if wrong key return error
             return self.build(self.error, "Wrong key")
         try:
             self.check_parameters()
@@ -70,49 +86,93 @@ class ResponseRender:
 
     def check_parameters(self):
         if not len(self.pin) > 0:
+            # if no pin raise exception "no pin"
             raise Exception("No pin in request")
         if not self.is_pin(self.pin):
+            # if is not pin raise exception "no valid pin"
             raise Exception("Pin not valid")
         if not self.get:
             if not len(self.value) > 0:
+                # if get request and no value raise eception
                 raise Exception("No value to set in request")
 
     def get_pin(self):
+        """
+        Get the pin.
+        Check if the pin has right format.
+        :return: Pin.
+        """
+        # string pin
         pin = str(self.pin)
+        # pin to upper case
         pin = pin.upper()
         if not pin.startswith('A'):
+            # if pin doesn't stats with letter "A" add "D" in front of the pin
             pin = 'D' + pin
         return pin
 
     def is_pin(self, pin):
+        """
+        Check if the pin is valid.
+        :param pin: Pin to check.
+        :return: True if pin is valid.
+        """
         try:
+            # upper case string pin
             pin = str(pin).upper()
             if pin.startswith("A") and len(pin) == 2:
+                # if oin stats with "A" and lenght 2 remove "A".
                 pin = pin.replace("A", "")
                 pin = int(pin)
                 if 0 <= pin <= 5:
+                    # check if analog pin is valid
                     return True
                 else:
                     return False
             pin = int(pin)
             if 0 <= pin <= 13:
+                # check if digital pin is valid
                 return True
         except Exception as e:
             return False
         return False
 
     def alive(self):
+        """
+        Return if alive.
+        :return: Json response.
+        """
+        # data to insert in response
         other = [("date", str(datetime.now())), ("id", self.key_manager.id)]
+        # build response with ok, ok_msg and other informations
         return self.build(self.ok, self.ok_msg, other)
 
     def not_found(self, path):
+        """
+        Build not found json response.
+        :param path: Not found path.
+        :return: Json response.
+        """
+        # build response
         return self.build("ERROR", "Page " + path + " not found")
 
     def build(self, status, message, other=[]):
+        """
+        Build response.
+        :param status: Status of the response.
+        :param message: Message of the response.
+        :param other: Other paramteres of the response.
+        :return: Json response.
+        """
+        # create response, with status
         string = "{\"status\":\"" + status + "\""
+        # add message to response
         string += ",\"message\":\"" + message + "\""
+        # add other items to response
         for item in other:
             if len(item) == 2:
                 string += ",\"" + item[0] + "\":\"" + item[1] + "\""
+        # close response
         string += "}"
+        # return bytes of the response
         return bytes(string)

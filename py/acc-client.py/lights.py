@@ -29,18 +29,32 @@ THE SOFTWARE.
 
 
 class Lights:
-    # create light controller with the arduino bridge
     def __init__(self, bridge):
+        """
+        ACC-Client light controller
+        :param bridge: BridgeClient, conneciton to arduino.
+        """
         self.bridge = bridge
 
-    # light set value
     def light_set(self, pin='D13', value='0'):
+        """
+        Set status to light.
+        :param pin: Pin of the light on arduino.
+        :param value: Status of the light.
+        """
         self.bridge.put(str(pin), str(value))
 
-    # turn light on
     def light_on(self, pin='D13'):
+        """
+        Turn on the light on arudino.
+        :param pin: Pin to turn on.
+        """
         self.light_set(pin, '1')
 
-    # turn light off
     def light_off(self, pin='D13'):
+        """
+        Turn off the light on arduino.
+        :param pin: Pin to turn off.
+        :return:
+        """
         self.light_set(pin, '0')

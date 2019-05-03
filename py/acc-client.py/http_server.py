@@ -35,34 +35,64 @@ from response_render import ResponseRender
 
 class HttpServer(BaseHTTPRequestHandler):
     def send_header_json(self):
+        """
+        Send to the client the json header, response 200, content-type
+        """
+        # send response code 200
         self.send_response(200)
+        # send contenty-type: teyt/json
         self.send_header("Content-type", "text/json")
+        # end the http header
         self.end_headers()
 
     def do_GET(self):
+        """
+        Do at get http request.
+        """
         if "/acc?" in self.path:
+            # if ACC request execute self.acc()
             self.acc()
         elif ("/alive" == self.path) or ("/" == self.path):
+            # if alive request execute self.alive()
             self.alive()
         else:
+            # otherwise 404 file not found
+            # send response 404
             self.send_response(404, "page not found")
+            # end the http header
             self.end_headers()
+            #  write return response not found
             self.wfile.write(ResponseRender(self.server.key_manager, self.server.bridge).not_found(self.path))
 
     def acc(self):
+        """
+        Render acc response.
+        """
+        # send to client json header
         self.send_header_json()
+        # explode path, http get reqeust attributes
         attributes = parse_qsl(self.path.split("?")[1])
+        # create the acc response render with the http server KeyManager and the http server global bridge
         response_render = ResponseRender(self.server.key_manager, self.server.bridge)
         for attribute in attributes:
             if attribute[0] == "key":
+                # set the response render key
                 response_render.key = attribute[1]
             if attribute[0] == "pin":
+                # set the response render pin
                 response_render.pin = attribute[1]
             if attribute[0] == "set":
+                # set the response render set request, if not setted wil be get request.
                 response_render.get = False
                 response_render.value = attribute[1]
+        # return to client acc response
         self.wfile.write(response_render.acc())
 
     def alive(self):
+        """
+        Render alive response
+        """
+        # send to client json header
         self.send_header_json()
+        # send to client alive response rendered from ResponseRender
         self.wfile.write(ResponseRender(self.server.key_manager, self.server.bridge).alive())

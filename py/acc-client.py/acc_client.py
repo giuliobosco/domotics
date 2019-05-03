@@ -34,29 +34,50 @@ import time
 from http_server import HttpServer
 from pin_thread import PinThread
 
+# server host name (accessible from any network)
 hostName = "0.0.0.0"
+# server port
 hostPort = 8080
 
 
 class AccClient:
     @staticmethod
     def start(key_manager):
+        """
+        Start the acc client with the key manager.
+        :param key_manager: Key manager for configure acc.
+        """
         try:
+            # create http server with HttpServer
             server = HTTPServer((hostName, hostPort), HttpServer)
+            # set http server key_manager.
             server.key_manager = key_manager
+            # set ACC-Client buttons thread.
             buttons = {'D5', 'D6'}
+            # create the global bridge to arduino
             bridge = BridgeGlobal()
+            # set http server global bridge
             server.bridge = bridge
+            # initialize buttons array
             threads = []
+            # create a thread for each button
             for button in buttons:
+                # create pin thread, with the KeyManager, the pin of the button and the global bridge.
                 thread = PinThread(key_manager=key_manager, pin=button, bridge=bridge)
+                # start the pin thread
                 thread.start()
+                # append the pin thread to the threads list.
                 threads.append(thread)
+            # print the start of the server.
             print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
+            # start the http server
             server.serve_forever()
         except KeyboardInterrupt:
+            # on key board interrupt
+            # stop http server
             server.server_close()
 
+            # stop all threads
             for thread in threads:
                 thread.interrupt()
             pass

@@ -27,6 +27,7 @@ THE SOFTWARE.
 # @author giuliobosco
 # @version 1.0 (2019-04-21 - 2019-04-21)
 
+# import bridge from file system
 import sys
 sys.path.insert(0, '/usr/lib/python2.7/bridge')
 
@@ -37,16 +38,38 @@ from bridgeclient import BridgeClient
 
 class BridgeGlobal:
     def __init__(self):
+        """
+        Create global bridge, initialize the bridge client and the lock for synchronization.
+        """
+        # initialize bridge
         self.bridge = BridgeClient()
+        # initialize synchronization lock
         self.lock = Lock()
 
     def get(self, key):
+        """
+        Get from the bridge with synchronization.
+        :param key: Key of the value (memory address).
+        :return: Value of the key.
+        """
+        # acquire the synchronization lock
         self.lock.acquire()
+        # get the value
         value = self.bridge.get(key)
+        # release the synchronization lock
         self.lock.release()
+        # return the value
         return value
 
     def put(self, key, value):
+        """
+        Put the value in the bridge with synchronization.
+        :param key: Key of the value (memory address).
+        :param value: Value to set.
+        """
+        # acquire the synchronization lock
         self.lock.acquire()
+        # set the value
         self.bridge.put(key, value)
+        # release the synchronization lock
         self.lock.release()

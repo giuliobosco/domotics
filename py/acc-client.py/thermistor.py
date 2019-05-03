@@ -39,10 +39,23 @@ class Thermistor:
     T0 = 25 + 273.15
 
     def __init__(self, vcc=5, r=10000):
+        """
+        Create Thermistor with volt and resistence
+        :param vcc: Maximum volt.
+        :param r: Resistence
+        """
+        # set maximum volt
         self.vcc = vcc
+        # set resistence
         self.r = r
 
     def get_kelvin(self, voltage):
+        """
+        Get kelvin from in voltage
+        :param voltage: In voltage
+        :return: Kelvin degreess.
+        """
+        # execute transofrmation from voltage to kelvin
         voltage = (5.00 / 1023.00) * float(voltage)
         voltage_reverse = self.vcc - voltage
         resistance = voltage / (voltage_reverse / self.r)
@@ -50,14 +63,38 @@ class Thermistor:
         return 1 / ((ln / self.B) + (1 / self.T0))
 
     def get_celsius(self, voltage):
+        """
+        Get celsius from voltage.
+        :param voltage: In voltage.
+        :return: Celsius degreess.
+        """
+        # trasform from kelvin to degreess and return
         return self.get_kelvin(voltage) - 273.15
 
 
 def get_celsius(voltage, vcc=5, r=10000):
+    """
+    Get celsius from voltage.
+    :param voltage: In voltage.
+    :param vcc: Maximum voltage.
+    :param r: Resistence.
+    :return: Celisus degreess.
+    """
+    # initialize thermistor
     therm = Thermistor(vcc, r)
+    # trasfrorm from voltage to celisius degreess and return
     return therm.get_celsius(voltage)
 
 
 def get_kelvin(voltage, vcc=5, r=10000):
+    """
+    Get kelvin from voltage.
+    :param voltage: In voltage.
+    :param vcc: Maximum voltage.
+    :param r: Resistence.
+    :return: Kelvin degreess.
+    """
+    # initialize thermistor
     therm = Thermistor(vcc, r)
+    # trasform from voltage to kelvin degress and return
     return therm.get_kelvin(voltage)
