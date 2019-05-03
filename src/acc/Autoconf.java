@@ -33,7 +33,7 @@ import java.sql.SQLException;
  * Auto configuration module for domotics acc client.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-04-22)
+ * @version 1.1 (2019-05-03)
  */
 public class Autoconf {
     // ------------------------------------------------------------------------------------ Costants
@@ -54,6 +54,8 @@ public class Autoconf {
      */
     private String serverAddress;
 
+    private int serverPort;
+
     // --------------------------------------------------------------------------- Getters & Setters
 
     /**
@@ -65,7 +67,7 @@ public class Autoconf {
         JSONObject json = new JSONObject();
         json.put("id", this.arduinoId);
         json.put("key", this.arduinoKey);
-        json.put("server_address", this.serverAddress);
+        json.put("server_address", this.serverAddress + ":" + this.serverPort);
         return json.toString();
     }
 
@@ -81,11 +83,12 @@ public class Autoconf {
      * @throws SQLException Error on the MySQL Server.
      */
     public Autoconf(IdManager idManager, String arduinoId, String arduinoIp,
-                    String serverAddress) throws SQLException {
+                    String serverAddress, int serverPort) throws SQLException {
         Arduino arduino = new Arduino(idManager, arduinoId, arduinoIp);
         this.arduinoId = arduino.getId();
         this.arduinoKey = arduino.getKey();
         this.serverAddress = serverAddress;
+        this.serverPort = serverPort;
     }
 
     // -------------------------------------------------------------------------------- Help Methods
