@@ -26,6 +26,8 @@ package acc;
 import jdbc.DomoticsJdbcC;
 import jdbc.JdbcConnector;
 import models.Arduino;
+import models.Light;
+import models.LightButton;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -41,7 +43,7 @@ import java.util.Map;
  * Acc servlet.
  *
  * @author giuliobosco
- * @version 1.0.2 (2019-04-21 - 2019-05-03)
+ * @version 1.0.3 (2019-04-21 - 2019-05-03)
  */
 @WebServlet(name = "AccServlet")
 public class AccServlet extends HttpServlet {
@@ -68,6 +70,26 @@ public class AccServlet extends HttpServlet {
 
                 Autoconf autoconf = new Autoconf(idManager, arduinoId, arduinoIp, serverAddress,serverPort);
                 response.getOutputStream().println(autoconf.getJson());
+
+            } else if (parameters.containsKey("key")
+                    && parameters.containsKey("pin")
+                    && parameters.containsKey("set")) {
+
+                String arduinokey = parameters.get("key")[0];
+                String arduinoIp = request.getRemoteAddr();
+
+                String buttonPinString = parameters.get("pin")[0].substring(1);
+                int buttonPin = Integer.parseInt(buttonPinString);
+
+                int setStatus = Integer.parseInt(parameters.get("set")[0]);
+                LightButton lb = new LightButton(buttonPin, arduinoIp, arduinokey, jdbc);
+                Light light = lb.getLight();
+                
+                if (setStatus == light.LIGHT_ON) {
+                    light.turnOn();
+                } else if (setStatus == light.LIGHT_OFF) {
+                    light.turnOff();
+                }
             }
         } catch (SQLException | ClassNotFoundException e) {
             response.sendError(500, "Internal Server ERROR");
