@@ -27,6 +27,7 @@ package models;
 import acc.GetRequest;
 import acc.IdManager;
 import jdbc.JdbcConnector;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -39,7 +40,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.1 (2019-04-15 - 2019-04-29)
+ * @version 1.3.2 (2019-04-15 - 2019-05-03)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -186,6 +187,19 @@ public class Arduino {
         this.room = Room.get(resultSet.getString("room"));
     }
 
+    /**
+     * Get Arduino as JSON String.
+     *
+     * @return Arduino JSON String.
+     */
+    public String getJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("id", this.getId());
+        jo.put("ip", this.getIp());
+        jo.put("room", this.getRoom().getName());
+        return jo.toString();
+    }
+
     // ----------------------------------------------------------------------------- General Methods
 
     /**
@@ -238,7 +252,7 @@ public class Arduino {
      * Get all the arduino in a room.
      *
      * @param jdbcConnector Connection to the MySQL domotics database.
-     * @param roomName Name of the room.
+     * @param roomName      Name of the room.
      * @return List of arduino in the room.
      * @throws SQLException Error on the MySQL Server.
      */
