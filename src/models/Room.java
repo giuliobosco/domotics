@@ -25,6 +25,7 @@
 package models;
 
 import jdbc.JdbcConnector;
+import org.json.JSONObject;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +36,7 @@ import java.util.List;
  * Domotics room.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-04-13)
+ * @version 1.0.3 (2019-05-03)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
@@ -69,6 +70,18 @@ public class Room {
     }
 
     // -------------------------------------------------------------------------------- Help Methods
+
+    /**
+     * Get the Room as JSON String.
+     *
+     * @return Room as JSON String.
+     */
+    public String getJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("name", this.getName());
+        return jo.toString();
+    }
+
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
 
@@ -102,10 +115,10 @@ public class Room {
     /**
      * Get the room by name from the domotics database.
      *
-     * @param name Name of the room.
+     * @param name          Name of the room.
      * @param jdbcConnector Connection to the database.
      * @return Room created from the database.
-     * @throws SQLException Error on the my sql server.
+     * @throws SQLException           Error on the my sql server.
      * @throws ClassNotFoundException MySQL Driver not found.
      */
     public static Room get(String name, JdbcConnector jdbcConnector) throws SQLException, ClassNotFoundException {
@@ -115,7 +128,7 @@ public class Room {
         ResultSet resultSet = jdbcConnector.query(query);
 
         while (resultSet.next()) {
-            Room room =  get(resultSet.getString("name"));
+            Room room = get(resultSet.getString("name"));
             resultSet.close();
             jdbcConnector.closeStatement();
             return room;
@@ -130,7 +143,7 @@ public class Room {
      * Test if the get method works.
      *
      * @param args Command line arguments.
-     * @throws SQLException Error with the MySQL Server.
+     * @throws SQLException           Error with the MySQL Server.
      * @throws ClassNotFoundException MySQL Driver class not found.
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
