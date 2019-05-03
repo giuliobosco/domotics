@@ -36,7 +36,7 @@ import java.sql.SQLException;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.2 (2019-04-05 - 2019-05-03)
+ * @version 1.2.3 (2019-04-05 - 2019-05-03)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -170,6 +170,19 @@ public class Light {
             return Integer.parseInt(jo.getString("message"));
         } catch (MalformedURLException | NumberFormatException ignored) {
             return -1;
+        }
+    }
+
+    /**
+     * Toggle the status of the light.
+     *
+     * @throws IOException Error while http request.
+     */
+    public void toggleLight() throws IOException {
+        if (getStatus() == this.LIGHT_ON) {
+            turnOff();
+        } else {
+            turnOn();
         }
     }
 
