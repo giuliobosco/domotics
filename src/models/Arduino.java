@@ -40,7 +40,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.3 (2019-04-15 - 2019-05-03)
+ * @version 1.3.4 (2019-04-15 - 2019-05-03)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -163,7 +163,7 @@ public class Arduino {
     }
 
     public Arduino(JdbcConnector jdbcConnector, String ip, String key) throws SQLException, ClassNotFoundException {
-        String query = "SELECT  * FROM domoitcs.arduino WHERE ip='" + ip + "' AND client_key='" + key + "';";
+        String query = "SELECT  * FROM domotics.arduino WHERE ip='" + ip + "' AND client_key='" + key + "';";
         ResultSet resultSet = jdbcConnector.query(query);
 
         this.set(resultSet);
