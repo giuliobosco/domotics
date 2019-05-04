@@ -16,7 +16,7 @@ public class HelloWorldServlet extends HttpServlet {
 
         out.println("<h1>It Works!</h1>");
 
-        out.println("<p>Return to <a href=\"index.jsp\">index.jsp</a><a/p>");
+        out.println("<p>Return to <a href=\"index_.jsp\">index_.jsp</a><a/p>");
 
         out.println("</body></html>");
         out.close();
