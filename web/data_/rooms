@@ -1,0 +1,32 @@
+{
+  "rooms": [
+	{
+	  "name": "A100",
+	  "temp": "23.5",
+	  "lights": [
+		{
+		  "name": "window light",
+		  "id": "000"
+		},
+		{
+		  "name": "door light",
+		  "id": "001"
+		}
+	  ]
+	},
+	{
+	  "name": "A101",
+	  "temp": "22",
+	  "lights": [
+		{
+		  "name": "window light",
+		  "id": "000"
+		},
+		{
+		  "name": "door light",
+		  "id": "001"
+		}
+	  ]
+	}
+  ]
+}
