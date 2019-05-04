@@ -1,0 +1,196 @@
+.np-all, .np-all *, .np {
+    padding: 0;
+}
+
+.pt100, .pt100d {
+    padding-top: 100px;
+}
+
+.pt65 {
+    padding-top: 65px;
+}
+
+.pt50 {
+    padding-top: 50px;
+}
+
+.pt30 {
+    padding-top: 30px;
+}
+
+.pt25 {
+    padding-top: 25px;
+}
+
+.pt20 {
+    padding-top: 20px;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+
+.pt5 {
+    padding-top: 5px;
+}
+
+.pl100, .pl100d {
+    padding-left: 100px;
+}
+
+.pl50 {
+    padding-left: 50px;
+}
+
+.pl30 {
+    padding-left: 30px;
+}
+
+.pl15 {
+    padding-left: 15px;
+}
+
+.pl10 {
+    padding-left: 10px;
+}
+
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.pb10 {
+    padding-bottom: 10px;
+}
+
+.pr50, pr50d {
+    padding-right: 50px;
+}
+
+.pr30 {
+    padding-right: 30px;
+}
+
+.pr15 {
+    padding-right: 15px;
+}
+
+.ph100 {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.ph50 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.ph30 {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.ph10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ph5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+.b2 {
+    border: 2px solid #000000;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.b {
+    border: 1px solid #000000;
+}
+
+.bb {
+    border-bottom: 1px solid #000000;
+}
+
+.ovflw-hidden {
+    overflow: hidden;
+}
+
+.ovflw-x-scroll {
+    overflow-x: scroll;
+}
+
+.text-big {
+    font-size: 1.5em;
+}
+
+.font0 {
+    font-size: 0;
+}
+
+.m { display: none; }
+
+@media screen and (max-width: 768px) {
+    .pt100d {
+        padding-top: 0;
+    }
+
+    .pl100d {
+        padding-left: 0;
+    }
+
+    .pr50d {
+        padding-right: 0;
+    }
+    
+    .m { display: block; }
+
+    .d { display: none; }
+}

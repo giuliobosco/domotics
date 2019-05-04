@@ -283,7 +283,38 @@ public DirContext getDirContext(String username, String password) throws NamingE
     }
 ```
 ### 3.5 Implementazione Java DataBase Connectivity (JDBC)
+Java DataBase Connectivity viene utilizzato per connettersi tramite java al database e ricavarne le informazione che si vogliono sapere.
+Le parti fondamentali per capire il funzionamento di JDBC sono queste:
+Il seguente metodo che crea la stringa di connessione che permette di connettersi al database, la stringa è composta da una parte iniziale che rappresenta dove deve andare a puntare, in questo caso mysql, poi bisogna passargli l'host, la porta e il nome del database, in più per evitare problemi con il driver è consigliabile anche aggiungere una stringa che rappresenta l'orario della propria zona geografica.
 
+Class.forName("com.mysql.cj.jdbc.Driver"), specifica a JDBC quali driver utilizzare.
+
+Poi viene creata la Connection con il metodo getConnection che prende la connectionString, l'username e la password ed infine ritorna il tutto.
+```java
+protected Connection getDbConnection(String username, String password, String host, int port, String database) throws SQLException, ClassNotFoundException {
+        String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database + "?";
+        connectionString += TIMEZONE_UTC;
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(connectionString, username, password);
+    }
+```
+```java
+public void createStatement() throws SQLException {
+        if (this.statement != null && !this.statement.isClosed()) {
+            this.closeStatement();
+        }
+
+        this.statement = this.connection.createStatement();
+    }
+```
+```java
+public void closeStatement() throws SQLException {
+        if (!this.statement.isClosed()) {
+            this.statement.close();
+        }
+    }
+```
 ### Arduino Connection Controller Client
 ### Implementazione Arduino Connection Controller Server
 
