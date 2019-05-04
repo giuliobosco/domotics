@@ -1,1 +1,8 @@
 <h1>rooms</h1>
+
+<div ng-controller="RoomsController">
+	<div ng-repeat="room in rooms">
+		{{ room.name }}
+		{{ room.temp }}
+	</div>
+</div>
