@@ -43,7 +43,7 @@ import java.util.Map;
  * Acc servlet.
  *
  * @author giuliobosco
- * @version 1.0.3 (2019-04-21 - 2019-05-03)
+ * @version 1.0.4 (2019-04-21 - 2019-05-05)
  */
 @WebServlet(name = "AccServlet")
 public class AccServlet extends HttpServlet {
@@ -57,6 +57,7 @@ public class AccServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String responseString = "";
         Map<String, String[]> parameters = request.getParameterMap();
         try {
             JdbcConnector jdbc = DomoticsJdbcC.getConnector();
@@ -68,8 +69,8 @@ public class AccServlet extends HttpServlet {
                 String serverAddress = request.getLocalAddr();
                 int serverPort = request.getServerPort();
 
-                Autoconf autoconf = new Autoconf(idManager, arduinoId, arduinoIp, serverAddress,serverPort);
-                response.getOutputStream().println(autoconf.getJson());
+                Autoconf autoconf = new Autoconf(idManager, arduinoId, arduinoIp, serverAddress, serverPort);
+                responseString = autoconf.getJson();
 
             } else if (parameters.containsKey("key")
                     && parameters.containsKey("pin")
@@ -78,22 +79,39 @@ public class AccServlet extends HttpServlet {
                 String arduinokey = parameters.get("key")[0];
                 String arduinoIp = request.getRemoteAddr();
 
-                String buttonPinString = parameters.get("pin")[0].substring(1);
-                int buttonPin = Integer.parseInt(buttonPinString);
+                String buttonPinString = parameters.get("pin")[0];
+                if (buttonPinString.length() > 0) {
+                    buttonPinString = buttonPinString.substring(1);
+                    int buttonPin = Integer.parseInt(buttonPinString);
 
-                int setStatus = Integer.parseInt(parameters.get("set")[0]);
-                LightButton lb = new LightButton(buttonPin, arduinoIp, arduinokey, jdbc);
-                Light light = lb.getLight();
-                
-                if (setStatus == light.LIGHT_ON) {
-                    light.turnOn();
-                } else if (setStatus == light.LIGHT_OFF) {
-                    light.turnOff();
+                    int setStatus = Integer.parseInt(parameters.get("set")[0]);
+                    LightButton lb = new LightButton(buttonPin, arduinoIp, arduinokey, jdbc);
+                    Light light = lb.getLight();
+
+                    if (setStatus == light.LIGHT_ON) {
+                        light.turnOn();
+                    } else if (setStatus == light.LIGHT_OFF) {
+                        light.turnOff();
+                    }
+
+                    responseString = getJsonResponse("OK", "" + setStatus);
+                } else {
+                    responseString = getJsonResponse("ERROR", "No found pin");
                 }
+            } else {
+                responseString = getJsonResponse("ERROR", "Wrong operation");
             }
         } catch (SQLException | ClassNotFoundException e) {
-            response.sendError(500, "Internal Server ERROR");
-            e.printStackTrace();
+            responseString = getJsonResponse("ERROR", e.toString());
         }
+
+        response.getOutputStream().println(responseString);
+    }
+
+    private String getJsonResponse(String status, String message) {
+        JSONObject jo = new JSONObject();
+        jo.put("status", status);
+        jo.put("message", message);
+        return jo.toString();
     }
 }
