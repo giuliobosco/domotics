@@ -6,11 +6,13 @@
 	  "lights": [
 		{
 		  "name": "window light",
-		  "id": "000"
+		  "id": "000",
+		  "status": "0"
 		},
 		{
 		  "name": "door light",
-		  "id": "001"
+		  "id": "001",
+		  "status": "0"
 		}
 	  ]
 	},
@@ -20,11 +22,13 @@
 	  "lights": [
 		{
 		  "name": "window light",
-		  "id": "000"
+		  "id": "000",
+		  "status": "0"
 		},
 		{
 		  "name": "door light",
-		  "id": "001"
+		  "id": "001",
+		  "status": "0"
 		}
 	  ]
 	}
