@@ -1,4 +1,5 @@
 {
-  "status": "ok",
-  "username": "username"
+  "status": "error",
+  "username": "username",
+  "message": "message"
 }
