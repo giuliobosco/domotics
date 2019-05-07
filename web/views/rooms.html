@@ -1,10 +1,13 @@
 <div ng-include src="'views/sidebar.html'"></div>
 
-<h1>rooms</h1>
-
-<div ng-controller="RoomsController">
-	<div ng-repeat="room in rooms">
-		{{ room.name }}
-		{{ room.temp }}
+<div class="main-view">
+	<div class="col-md-12">
+		<h1>rooms</h1>
+		
+		<div ng-controller="RoomsController">
+			<div ng-repeat="room in rooms">
+				<div ng-include src="'views/room.html'"></div>
+			</div>
+		</div>
 	</div>
 </div>

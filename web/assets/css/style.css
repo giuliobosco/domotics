@@ -52,6 +52,10 @@ form.login {
 	bottom: 20px;
 }
 
+.main-view {
+	padding-left: 200px;
+}
+
 @media screen and (max-width: 767px) {
 
 	.navbar {
