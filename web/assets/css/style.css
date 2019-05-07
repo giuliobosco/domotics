@@ -1,5 +1,8 @@
 body {
+	position: absolute;
 	background-color: #ffffff;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 body .login-view {
@@ -15,6 +18,11 @@ body .login-view {
 	color: #ffffff;
 	text-decoration: none;
 }
+
+.full-height {
+	min-height: 100%;
+}
+
 form.login {
 	padding-top: 100px;
 }
@@ -55,6 +63,14 @@ form.login {
 .main-view {
 	background-color: #e8e8e8;
 	padding-left: 200px;
+}
+
+.room {
+	width: 247px;
+	background-color: white;
+	margin: 15px 0 0 15px;
+	padding: 15px 15px 0 15px;
+	border-radius: 8px;
 }
 
 .label {
@@ -143,5 +159,13 @@ input:checked + .slider:before {
 
 	.main-view {
 		padding: 0;
+	}
+
+	.room {
+		width: 100%;
+		background-color: white;
+		margin-left: 0;
+		padding: 15px 15px 0 15px;
+		border-radius: 8px;
 	}
 }
