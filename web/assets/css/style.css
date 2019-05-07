@@ -11,6 +11,10 @@ body .login-view {
 	background-color: #0090c2;
 }
 
+.a-white a:link, .a-white a:active, .a-white a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
 form.login {
 	padding-top: 100px;
 }
@@ -43,9 +47,9 @@ form.login {
 	font-size: 18px;
 }
 
-.a-white a:link, .a-white a:active, .a-white a:visited {
-	color: #ffffff;
-	text-decoration: none;
+.sidebar .bottom {
+	position: absolute;
+	bottom: 20px;
 }
 
 @media screen and (max-width: 767px) {
