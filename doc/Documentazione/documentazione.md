@@ -319,6 +319,14 @@ Quest'altro metodo invece chiude l'istruzione dal collegamento al database.
 this.statement.close();
 ```
 
+Questo metodo server per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata del metodo sottoforma di stringa.
+public ResultSet query(String query) throws SQLException {
+
+    this.createStatement();
+
+    return this.statement.executeQuery(query);
+}
+
 Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
 *   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova     versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
 *   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario apparteneteWS:
