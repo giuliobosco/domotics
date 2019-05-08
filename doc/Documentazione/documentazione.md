@@ -282,37 +282,58 @@ public DirContext getDirContext(String username, String password) throws NamingE
     }
 ```
 ### 3.5 Implementazione Java DataBase Connectivity (JDBC)
-Java DataBase Connectivity viene utilizzato per connettersi tramite java al database e ricavarne le informazione che si vogliono sapere.
-Le parti fondamentali per capire il funzionamento di JDBC sono queste:
-Il seguente metodo che crea la stringa di connessione che permette di connettersi al database, la stringa è composta da una parte iniziale che rappresenta dove deve andare a puntare, in questo caso mysql, poi bisogna passargli l'host, la porta e il nome del database, in più per evitare problemi con il driver è consigliabile anche aggiungere una stringa che rappresenta l'orario della propria zona geografica.
+Java DataBase Connectivity viene utilizzato per connettersi tramite java al database e ricavarne le informazione che si vogliono sapere.<br>
+La prima cosa da fare è scaricare i driver corretti per MySql, quindi andando sul sito: https://dev.mysql.com/downloads/connector/j/
+selezionare il proprio sistema operativo e scaricare i driver della stessa versione di MySQL sul proprio computer (Consigliata 8.0.15).
 
-Class.forName("com.mysql.cj.jdbc.Driver"), specifica a JDBC quali driver utilizzare.
-
-Poi viene creata la Connection con il metodo getConnection che prende la connectionString, l'username e la password ed infine ritorna il tutto.
+Dopodichè bisogna realizzare una connection string che permette di connettersi al database.
+<br>
+Nel seguente pezzo di codice realizziamo la stringa di connessione, la stringa è composta da una parte iniziale che rappresenta il protocollo di rete per arrivare a MySQL, poi bisogna passargli l'host, la porta e il nome del database e in più per evitare problemi con il driver è consigliabile anche aggiungere l'orario della propria zona geografica.
 ```java
-protected Connection getDbConnection(String username, String password, String host, int port, String database) throws SQLException, ClassNotFoundException {
-        String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database + "?";
+String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + database + "?";
         connectionString += TIMEZONE_UTC;
+```
+<br>
+Quest'altro metodo serve per dire a DriverManager quando dovrà instaurare la connessione quali driver deve utilizzare.<br>
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(connectionString, username, password);
-    }
-```
 ```java
-public void createStatement() throws SQLException {
-        if (this.statement != null && !this.statement.isClosed()) {
-            this.closeStatement();
-        }
+Class.forName("com.mysql.cj.jdbc.Driver");
+```
+<br>
+A DriverManager per creare la connessione gli server la connectionstring, l'username e la password.ed infine viene ritornato la connessione tramite DriverManager.
 
-        this.statement = this.connection.createStatement();
-    }
-```
 ```java
-public void closeStatement() throws SQLException {
-        if (!this.statement.isClosed()) {
-            this.statement.close();
-        }
-    }
+DriverManager.getConnection(connectionString, username, password);
 ```
+<br>
+Metodo che crea un istruzione dal collegamento al database, che verrà poi utilizzato per inviare le query al database.
+
+```java
+this.statement = this.connection.createStatement();
+```
+<br>
+Quest'altro metodo invece chiude l'istruzione dal collegamento al database.
+
+```java
+this.statement.close();
+```
+
+Questo metodo server per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata del metodo sottoforma di stringa.
+public ResultSet query(String query) throws SQLException {
+
+    this.createStatement();
+
+    return this.statement.executeQuery(query);
+}
+
+Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
+*   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova     versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
+*   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario apparteneteWS:
+    ```Sql
+    SET @@global.time_zone = '+01:00';
+    SET @@session.time_zone = '+01:00';
+    ```
+
+
 ### Arduino Connection Controller Client
 ### Implementazione Arduino Connection Controller Server
