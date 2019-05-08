@@ -26,17 +26,19 @@ package models;
 
 import acc.GetRequest;
 import jdbc.DomoticsJdbcC;
+import jdbc.JdbcConnector;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.4 (2019-04-05 - 2019-05-08)
+ * @version 1.3 (2019-04-05 - 2019-05-08)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -63,6 +65,11 @@ public class Light {
      */
     private Arduino arduino;
 
+    /**
+     * Name of the light
+     */
+    private String name;
+
     // --------------------------------------------------------------------------- Getters & Setters
 
     /**
@@ -83,6 +90,28 @@ public class Light {
         return this.arduino;
     }
 
+    /**
+     * Get the name of the light.
+     *
+     * @return Name of the light.
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Ge the id of the light, created by the id of the arduino and the pin of the light.
+     *
+     * @return Id of the light.
+     */
+    public String getId() {
+        return this.getArduino().getId() + "x" + this.getPin();
+    }
+
+    public boolean isOn() throws IOException {
+        return getStatus() == 1;
+    }
+
     // -------------------------------------------------------------------------------- Constructors
 
     /**
@@ -91,9 +120,32 @@ public class Light {
      * @param pin     Pin of the light on the arduino.
      * @param arduino Arduino of the light.
      */
-    public Light(int pin, Arduino arduino) {
+    public Light(int pin, Arduino arduino, String name) {
         this.pin = pin;
         this.arduino = arduino;
+        this.name = name;
+    }
+
+    /**
+     * Create the light with the pin and the arduino, using the connector to domotics database for
+     * load the name and check that the Light exists.
+     *
+     * @param pin       Pin of the light on the arduino.
+     * @param arduino   Arduino of the light.
+     * @param connector Connector to MySQL domotics server.
+     * @throws SQLException Error on the MySQL Server.
+     */
+    public Light(int pin, Arduino arduino, JdbcConnector connector) throws SQLException {
+        String query = "SELECT * FROM domotics.light WHERE pin='" + pin + "' AND arduino='" + arduino.getId() + "';";
+        ResultSet rs = connector.query(query);
+
+        if (rs.next()) {
+            this.pin = Integer.parseInt(rs.getString("pin"));
+            this.arduino = arduino;
+            this.name = rs.getString("name");
+        } else {
+            throw new SQLException("No light");
+        }
     }
 
     // -------------------------------------------------------------------------------- Help Methods
@@ -103,15 +155,17 @@ public class Light {
      *
      * @return JSON Object Object.
      */
-    public JSONObject getJson() {
+    public JSONObject getJson() throws IOException {
         JSONObject jo = new JSONObject();
-        jo.put("pin", this.pin);
-        jo.put("arduino", this.arduino.getJson());
+        jo.put("name", this.getName());
+        jo.put("id", this.getId());
+        jo.put("on", this.isOn());
         return jo;
     }
 
     /**
      * Get Light as JSON string.
+     *
      * @return Light as JSON string.
      */
     public String getJsonString() {
@@ -211,9 +265,11 @@ public class Light {
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
         Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "127.0.0.1");
+        JdbcConnector jdbc = DomoticsJdbcC.getConnector();
+        jdbc.openConnection();
         // new Light(13, arduino).turnOn();
         // new Light(13, arduino).turnOff();
         //System.out.println(new Light(13, arduino).getJson());
-        System.out.println(new Light(13, arduino).getStatus());
+        System.out.println(new Light(13, arduino, jdbc).getStatus());
     }
 }
