@@ -78,4 +78,13 @@
 		<servlet-name>ControllerServlet</servlet-name>
 		<url-pattern>/controller/light</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RoomsServlet</servlet-name>
+		<servlet-class>data.RoomsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoomsServlet</servlet-name>
+		<url-pattern>/data/rooms</url-pattern>
+	</servlet-mapping>
 </web-app>
