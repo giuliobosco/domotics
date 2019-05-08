@@ -124,7 +124,9 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 Software utilizzati:<br>
 WebStorm<br>
 Clion<br>
-IntelliJ
+IntelliJ<br>
+Atom<br>
+Github Desktop
 
 #### 1.7.2 Hardware
 Hardware utilizzati:<br>
@@ -198,7 +200,7 @@ Queste classi permettono all'arduino di connettersi al server dall'arduino e di 
 
 ### 3.3 Database
 
-Per realizzare il data base abbiamo utilizzato MySQL.
+Per realizzare il database abbiamo utilizzato MySQL.
 Prima di tutto bisogna creare il database tramite il seguente comando.
 ```SQL
 /* create the database */
@@ -211,13 +213,13 @@ CREATE TABLE domotics.room (
     name VARCHAR(255) PRIMARY KEY
 );
 ```
-Dopo aver creato l'aula creiamo la tabella che rappresenta l'arduino e dovra avere al suo interno l'id del client, l'indirizzo ip, la password del root, la chiave del client e l'aula i cui è posizionato.
+Dopo aver creato l'aula creiamo la tabella che rappresenta l'arduino e dovra avere al suo interno l'id del client, l'indirizzo ip, la password della root, la chiave del client e l'aula i cui è posizionato.
 ```SQL
 /* create the arduino table */
 CREATE TABLE domotics.arduino (
 	client_id VARCHAR (255) PRIMARY KEY,
 	ip VARCHAR (255),
-    root_password VARCHAR (255),
+  root_password VARCHAR (255),
 	client_key VARCHAR (255),
 	room VARCHAR (255),
 
@@ -225,7 +227,7 @@ CREATE TABLE domotics.arduino (
 );
 ```
 Adesso bisogna creare le tabelle che rappresentano i moduli che l'arduino andrà a controllare.
-I moduli dovranno avere come attributi il numero del pin, arduino da cui vengono controllati e il loro stato.
+I moduli dovranno avere come attributi il numero del pin, l'arduino da cui vengono controllati e il loro stato.
 ```SQL
 /* create the light table */
 CREATE TABLE domotics.light (
@@ -238,18 +240,18 @@ CREATE TABLE domotics.light (
 ```
 
 ### 3.4 Lightweight Directory Access Protocol (LDAP)
-Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul data base della scuola in questo caso e controlla se le credenziali corrispondono a un docente o no.
+Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul database della scuola e controlla se le credenziali corrispondono a un docente o no.
 
-Per fare questo serve server una stringa di connessione che dice a LDAP dove andare a connettersi. Che deve contenere il domimio e la porta del server LDAP.
+Per fare questo serve server una stringa di connessione che dice a LDAP dove andare a connettersi. Che deve contenere il domimio e la porta del server ADDS.
 ```java
     private String getConnectionString() {
         return "ldap://" + getDomain() + ":" + getPort();
     }
 ```
-Questo metodo vine utilizzato per creare e poi ritorna DN, è simile a un percorso assoluto solo che invece scendere l'albero da sinistra a destra scendono.
+Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un percorso assoluto solo che invece di scendere l'albero da sinistra scende a destra.
 Ecco un esempio di DN:
 CN=john.doe,OU=People,DC=example,DC=com
-CN è il nome utente, OU è l'unita organizzativa a cui deve puntare(che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
+CN è il nome utente, OU è l'unita organizzativa a cui deve puntare (che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
 ```java
     private String getDn(String username) {
         return "CN=" + username + "," + getBase();
@@ -274,8 +276,8 @@ password, password con cui si è tentato di accedere e che deve essere controlla
         return environment;
     }
 ```
-Quest'ultimo metodo invece utilizza l'Hashtable per collegarsi e controllare se l'utente è presente all'interno dell'unità organizzativa a cui gli è detto di andare a contrallare.
-Se l'autentificazione è valida continua altrimenti richiama un eccezzione.
+Quest'ultimo metodo invece utilizza l'Hashtable per collegarsi e controllare se l'utente è presente all'interno dell'unità organizzativa a cui gli è stato detto di andare a controllare.
+Se l'autenticazione è valida continua altrimenti richiama un eccezione.
 ```java
 public DirContext getDirContext(String username, String password) throws NamingException {
         return new InitialDirContext(getEnvironment(username, password));
@@ -300,7 +302,7 @@ Quest'altro metodo serve per dire a DriverManager quando dovrà instaurare la co
 Class.forName("com.mysql.cj.jdbc.Driver");
 ```
 <br>
-A DriverManager per creare la connessione gli server la connectionstring, l'username e la password.ed infine viene ritornato la connessione tramite DriverManager.
+Per creare la connessione DriverManager ha bisogno della connectionstring, dell'username e della password. Infine viene ritornata la connessione tramite DriverManager.
 
 ```java
 DriverManager.getConnection(connectionString, username, password);
@@ -318,13 +320,16 @@ Quest'altro metodo invece chiude l'istruzione dal collegamento al database.
 this.statement.close();
 ```
 
-Questo metodo server per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata del metodo sottoforma di stringa.
+Questo metodo serve per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata del metodo sottoforma di stringa.
+
+```java
 public ResultSet query(String query) throws SQLException {
 
     this.createStatement();
 
     return this.statement.executeQuery(query);
 }
+```
 
 Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
 *   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova     versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
