@@ -6,12 +6,12 @@
 	  "lights": [
 		{
 		  "name": "window light",
-		  "id": "000",
+		  "id": "000000000000x13",
 		  "on": false
 		},
 		{
 		  "name": "door light",
-		  "id": "001",
+		  "id": "000000000000x12",
 		  "on": false
 		}
 	  ]
