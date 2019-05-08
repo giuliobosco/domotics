@@ -70,13 +70,13 @@ class PinThread(threading.Thread):
 
     def is_status_changed(self):
         """
-        Check if the status of the pin is chenged.
+        Check if the status of the pin is changed.
         :return: True if the status of the pin is changed.
         """
-        # get the status of the pin (from the global bridge client)s
+        # get the status of the pin (from the global bridge client)
         status = self.bridge.get(self.pin)
         if not status == self.status:
-            # if the statuses are different update the status on the thread, and return false
+            # if the statuses are different update the status on the thread, and return true
             self.status = status
             return True
 
@@ -96,7 +96,7 @@ class PinThread(threading.Thread):
             request = "http://" + host + "/acc?key=" + self.key_manager.key
             # add to the request pin and value to set
             request += "&pin=" + self.pin + "&set=" + self.status
-            # execute the request and return the resonse.
+            # execute the request and return the response.
             return urlopen(request).read()
 
     def run(self):
@@ -105,6 +105,6 @@ class PinThread(threading.Thread):
         """
         while not self.is_interrupted():
             if self.is_status_changed():
-                # if status chenged execute reqeust
+                # if status changed execute reqeust
                 response = self.execute_http_req()
         sleep(0.1)
