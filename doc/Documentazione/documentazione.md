@@ -157,21 +157,21 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 
 ![Login](img/sito/Portal.JPG)
 
-Questa &egrave; il design del sito web dopo che si &egrave; fatto il login, che le credenziali sono state convalidate e confermate. Il sito porta in questa pagina dove si posssono visualizzare le varie aule con la possibilità di modificare le luci, le tende e il beamer.
+Questo &egrave; il design del sito web dopo che si ha fatto il login e che le credenziali sono state convalidate e confermate. Il sito porta in questa pagina dove si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
 
 
 ### 2.4 Architettura Data Base
 
 ![DataBase](img/db/DbDiagram.png)
 
-Questo è il design del data base, il data base è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro nome, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino gestisce i bottoni delle luci di cui vengono memorizzati i suoi pin e le luci. Gestisce anche le luci, il beamer, le tende e i sensori di cui vengono memorizzati i loro pin.
+Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro nome, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino gestisce i bottoni delle luci di cui vengono memorizzati i suoi pin e le luci. Gestisce anche le luci, il beamer, le tende e i sensori di cui vengono memorizzati i loro pin.
 
 ### 2.5 Architettura LDAP connector
 
 ![LDAP](img/ldap/uml.png)
 
 La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e questa classe va a confrontarle con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che va a leggere i dati i modo criptato dato che fa tutto lui.
-Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autentificazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci saranno tre costruttori, uno in cui gli viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno in cui non gli viene passato il tipo di sicurezza e nel terzo gli viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione e getDirContext che ritorna se l'utente ha i permessi o no. 
+Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autentificazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci saranno tre costruttori, uno in cui gli viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno in cui non gli viene passato il tipo di sicurezza e nel terzo gli viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione e getDirContext che ritorna se l'utente ha i permessi o no.
 
 ### 2.6 Architettura Arduino Yun
 
@@ -193,11 +193,11 @@ Queste classi permettono all'arduino di connettersi al server dall'arduino e di 
 
 ## 3 Implementazione
 
-### 3.1 Login del sito web 
+### 3.1 Login del sito web
 
 ### 3.2 Dashboard del sito web
 
-### 3.3 Data Base 
+### 3.3 Data Base
 
 Per realizzare il data base abbiamo utilizzato MySQL.
 Prima di tutto bisogna creare il database tramite il seguente comando.
@@ -317,6 +317,3 @@ public void closeStatement() throws SQLException {
 ```
 ### Arduino Connection Controller Client
 ### Implementazione Arduino Connection Controller Server
-
-
-
