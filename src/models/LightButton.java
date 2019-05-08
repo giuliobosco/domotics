@@ -162,7 +162,7 @@ public class LightButton {
         rs.next();
         int pin = rs.getInt("pin");
         Arduino arduino = new Arduino(connector, rs.getString("arduino"));
-        this.light = new Light(pin, arduino);
+        this.light = new Light(pin, arduino, connector);
     }
 
     // ----------------------------------------------------------------------------- General Methods
