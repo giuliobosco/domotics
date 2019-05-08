@@ -54,6 +54,7 @@ CREATE TABLE domotics.arduino (
 CREATE TABLE domotics.light (
   pin VARCHAR (255),
 	arduino VARCHAR (255),
+  name VARCHAR (255),
 	status INT (1),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
