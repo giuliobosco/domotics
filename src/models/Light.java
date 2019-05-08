@@ -41,7 +41,7 @@ import java.util.List;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.3 (2019-04-05 - 2019-05-08)
+ * @version 1.3.4 (2019-04-05 - 2019-05-08)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -256,14 +256,12 @@ public class Light {
     /**
      * Get all the lights in the domotics database.
      *
-     * @param connector Connector to domotics database.
-     * @return List of all lights in the domotics database.
+     * @param rs Result set.
+     * @return List of all lights in the result set.
      * @throws SQLException           Error on the MySQL Database.
      * @throws ClassNotFoundException MySQL Driver class not found.
      */
-    public static List<Light> getLights(JdbcConnector connector) throws SQLException, ClassNotFoundException {
-        String query = "SELECT * FROM light";
-        ResultSet rs = connector.query(query);
+    public static List<Light> getLights(ResultSet rs) throws SQLException, ClassNotFoundException {
 
         List<Light> lights = new ArrayList<>();
 
@@ -281,20 +279,32 @@ public class Light {
     /**
      * Get all the lights in the domotics database as Json Array.
      *
-     * @param connector Connector to domotics database.
-     * @return JSON Array of all lights in domotics database.
-     * @throws SQLException           Error on the MySQL Database.
-     * @throws ClassNotFoundException MySQL Driver class not found.
+     * @param lights Lights lists.
+     * @return JSON Array of all lights in lights list.
      */
-    public static JSONArray getJsonLights(JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
-        List<Light> lights = getLights(connector);
-
+    public static JSONArray getJsonLights(List<Light> lights) throws IOException {
         JSONArray ja = new JSONArray();
         for (Light light : lights) {
             ja.put(light.getJson());
         }
 
         return ja;
+    }
+
+    /**
+     * Get all the lights in a room.
+     *
+     * @param connector Connector to MySQL domotics database.
+     * @param room Room of the lights.
+     * @return List of the lights in the room.
+     * @throws SQLException Error on the MySQL domotics database.
+     * @throws ClassNotFoundException MySQL Driver Class not found.
+     */
+    public static List<Light> getLights(JdbcConnector connector, Room room) throws SQLException, ClassNotFoundException {
+        String query = "SELECT light.pin, light.arduino, light.name from light JOIN arduino a on light.arduino = a.client_id  WHERE a.room = '" + room.getName() + "';";
+        ResultSet rs = connector.query(query);
+
+        return getLights(rs);
     }
 
     /**
@@ -319,6 +329,6 @@ public class Light {
         //System.out.println(new Light(13, arduino).getJson());
         System.out.println(new Light(13, arduino, jdbc).getStatus());
         System.out.println(new Light(13, arduino, jdbc).getJsonString());
-        System.out.println(getJsonLights(jdbc).toString());
+        System.out.println(getJsonLights(getLights(jdbc,new Room("A100"))).toString());
     }
 }
