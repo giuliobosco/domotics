@@ -42,7 +42,7 @@ public class ControllerServlet extends HttpServlet {
                 int pin = Integer.parseInt(lightPin.substring(xIndex + 1));
 
                 Arduino arduino = new Arduino(jdbc, arduinoId);
-                Light light = new Light(pin, arduino);
+                Light light = new Light(pin, arduino, jdbc);
                 light.toggleLight();
                 responseString = JsonBuilder.getJsonResponseOk("");
             } else {
