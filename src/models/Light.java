@@ -27,18 +27,21 @@ package models;
 import acc.GetRequest;
 import jdbc.DomoticsJdbcC;
 import jdbc.JdbcConnector;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.2 (2019-04-05 - 2019-05-08)
+ * @version 1.3.3 (2019-04-05 - 2019-05-08)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -251,6 +254,50 @@ public class Light {
     // --------------------------------------------------------------------------- Static Components
 
     /**
+     * Get all the lights in the domotics database.
+     *
+     * @param connector Connector to domotics database.
+     * @return List of all lights in the domotics database.
+     * @throws SQLException           Error on the MySQL Database.
+     * @throws ClassNotFoundException MySQL Driver class not found.
+     */
+    public static List<Light> getLights(JdbcConnector connector) throws SQLException, ClassNotFoundException {
+        String query = "SELECT * FROM light";
+        ResultSet rs = connector.query(query);
+
+        List<Light> lights = new ArrayList<>();
+
+        while (rs.next()) {
+            int pin = Integer.parseInt(rs.getString("pin"));
+            String name = rs.getString("name");
+            Arduino arduino = new Arduino(DomoticsJdbcC.getConnector(), rs.getString("arduino"));
+
+            lights.add(new Light(pin, arduino, name));
+        }
+
+        return lights;
+    }
+
+    /**
+     * Get all the lights in the domotics database as Json Array.
+     *
+     * @param connector Connector to domotics database.
+     * @return JSON Array of all lights in domotics database.
+     * @throws SQLException           Error on the MySQL Database.
+     * @throws ClassNotFoundException MySQL Driver class not found.
+     */
+    public static JSONArray getJsonLights(JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
+        List<Light> lights = getLights(connector);
+
+        JSONArray ja = new JSONArray();
+        for (Light light : lights) {
+            ja.put(light.getJson());
+        }
+
+        return ja;
+    }
+
+    /**
      * Main method of the class, used for test.
      * <ul>
      * <li>turnOn()</li>
@@ -264,12 +311,14 @@ public class Light {
      * @throws SQLException
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
-        Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "127.0.0.1");
+        Arduino arduino = new Arduino(DomoticsJdbcC.getIdManager(), "000000000000", "192.168.240.1");
         JdbcConnector jdbc = DomoticsJdbcC.getConnector();
         jdbc.openConnection();
         // new Light(13, arduino).turnOn();
         // new Light(13, arduino).turnOff();
         //System.out.println(new Light(13, arduino).getJson());
         System.out.println(new Light(13, arduino, jdbc).getStatus());
+        System.out.println(new Light(13, arduino, jdbc).getJsonString());
+        System.out.println(getJsonLights(jdbc).toString());
     }
 }
