@@ -6,7 +6,7 @@
 app.factory('RoomsService', ['$http', function($http) {
 	return $http({
 		method: 'GET',
-		url: 'data_/rooms'
+		url: 'data/rooms'
 	}).then(function (response){
 		return response.data;
 	},function (error){
