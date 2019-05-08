@@ -136,30 +136,30 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.1 Software
 
-JetBrains WebStorm 2018.3.5<br>
-JetBrains CLion 2018.3.4<br>
-IntelliJ IDEA 2018.3.4<br>
-Visual Studio Code<br>
-Sublime Text 3<br>
-StarUML<br>
-Oracle VM VirtualBox<br>
-Fritzing.exe<br>
-Arduino<br>
-Atom<br>
-GitHub Desktop<br>
+*   JetBrains WebStorm 2018.3.5<br>
+*   JetBrains CLion 2018.3.4<br>
+*   IntelliJ IDEA 2018.3.4<br>
+*   Visual Studio Code<br>
+*   Sublime Text 3<br>
+*   StarUML<br>
+*   Oracle VM VirtualBox<br>
+*   Fritzing.exe<br>
+*   Arduino<br>
+*   Atom<br>
+*   GitHub Desktop<br>
 
 
 #### 1.7.2 Hardware
-Mattia Ruberto:
-*   Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
+*   Mattia Ruberto:
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
 
-Giulio Bosco:
-*   Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
+*   Giulio Bosco:
+    Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
 
-Paolo Gübli
-*   HP Omen 17 i7-6700HQ CPU 2.6GHz RAM 16GB
+*   Paolo Gübli
+    HP Omen 17 i7-6700HQ CPU 2.6GHz RAM 16GB
 
-Arduino Yun 7300
+*   Arduino Yun 7300
 
 
 ## 2 Progettazione
