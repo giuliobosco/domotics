@@ -35,7 +35,7 @@ import java.sql.SQLException;
  * Domotics Light button.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-05-03 - 2019-05-08)
+ * @version 1.0.2 (2019-05-03 - 2019-05-08)
  */
 public class LightButton {
     // ------------------------------------------------------------------------------------ Costants
@@ -137,11 +137,15 @@ public class LightButton {
     private void checkPin(int pin, JdbcConnector connector) throws SQLException, IOException {
         String query = "SELECT * FROM domotics.lightButton WHERE pin='" + pin + "' AND arduino='" + this.arduino.getId() + "';";
         ResultSet rs = connector.query(query);
-        rs.next();
-        int dbPin = rs.getInt("pin");
-        if (dbPin != pin) {
-            String message = "On arduino: " + this.arduino.getId() + " no light button on pin: " + pin;
-            throw new IOException(message);
+
+        if (rs.next()) {
+            int dbPin = rs.getInt("pin");
+            if (dbPin != pin) {
+                String message = "On arduino: " + this.arduino.getId() + " no light button on pin: " + pin;
+                throw new IOException(message);
+            }
+        } else {
+            throw new SQLException("Pin not found");
         }
     }
 
