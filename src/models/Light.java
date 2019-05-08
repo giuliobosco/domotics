@@ -38,7 +38,7 @@ import java.sql.SQLException;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.1 (2019-04-05 - 2019-05-08)
+ * @version 1.3.2 (2019-04-05 - 2019-05-08)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -109,7 +109,7 @@ public class Light {
     }
 
     public boolean isOn() throws IOException {
-        return getStatus() == 1;
+        return getStatus() == LIGHT_ON;
     }
 
     // -------------------------------------------------------------------------------- Constructors
