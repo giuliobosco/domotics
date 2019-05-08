@@ -29,16 +29,30 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 |		   |ID: REQ-02    |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Frontend                                ||
+|Nome:     |Pagina di login                         ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Sito Web                                 |    
-|002:      |Modulo gestione dell'aula               ||
-|003:      |Modulo gestione delle aule              ||
-|004:      |Modulo luci/tende/beamer                ||
-|005:      |Modulo login                            ||
+
+|		   |ID: REQ-03    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Pagina gestione aule                    ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Modificare lo stato delle luci          ||
+|002:      |Modificare lo stato delle tende         ||
+|003:      |Modificare lo stato del beamer          ||
+
+|		   |ID: REQ-04    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-03    |	    		                      |
 |:---------|:-------------|:----------------------------------|
@@ -121,19 +135,32 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 ### 1.7 Analisi dei mezzi
 
 #### 1.7.1 Software
-Software utilizzati:<br>
-WebStorm<br>
-Clion<br>
-IntelliJ<br>
-Atom<br>
-Github Desktop
+
+*   JetBrains WebStorm 2018.3.5<br>
+*   JetBrains CLion 2018.3.4<br>
+*   IntelliJ IDEA 2018.3.4<br>
+*   Visual Studio Code<br>
+*   Sublime Text 3<br>
+*   StarUML<br>
+*   Oracle VM VirtualBox<br>
+*   Fritzing.exe<br>
+*   Arduino<br>
+*   Atom<br>
+*   GitHub Desktop<br>
+
 
 #### 1.7.2 Hardware
-Hardware utilizzati:<br>
-Asus Republic Of Gamers<br>
-Mac Book Pro<br>
-HP omen<br>
-Arduino Yun<br>
+*   Mattia Ruberto:
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
+
+*   Giulio Bosco:
+    Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
+
+*   Paolo Gübli
+    HP Omen 17 i7-6700HQ CPU 2.6GHz RAM 16GB
+
+*   Arduino Yun 7300
+
 
 ## 2 Progettazione
 
@@ -187,10 +214,6 @@ Questo è il design dello schema dell'arduino, come si può notare l'arduino YUN
 Queste classi permettono all'arduino di connettersi al server dall'arduino e di ricavare le informazioni necessarie per il server per conoscere lo stato dell'arduino.
 
 ### 2.8 Arduino Connection Controller Server
-
-### 2.1.3 Architettura Domotics Server
-
-### 2.1.4 Architettura Web App (Tomcat)
 
 ## 3 Implementazione
 
@@ -341,4 +364,5 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 
 ### Arduino Connection Controller Client
+
 ### Implementazione Arduino Connection Controller Server
