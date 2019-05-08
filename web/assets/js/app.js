@@ -16,6 +16,11 @@ app.config(function ($routeProvider) {
 		templateUrl: 'views/rooms.html'
 	});
 
+	// settings
+	$routeProvider.when('/settings', {
+		templateUrl: 'views/settings.html'
+	});
+
 	// else
 	$routeProvider.otherwise({
 		redirectTo: '/'

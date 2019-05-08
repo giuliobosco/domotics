@@ -35,7 +35,7 @@ import java.sql.SQLException;
  * Domotics Light button.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-05-03 - 2019-05-03)
+ * @version 1.0.2 (2019-05-03 - 2019-05-08)
  */
 public class LightButton {
     // ------------------------------------------------------------------------------------ Costants
@@ -106,6 +106,24 @@ public class LightButton {
         loadLight(connector);
     }
 
+    /**
+     * Create Light button with the pin of the button and the id of the arduino. Using the connector
+     * to domotics database.
+     *
+     * @param buttonPin Pin of the button.
+     * @param id        Id of the arduino.
+     * @param connector Connector to domotics database.
+     * @throws SQLException           Error on the MySQL domotics database.
+     * @throws ClassNotFoundException MySQL Drier class not found.
+     * @throws IOException            Error with the http get request.
+     */
+    public LightButton(int buttonPin, String id, JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
+        this.arduino = new Arduino(connector, id);
+        checkPin(buttonPin, connector);
+        this.buttonPin = buttonPin;
+        loadLight(connector);
+    }
+
     // -------------------------------------------------------------------------------- Help Methods
 
     /**
@@ -119,11 +137,15 @@ public class LightButton {
     private void checkPin(int pin, JdbcConnector connector) throws SQLException, IOException {
         String query = "SELECT * FROM domotics.lightButton WHERE pin='" + pin + "' AND arduino='" + this.arduino.getId() + "';";
         ResultSet rs = connector.query(query);
-        rs.next();
-        int dbPin = rs.getInt("pin");
-        if (dbPin != pin) {
-            String message = "On arduino: " + this.arduino.getId() + " no light button on pin: " + pin;
-            throw new IOException(message);
+
+        if (rs.next()) {
+            int dbPin = rs.getInt("pin");
+            if (dbPin != pin) {
+                String message = "On arduino: " + this.arduino.getId() + " no light button on pin: " + pin;
+                throw new IOException(message);
+            }
+        } else {
+            throw new SQLException("Pin not found");
         }
     }
 

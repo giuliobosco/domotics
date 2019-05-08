@@ -69,4 +69,13 @@
 		<servlet-name>AccServlet</servlet-name>
 		<url-pattern>/acc</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ControllerServlet</servlet-name>
+		<servlet-class>acc.ControllerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControllerServlet</servlet-name>
+		<url-pattern>/controller/light</url-pattern>
+	</servlet-mapping>
 </web-app>

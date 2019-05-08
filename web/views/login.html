@@ -1,14 +1,23 @@
-<div class="container col-md-4 col-md-offset-1">
-	<form class="login">
-		<h1>portal</h1>
-		<br>
-		<input class="text-input" type="text" placeholder="username" name="username" id="username">
-		<input class="text-input" type="password" placeholder="username" name="password" id="password">
-		<br><br>
-		<input class="btn login-btn" type="button" value="login" id="loginBtn">
-		<br>
-		<br>
-		<span>&copy; Domotics 2019</span><br>
-		<span>cpt.local</span>
-	</form>
+<div class="login-view">
+	<div class="container col-md-4 col-md-offset-1">
+		<form class="login">
+			<h1>portal</h1>
+			<br>
+			<input class="text-input" type="text" placeholder="username" name="username"
+			       id="username">
+			<input class="text-input" type="password" placeholder="username" name="password"
+			       id="password">
+			<br><br>
+			<input class="btn login-btn btn-light" type="submit" value="login" id="loginBtn">
+			<br>
+			<br>
+			<span id="errorMessage" class="error btn-warning"></span>
+			<br>
+			<br>
+			<span>&copy; Domotics 2019</span><br>
+			<span>cpt.local</span>
+			
+			<script src="../assets/js/scripts/login.js"></script>
+		</form>
+	</div>
 </div>

@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics room.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.3 (2019-05-03)
+ * @version 1.0.4 (2019-05-03 - 2019-05-08)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
@@ -72,14 +72,23 @@ public class Room {
     // -------------------------------------------------------------------------------- Help Methods
 
     /**
+     * Get the Room as JSON Object.
+     *
+     * @return Room as JSON Object.
+     */
+    public JSONObject getJson() {
+        JSONObject jo = new JSONObject();
+        jo.put("name", this.getName());
+        return jo;
+    }
+
+    /**
      * Get the Room as JSON String.
      *
      * @return Room as JSON String.
      */
-    public String getJson() {
-        JSONObject jo = new JSONObject();
-        jo.put("name", this.getName());
-        return jo.toString();
+    public String getJsonString() {
+        return getJson().toString();
     }
 
     // ----------------------------------------------------------------------------- General Methods

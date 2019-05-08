@@ -36,7 +36,7 @@ import java.sql.SQLException;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.2.3 (2019-04-05 - 2019-05-03)
+ * @version 1.2.4 (2019-04-05 - 2019-05-08)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -99,15 +99,23 @@ public class Light {
     // -------------------------------------------------------------------------------- Help Methods
 
     /**
-     * Get the object as JSON string.
+     * Get the object as JSON Object.
      *
-     * @return JSON Object string.
+     * @return JSON Object Object.
      */
-    public String getJson() {
+    public JSONObject getJson() {
         JSONObject jo = new JSONObject();
         jo.put("pin", this.pin);
         jo.put("arduino", this.arduino.getJson());
-        return jo.toString();
+        return jo;
+    }
+
+    /**
+     * Get Light as JSON string.
+     * @return Light as JSON string.
+     */
+    public String getJsonString() {
+        return getJson().toString();
     }
 
     // ----------------------------------------------------------------------------- General Methods

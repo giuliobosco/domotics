@@ -40,7 +40,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.4 (2019-04-15 - 2019-05-03)
+ * @version 1.3.5 (2019-04-15 - 2019-05-08)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -188,16 +188,25 @@ public class Arduino {
     }
 
     /**
-     * Get Arduino as JSON String.
+     * Get Arduino as JSON Object.
      *
-     * @return Arduino JSON String.
+     * @return Arduino JSON Object.
      */
-    public String getJson() {
+    public JSONObject getJson() {
         JSONObject jo = new JSONObject();
         jo.put("id", this.getId());
         jo.put("ip", this.getIp());
         jo.put("room", this.getRoom().getJson());
-        return jo.toString();
+        return jo;
+    }
+
+    /**
+     * Get Arduino as JSON string.
+     *
+     * @return Arduino as JSON string.
+     */
+    public String getJsonString() {
+        return this.getJson().toString();
     }
 
     // ----------------------------------------------------------------------------- General Methods
