@@ -40,12 +40,10 @@ public class ControllerServlet extends HttpServlet {
                 int xIndex = lightPin.indexOf('x');
                 String arduinoId = lightPin.substring(0, xIndex);
                 int pin = Integer.parseInt(lightPin.substring(xIndex + 1));
-                System.out.println(pin + "   a   " + arduinoId);
 
                 Arduino arduino = new Arduino(jdbc, arduinoId);
                 Light light = new Light(pin, arduino);
                 light.toggleLight();
-                System.out.println(light.getJson());
                 responseString = JsonBuilder.getJsonResponseOk("");
             } else {
                 responseString = JsonBuilder.getJsonResponseError("no light");
