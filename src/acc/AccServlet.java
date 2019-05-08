@@ -94,24 +94,17 @@ public class AccServlet extends HttpServlet {
                         light.turnOff();
                     }
 
-                    responseString = getJsonResponse("OK", "" + setStatus);
+                    responseString = JsonBuilder.getJsonResponseOk( "" + setStatus);
                 } else {
-                    responseString = getJsonResponse("ERROR", "No found pin");
+                    responseString = JsonBuilder.getJsonResponseError( "No found pin");
                 }
             } else {
-                responseString = getJsonResponse("ERROR", "Wrong operation");
+                responseString = JsonBuilder.getJsonResponseError("Wrong operation");
             }
         } catch (SQLException | ClassNotFoundException e) {
-            responseString = getJsonResponse("ERROR", e.toString());
+            responseString = JsonBuilder.getJsonResponseError(e.toString());
         }
 
         response.getOutputStream().println(responseString);
-    }
-
-    private String getJsonResponse(String status, String message) {
-        JSONObject jo = new JSONObject();
-        jo.put("status", status);
-        jo.put("message", message);
-        return jo.toString();
     }
 }
