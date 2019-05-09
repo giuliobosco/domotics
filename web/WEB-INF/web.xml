@@ -49,7 +49,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/Login</url-pattern>
+		<url-pattern>/data/login</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

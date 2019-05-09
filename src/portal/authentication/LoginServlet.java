@@ -23,20 +23,20 @@
  */
 package portal.authentication;
 
+import org.json.JSONObject;
+
 import javax.naming.AuthenticationException;
 import javax.naming.NamingException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * LoginServlet to portal servlet.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-02-28)
+ * @version 1.0.1 (2019-02-28 - 2019-05-09)
  */
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -57,6 +57,8 @@ public class LoginServlet extends HttpServlet {
         String requestUsername = request.getParameter("username");
         String requestPassword = request.getParameter("password");
 
+        JSONObject jo = new JSONObject();
+
         try {
             if (authenticator.authenticate(requestUsername, requestPassword)) {
                 HttpSession session = request.getSession();
@@ -65,18 +67,27 @@ public class LoginServlet extends HttpServlet {
                 session.setMaxInactiveInterval(30*60);
                 Cookie userName = new Cookie("user", requestUsername);
                 response.addCookie(userName);
-                //Get the encoded URL string
-                String encodedURL = response.encodeRedirectURL("App.jsp");
-                response.sendRedirect(encodedURL);
+
+                jo.put("status", "ok");
+                jo.put("username", requestUsername);
+                jo.put("message", "ok");
+            } else {
+                jo.put("status", "error");
+                jo.put("username", requestUsername);
+                jo.put("message", "wrong username or password");
             }
+
         } catch (AuthenticationException ae) {
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-            PrintWriter out= response.getWriter();
-            out.println("<font color=red>Either user name or password is wrong.</font>");
-            rd.include(request, response);
+            jo.put("status", "error");
+            jo.put("username", requestUsername);
+            jo.put("message", "wrong username or password");
         } catch (NamingException | IOException error) {
-            response.sendError(500);
+            jo.put("status", "502");
+            jo.put("username", requestUsername);
+            jo.put("message", error.getMessage());
         }
+
+        response.getOutputStream().println(jo.toString());
     }
 
     /**
@@ -88,6 +99,6 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException Error on the system.
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/login.html");
+        this.doPost(request, response);
     }
 }
