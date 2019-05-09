@@ -1,4 +1,3 @@
-
 /*
  * The MIT License
  *
@@ -28,7 +27,7 @@
  *
  * @author paologuebeli (paolo.guebeli@samtrevano.ch)
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-02-22 - 2019-05-03)
+ * @version 1.0.3 (2019-02-22 - 2019-05-03)
  */
 
 /* create the database */
@@ -36,65 +35,80 @@ CREATE DATABASE domotics;
 
 /* create the room table */
 CREATE TABLE domotics.room (
-    name VARCHAR(255) PRIMARY KEY
+	name VARCHAR(255) PRIMARY KEY
 );
 
 /* create the arduino table */
 CREATE TABLE domotics.arduino (
-	client_id VARCHAR (255) PRIMARY KEY,
-	ip VARCHAR (255),
-  root_password VARCHAR (255),
-	client_key VARCHAR (255),
-	room VARCHAR (255),
+	client_id     VARCHAR(255) PRIMARY KEY,
+	ip            VARCHAR(255),
+	root_password VARCHAR(255),
+	client_key    VARCHAR(255),
+	room          VARCHAR(255),
 
-	FOREIGN KEY (room) REFERENCES domotics.room(name)
+	FOREIGN KEY (room)
+		REFERENCES domotics.room (name)
 );
 
 /* create the light table */
 CREATE TABLE domotics.light (
-  pin VARCHAR (255),
-	arduino VARCHAR (255),
-  name VARCHAR (255),
-	status INT (1),
+	pin     VARCHAR(255),
+	arduino VARCHAR(255),
+	name    VARCHAR(255),
+	status  INT(1),
 	PRIMARY KEY (pin, arduino),
-	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
+	FOREIGN KEY (arduino)
+		REFERENCES domotics.arduino (client_id)
 );
 
 
 /* create the beamer table */
 CREATE TABLE domotics.beamer (
-  pin VARCHAR (255),
-	arduino VARCHAR (255),
+	pin     VARCHAR(255),
+	arduino VARCHAR(255),
 
 	PRIMARY KEY (pin, arduino),
-	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
+	FOREIGN KEY (arduino)
+		REFERENCES domotics.arduino (client_id)
 );
 
 /* create the curtain table */
 CREATE TABLE domotics.curtain (
-  pin VARCHAR (255),
-	arduino VARCHAR (255),
+	pin     VARCHAR(255),
+	arduino VARCHAR(255),
 
 	PRIMARY KEY (pin, arduino),
-	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
+	FOREIGN KEY (arduino)
+		REFERENCES domotics.arduino (client_id)
+);
+
+/* create the sensor type table */
+CREATE TABLE domotics.sensorType (
+	name VARCHAR(255) PRIMARY KEY
 );
 
 /* create the sensor table */
 CREATE TABLE domotics.sensor (
-  pin VARCHAR (255),
-	arduino VARCHAR (255),
+	pin     VARCHAR(255),
+	arduino VARCHAR(255),
+	type    VARCHAR(255),
 
 	PRIMARY KEY (pin, arduino),
-	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
+	FOREIGN KEY (arduino)
+		REFERENCES domotics.arduino (client_id),
+	FOREIGN KEY (type)
+		REFERENCES domotics.sensorType (name)
 );
 
 /* create the sensor table */
 CREATE TABLE domotics.lightButton (
-  pin VARCHAR (255),
-  lightPin VARCHAR (255),
-	arduino VARCHAR (255),
+	pin      VARCHAR(255),
+	lightPin VARCHAR(255),
+	arduino  VARCHAR(255),
 
 	PRIMARY KEY (pin, arduino),
-	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id),
-  FOREIGN KEY (lightPin) REFERENCES domotics.light(pin)
+	FOREIGN KEY (arduino)
+		REFERENCES domotics.arduino (client_id),
+	FOREIGN KEY (lightPin)
+		REFERENCES domotics.light (pin)
 );
