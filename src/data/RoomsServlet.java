@@ -6,6 +6,7 @@ import jdbc.JdbcConnector;
 import models.Arduino;
 import models.Light;
 import models.Room;
+import models.Thermometer;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-05-08 - 2019-05-08)
+ * @version 1.0.1 (2019-05-08 - 2019-05-08)
  */
 @WebServlet(name = "RoomsServlet")
 public class RoomsServlet extends HttpServlet {
@@ -59,7 +60,7 @@ public class RoomsServlet extends HttpServlet {
 
         roomJson.put("lights", lights);
         roomJson.put("name", room.getName());
-        roomJson.put("temp", "23.1");
+        roomJson.put("temp", Thermometer.getTemperatureByRoom(room, jdbc));
 
         return roomJson;
     }
