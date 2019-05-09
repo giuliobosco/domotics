@@ -13,7 +13,7 @@
 	<div ng-repeat="light in room.lights">
 		<div class="light checkBoxSlider">
 			<label class="label">
-				{{light.name}}
+				<i class="fa fa-lightbulb-o"></i> {{light.name}}
 			</label>
 			<label class="switch">
 				<input type="checkbox" ng-checked="light.on" value="{{light.id}}" onclick="toggleLight($(this).val())">
