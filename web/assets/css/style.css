@@ -20,6 +20,8 @@ body .login-view {
 }
 
 .full-height {
+	position: absolute;
+	width: 100%;
 	min-height: 100%;
 }
 
@@ -141,6 +143,8 @@ input:checked + .slider:before {
 @media screen and (max-width: 767px) {
 
 	.navbar {
+		position: fixed;
+		padding: 13px 0 0 17px;
 		display: block;
 	}
 
@@ -158,7 +162,22 @@ input:checked + .slider:before {
 	}
 
 	.main-view {
-		padding: 0;
+		z-index: -1;
+		top: 0;
+		padding: 0 0 15px 0;
+	}
+
+	.main-view h1 {
+		position: fixed;
+		padding-left: 50px;
+		background-color: #e8e8e8;
+		display: block;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.space {
+		padding-top: 45px;
 	}
 
 	.room {
