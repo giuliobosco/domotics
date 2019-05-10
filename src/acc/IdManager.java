@@ -58,8 +58,8 @@ public class IdManager {
     }
 
     /**
-     * Check arduino IP address.
-     * If the IP is different on the database and the actual, it will be updated.
+     * Check arduinos IP address.
+     * If the IP is different on the database than the actual, it will be updated.
      *
      * @param id Arduino's ACC-Client-ID.
      * @param ip Arduino's IP Address.

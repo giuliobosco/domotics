@@ -110,7 +110,7 @@ public class Thermometer {
      *
      * @param decimals Decimals of the value.
      * @return Value of the thermometer.
-     * @throws IOException Error while requesting the value to arduino.
+     * @throws IOException Error while requesting the value to the arduino.
      */
     public double getValue(int decimals) throws IOException {
         double temperature = getValue();
@@ -137,7 +137,7 @@ public class Thermometer {
     // --------------------------------------------------------------------------- Static Components
 
     /**
-     * Get the temperature by the room.
+     * Get the temperature of the room.
      *
      * @param room Room.
      * @param connector Connector to MySQL domotics database.
@@ -160,7 +160,7 @@ public class Thermometer {
     }
 
     /**
-     * Main method of the class, used for test the methods of the class.
+     * Main method of the class, used to test the methods of the class.
      *
      * @param args Command line arguments.
      * @throws Exception Errors.

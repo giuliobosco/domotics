@@ -103,7 +103,7 @@ public class Light {
     }
 
     /**
-     * Ge the id of the light, created by the id of the arduino and the pin of the light.
+     * Get the id of the light, created by the id of the arduino and the pin of the light.
      *
      * @return Id of the light.
      */
@@ -130,7 +130,7 @@ public class Light {
     }
 
     /**
-     * Create the light with the pin and the arduino, using the connector to domotics database for
+     * Create the light with the pin and the arduino, using the connector to domotics database to
      * load the name and check that the Light exists.
      *
      * @param pin       Pin of the light on the arduino.
@@ -309,7 +309,7 @@ public class Light {
     }
 
     /**
-     * Main method of the class, used for test.
+     * Main method of the class, used to test.
      * <ul>
      * <li>turnOn()</li>
      * <li>turnOff()</li>

@@ -40,7 +40,7 @@ public interface Authenticator {
      *
      * @param username Username to authenticate.
      * @param password Password of the username to authenticate.
-     * @return True if the user has right credentials.
+     * @return True if the user has correct credentials.
      */
     boolean authenticate(String username, String password) throws NamingException, IOException;
 }

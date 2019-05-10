@@ -40,7 +40,7 @@ class HttpServer(BaseHTTPRequestHandler):
         """
         # send response code 200
         self.send_response(200)
-        # send contenty-type: teyt/json
+        # send contenty-type: text/json
         self.send_header("Content-type", "text/json")
         # end the http header
         self.end_headers()
@@ -82,7 +82,7 @@ class HttpServer(BaseHTTPRequestHandler):
                 # set the response render pin
                 response_render.pin = attribute[1]
             if attribute[0] == "set":
-                # set the response render set request, if not setted wil be get request.
+                # set the response render set request, if it's not setted it will be get request.
                 response_render.get = False
                 response_render.value = attribute[1]
         # return to client acc response

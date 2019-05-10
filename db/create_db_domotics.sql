@@ -66,7 +66,7 @@ CREATE TABLE domotics.light (
 CREATE TABLE domotics.beamer (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
-
+	name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id)
@@ -76,7 +76,7 @@ CREATE TABLE domotics.beamer (
 CREATE TABLE domotics.curtain (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
-
+	name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id)
@@ -92,7 +92,7 @@ CREATE TABLE domotics.sensor (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
 	type    VARCHAR(255),
-
+	name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id),
@@ -100,12 +100,12 @@ CREATE TABLE domotics.sensor (
 		REFERENCES domotics.sensorType (name)
 );
 
-/* create the sensor table */
+/* create the lightButton table */
 CREATE TABLE domotics.lightButton (
 	pin      VARCHAR(255),
 	lightPin VARCHAR(255),
 	arduino  VARCHAR(255),
-
+	name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id),

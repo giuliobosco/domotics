@@ -32,13 +32,13 @@ class Lights:
     def __init__(self, bridge):
         """
         ACC-Client light controller
-        :param bridge: BridgeClient, conneciton to arduino.
+        :param bridge: BridgeClient, connection to arduino.
         """
         self.bridge = bridge
 
     def light_set(self, pin='D13', value='0'):
         """
-        Set status to light.
+        Set status to the light.
         :param pin: Pin of the light on arduino.
         :param value: Status of the light.
         """
@@ -46,7 +46,7 @@ class Lights:
 
     def light_on(self, pin='D13'):
         """
-        Turn on the light on arudino.
+        Turn on the light on arduino.
         :param pin: Pin to turn on.
         """
         self.light_set(pin, '1')

@@ -52,7 +52,7 @@ public class Arduino {
     private String id;
 
     /**
-     * Ip of of the arduino.
+     * Ip of the arduino.
      */
     private String ip;
 
@@ -129,8 +129,8 @@ public class Arduino {
     }
 
     /**
-     * Create arduino with ACC-Client-ID and the Ip of the arduino, this will require also an
-     * domotics IdManager, for check the ACC-Client-ID, update the IP on the database, generate a
+     * Create arduino with ACC-Client-ID and the Ip of the arduino, this will require also a
+     * domotics IdManager, to check the ACC-Client-ID, update the IP on the database, generate a
      * new ACC-Client-KEY and get the room of the Arduino.
      *
      * @param idManager Domotics Id Manager.
@@ -161,7 +161,7 @@ public class Arduino {
     }
 
     /**
-     * Create Arduino with ip of the arduino and key of the arduino.
+     * Create Arduino with the ip of the arduino and the key of the arduino.
      *
      * @param connector Connector to domotics MySQL database.
      * @param ip Ip of the arduino.
@@ -179,7 +179,7 @@ public class Arduino {
 
     /**
      * Set the parameters of the arduino from the Result set.
-     * The result set have to be of one row, with the id, ip, key, rootPassword and the room.
+     * The result set has to be of one row, with the id, ip, key, rootPassword and the room.
      *
      * @param resultSet Result set for set the parameters of the arduino.
      * @throws SQLException Error on the MySQL Server.
@@ -241,7 +241,7 @@ public class Arduino {
     // --------------------------------------------------------------------------- Static Components
 
     /**
-     * Get the arduinos from the sql result set, of the query to the domotics database.
+     * Get the arduinos from the sql result set, from the query on the domotics database.
      *
      * @param sqlResultSet Sql result set.
      * @return Arduinos in the result set.
@@ -264,7 +264,7 @@ public class Arduino {
     }
 
     /**
-     * Get all the arduino in a room.
+     * Get all the arduinos in a room.
      *
      * @param jdbcConnector Connection to the MySQL domotics database.
      * @param roomName      Name of the room.
@@ -295,7 +295,7 @@ public class Arduino {
         System.out.println(arduino.getIp());
         System.out.println(arduino.getRoom().getName());
 
-        // getArduinos
+        // get Arduinos
         String query = "SELECT * FROM domotics.arduino";
         List<Arduino> arduinos = Arduino.getArduinos(jdbcConnector.query(query));
 

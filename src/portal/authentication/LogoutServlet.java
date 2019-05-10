@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package portal.authentication;
 
 import javax.servlet.ServletException;
@@ -38,7 +39,7 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
 
     /**
-     * On request logout, invalidate session if exists.
+     * On request logout, invalidate session if it exists.
      *
      * @param request Http logout request.
      * @param response Http logout response.
@@ -57,7 +58,7 @@ public class LogoutServlet extends HttpServlet {
                 response.addCookie(cookie);
             }
         }
-        // invalidate the session if exists
+        // invalidate the session if it exists
         HttpSession session = request.getSession(false);
         System.out.println("User="+session.getAttribute("user"));
         if(session != null){

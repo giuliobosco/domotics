@@ -50,7 +50,7 @@ def acc_autoconf(id, server_address):
         data = json.loads(response)
         # if the json response contains the right parameters
         if 'key' in data and 'id' in data and 'server_address' in data:
-            # create the key manager with the paramters
+            # create the key manager with the parameters
             return KeyManager(id=data['id'], key=data['key'], server_address=data['server_address'])
     except:
         pass

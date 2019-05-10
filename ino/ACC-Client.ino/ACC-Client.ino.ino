@@ -27,7 +27,7 @@
 
 /**
  * ACC-Client.ino is the script arduino side of the ACC-Client.
- * This script will give OpenWRT the access to controll the arduino pins.
+ * This script will give OpenWRT the access to control the arduino pins.
  * Input pin: a0, a1, 5, 6
  * Output pin: 9, 10, 11, 12, 13
  *
@@ -57,7 +57,7 @@ void setup() {
     memset(D12value, 0, 2);
     memset(D13value, 0, 2);
 
-    // set output mode pin
+    // set the output mode pin
     for (int i = 9; i < 14; i++) {
         pinMode(i, OUTPUT);
     }
@@ -66,11 +66,11 @@ void setup() {
     memset(D5value, 0, 2);
     memset(D6value, 0, 2);
 
-    // set input mode
+    // set the input mode pin
     pinMode(5, INPUT);
     pinMode(6, INPUT);
 
-    // start bridge for connection with OpenWRT
+    // start bridge for the connection with OpenWRT
     Bridge.begin();
 }
 
@@ -110,10 +110,10 @@ void loop() {
     itoa (D5int,D5value,2);
     Bridge.put("D5", D5value);
 
-    // update variable of pin a0 converting it as string
+    // update variable of pin a0 converting it to string
     Bridge.put("A0", String(analogRead(0)));
 
-    // update variable of pin a0 converting it as string
+    // update variable of pin a0 converting it to string
     Bridge.put("A1", String(analogRead(1)));
 
     delay(10);

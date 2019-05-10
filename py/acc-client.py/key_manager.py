@@ -32,7 +32,7 @@ THE SOFTWARE.
 class KeyManager:
     def __init__(self, id, key='', server_address='localhost'):
         """
-        Create the KeyManager with the id, key (optional) and server_address (optional), if created only with the id
+        Create the KeyManager with the id, key (optional) and server_address (optional), if it's created only with the id
         no key will be requested to send requests to ACC-Client.
         :param id: Id of the ACC-Client.
         :param key: Key of communication between ACC-Server and ACC-Client.
@@ -44,7 +44,7 @@ class KeyManager:
 
     def check_key(self, key):
         """
-        Check if the key is correct, has no key or no ip address, it will be always true.
+        Check if the key is correct, if it has no key or no ip address, it will be always true.
         :param key: Key to check.
         :return: True if the key is the same as the saved in KeyManager, or no key or ip.
         """

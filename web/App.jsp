@@ -40,7 +40,7 @@
     String user = null;
 
     if (session.getAttribute("user") == null) {
-        // if the session not exists, return to login
+        // if the session doesn't exist, return to login
         response.sendRedirect("login.html");
     } else {
         user = (String) session.getAttribute("user");
@@ -54,7 +54,7 @@
     if (cookies != null) {
         // if there are some cookies
         for (Cookie cookie : cookies) {
-            // check for session id in cookies.
+            // check for session id in the cookies.
             if (cookie.getName().equals("JSESSIONID")) {
                 sessionID = cookie.getValue();
             }

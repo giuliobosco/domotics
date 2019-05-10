@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package acc;
 
 import models.Arduino;
@@ -76,7 +76,7 @@ public class Autoconf {
     /**
      * Create auto configuration for acc client.
      *
-     * @param idManager Id Manager, for check the IP and get the key.
+     * @param idManager Id Manager, to check the IP and get the key.
      * @param arduinoId Id of the arduino.
      * @param arduinoIp Ip of the arduino.
      * @param serverAddress Address of the domotics server.
@@ -94,5 +94,5 @@ public class Autoconf {
     // -------------------------------------------------------------------------------- Help Methods
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
-    
+
 }
