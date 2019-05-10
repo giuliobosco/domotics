@@ -220,7 +220,8 @@ Questo &egrave; il design del sito web dopo che si ha fatto il login e che le cr
 
 ![DataBase](img/db/DbDiagram.png)
 
-Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro nome, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati i suoi pin e le luci. Gestisce anche le luci, il beamer, le tende e i sensori di cui vengono memorizzati i pin.
+Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro identificatore, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati i suoi pin e le luci. Ogni arduino gestisce le luci, il beamer, le tende e i sensori che ci sono all'interno dell'aula di cui vengono memorizzati i pin.
+In questo modo grazia alla chiave che ogni arduino ha, il server riesce a riconoscerli e identificarli per poi ricavare lo stato di tutti i suoi moduli, quindi luci, tende, beamer e sensori andando a ricercare le varie informazione nel database e riesce.
 
 ### 2.5 Architettura LDAP connector
 
@@ -394,3 +395,5 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 ### Arduino Connection Controller Client
 
 ### Arduino Connection Controller Server
+
+## Implementazione test
