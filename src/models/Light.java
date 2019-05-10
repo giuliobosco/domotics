@@ -41,7 +41,7 @@ import java.util.List;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.4 (2019-04-05 - 2019-05-08)
+ * @version 1.3.5 (2019-04-05 - 2019-05-10)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -259,9 +259,8 @@ public class Light {
      * @param rs Result set.
      * @return List of all lights in the result set.
      * @throws SQLException           Error on the MySQL Database.
-     * @throws ClassNotFoundException MySQL Driver class not found.
      */
-    public static List<Light> getLights(ResultSet rs) throws SQLException, ClassNotFoundException {
+    public static List<Light> getLights(ResultSet rs) throws SQLException {
 
         List<Light> lights = new ArrayList<>();
 

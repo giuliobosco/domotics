@@ -40,7 +40,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.6 (2019-04-15 - 2019-05-08)
+ * @version 1.3.6 (2019-04-15 - 2019-05-10)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants

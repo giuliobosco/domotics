@@ -36,7 +36,7 @@ import java.util.List;
  * Domotics room.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.4 (2019-05-03 - 2019-05-08)
+ * @version 1.0.5 (2019-05-03 - 2019-05-10)
  */
 public class Room {
     // ------------------------------------------------------------------------------------ Costants
@@ -128,12 +128,10 @@ public class Room {
      * @param jdbcConnector Connection to the database.
      * @return Room created from the database.
      * @throws SQLException           Error on the my sql server.
-     * @throws ClassNotFoundException MySQL Driver not found.
      */
-    public static Room get(String name, JdbcConnector jdbcConnector) throws SQLException, ClassNotFoundException {
+    public static Room get(String name, JdbcConnector jdbcConnector) throws SQLException {
         String query = "SELECT * FROM domotics.room WHERE name = '" + name + "';";
 
-        jdbcConnector.openConnection();
         ResultSet resultSet = jdbcConnector.query(query);
 
         while (resultSet.next()) {

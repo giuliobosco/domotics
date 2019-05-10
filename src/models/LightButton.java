@@ -35,7 +35,7 @@ import java.sql.SQLException;
  * Domotics Light button.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-05-03 - 2019-05-08)
+ * @version 1.0.3 (2019-05-03 - 2019-05-10)
  */
 public class LightButton {
     // ------------------------------------------------------------------------------------ Costants
@@ -96,10 +96,9 @@ public class LightButton {
      * @param key       Key of communication with the arduino.
      * @param connector Connector to domotics database.
      * @throws SQLException           Error on the MySQL domotics database.
-     * @throws ClassNotFoundException MySQL Driver class not found.
      * @throws IOException            Error with the http get request.
      */
-    public LightButton(int buttonPin, String ip, String key, JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
+    public LightButton(int buttonPin, String ip, String key, JdbcConnector connector) throws SQLException, IOException {
         this.arduino = new Arduino(connector, ip, key);
         checkPin(buttonPin, connector);
         this.buttonPin = buttonPin;
@@ -114,10 +113,9 @@ public class LightButton {
      * @param id        Id of the arduino.
      * @param connector Connector to domotics database.
      * @throws SQLException           Error on the MySQL domotics database.
-     * @throws ClassNotFoundException MySQL Drier class not found.
      * @throws IOException            Error with the http get request.
      */
-    public LightButton(int buttonPin, String id, JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
+    public LightButton(int buttonPin, String id, JdbcConnector connector) throws SQLException, IOException {
         this.arduino = new Arduino(connector, id);
         checkPin(buttonPin, connector);
         this.buttonPin = buttonPin;
@@ -154,9 +152,8 @@ public class LightButton {
      *
      * @param connector Connector to domotics database.
      * @throws SQLException           Error on the MySQL
-     * @throws ClassNotFoundException MySQL Driver class not found.
      */
-    private void loadLight(JdbcConnector connector) throws SQLException, ClassNotFoundException {
+    private void loadLight(JdbcConnector connector) throws SQLException {
         String query = "SELECT l.pin, l.arduino FROM domotics.lightButton lb JOIN light l on lb.lightPin = l.pin WHERE lb.pin='" + this.buttonPin + "' AND lb.arduino='" + this.arduino.getId() + "';";
         ResultSet rs = connector.query(query);
         rs.next();
