@@ -20,9 +20,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-05-08 - 2019-05-08)
+ * @version 1.0.2 (2019-05-08 - 2019-05-10)
  */
 @WebServlet(name = "RoomsServlet")
 public class RoomsServlet extends HttpServlet {
@@ -50,17 +49,16 @@ public class RoomsServlet extends HttpServlet {
         }
 
         response.getOutputStream().println(responseString);
-        System.out.println(responseString);
     }
 
     private JSONObject getJsonRoom(Room room, JdbcConnector jdbc) throws SQLException, ClassNotFoundException, IOException {
         JSONObject roomJson = new JSONObject();
 
-        JSONArray lights = Light.getJsonLights(Light.getLights(jdbc,new Room(room.getName())));
+        JSONArray lights = Light.getJsonLights(Light.getLights(jdbc, new Room(room.getName())));
 
         roomJson.put("lights", lights);
         roomJson.put("name", room.getName());
-        roomJson.put("temp", Thermometer.getTemperatureByRoom(room, jdbc));
+        roomJson.put("temp", Thermometer.getTemperatureByRoom(room, jdbc) + "");
 
         return roomJson;
     }
