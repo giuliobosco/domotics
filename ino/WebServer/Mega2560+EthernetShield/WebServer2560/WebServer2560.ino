@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
  /**
   * Test of the webserver for Arduino Mega 2560 with the Arduino Ethernet Shield.
-  * 
+  *
   * @author mattiaruberto (mattia.ruberto@samtrevano.ch)
   * @author giuliobosco (giuliobva@gmail.com)
   * @version 1.0.1 (2019-02-22 - 2019-03-07 fix comments)
   */
- 
+
 // include arduino serial library
 #include <SPI.h>
 // include arduino ethernet library
@@ -60,10 +60,10 @@ void setup() {
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
     SERIAL_PORT_HARDWARE.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
     while (true) {
-      delay(1); // do nothing, no point running without Ethernet hardware
+      delay(1); // do nothing, no point of running without Ethernet hardware
     }
   }
-  
+
   // check if the cable is connected to the ethernet shield
   if (Ethernet.linkStatus() == LinkOFF) {
     SERIAL_PORT_HARDWARE.println("Ethernet cable is not connected.");
@@ -81,7 +81,7 @@ void setup() {
 void loop() {
   // listen for clients requests
   EthernetClient client = server.available();
-  
+
   // on client connected
   if (client) {
     SERIAL_PORT_HARDWARE.println("new client");
@@ -90,7 +90,7 @@ void loop() {
     while (client.connected()) {
       if (client.available()) {
         char c = client.read();             // read a byte, then
-        SERIAL_PORT_HARDWARE.write(c);                    // print it out the serial monitor
+        SERIAL_PORT_HARDWARE.write(c);                    // print it out in the serial monitor
         header += c;
         if (c == '\n') {
           // send a standard http response header
@@ -104,7 +104,7 @@ void loop() {
           client.println("<head>");
           client.println("<title>Web Server</title>");
           client.println("</head>");
-          client.println("<body>");  
+          client.println("<body>");
           if (header.indexOf("GET /on") >= 0) {
             client.println("<h1>On</h1>");
           } else if (header.indexOf("GET /off") >= 0) {
@@ -114,7 +114,7 @@ void loop() {
           }
           client.println("</body>");
           client.println("</html>");
-          
+
           delay(1);
           client.stop();
           SERIAL_PORT_HARDWARE.println("client disconnected");
