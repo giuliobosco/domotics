@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-# Use of brige client syncronized for all threads of ACC-Client
+# Use of bridge client syncronized for all threads of ACC-Client
 # -
 # @author giuliobosco
 # @version 1.0 (2019-04-21 - 2019-04-21)

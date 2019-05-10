@@ -63,7 +63,7 @@ class ResponseRender:
 
     def acc(self):
         if not self.key_manager.check_key(self.key):
-            # if wrong key return error
+            # if the key is wrong returns error
             return self.build(self.error, "Wrong key")
         try:
             self.check_parameters()
@@ -86,14 +86,14 @@ class ResponseRender:
 
     def check_parameters(self):
         if not len(self.pin) > 0:
-            # if no pin raise exception "no pin"
+            # if there's no pin raise exception "no pin"
             raise Exception("No pin in request")
         if not self.is_pin(self.pin):
-            # if is not pin raise exception "no valid pin"
+            # if it's not a pin raise exception "no valid pin"
             raise Exception("Pin not valid")
         if not self.get:
             if not len(self.value) > 0:
-                # if get request and no value raise eception
+                # if get request returns no value raise exception
                 raise Exception("No value to set in request")
 
     def get_pin(self):
@@ -107,7 +107,7 @@ class ResponseRender:
         # pin to upper case
         pin = pin.upper()
         if not pin.startswith('A'):
-            # if pin doesn't stats with letter "A" add "D" in front of the pin
+            # if the pin doesn't start with the letter "A" add "D" in front of the pin
             pin = 'D' + pin
         return pin
 
@@ -121,7 +121,7 @@ class ResponseRender:
             # upper case string pin
             pin = str(pin).upper()
             if pin.startswith("A") and len(pin) == 2:
-                # if oin stats with "A" and lenght 2 remove "A".
+                # if pin starts with "A" and the lenght equals 2 remove "A".
                 pin = pin.replace("A", "")
                 pin = int(pin)
                 if 0 <= pin <= 5:
@@ -142,7 +142,7 @@ class ResponseRender:
         Return if alive.
         :return: Json response.
         """
-        # data to insert in response
+        # data to insert in the response
         other = [("date", str(datetime.now())), ("id", self.key_manager.id)]
         # build response with ok, ok_msg and other informations
         return self.build(self.ok, self.ok_msg, other)
@@ -164,15 +164,15 @@ class ResponseRender:
         :param other: Other paramteres of the response.
         :return: Json response.
         """
-        # create response, with status
+        # create the response, with status
         string = "{\"status\":\"" + status + "\""
-        # add message to response
+        # add message to the response
         string += ",\"message\":\"" + message + "\""
-        # add other items to response
+        # add other items to the response
         for item in other:
             if len(item) == 2:
                 string += ",\"" + item[0] + "\":\"" + item[1] + "\""
-        # close response
+        # close the response
         string += "}"
         # return bytes of the response
         return bytes(string)
