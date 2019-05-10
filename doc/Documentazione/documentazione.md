@@ -54,21 +54,48 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                          | 
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-03    |	    		                      |
+|		   |ID: REQ-05    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Tomcat                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Gestione della parte web                ||
+
+|		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |Backend                                          ||
+|Nome:     |JDBC                                             ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   |
-|001:      |Server in python                                 ||
-|002:      |Server in TomCat                                 ||
-|003:      |LDap connector per il login                      ||
-|004:      |JDBC con Java e MySQL                            ||
-|005:      |Arduino Connection Controller Client             ||
-|006:      |Arduino Connection Controller Server             ||
+|          |Sotto requisiti                                   | 
+|001:      |Controllare gli account sul database della scuola||
 
-|		   |ID: REQ-04    |	    		                             |
+|		   |ID: REQ-07    |	    		                      |
+|:---------|:-------------|:----------------------------------|
+|Nome:     |LDAP                                             ||
+|Priorità: |1                                                ||
+|Versione: |1.0                                              ||
+|Note:     |                                                 ||
+|          |Sotto requisiti                                   | 
+|001:      |Connetersi con java al database domotics         ||
+
+|		   |ID: REQ-08    |	    		                      |
+|:---------|:-------------|:----------------------------------|
+|Nome:     |Arduino Connection Controller Client             ||
+|Priorità: |1                                                ||
+|Versione: |1.0                                              ||
+|Note:     |                                                 ||
+
+|		   |ID: REQ-09    |	    		                      |
+|:---------|:-------------|:----------------------------------|
+|Nome:     |Arduino Connection Controller Server             ||
+|Priorità: |1                                                ||
+|Versione: |1.0                                              ||
+|Note:     |                                                 ||
+
+|		   |ID: REQ-10    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -78,7 +105,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |001:      |Arduino yun                                             ||
 |002:      |Server in Tomcat                                        ||
 
-|		   |ID: REQ-05    |	    		               |
+|		   |ID: REQ-11    |	    		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Simulazione luci                          ||
 |Priorità: |1                                         ||
@@ -87,7 +114,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                            |
 |001:      |Controllo dei led tramite l'arduino       ||
 
-|		   |ID: REQ-06    |	                                      |
+|		   |ID: REQ-12    |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |1                                                    ||
@@ -98,7 +125,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ## Arrivati 1 mese dalla fine del progetto ci siamo accorti che non c'era abbastanza tempo per l'implementazione fisica dei moduli così abbiamo deciso di metterli in priorità 3 e di cercare di concentrarci sul resto.
 
-|		   |ID: REQ-07    |	    		             |
+|		   |ID: REQ-13    |	    		             |
 |:---------|:-------------|:--------------------------|
 |Nome:     |Modulo luci                              ||
 |Priorità: |3                                        ||
@@ -107,7 +134,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                           |
 |001:      |Implementazione modulo fisico delle luci ||
 
-|		   |ID: REQ-08    |      		               |
+|		   |ID: REQ-14    |      		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Modulo tende                              ||
 |Priorità: |3                                         ||
@@ -116,7 +143,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                            |
 |001:      |Implementazione modulo fisico delle tende ||
 
-|		   |ID: REQ-09    |	    		             |
+|		   |ID: REQ-15    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Modulo beamer                           ||
 |Priorità: |3                                       ||
@@ -147,6 +174,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 *   Arduino<br>
 *   Atom<br>
 *   GitHub Desktop<br>
+*   NetBeans IDE 8.2
 
 
 #### 1.7.2 Hardware
