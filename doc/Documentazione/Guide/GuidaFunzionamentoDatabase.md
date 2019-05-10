@@ -15,7 +15,6 @@ Per mettere sul il seguente data base bisogna seguire i seguenti passaggi.
 
 Innanzitutto bisogna creare la tabella principale che rappresenta le aule che vengono identificate da un loro nome.
 
-/* create the room table */
 CREATE TABLE domotics.room (
 	name VARCHAR(255) PRIMARY KEY
 );
@@ -23,7 +22,6 @@ CREATE TABLE domotics.room (
 Poi si crea una tabella che rappresenta l'arduino che sarà posizionato all'interno dell'aula.
 L'arduino viene identificato da un id e si vuole sapere il suo indirizzo ip, la password del root, la chiave del client che servirà al server per riconoscerlo e l'aula a cui appartengono.
 
-/* create the arduino table */
 CREATE TABLE domotics.arduino (
 	client_id     VARCHAR(255) PRIMARY KEY,
 	ip            VARCHAR(255),
@@ -36,51 +34,50 @@ CREATE TABLE domotics.arduino (
 );
 
 Poi si andranno a creare le tabelle che rappresentano i moduli all'interno delle aule che vengono controllati dal'arduino.
+
+Dei componenti i valori da memorizzare sono molto simili per alcuni cambiano alcune cose.
+
 Delle luci si vogliono sapere i loro pin, l'arduino alla quale appartengono e quindi da cui vengono controllate e il loro stato quindi se sono accese o spente.
 
-/* create the light table */
 CREATE TABLE domotics.light (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
-
+    name    VARCHAR(255),
 	status  INT(1),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id)
 );
 
-
-/* create the beamer table */
 CREATE TABLE domotics.beamer (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
-
+    name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id)
 );
 
-/* create the curtain table */
 CREATE TABLE domotics.curtain (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
-
+    name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id)
 );
 
-/* create the sensor type table */
 CREATE TABLE domotics.sensorType (
 	name VARCHAR(255) PRIMARY KEY
 );
 
-/* create the sensor table */
+Il tipo di tenda permette di riconoscere se è la tenda di sinistra o di destra.
+
 CREATE TABLE domotics.sensor (
 	pin     VARCHAR(255),
 	arduino VARCHAR(255),
 	type    VARCHAR(255),
-
+    name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id),
@@ -88,12 +85,13 @@ CREATE TABLE domotics.sensor (
 		REFERENCES domotics.sensorType (name)
 );
 
-/* create the sensor table */
+Dei sensori si vogliono sapere anche i pin delle luci a cui appartengono grazie al quale poi sarà facile ricavare tutte le informazioni necessarie sulle luci.
+
 CREATE TABLE domotics.lightButton (
 	pin      VARCHAR(255),
 	lightPin VARCHAR(255),
 	arduino  VARCHAR(255),
-
+    name    VARCHAR(255),
 	PRIMARY KEY (pin, arduino),
 	FOREIGN KEY (arduino)
 		REFERENCES domotics.arduino (client_id),

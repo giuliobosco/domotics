@@ -30,14 +30,19 @@ from urllib2 import urlopen
 # ACC-Client key manager
 # -
 # @author giuliobosco
-# @version 1.0 (2019-04-21 - 2019-04-21)
+# @version 1.1 (2019-04-21 - 2019-04-21)
 
 
 class PinThread(threading.Thread):
+    TOGGLE_MODE = 'toggle'
+    SWITCH_MODE = 'switch'
+    ONCLICK_MODE = 'click'
+    ONCHANGE_MODE = 'change'
+
     def __init__(self, key_manager, pin, bridge):
         """
         Create pin thread with key manager, pin to check and the global bridge client.
-        Require global bridge client because it's synchronized.
+        Require global bridge client because is synchronized.
         :param key_manager: ACC KeyManager.
         :param pin: Pin to check.
         :param bridge: Global bridge client.
@@ -54,6 +59,8 @@ class PinThread(threading.Thread):
         self.status = None
         # set the global bridge client
         self.bridge = bridge
+        self.on = self.ONCHANGE_MODE
+        self.send = self.TOGGLE_MODE
 
     def interrupt(self):
         """
@@ -63,7 +70,7 @@ class PinThread(threading.Thread):
 
     def is_interrupted(self):
         """
-        Check if the thread is interrupted.
+        Check if the thead is interrupted.
         :return: True if the thread is interrupted.
         """
         return self._stop_event.is_set()
@@ -95,7 +102,7 @@ class PinThread(threading.Thread):
             # create request with host and key
             request = "http://" + host + "/acc?key=" + self.key_manager.key
             # add to the request pin and value to set
-            request += "&pin=" + self.pin + "&set=" + self.status
+            request += "&pin=" + self.pin + "&set=toggle"  # + self.status
             # execute the request and return the response.
             return urlopen(request).read()
 
@@ -104,7 +111,9 @@ class PinThread(threading.Thread):
         Check the status of the request.
         """
         while not self.is_interrupted():
-            if self.is_status_changed():
+            if self.is_status_changed() and self.status == '1':
+		print(self.status)
                 # if status changed execute reqeust
                 response = self.execute_http_req()
+		print(response)
         sleep(0.1)
