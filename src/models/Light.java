@@ -41,7 +41,7 @@ import java.util.List;
  * Domotics Light.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.5 (2019-04-05 - 2019-05-10)
+ * @version 1.3.6 (2019-04-05 - 2019-05-10)
  */
 public class Light {
     // ------------------------------------------------------------------------------------ Costants
@@ -260,14 +260,16 @@ public class Light {
      * @return List of all lights in the result set.
      * @throws SQLException           Error on the MySQL Database.
      */
-    public static List<Light> getLights(ResultSet rs) throws SQLException {
+    public static List<Light> getLights(ResultSet rs) throws SQLException, ClassNotFoundException {
 
         List<Light> lights = new ArrayList<>();
 
         while (rs.next()) {
             int pin = Integer.parseInt(rs.getString("pin"));
             String name = rs.getString("name");
-            Arduino arduino = new Arduino(DomoticsJdbcC.getConnector(), rs.getString("arduino"));
+            JdbcConnector connector = DomoticsJdbcC.getConnector();
+            connector.openConnection();
+            Arduino arduino = new Arduino(connector, rs.getString("arduino"));
 
             lights.add(new Light(pin, arduino, name));
         }
