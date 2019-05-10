@@ -37,7 +37,7 @@ import java.sql.SQLException;
  * Domotics thermometer.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0 (2019-05-09 - 2019-05-09)
+ * @version 1.0.1 (2019-05-09 - 2019-05-10)
  */
 public class Thermometer {
     // ------------------------------------------------------------------------------------ Costants
@@ -68,9 +68,8 @@ public class Thermometer {
      * @param arduinoId Id of the arduino.
      * @param connector Connector to MySQL domotics database.
      * @throws SQLException Error on the MySQL domotics server.
-     * @throws ClassNotFoundException MySQL Driver class not found.
      */
-    public Thermometer(String pin, String arduinoId, JdbcConnector connector) throws SQLException, ClassNotFoundException {
+    public Thermometer(String pin, String arduinoId, JdbcConnector connector) throws SQLException {
         String query = "SELECT * FROM domotics.sensor WHERE pin='" + pin + "' AND arduino='" + arduinoId + "';";
         ResultSet rs = connector.query(query);
 
@@ -144,10 +143,9 @@ public class Thermometer {
      * @param connector Connector to MySQL domotics database.
      * @return Temperature of the room.
      * @throws SQLException Error on the MySQL domotics database.
-     * @throws ClassNotFoundException MySQL Driver class not found.
      * @throws IOException Error while requesting the value to arduino.
      */
-    public static double getTemperatureByRoom(Room room, JdbcConnector connector) throws SQLException, ClassNotFoundException, IOException {
+    public static double getTemperatureByRoom(Room room, JdbcConnector connector) throws SQLException, IOException {
         String query = "SELECT * FROM domotics.sensor s JOIN arduino a on s.arduino = a.client_id WHERE s.type='temperature' AND a.room='" + room.getName() +"';";
         ResultSet rs = connector.query(query);
 

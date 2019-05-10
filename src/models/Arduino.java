@@ -40,7 +40,7 @@ import java.util.List;
  * Domotics arduino.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.3.5 (2019-04-15 - 2019-05-08)
+ * @version 1.3.6 (2019-04-15 - 2019-05-10)
  */
 public class Arduino {
     // ------------------------------------------------------------------------------------ Costants
@@ -149,22 +149,28 @@ public class Arduino {
     /**
      * Create the room from the database with the ACC-Client-ID of the arduino.
      *
-     * @param jdbcConnector Connection to the MySQL Server.
+     * @param connector Connection to the MySQL Server.
      * @param id            ACC-Client-ID.
      * @throws SQLException           Error on the MySQL Server.
-     * @throws ClassNotFoundException MySQL Driver class not found.
      */
-    public Arduino(JdbcConnector jdbcConnector, String id) throws SQLException, ClassNotFoundException {
+    public Arduino(JdbcConnector connector, String id) throws SQLException {
         String query = "SELECT * FROM domotics.arduino WHERE client_id='" + id + "';";
-        jdbcConnector.openConnection();
-        ResultSet resultSet = jdbcConnector.query(query);
+        ResultSet resultSet = connector.query(query);
 
         this.set(resultSet);
     }
 
-    public Arduino(JdbcConnector jdbcConnector, String ip, String key) throws SQLException, ClassNotFoundException {
+    /**
+     * Create Arduino with ip of the arduino and key of the arduino.
+     *
+     * @param connector Connector to domotics MySQL database.
+     * @param ip Ip of the arduino.
+     * @param key Key of communication between ACC-Client and ACC-Server.
+     * @throws SQLException Error on MySQL Server.
+     */
+    public Arduino(JdbcConnector connector, String ip, String key) throws SQLException {
         String query = "SELECT  * FROM domotics.arduino WHERE ip='" + ip + "' AND client_key='" + key + "';";
-        ResultSet resultSet = jdbcConnector.query(query);
+        ResultSet resultSet = connector.query(query);
 
         this.set(resultSet);
     }

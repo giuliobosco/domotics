@@ -21,4 +21,5 @@ Available features:
 
 ## Contributors
 
-<a href="https://github.com/mattiaruberto"><img src="img/FotoRuberto.jpg"></a>
+<a href="https://github.com/mattiaruberto"><img src="contributions/img/mattiaruberto.png" width="50"></a>
+<a href="https://github.com/giuliobosco"><img src="contributions/img/giuliobosco.png" width="50"></a>
