@@ -47,15 +47,6 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 |		   |ID: REQ-04    |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Server in Python                        ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          | 
-|001:      |Gestione dell'automatizzazione          ||
-
-|		   |ID: REQ-05    |	    		             |
-|:---------|:-------------|:-------------------------|
 |Nome:     |Server in Tomcat                        ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
@@ -63,7 +54,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                          | 
 |001:      |Gestione della parte web                ||
 
-|		   |ID: REQ-06    |	    		                      |
+|		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |JDBC                                             ||
 |Priorità: |1                                                ||
@@ -72,7 +63,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                                   | 
 |001:      |Controllare gli account sul database della scuola||
 
-|		   |ID: REQ-07    |	    		                      |
+|		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |LDAP                                             ||
 |Priorità: |1                                                ||
@@ -81,21 +72,21 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                                   | 
 |001:      |Connetersi con java al database domotics         ||
 
-|		   |ID: REQ-08    |	    		                      |
+|		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Arduino Connection Controller Client             ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-09    |	    		                      |
+|		   |ID: REQ-08    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Arduino Connection Controller Server             ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-10    |	    		                             |
+|		   |ID: REQ-09    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -105,7 +96,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |001:      |Arduino yun                                             ||
 |002:      |Server in Tomcat                                        ||
 
-|		   |ID: REQ-11    |	    		               |
+|		   |ID: REQ-10    |	    		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Simulazione luci                          ||
 |Priorità: |1                                         ||
@@ -114,7 +105,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |          |Sotto requisiti                            |
 |001:      |Controllo dei led tramite l'arduino       ||
 
-|		   |ID: REQ-12    |	                                      |
+|		   |ID: REQ-11    |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |1                                                    ||
@@ -124,6 +115,15 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 |001:      |Controllo dei motori tramite l'arduino               ||
 
 ## Arrivati 1 mese dalla fine del progetto ci siamo accorti che non c'era abbastanza tempo per l'implementazione fisica dei moduli così abbiamo deciso di metterli in priorità 3 e di cercare di concentrarci sul resto.
+
+|		   |ID: REQ-12    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
 |:---------|:-------------|:--------------------------|
@@ -393,4 +393,4 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### Arduino Connection Controller Client
 
-### Implementazione Arduino Connection Controller Server
+### Arduino Connection Controller Server
