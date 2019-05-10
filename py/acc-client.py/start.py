@@ -32,6 +32,6 @@ from acc_autoconf import acc_autoconf
 
 # create the key_manager with the ACC-AutoConfiguration (acc_autoconf), giving him the arduino ACC-Client-ID and the
 # server IP (and the port)
-key_manager = acc_autoconf(id="000000000000", server_address='10.8.16.111:8080')
+key_manager = acc_autoconf(id="000000000000", server_address='192.168.240.221:8080')
 # start acc with key_manager (it will handle all the keys of the arduino)
 AccClient.start(key_manager=key_manager)
