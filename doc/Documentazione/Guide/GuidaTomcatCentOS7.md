@@ -1,4 +1,8 @@
 # Install Tomcat 9.0.13
+
+## Introduction
+This guide explains all the step-by-step procedures for installing a web server in Tomcat on a centOS 7 machine.
+
 **OS: CentOS 7**
 
 ## Install Java
@@ -75,14 +79,12 @@ yum install wget
 
 Download tomcat, with the software just installed.
 ```
-wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
-http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.16/bin/apache-tomcat-9.0.16.tar.gz
+http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
 ```
 
 Decompress the files of tomcat
 ```
 tar -xzvf apache-tomcat-9.0.13.tar.gz
-tar -xzvf apache-tomcat-9.0.16.tar.gz
 ```
 
 Move the files of tomcat to the tomcat user home directory
