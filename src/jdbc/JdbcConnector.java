@@ -27,7 +27,7 @@ package jdbc;
 import java.sql.*;
 
 /**
- * Manage connection to databases with JDBC Driver.
+ * Manage connection to the databases with JDBC Driver.
  *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0.4 (2019-04-05)
@@ -41,7 +41,7 @@ public class JdbcConnector {
     public static final int DEFAULT_PORT = 3306;
 
     /**
-     * Set timezone to UTC, for connection string.
+     * Set timezone to UTC, for the connection string.
      */
     public final String TIMEZONE_UTC = "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
@@ -141,7 +141,7 @@ public class JdbcConnector {
     }
 
     /**
-     * Create the statement by the connection to database.
+     * Creates the statement through the connection to database.
      *
      * @throws SQLException Error on the MySQL Server.
      */
@@ -154,7 +154,7 @@ public class JdbcConnector {
     }
 
     /**
-     * Close the statement by the connection to the database.
+     * Closes the statement through the connection to the database.
      *
      * @throws SQLException Error on the MySQL Server.
      */
@@ -167,7 +167,7 @@ public class JdbcConnector {
     // ----------------------------------------------------------------------------- General Methods
 
     /**
-     * Open the connection to the database.
+     * Opens the connection to the database.
      *
      * @throws SQLException           Error with the sql server.
      * @throws ClassNotFoundException Jdbc Driver not found.
@@ -179,7 +179,7 @@ public class JdbcConnector {
     }
 
     /**
-     * Execute query on database.
+     * Executes a query on the database.
      *
      * @param query Query to execute on the database.
      * @return Query result set.
@@ -194,7 +194,7 @@ public class JdbcConnector {
     }
 
     /**
-     * Execute update query on database.
+     * Execute an update query on the database.
      *
      * @param update Update to execute on the database.
      * @throws SQLException Error with the sql server.
@@ -205,7 +205,7 @@ public class JdbcConnector {
     }
 
     /**
-     * IF connection to the database is open, close it.
+     * If the connection to the database is open, close it.
      *
      * @throws SQLException Error on the MySQL Server.
      */

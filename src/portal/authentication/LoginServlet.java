@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package portal.authentication;
 
 import org.json.JSONObject;
@@ -42,7 +43,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
 
     /**
-     * On get request try to login, if right credentials login and redirect to App.jsp, other ways,
+     * On get request try to login, if the credentials are correct login and redirect to App.jsp, other ways,
      * returns to login.html.
      *
      * @param request Http login request.
@@ -91,7 +92,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     /**
-     * Returns to login.html, because password must send by HTTP POST method.
+     * Returns to login.html, because password must be sent by HTTP POST method.
      *
      * @param request Http request.
      * @param response Http response.

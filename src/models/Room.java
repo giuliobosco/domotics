@@ -127,7 +127,7 @@ public class Room {
      * @param name          Name of the room.
      * @param jdbcConnector Connection to the database.
      * @return Room created from the database.
-     * @throws SQLException           Error on the my sql server.
+     * @throws SQLException           Error on the MySQL server.
      */
     public static Room get(String name, JdbcConnector jdbcConnector) throws SQLException {
         String query = "SELECT * FROM domotics.room WHERE name = '" + name + "';";

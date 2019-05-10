@@ -27,7 +27,7 @@ package jdbc;
 import java.sql.*;
 
 /**
- * Test program for connect with JDBC Driver to the mysql domotics database.
+ * Test program for the connection with JDBC Driver to the mysql domotics database.
  *
  * @author paologuebeli
  * @author giuliobosco

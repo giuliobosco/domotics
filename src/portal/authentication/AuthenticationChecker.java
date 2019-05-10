@@ -38,7 +38,7 @@ public class AuthenticationChecker {
     // ---------------------------------------------------------------------------------- Attributes
 
     /**
-     * Http session to check if authenticated.
+     * Http session to check if it's authenticated.
      */
     private HttpSession session;
 
