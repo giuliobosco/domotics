@@ -397,3 +397,12 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 ### Arduino Connection Controller Server
 
 ## 4 test
+
+|Test Case      | TC-001                               |
+|---------------|--------------------------------------|
+|**Nome**       |                                      |
+|**Riferimento**|                                      |
+|**Descrizione**|                                      |
+|**Prerequisiti**|                                     |
+|**Procedura**     |                                   |
+|**Risultati attesi** |                                |
