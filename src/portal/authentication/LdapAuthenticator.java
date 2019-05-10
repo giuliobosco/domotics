@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package portal.authentication;
 
 import ldap.LdapConnector;
@@ -121,7 +121,7 @@ public class LdapAuthenticator implements Authenticator {
      *
      * @param username Username to authenticate.
      * @param password Password of the username to authenticate.
-     * @return True if the user has right credentials.
+     * @return True if the user has correct credentials.
      * @throws NamingException Wrong credentials.
      */
     @Override
@@ -134,7 +134,7 @@ public class LdapAuthenticator implements Authenticator {
     // --------------------------------------------------------------------------- Static Components
 
     /**
-     * Main method of the class, for test LdapAuthenticator.
+     * Main method of the class, to test LdapAuthenticator.
      *
      * @param args Command line arguments.
      */

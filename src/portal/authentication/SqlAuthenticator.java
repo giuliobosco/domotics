@@ -45,7 +45,7 @@ public class SqlAuthenticator implements Authenticator {
      *
      * @param username Username to authenticate.
      * @param password Password of the username to authenticate.
-     * @return True if the user has right credentials.
+     * @return True if the user has correct credentials.
      * @throws AuthenticationException Wrong credentials.
      */
     @Override

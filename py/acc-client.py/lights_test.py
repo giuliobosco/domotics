@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-# Domotics lights module test, turn on and then off with a dalay of 0.1 sec the pin 13.
+# Domotics lights module test, turn on and then off with a delay of 0.1 sec on pin 13.
 # -
 # @author giuliobosco
 # @version 1.0 (2019-04-12 - 2019-04-12)

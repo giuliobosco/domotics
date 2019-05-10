@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 
 /**
- * LDAP connector, checks if an username is right connected and return the DirContext.
+ * LDAP connector, checks if an username is correctly connected and return the DirContext.
  *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0 (2019-02-27 - 2019-03-07 fix comments, javadoc, constructors)
@@ -85,7 +85,7 @@ public class LdapConnector {
     // --------------------------------------------------------------------------- Getters & Setters
 
     /**
-     * Se the LDAP server address.
+     * Set the LDAP server address.
      *
      * @param domain LDAP server address.
      */
@@ -206,7 +206,7 @@ public class LdapConnector {
             this.setPort(DEFAULT_PORT);
             this.setSecurity(security);
         } catch (IOException ignored) {
-            // ignored because the port default port is in the range (and is a constant).
+            // ignored because the default port is in the range (and it's a constant).
         }
     }
 
@@ -283,18 +283,18 @@ public class LdapConnector {
     // --------------------------------------------------------------------------- Static Components
 
     /**
-     * Main method of the class, for test LdapConnector.
+     * Main method of the class, to test LdapConnector.
      *
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
         // set the test LDAP domain
         String domain = "cpt.local";
-        // set the test LDAP OU three
+        // set the test LDAP OU tree
         String base = "OU=3,OU=I,OU=IN,OU=SAM,OU=allievi,DC=CPT,DC=local";
         // create the LDAP Connector with the domain and the base
         LdapConnector ldacC = new LdapConnector(domain, base);
-        
+
         // try to connect to LDAP
         try {
             ldacC.getDirContext("user", "pass");

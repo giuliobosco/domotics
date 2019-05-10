@@ -40,13 +40,13 @@ class Thermistor:
 
     def __init__(self, vcc=5, r=10000):
         """
-        Create Thermistor with volt and resistence
+        Create Thermistor with volt and resistance
         :param vcc: Maximum volt.
-        :param r: Resistence
+        :param r: Resistance
         """
         # set maximum volt
         self.vcc = vcc
-        # set resistence
+        # set resistance
         self.r = r
 
     def get_kelvin(self, voltage):
@@ -55,7 +55,7 @@ class Thermistor:
         :param voltage: In voltage
         :return: Kelvin degreess.
         """
-        # execute transofrmation from voltage to kelvin
+        # execute transformation from voltage to kelvin
         voltage = (5.00 / 1023.00) * float(voltage)
         voltage_reverse = self.vcc - voltage
         resistance = voltage / (voltage_reverse / self.r)
@@ -82,7 +82,7 @@ def get_celsius(voltage, vcc=5, r=10000):
     """
     # initialize thermistor
     therm = Thermistor(vcc, r)
-    # trasfrorm from voltage to celisius degreess and return
+    # trasfrorm from voltage to celisius degrees and return
     return therm.get_celsius(voltage)
 
 
@@ -96,5 +96,5 @@ def get_kelvin(voltage, vcc=5, r=10000):
     """
     # initialize thermistor
     therm = Thermistor(vcc, r)
-    # trasform from voltage to kelvin degress and return
+    # transform from voltage to kelvin and return
     return therm.get_kelvin(voltage)

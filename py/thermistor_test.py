@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
-# Test program for read from the arduino BridgeClient the value of the Thermistor.
+# Test program to read from the arduino BridgeClient the value of the Thermistor.
 # -
 # @author giuliobosco
 # @version 1.0 (2019-04-12 - 2019-04-12)
@@ -45,12 +45,12 @@ while True:
     # ---
     T0 = 25 + 273.15                                        # temperature T0 from thermistor datasheet
     # ---
-    VRT = float(bridge.get('A1'))                           # read value of the pin A1 of the arduino
+    VRT = float(bridge.get('A1'))                           # read value from the pin A1 of the arduino
     VRT = (5.00 / 1023.00) * VRT                            # conversion to voltage
-    VR = VCC - VRT                                          # inverse of voltage
+    VR = VCC - VRT                                          # reverse of voltage
     RT = VRT / (VR / R)                                     # resistence of RT
     # ---
-    ln = log(RT / RT0)                                 # logarithm of RT by RT0
+    ln = log(RT / RT0)                                      # logarithm of RT by RT0
     TX = (1 / ((ln / B) + (1 / T0)))                        # temperature on the thermistor
     # ---
     TX = TX - 273.15                                        # conversion from kelvin to celsius

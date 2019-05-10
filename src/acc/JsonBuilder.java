@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
- 
+
 package acc;
 
 import org.json.JSONObject;
 
 /**
- * 
+ *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0 (2019-05-08 - 2019-05-08)
  */
@@ -45,6 +45,14 @@ public class JsonBuilder {
     // ----------------------------------------------------------------------------- General Methods
     // --------------------------------------------------------------------------- Static Components
 
+    /**
+    * Puts the status and the message in a JSON
+    *
+    * @param status String of the status
+    * @param message String of the message
+    *
+    * @return json in String format
+    */
     public static String getJsonResponse(String status, String message) {
         JSONObject jo = new JSONObject();
         jo.put("status", status);

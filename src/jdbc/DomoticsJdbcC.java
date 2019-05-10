@@ -29,7 +29,7 @@ import acc.IdManager;
 import java.sql.SQLException;
 
 /**
- * Get the JDBC connector for domotics database.
+ * Get the JDBC connector for the domotics database.
  *
  * @author giuliobosco (giuliobva@gmail.com)
  * @version 1.0.1 (2019-04-21 2019-04-29)
@@ -62,18 +62,18 @@ public class DomoticsJdbcC {
     private static final String DATABASE = "domotics";
 
     /**
-     * Ge the JDBC Connector for domotics database.
+     * Get the JDBC Connector for the domotics database.
      *
-     * @return JDBC Connector for domotics database.
+     * @return JDBC Connector for the domotics database.
      */
     public static JdbcConnector getConnector() {
         return new JdbcConnector(USERNAME, PASSWORD, HOSTNAME, PORT, DATABASE);
     }
 
     /**
-     * Get the domotics id mananger with the domotics JDBC Connector for domotics datatabase.
+     * Get the domotics id mananger with the domotics JDBC Connector for the domotics datatabase.
      *
-     * @return Domotics id mananger with the domotics JDBC Connector for domotics datatabase.
+     * @return Domotics id mananger with the domotics JDBC Connector for the domotics datatabase.
      * @throws SQLException           Error on the MySQL Database.
      * @throws ClassNotFoundException MySQL jdbc Driver not found.
      */

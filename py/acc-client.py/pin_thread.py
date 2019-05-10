@@ -37,7 +37,7 @@ class PinThread(threading.Thread):
     def __init__(self, key_manager, pin, bridge):
         """
         Create pin thread with key manager, pin to check and the global bridge client.
-        Require global bridge client because is synchronized.
+        Require global bridge client because it's synchronized.
         :param key_manager: ACC KeyManager.
         :param pin: Pin to check.
         :param bridge: Global bridge client.
@@ -63,7 +63,7 @@ class PinThread(threading.Thread):
 
     def is_interrupted(self):
         """
-        Check if the thead is interrupted.
+        Check if the thread is interrupted.
         :return: True if the thread is interrupted.
         """
         return self._stop_event.is_set()
