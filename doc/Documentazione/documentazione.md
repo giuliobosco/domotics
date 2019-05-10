@@ -154,7 +154,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ###  1.6 Pianificazione
 
-![Gantt](img/Gantt.jpg)
+![Gantt](img/Gantt/Gantt.jpg)
 
 Il progetto ci è stato commissionato il 13 Febbraio 2019 re programmiamo di completarlo il 17 Maggio 2019.
 Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
@@ -396,4 +396,4 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### Arduino Connection Controller Server
 
-## Implementazione test
+## 4 test
