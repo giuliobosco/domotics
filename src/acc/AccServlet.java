@@ -26,10 +26,8 @@ package acc;
 
 import jdbc.DomoticsJdbcC;
 import jdbc.JdbcConnector;
-import models.Arduino;
 import models.Light;
 import models.LightButton;
-import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,7 +42,7 @@ import java.util.Map;
  * Acc servlet.
  *
  * @author giuliobosco
- * @version 1.0.4 (2019-04-21 - 2019-05-05)
+ * @version 1.0.5 (2019-04-21 - 2019-05-10)
  */
 @WebServlet(name = "AccServlet")
 public class AccServlet extends HttpServlet {
@@ -85,19 +83,24 @@ public class AccServlet extends HttpServlet {
                     buttonPinString = buttonPinString.substring(1);
                     int buttonPin = Integer.parseInt(buttonPinString);
 
-                    int setStatus = Integer.parseInt(parameters.get("set")[0]);
                     LightButton lb = new LightButton(buttonPin, arduinoIp, arduinokey, jdbc);
                     Light light = lb.getLight();
 
-                    if (setStatus == light.LIGHT_ON) {
-                        light.turnOn();
-                    } else if (setStatus == light.LIGHT_OFF) {
-                        light.turnOff();
+                    if (parameters.get("set")[0].equals("toggle")) {
+                        light.toggleLight();
+                    } else {
+                        int setStatus = Integer.parseInt(parameters.get("set")[0]);
+
+                        if (setStatus == light.LIGHT_ON) {
+                            light.turnOn();
+                        } else if (setStatus == light.LIGHT_OFF) {
+                            light.turnOff();
+                        }
                     }
 
-                    responseString = JsonBuilder.getJsonResponseOk( "" + setStatus);
+                    responseString = JsonBuilder.getJsonResponseOk("" + light.getStatus());
                 } else {
-                    responseString = JsonBuilder.getJsonResponseError( "No found pin");
+                    responseString = JsonBuilder.getJsonResponseError("No found pin");
                 }
             } else {
                 responseString = JsonBuilder.getJsonResponseError("Wrong operation");

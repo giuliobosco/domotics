@@ -100,7 +100,7 @@ CREATE TABLE domotics.sensor (
 		REFERENCES domotics.sensorType (name)
 );
 
-/* create the sensor table */
+/* create the lightButton table */
 CREATE TABLE domotics.lightButton (
 	pin      VARCHAR(255),
 	lightPin VARCHAR(255),
