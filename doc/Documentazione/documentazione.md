@@ -151,6 +151,10 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ### 1.5 Analisi e specifica dei requisiti
 
+Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte tutte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
+
+#### Rquisiti iniziali
+
 |		   |ID: REQ-01    |	    		                       |
 |:---------|:-------------|:-----------------------------------|
 |Nome:     |Domotizzazione dell'aula                          ||
@@ -347,7 +351,6 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 ![Login](img/sito/Portal.JPG)
 
 Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
-
 
 ### 2.4 Architettura Database
 
