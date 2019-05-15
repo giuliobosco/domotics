@@ -9,6 +9,7 @@ import models.Room;
 import models.Thermometer;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import portal.authentication.AuthenticationChecker;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,7 @@ import java.util.List;
 
 /**
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.2 (2019-05-08 - 2019-05-10)
+ * @version 1.0.3 (2019-05-08 - 2019-05-15)
  */
 @WebServlet(name = "RoomsServlet")
 public class RoomsServlet extends HttpServlet {
@@ -31,21 +32,27 @@ public class RoomsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String responseString = "";
-        try {
-            JdbcConnector jdbc = DomoticsJdbcC.getConnector();
-            jdbc.openConnection();
-            String allRoomsQuery = "SELECT * FROM room";
-            List<Room> rooms = Room.getRooms(jdbc.query(allRoomsQuery));
+        if (new AuthenticationChecker(request.getSession()).isValidSession()) {
+            try {
+                JdbcConnector jdbc = DomoticsJdbcC.getConnector();
+                jdbc.openConnection();
+                String allRoomsQuery = "SELECT * FROM room";
+                List<Room> rooms = Room.getRooms(jdbc.query(allRoomsQuery));
 
-            JSONArray roomsJson = new JSONArray();
+                JSONArray roomsJson = new JSONArray();
 
-            for (Room room : rooms) {
-                roomsJson.put(getJsonRoom(room, jdbc));
+                for (Room room : rooms) {
+                    roomsJson.put(getJsonRoom(room, jdbc));
+                }
+
+                responseString = new JSONObject().put("rooms", roomsJson).toString();
+            } catch (SQLException | ClassNotFoundException e) {
+                responseString = JsonBuilder.getJsonResponseError("MySQL Error");
             }
-
-            responseString = new JSONObject().put("rooms", roomsJson).toString();
-        } catch (SQLException | ClassNotFoundException e) {
-            responseString = JsonBuilder.getJsonResponseError("MySQL Error");
+        } else {
+            JSONObject jo = new JSONObject();
+            jo.put("logout", "logout");
+            responseString = jo.toString();
         }
 
         response.getOutputStream().println(responseString);
