@@ -346,27 +346,27 @@ LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuat
 
 ![Login](img/sito/Login.JPG)
 
-Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto semplice infatti ci sar&agrave; un form di login che richieder&agrave; nome untente e password.
+Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto semplice infatti ci sar&agrave; un form di login che richieder&agrave; nome utente e password.
 
 ### 2.3 Design della dashboard del sito web
 
 ![Login](img/sito/Portal.JPG)
 
-Questo &egrave; il design del sito web dopo che si ha fatto il login e che le credenziali sono state convalidate e confermate. Il sito porta in questa pagina dove si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
+Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
 
 ### 2.4 Architettura Database
 
 ![DataBase](img/db/DbDiagram.png)
 
 Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro identificatore, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati i suoi pin e le luci. Ogni arduino gestisce le luci, il beamer, le tende e i sensori che ci sono all'interno dell'aula di cui vengono memorizzati i pin.
-In questo modo grazia alla chiave che ogni arduino ha, il server riesce a riconoscerli e identificarli per poi ricavare lo stato di tutti i suoi moduli, quindi luci, tende, beamer e sensori andando a ricercare le varie informazione nel database e riesce.
+In questo modo grazie alla chiave che ogni arduino ha, il server riesce a riconoscerli e identificarli per poi ricavare lo stato di tutti i suoi moduli, quindi luci, tende, beamer e sensori andando a ricercare le varie informazione nel database.
 
 ### 2.5 Architettura LDAP connector
 
 ![LDAP](img/ldap/uml.png)
 
-La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e questa classe va a confrontarle con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che va a leggere i dati i modo criptato.
-Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autentificazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci saranno tre costruttori, uno in cui gli viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno in cui non gli viene passato il tipo di sicurezza e nel terzo gli viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione e getDirContext che ritorna se l'utente ha i permessi o no.
+La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
+Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autenticazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove deve andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci sono tre costruttori, uno a cui viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno a cui non viene passato il tipo di sicurezza e nel terzo viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione, e getDirContext ritorna se l'utente ha i permessi o no.
 
 ### 2.6 Architettura Arduino Yun
 
@@ -375,7 +375,7 @@ per utilizzare una connessione wirelless avremmo dovuto usare il fishino che per
 
 ![SchemaArduino](img/arduino/SchemaArduino.PNG)
 
-Questo è il design dello schema dell'arduino, come si può notare l'arduino YUN e questo particolare schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
+Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
 ### 2.7 Arduino Connection Controller Client
 
@@ -435,13 +435,13 @@ CREATE TABLE domotics.light (
 ### 3.4 Lightweight Directory Access Protocol (LDAP)
 Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul database della scuola e controlla se le credenziali corrispondono a un docente o no.
 
-Per fare questo serve server una stringa di connessione che dice a LDAP dove andare a connettersi. Che deve contenere il domimio e la porta del server ADDS.
+Per fare questo serve una stringa di connessione che dice a LDAP dove andare a connettersi. Questa stringa deve contenere il dominio e la porta del server ADDS.
 ```java
     private String getConnectionString() {
         return "ldap://" + getDomain() + ":" + getPort();
     }
 ```
-Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un percorso assoluto solo che invece di scendere l'albero da sinistra scende a destra.
+Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un percorso assoluto solo che invece di scendere l'albero da sinistra scende da destra.
 Ecco un esempio di DN:
 CN=john.doe,OU=People,DC=example,DC=com
 CN è il nome utente, OU è l'unita organizzativa a cui deve puntare (che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
@@ -513,7 +513,7 @@ Quest'altro metodo invece chiude l'istruzione dal collegamento al database.
 this.statement.close();
 ```
 
-Questo metodo serve per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata del metodo sottoforma di stringa.
+Questo metodo serve per fare delle query sul database, gli viene passata la stringa contenente la query, viene creato il collegamento tramite il metodo spiegato in precedenza ed infine tramite executeQuery viene inviata la richiesta al database che verrà poi ritornata al metodo sotto forma di stringa.
 
 ```java
 public ResultSet query(String query) throws SQLException {
@@ -525,7 +525,7 @@ public ResultSet query(String query) throws SQLException {
 ```
 
 Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
-*   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova     versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
+*   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
 *   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario apparteneteWS:
     ```Sql
     SET @@global.time_zone = '+01:00';
