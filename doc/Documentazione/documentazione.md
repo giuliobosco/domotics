@@ -177,7 +177,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Modificare lo stato delle luci          ||
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
@@ -188,7 +188,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
 |		   |ID: REQ-05    |	    		                      |
@@ -197,7 +197,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Controllare gli account sul database della scuola||
 
 |		   |ID: REQ-06    |	    		                      |
@@ -206,7 +206,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
 
 |		   |ID: REQ-07    |	    		                      |
@@ -259,7 +259,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
@@ -316,7 +316,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.2 Hardware
 *   Mattia Ruberto:
-    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB
 
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
@@ -336,7 +336,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 Questo è lo schema che rappresenta il nostro progetto.
 Il nostro progetto è strutturato nel seguente modo:
 Nella parte fisica ci saranno i vari componenti dell'aula, come le luci, il beamer, le tende e i vari sensori.
-Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login, una volta che si accede al sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire.
+Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login, una volta che si accede il sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire.
 Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro database dove salviamo le seguenti informazioni.
 LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente.
 
