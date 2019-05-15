@@ -1,12 +1,12 @@
 # Install Tomcat 9.0.13
 
 ## Introduction
-This guide explains all the step-by-step procedures for installing a web server in Tomcat on a centOS 7 machine.
+This guide explains all the step-by-step procedures to install a web server in Tomcat on a centOS 7 machine.
 
 **OS: CentOS 7**
 
 ## Install Java
-For use Tomcat is required java, before install java update the system. Install the Java JRE (Java Runtime Environment) and the JDK (Java Development Kit).
+To use Tomcat is required java, before you install java update the system. Install the Java JRE (Java Runtime Environment) and the JDK (Java Development Kit).
 ```
 yum update
 yum install java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-devel.x86_64
@@ -18,7 +18,7 @@ java -version
 javac -version
 ```
 
-Set the last version as usual Java version. Use the following command and select the last java version.
+Set the last version as the usual Java version. Use the following command and select the last java version.
 ```
 update-alternatives --config java
 ```
@@ -51,7 +51,7 @@ check if the variable works correctly displaying it
 echo $JAVA_HOME
 ```
 
-It should returns something like this
+It should return something like this
 ```
 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jre
 ```
@@ -67,27 +67,27 @@ The `-s /bin/false` means that this user has no shell.
 
 ### Download Tomcat
 
-Move to the directory where will be install tomcat.
+Move to the directory where you want to install tomcat.
 ```
 cd /opt
 ```
 
-Install wget, is a small software for download files by http.
+Install wget, it's a small software to download files by http.
 ```
 yum install wget
 ```
 
-Download tomcat, with the software just installed.
+Download tomcat, with the software you just installed.
 ```
 http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
 ```
 
-Decompress the files of tomcat
+Decompress tomcats files
 ```
 tar -xzvf apache-tomcat-9.0.13.tar.gz
 ```
 
-Move the files of tomcat to the tomcat user home directory
+Move tomcats files to the tomcat user home directory
 ```
 mv apache-tomcat-9.0.13/* tomcat/
 ```
@@ -119,7 +119,7 @@ firewall-cmd --list-services
 ```
 
 ## Test tomcat
-For test tomcat, start it.
+To test tomcat, start it.
 ```
 cd /opt/tomcat/bin
 ./startup.sh
@@ -214,7 +214,7 @@ reboot the server and try to connect again on `ip:8080`
 
 ## configure Apache Reverse Proxy
 
-Apache will be used as Reverse Proxy, for redirect the requests from the apache web server to
+Apache will be used as Reverse Proxy, to redirect the requests from the apache web server to
 Apache Tomcat.
 
 Install Apache on CentOS, enable it and start it.
@@ -240,7 +240,7 @@ Then create the virtual host. Create the file `/etc/httpd/conf.d/tomcat_rev_prox
 With this it will be displayed the the Apache Tomcat web-app `/example` on the request to the Proxy
 `example.domain.com/examples`.
 
-After configured the reverse proxy, check the configuration:
+After you configured the reverse proxy, check the configuration:
 
 ```
 apachectl configtest
@@ -252,9 +252,9 @@ It should return something like `Syntax OK`, if it returns it, restart Apache ht
 systemctl restart httpd
 ```
 
-Now configure tomcat for accept connection from the Apache httpd reverse proxy.  
-Edit configuration file of tomcat, `/opt/tomcat/conf/server.xml`, and go to the line that contains
-`Connector` and edit it as follow:
+Now configure tomcat to accept connections from the Apache httpd reverse proxy.  
+Edit configuration tomcats file, `/opt/tomcat/conf/server.xml`, and go to the line that contains
+`Connector` and edit it as follows:
 
 ```
 <Connector address="127.0.0.1" port="8009"...
@@ -267,7 +267,7 @@ Then restart tomcat:
 /opt/tomcat/bin/startup.sh
 ```
 
-Before test if everything works open the port 80 on the firewall, with the command:
+Before you test if everything works open the port 80 on the firewall, with the command:
 
 ```
 firewall-cmd --permanent --add-port=80/tcp
