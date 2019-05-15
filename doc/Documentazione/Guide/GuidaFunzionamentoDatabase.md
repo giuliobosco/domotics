@@ -1,6 +1,6 @@
 Mattia Ruberto
 
-# Guida di funzionamento e implementazione del databse
+# Guida di funzionamento e implementazione del database
 
 ## Funzionamento
 
