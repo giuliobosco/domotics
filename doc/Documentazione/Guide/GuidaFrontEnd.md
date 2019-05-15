@@ -7,7 +7,7 @@ Paolo Guebeli
 Per il frontend abbiamo scelto una paletta di colori di base per tutti i siti.
 
 ![DataBase](../img/db/DbDiagram.png)
-![Colori](../img/sito/ColoriFE.png)
+![Colori](../img/sito/ColoriFE.PNG)
 
 <br>
 La pagina di login contiene un semplice form composto da un campo testo, un campo password e un pulsante di submit.
