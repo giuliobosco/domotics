@@ -37,7 +37,7 @@ import java.io.IOException;
  * LoginServlet to portal servlet.
  *
  * @author giuliobosco (giuliobva@gmail.com)
- * @version 1.0.1 (2019-02-28 - 2019-05-09)
+ * @version 1.0.2 (2019-02-28 - 2019-05-15)
  */
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException Error on the system.
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Authenticator authenticator = new LdapAuthenticator("OU=3,OU=I,OU=IN,OU=SAM,OU=allievi");
+        Authenticator authenticator = new LdapAuthenticator("OU=Docenti");
 
         // analyze request get username and password
         String requestUsername = request.getParameter("username");
