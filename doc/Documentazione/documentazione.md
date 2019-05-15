@@ -170,6 +170,8 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Solo i docenti possono fare il login    ||
 
 |		   |ID: REQ-03    |	    		             |
 |:---------|:-------------|:-------------------------|
@@ -177,48 +179,41 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          |
+|          |Sotto requisiti                          | 
 |001:      |Modificare lo stato delle luci          ||
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
 
 |		   |ID: REQ-04    |	    		             |
 |:---------|:-------------|:-------------------------|
-|Nome:     |Server in Tomcat                        ||
+|Nome:     |Web Server                              ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          |
+|          |Sotto requisiti                          | 
 |001:      |Gestione della parte web                ||
 
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |JDBC                                             ||
+|Nome:     |Connettersi al database in java                  ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   |
-|001:      |Controllare gli account sul database della scuola||
+|          |Sotto requisiti                                   | 
+|001:      |Connetersi con java al database domotics         ||
 
 |		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |LDAP                                             ||
+|Nome:     |Verificare i permessi degli utenti               ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   |
-|001:      |Connetersi con java al database domotics         ||
+|          |Sotto requisiti                                   | 
+|001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
 |		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |Arduino Connection Controller Client             ||
-|Priorità: |1                                                ||
-|Versione: |1.0                                              ||
-|Note:     |                                                 ||
-
-|		   |ID: REQ-08    |	    		                      |
-|:---------|:-------------|:----------------------------------|
-|Nome:     |Arduino Connection Controller Server             ||
+|Nome:     |Comunicazione parte web con l'arduino            ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
@@ -235,12 +230,21 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 
 |		   |ID: REQ-10    |	    		               |
 |:---------|:-------------|:---------------------------|
-|Nome:     |Simulazione luci                          ||
+|Nome:     |Simulazione luci con led                  ||
 |Priorità: |1                                         ||
 |Versione: |1.0                                       ||
 |Note:     |                                          ||
 |          |Sotto requisiti                            |
 |001:      |Controllo dei led tramite l'arduino       ||
+
+|		   |ID: REQ-10    |	    		               |
+|:---------|:-------------|:---------------------------|
+|Nome:     |Simulazione luci con lampadine            ||
+|Priorità: |1                                         ||
+|Versione: |1.0                                       ||
+|Note:     |                                          ||
+|          |Sotto requisiti                            |
+|001:      |Controllare delle lampadine dalla 220v tramite i relay||
 
 |		   |ID: REQ-11    |	                                      |
 |:---------|:-------------|:--------------------------------------|
@@ -251,15 +255,13 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |          |Sotto requisiti                                       |
 |001:      |Controllo dei motori tramite l'arduino               ||
 
-## Arrivati 1 mese dalla fine del progetto ci siamo accorti che non c'era abbastanza tempo per l'implementazione fisica dei moduli così abbiamo deciso di metterli in priorità 3 e di cercare di concentrarci sul resto.
-
 |		   |ID: REQ-12    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          |
+|          |Sotto requisiti                          | 
 |001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
@@ -316,7 +318,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.2 Hardware
 *   Mattia Ruberto:
-    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
 
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
@@ -336,7 +338,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 Questo è lo schema che rappresenta il nostro progetto.
 Il nostro progetto è strutturato nel seguente modo:
 Nella parte fisica ci saranno i vari componenti dell'aula, come le luci, il beamer, le tende e i vari sensori.
-Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login, una volta che si accede il sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire.
+Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login, una volta che si accede al sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire.
 Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro database dove salviamo le seguenti informazioni.
 LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente.
 
@@ -367,6 +369,9 @@ La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si l
 Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autentificazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci saranno tre costruttori, uno in cui gli viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno in cui non gli viene passato il tipo di sicurezza e nel terzo gli viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione e getDirContext che ritorna se l'utente ha i permessi o no.
 
 ### 2.6 Architettura Arduino Yun
+
+All'inizio del progetto ci siamo trovati a dover scegliere quale arduino utilizzare per controllare i vari moduli delle aule, innanzitutto abbiamo deciso di utilizzare la connessione ethernet per comunicare tra interfaccia web e l'arduino, questo per un fattore di comodità infatti
+per utilizzare una connessione wirelless avremmo dovuto usare il fishino che però non abbiamo mai utilizzato e quindi sarebbe potuto essere un problema in più, inoltre tramite connessione ethernet non avremmo avuto problemi di delay e avremmo avuto più stabilità.
 
 ![SchemaArduino](img/arduino/SchemaArduino.PNG)
 
