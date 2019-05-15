@@ -1,3 +1,136 @@
+<style>
+th, td {
+    padding:2px 5px!important;
+}
+</style>
+
+# Domotizzazione dell'aula
+
+## Indice
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">1 Introduzione</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+        <div style="margin-top:5px;widht:100%;"> </div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.1 Informazione sul progetto</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+        <div style="margin-top:5px;widht:100%;"> </div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.2 Abstrat</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+        <div style="margin-top:5px;widht:100%;"> </div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.3 Scopo</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.4 Analisi del dominio</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.5 Analisi e specifica dei requisiti</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;1.6 Pianificazione
+        </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">7</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;1.7 Analisi dei mezzi</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;1.7.1Software
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;1.7.2Hardware
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        2 Progettazione
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;2.1 Architettura del progetto
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.2 Design dell'interfaccia di login
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.3 Design della dashboard del sito web
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">10</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.4 Architettura Database
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">11</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.6 Architettura Arduino Yun
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">11</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.7 Arduino Connection Controller Client
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">11</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;2.8 Arduino Connection Controller Server
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">11</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        3 Implementazione
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">12</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;3.1 Login del sito web
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">14</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;3.2 Dashboard del sito weblogSensor
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">15</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;3.3 Database
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">16</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;3.4 Lightweight Directory Access Protocol
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">33</div><div class="page-break"></div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        4 Test
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">35</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;4.1 Protocollo di test
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">35</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;4.2 Risultati test
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">42</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        Consuntivo
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">43</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        5 Conclusioni
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;5.1 Sviluppi futuri
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;5.2 Considerazioni personali
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;5.3 Sitografia
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+        6 Allegati
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+</div>
+
 ## 1 Introduzione
 
 ### 1.1 Informazioni sul progetto
@@ -397,3 +530,14 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 ### Arduino Connection Controller Server
 
 ## 4 test
+
+### 4.1 Protocollo di test
+
+|Test Case      | TC-001                               |
+|---------------|--------------------------------------|
+|**Nome**       |                                      |
+|**Riferimento**|                                      |
+|**Descrizione**|                                      |
+|**Prerequisiti**|                                     |
+|**Procedura**     |                                   |
+|**Risultati attesi** |                                |
