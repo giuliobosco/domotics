@@ -162,7 +162,7 @@ Requisiti cambiati:
     * Priorità: 1 => 3
 -   Modulo beamer
     * Priorità: 1 => 3     
-            
+
 
 
 #### Rquisiti iniziali
@@ -182,7 +182,7 @@ Requisiti cambiati:
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Solo i docenti possono fare il login    ||
 
 |		   |ID: REQ-03    |	    		             |
@@ -191,7 +191,7 @@ Requisiti cambiati:
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Modificare lo stato delle luci          ||
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
@@ -202,7 +202,7 @@ Requisiti cambiati:
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
 |		   |ID: REQ-12    |	    		             |
@@ -211,7 +211,7 @@ Requisiti cambiati:
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-05    |	    		                      |
@@ -220,7 +220,7 @@ Requisiti cambiati:
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
 
 |		   |ID: REQ-06    |	    		                      |
@@ -229,7 +229,7 @@ Requisiti cambiati:
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
 |		   |ID: REQ-07    |	    		                      |
@@ -249,14 +249,6 @@ Requisiti cambiati:
 |001:      |Arduino yun                                             ||
 |002:      |Server in Tomcat                                        ||
 
-|		   |ID: REQ-10    |	    		               |
-|:---------|:-------------|:---------------------------|
-|Nome:     |Simulazione luci con led                  ||
-|Priorità: |1                                         ||
-|Versione: |1.0                                       ||
-|Note:     |                                          ||
-|          |Sotto requisiti                            |
-|001:      |Controllo dei led tramite l'arduino       ||
 
 |		   |ID: REQ-10    |	    		               |
 |:---------|:-------------|:---------------------------|
@@ -270,11 +262,20 @@ Requisiti cambiati:
 |		   |ID: REQ-11    |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
-|Priorità: |1                                                    ||
+|Priorità: |3                                                    ||
 |Versione: |1.0                                                  ||
 |Note:     |                                                     ||
 |          |Sotto requisiti                                       |
 |001:      |Controllo dei motori tramite l'arduino               ||
+
+|		   |ID: REQ-12    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          |
+|001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
 |:---------|:-------------|:--------------------------|
@@ -316,7 +317,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 *   JetBrains WebStorm 2018.3.5<br>
 *   JetBrains CLion 2018.3.4<br>
-*   IntelliJ IDEA 2018.3.4<br>
+*   IntelliJ IDEA 2018.3.4/2019.1<br>
 *   Visual Studio Code<br>
 *   Sublime Text 3<br>
 *   StarUML<br>
@@ -330,7 +331,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.2 Hardware
 *   Mattia Ruberto:
-    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB
 
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
