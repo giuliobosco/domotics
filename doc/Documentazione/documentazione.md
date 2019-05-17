@@ -701,9 +701,9 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       |                                      |
-|**Riferimento**|                                      |
-|**Descrizione**|                                      |
-|**Prerequisiti**|                                     |
-|**Procedura**     |                                   |
-|**Risultati attesi** |                                |
+|**Nome**       | Varificare che le tende si aprono e si chiudono|
+|**Riferimento**| REQ-15                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e aprire e poi chiudere le tende tramite i pulsanti nel sito.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori da gestire che poi muoveranno le tende</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale le tende si devono aprire o chiudere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prim</li></ul> |
