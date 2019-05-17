@@ -90,3 +90,18 @@ momento della configuazione. Anch'essa è formata da 12 numeri esadecimali:
 1234567890ABCD
 ```
 
+### ACC-Client - alive
+
+Per controllare che l'arduino sia attivo e funzioni correttamente, per il quale eseguire la seguente
+richiesta:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/alive
+```
+
+La relativa risposta sar&agrave;:
+
+```
+{"status":"OK"}
+```
+
