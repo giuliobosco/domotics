@@ -447,6 +447,7 @@ Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un per
 Ecco un esempio di DN:
 CN=john.doe,OU=People,DC=example,DC=com
 CN è il nome utente, OU è l'unita organizzativa a cui deve puntare (che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
+Per creare il DN prendiamo l'username e lo uniamo con il percorso dell'unità organizzativa che ricaviamo con getBase();
 ```java
     private String getDn(String username) {
         return "CN=" + username + "," + getBase();
