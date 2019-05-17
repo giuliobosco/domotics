@@ -153,6 +153,18 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte tutte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
 
+Requisiti cambiati:
+-   Simulazione tende
+    * Priorità: 1 => 3    
+-   Modulo luci
+    * Priorità: 1 => 3    
+-   Modulo tende  
+    * Priorità: 1 => 3
+-   Modulo beamer
+    * Priorità: 1 => 3     
+            
+
+
 #### Rquisiti iniziali
 
 |		   |ID: REQ-01    |	    		                       |
@@ -193,6 +205,15 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |          |Sotto requisiti                          | 
 |001:      |Gestione della parte web                ||
 
+|		   |ID: REQ-12    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          | 
+|001:      |Gestione dell'automatizzazione          ||
+
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
@@ -218,7 +239,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-09    |	    		                             |
+|		   |ID: REQ-08    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -254,15 +275,6 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Note:     |                                                     ||
 |          |Sotto requisiti                                       |
 |001:      |Controllo dei motori tramite l'arduino               ||
-
-|		   |ID: REQ-12    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Server in Python                        ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          | 
-|001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
 |:---------|:-------------|:--------------------------|
@@ -379,7 +391,9 @@ per utilizzare una connessione wirelless avremmo dovuto usare il fishino che per
 
 Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
-### 2.7 Arduino Connection Controller Client
+### 2.7 Comunicazione Arduino Sito Web
+
+
 
 ![Login](img/ACC_Client/ACC_Client_UML.png)
 
@@ -458,7 +472,7 @@ I parametri che andranno inviati sono:
 DEFAULT_INITIAL_CONTEXT_FACTORY, Connessione iniziale predefinita del contesto iniziale di fabbrica.
 getConnectionString(), stringa di connessione.
 getDn(username), percorso a cui deve puntare.
-password, password con cui si è tentato di accedere e che deve essere controllata.
+password, con cui si è tentato di accedere e che deve essere controllata.
 ```java
     private Hashtable<String, String> getEnvironment(String username, String password) {
         Hashtable<String, String> environment = new Hashtable<String, String>();
