@@ -105,3 +105,17 @@ La relativa risposta sar&agrave;:
 {"status":"OK"}
 ```
 
+### ACC-Client - set
+
+Per settare il dei valori sui pin di output del arduino, eseguire la seguente richiesta
+all'ACC-Client:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/acc?key=<ACC-Client-KEY>&pin=<pinToSet>&set=<valueToSet>
+```
+
+La relativa risposta sar&agrave;:
+
+```
+{"status":"OK","message":"<settedValue>"}
+```
