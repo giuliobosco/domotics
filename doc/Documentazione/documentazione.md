@@ -331,7 +331,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.2 Hardware
 *   Mattia Ruberto:
-    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.8GHz RAM 16GB
 
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
