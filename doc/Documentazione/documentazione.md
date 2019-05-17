@@ -205,7 +205,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
-|		   |ID: REQ-12    |	    		             |
+|		   |ID: REQ-5     |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -214,7 +214,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-05    |	    		                      |
+|		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
 |Priorità: |1                                                ||
@@ -223,7 +223,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
 
-|		   |ID: REQ-06    |	    		                      |
+|		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Verificare i permessi degli utenti               ||
 |Priorità: |1                                                ||
@@ -232,14 +232,14 @@ Requisiti cambiati:
 |          |Sotto requisiti                                   |
 |001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
-|		   |ID: REQ-07    |	    		                      |
+|		   |ID: REQ-08    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Comunicazione parte web con l'arduino            ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-08    |	    		                             |
+|		   |ID: REQ-09    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
