@@ -167,16 +167,7 @@ Requisiti cambiati:
 
 #### Rquisiti iniziali
 
-|		   |ID: REQ-01    |	    		                       |
-|:---------|:-------------|:-----------------------------------|
-|Nome:     |Domotizzazione dell'aula                          ||
-|Priorità: |1                                                 ||
-|Versione: |1.0                                               ||
-|Note:     |                                                  ||
-|          |Sotto requisiti                                    |
-|001:      |Gestione luci, tende e beamer tramite un sito web ||
-
-|		   |ID: REQ-02    |	    		             |
+|		   |ID: REQ-01    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Pagina di login                         ||
 |Priorità: |1                                       ||
@@ -185,7 +176,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Solo i docenti possono fare il login    ||
 
-|		   |ID: REQ-03    |	    		             |
+|		   |ID: REQ-02    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Pagina gestione aule                    ||
 |Priorità: |1                                       ||
@@ -196,7 +187,7 @@ Requisiti cambiati:
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
 
-|		   |ID: REQ-04    |	    		             |
+|		   |ID: REQ-03    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Web Server                              ||
 |Priorità: |1                                       ||
@@ -205,7 +196,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
-|		   |ID: REQ-5     |	    		             |
+|		   |ID: REQ-4     |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -214,7 +205,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-06    |	    		                      |
+|		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
 |Priorità: |1                                                ||
@@ -223,7 +214,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
 
-|		   |ID: REQ-07    |	    		                      |
+|		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Verificare i permessi degli utenti               ||
 |Priorità: |1                                                ||
@@ -232,14 +223,14 @@ Requisiti cambiati:
 |          |Sotto requisiti                                   |
 |001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
-|		   |ID: REQ-08    |	    		                      |
+|		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Comunicazione parte web con l'arduino            ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-09    |	    		                             |
+|		   |ID: REQ-08    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -250,7 +241,7 @@ Requisiti cambiati:
 |002:      |Server in Tomcat                                        ||
 
 
-|		   |ID: REQ-10    |	    		               |
+|		   |ID: REQ-9    |	    		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Simulazione luci con lampadine            ||
 |Priorità: |1                                         ||
@@ -259,7 +250,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                            |
 |001:      |Controllare delle lampadine dalla 220v tramite i relay||
 
-|		   |ID: REQ-11    |	                                      |
+|		   |ID: REQ-10    |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |3                                                    ||
@@ -268,7 +259,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                                       |
 |001:      |Controllo dei motori tramite l'arduino               ||
 
-|		   |ID: REQ-12    |	    		             |
+|		   |ID: REQ-11    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -277,7 +268,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-13    |	    		             |
+|		   |ID: REQ-12    |	    		             |
 |:---------|:-------------|:--------------------------|
 |Nome:     |Modulo luci                              ||
 |Priorità: |3                                        ||
@@ -286,7 +277,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                           |
 |001:      |Implementazione modulo fisico delle luci ||
 
-|		   |ID: REQ-14    |      		               |
+|		   |ID: REQ-13    |      		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Modulo tende                              ||
 |Priorità: |3                                         ||
@@ -295,7 +286,7 @@ Requisiti cambiati:
 |          |Sotto requisiti                            |
 |001:      |Implementazione modulo fisico delle tende ||
 
-|		   |ID: REQ-15    |	    		             |
+|		   |ID: REQ-14    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Modulo beamer                           ||
 |Priorità: |3                                       ||
