@@ -277,6 +277,14 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
+|		   |ID: REQ-13    |	    		             |
+|:---------|:-------------|:--------------------------|
+|Nome:     |Modulo luci                              ||
+|Priorità: |3                                        ||
+|Versione: |1.0                                      ||
+|Note:     |                                         ||
+|          |Sotto requisiti                           |
+|001:      |Implementazione modulo fisico delle luci ||
 
 |		   |ID: REQ-14    |      		               |
 |:---------|:-------------|:---------------------------|
