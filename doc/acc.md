@@ -47,3 +47,22 @@ Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'in
 parte del client.
 
 <small>ACC-Client-ID e ACC-Client-KEY sono spiegati nel capitolo successivo</small>
+
+### ACC-Server - set
+
+Quando cambia lo stato di un pin digitale di input sull'arduino, (per esempio la pressione di un
+bottone) questo deve notificarlo al server, per permettere al server di eseguire le guiste
+operazioni, per esempio modificare lo stato di altri pin.
+
+La richiesta deve essere:
+
+```
+http://<serverAddress>:<serverPort>/acc?key=<ACC-Client-KEY>&pin=<changedPin>&set=<pinStatus>
+```
+
+La risposta sar&agrave;:
+
+```
+{"status":"OK","message":"<valoreSettato>"}
+```
+
