@@ -174,7 +174,9 @@ Requisiti cambiati:
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
-|001:      |Solo i docenti possono fare il login    ||
+|001:      |Input username e password               ||
+
+<br>
 
 |		   |ID: REQ-02    |	    		             |
 |:---------|:-------------|:-------------------------|
@@ -187,6 +189,8 @@ Requisiti cambiati:
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
 
+<br>
+
 |		   |ID: REQ-03    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Web Server                              ||
@@ -195,6 +199,8 @@ Requisiti cambiati:
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
+
+<br>
 
 |		   |ID: REQ-4     |	    		             |
 |:---------|:-------------|:-------------------------|
@@ -205,6 +211,8 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
+<br>
+
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
@@ -213,6 +221,8 @@ Requisiti cambiati:
 |Note:     |                                                 ||
 |          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
+
+<br>
 
 |		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
@@ -223,6 +233,8 @@ Requisiti cambiati:
 |          |Sotto requisiti                                   |
 |001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
+<br>
+
 |		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Comunicazione parte web con l'arduino            ||
@@ -230,18 +242,9 @@ Requisiti cambiati:
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-08    |	    		                             |
-|:---------|:-------------|:-----------------------------------------|
-|Nome:     |Guide di utilizzo                                       ||
-|Priorità: |2                                                       ||
-|Versione: |1.0                                                     ||
-|Note:     |                                                        ||
-|          |Sotto requisiti                                          |
-|001:      |Arduino yun                                             ||
-|002:      |Server in Tomcat                                        ||
+<br>
 
-
-|		   |ID: REQ-9    |	    		               |
+|		   |ID: REQ-8    |	    		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Simulazione luci con lampadine            ||
 |Priorità: |1                                         ||
@@ -250,7 +253,9 @@ Requisiti cambiati:
 |          |Sotto requisiti                            |
 |001:      |Controllare delle lampadine dalla 220v tramite i relay||
 
-|		   |ID: REQ-10    |	                                      |
+<br>
+
+|		   |ID: REQ-9     |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |3                                                    ||
@@ -259,7 +264,9 @@ Requisiti cambiati:
 |          |Sotto requisiti                                       |
 |001:      |Controllo dei motori tramite l'arduino               ||
 
-|		   |ID: REQ-11    |	    		             |
+<br>
+
+|		   |ID: REQ-10    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -268,7 +275,9 @@ Requisiti cambiati:
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-12    |	    		             |
+<br>
+
+|		   |ID: REQ-11    |	    		             |
 |:---------|:-------------|:--------------------------|
 |Nome:     |Modulo luci                              ||
 |Priorità: |3                                        ||
@@ -277,7 +286,9 @@ Requisiti cambiati:
 |          |Sotto requisiti                           |
 |001:      |Implementazione modulo fisico delle luci ||
 
-|		   |ID: REQ-13    |      		               |
+<br>
+
+|		   |ID: REQ-12    |      		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Modulo tende                              ||
 |Priorità: |3                                         ||
@@ -286,7 +297,9 @@ Requisiti cambiati:
 |          |Sotto requisiti                            |
 |001:      |Implementazione modulo fisico delle tende ||
 
-|		   |ID: REQ-14    |	    		             |
+<br>
+
+|		   |ID: REQ-13    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Modulo beamer                           ||
 |Priorità: |3                                       ||
@@ -294,6 +307,18 @@ Requisiti cambiati:
 |Note:     |                                        ||
 |          |Sotto requisiti                          |
 |001:      |Implementazione modulo fisico del beamer||
+
+<br>
+
+|		   |ID: REQ-014    |	    		                             |
+|:---------|:-------------|:-----------------------------------------|
+|Nome:     |Guide di utilizzo                                       ||
+|Priorità: |2                                                       ||
+|Versione: |1.0                                                     ||
+|Note:     |                                                        ||
+|          |Sotto requisiti                                          |
+|001:      |Arduino yun                                             ||
+|002:      |Server in Tomcat                                        ||
 
 ###  1.6 Pianificazione
 
@@ -690,6 +715,8 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### 4.1 Protocollo di test
 
+<br>
+
 |Test Case      | TC-002                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le luci si accendono e si spengono|
@@ -699,6 +726,8 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
 |**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale delle luci si devono accendere o spegnere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
 
+<br>
+
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le tende si aprono e si chiudono|
@@ -707,6 +736,8 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori da gestire che poi muoveranno le tende</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
 |**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale le tende si devono aprire o chiudere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
+<br>
 
 |Test Case      | TC-002                               |
 |---------------|--------------------------------------|
