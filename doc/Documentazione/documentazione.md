@@ -153,6 +153,18 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte tutte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
 
+Requisiti cambiati:
+-   Simulazione tende
+    * Priorità: 1 => 3    
+-   Modulo luci
+    * Priorità: 1 => 3    
+-   Modulo tende  
+    * Priorità: 1 => 3
+-   Modulo beamer
+    * Priorità: 1 => 3     
+
+
+
 #### Rquisiti iniziali
 
 |		   |ID: REQ-01    |	    		                       |
@@ -193,6 +205,15 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
+|		   |ID: REQ-12    |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          |
+|001:      |Gestione dell'automatizzazione          ||
+
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
@@ -218,7 +239,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 
-|		   |ID: REQ-09    |	    		                             |
+|		   |ID: REQ-08    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -256,14 +277,6 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
-|		   |ID: REQ-13    |	    		             |
-|:---------|:-------------|:--------------------------|
-|Nome:     |Modulo luci                              ||
-|Priorità: |3                                        ||
-|Versione: |1.0                                      ||
-|Note:     |                                         ||
-|          |Sotto requisiti                           |
-|001:      |Implementazione modulo fisico delle luci ||
 
 |		   |ID: REQ-14    |      		               |
 |:---------|:-------------|:---------------------------|
@@ -371,7 +384,9 @@ per utilizzare una connessione wirelless avremmo dovuto usare il fishino che per
 
 Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
-### 2.7 Arduino Connection Controller Client
+### 2.7 Comunicazione Arduino Sito Web
+
+
 
 ![Login](img/ACC_Client/ACC_Client_UML.png)
 
@@ -439,6 +454,7 @@ Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un per
 Ecco un esempio di DN:
 CN=john.doe,OU=People,DC=example,DC=com
 CN è il nome utente, OU è l'unita organizzativa a cui deve puntare (che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
+Per creare il DN prendiamo l'username e lo uniamo con il percorso dell'unità organizzativa che ricaviamo con getBase();
 ```java
     private String getDn(String username) {
         return "CN=" + username + "," + getBase();
@@ -449,7 +465,7 @@ I parametri che andranno inviati sono:
 DEFAULT_INITIAL_CONTEXT_FACTORY, Connessione iniziale predefinita del contesto iniziale di fabbrica.
 getConnectionString(), stringa di connessione.
 getDn(username), percorso a cui deve puntare.
-password, password con cui si è tentato di accedere e che deve essere controllata.
+password, con cui si è tentato di accedere e che deve essere controllata.
 ```java
     private Hashtable<String, String> getEnvironment(String username, String password) {
         Hashtable<String, String> environment = new Hashtable<String, String>();
