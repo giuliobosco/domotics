@@ -153,6 +153,18 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte tutte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
 
+Requisiti cambiati:
+-   Simulazione tende
+    * Priorità: 1 => 3    
+-   Modulo luci
+    * Priorità: 1 => 3    
+-   Modulo tende  
+    * Priorità: 1 => 3
+-   Modulo beamer
+    * Priorità: 1 => 3     
+
+
+
 #### Rquisiti iniziali
 
 |		   |ID: REQ-01    |	    		                       |
@@ -170,7 +182,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Solo i docenti possono fare il login    ||
 
 |		   |ID: REQ-03    |	    		             |
@@ -179,7 +191,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Modificare lo stato delle luci          ||
 |002:      |Modificare lo stato delle tende         ||
 |003:      |Modificare lo stato del beamer          ||
@@ -190,28 +202,37 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione della parte web                ||
 
-|		   |ID: REQ-05    |	    		                      |
+|		   |ID: REQ-5     |	    		             |
+|:---------|:-------------|:-------------------------|
+|Nome:     |Server in Python                        ||
+|Priorità: |1                                       ||
+|Versione: |1.0                                     ||
+|Note:     |                                        ||
+|          |Sotto requisiti                          |
+|001:      |Gestione dell'automatizzazione          ||
+
+|		   |ID: REQ-06    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Connettersi al database in java                  ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Connetersi con java al database domotics         ||
 
-|		   |ID: REQ-06    |	    		                      |
+|		   |ID: REQ-07    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Verificare i permessi degli utenti               ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
-|          |Sotto requisiti                                   | 
+|          |Sotto requisiti                                   |
 |001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
 
-|		   |ID: REQ-07    |	    		                      |
+|		   |ID: REQ-08    |	    		                      |
 |:---------|:-------------|:----------------------------------|
 |Nome:     |Comunicazione parte web con l'arduino            ||
 |Priorità: |1                                                ||
@@ -228,14 +249,6 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |001:      |Arduino yun                                             ||
 |002:      |Server in Tomcat                                        ||
 
-|		   |ID: REQ-10    |	    		               |
-|:---------|:-------------|:---------------------------|
-|Nome:     |Simulazione luci con led                  ||
-|Priorità: |1                                         ||
-|Versione: |1.0                                       ||
-|Note:     |                                          ||
-|          |Sotto requisiti                            |
-|001:      |Controllo dei led tramite l'arduino       ||
 
 |		   |ID: REQ-10    |	    		               |
 |:---------|:-------------|:---------------------------|
@@ -249,7 +262,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |		   |ID: REQ-11    |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
-|Priorità: |1                                                    ||
+|Priorità: |3                                                    ||
 |Versione: |1.0                                                  ||
 |Note:     |                                                     ||
 |          |Sotto requisiti                                       |
@@ -261,7 +274,7 @@ Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riu
 |Priorità: |1                                       ||
 |Versione: |1.0                                     ||
 |Note:     |                                        ||
-|          |Sotto requisiti                          | 
+|          |Sotto requisiti                          |
 |001:      |Gestione dell'automatizzazione          ||
 
 |		   |ID: REQ-13    |	    		             |
@@ -304,7 +317,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 *   JetBrains WebStorm 2018.3.5<br>
 *   JetBrains CLion 2018.3.4<br>
-*   IntelliJ IDEA 2018.3.4<br>
+*   IntelliJ IDEA 2018.3.4/2019.1<br>
 *   Visual Studio Code<br>
 *   Sublime Text 3<br>
 *   StarUML<br>
@@ -318,7 +331,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 #### 1.7.2 Hardware
 *   Mattia Ruberto:
-    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.80GHz RAM 16GB 
+    Asus ROG Intel(R) Core(TM) i7-7700HQ CPU 2.8GHz RAM 16GB
 
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
@@ -379,13 +392,155 @@ per utilizzare una connessione wirelless avremmo dovuto usare il fishino che per
 
 Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
-### 2.7 Arduino Connection Controller Client
+### 2.7 Comunicazione Arduino Server
 
-![Login](img/ACC_Client/ACC_Client_UML.png)
+Per comunicare tra l'arduino e il server abbiamo deciso di creare un sistema chiamato Arduino Connection Controller (ACC) che verr&agrave; utilizzato per comunicare fra gli arduino e il server Domotics, quindi questo modulo sarà diviso in due parti, una sviluppata in Java (ACC-Server) mentre l'altra sviluppata in Arduino (ACC-Client).
 
-Queste classi permettono all'arduino di connettersi al server dall'arduino e di ricavare le informazioni necessarie per il server per conoscere lo stato dell'arduino.
+In modo tale che quando l'arduino si collegherà ad una rete l'ACC dovr&agrave; preoccuparsi di collegarsi alla rete con il DHCP, questo per permettere il corretto funzionamento del sistema in ogni caso. Dopo aver collegato entrambi sulla stessa rete, l'ACC dovrà ricercare il nostro server domotics tramite (ACC-Client-Discover), il quale servirà per registrare l'arduino sul server e poterlo configurare dal server. Dopo che l'arduino si è collegato al server o se questo è già collegato il server configura l'arduino in modo tale che poi possono iniziare a lavorare.
+Siccome si utilizza l'arduino Yun e una parte di codice dovrà essere eseguite sull'arduino mentre un altra su OpenWRT è per questo che il programma sarà diviso in due parti come detto in precedenza:
+- arduino: ACC-Client.ino
+- python: ACC.Client.py
 
-### 2.8 Arduino Connection Controller Server
+#### Protocollo 
+
+Il Protocollo ACC per domotics &egrave; molto semplice, essendo basato su un codice univoco
+(ACC-Client-ID) perogni Arduino, ed una chiave di comunicazione (ACC-Client-KEY) di comunicazione
+scelta dal server. Il codice univoco sar&agrave; salvato in una costante sull'Arduino, e
+servir&agrave; per identificare l'Arduino quando si connette alla rete e mentre ricerca il server. Invece la KEY viene inviata dal server all'Arduino, il quale verr&agrave; utilizzata dal server e dall'Arduino per token per avere una comunicazione sicura, verr&agrave; inviata assieme a tutti i messaggi che i due si scambieranno.
+
+
+**ACC-Client-ID:**
+
+```
+DMTSID0ABCDEFABCDEF-<IndirizzoIP>
+```
+La chiave è composta da tre parti, la prima  inizia con `DMTS` che sta per Domotics, poi `ID0`, che sta per ID  e 0 che è il separatore dopodiché il codice che è composto da 12 caratteri esadecimali un trattino ed infine l'IP dell'arduino.
+
+**ACC-Client-KEY:**
+
+Ogni KEY sar&agrave; composta di un codice esadecimale di 12 caratteri, casuali, quali vengono
+generati sul server semplicemente perch&egrave; ha pi&ugrve; potenza di calcolo.
+
+**Authentication Discover:**  
+
+L'ACC-Client invier&agrave; un messaggio di broad-cast sulla rete simile al seguente sulla porta
+`6137`, tramite la chiave l'arduino capirà se il messaggio è destinato a lui o no. La chiave contenente l' ACC-Client-ID più `-REQUEST` che come dice il nome è la rchiesta che viene fatta all'arduino. 
+
+```
+DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST
+```
+
+**Authentication Response:**
+
+L'ACC-Server risponde al messagio discover con una richiesta HTTP sulla porta `8080` e inviando il
+messaggio che ha ricevuto come richiesta, ci aggiunge un trattino e la ACC-Client-KEY, che deve
+essere generata se l'Arduino non &egrave; mai stato collegato al server Domotics, altrimenti deve
+essere presa quella gia presente sul database (e deve essere aggiornato l'IP nel caso sia diverso).
+Ed infine deve aggiungere il suo indirizzo IP e la stringa `-ACCEPTED` (L'indirizzo IP e la KEY dovranno essere salvati in delle variabili sull Arduino e sul database).
+
+```
+DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST-ABCDEFABCDEF-192.168.1.2-ACCEPTED
+```
+
+**Comunicazione ACC-Client -> ACC-Server:**
+
+La comunicazione fra i due elementi ACC deve avvenire tramite HTTP, utilizzando il metodo GET, la
+risposta dovr&agrave; essere un file JSON.
+
+Per esempio quando viene cliccato un bottone l'ACC-Client, invia una richiesta al server simile a questa:
+
+```
+http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&type=send&pin=13&value=1
+```
+
+Tutte le richieste destinate all'ACC dovranno essere fatte verso l'IP del server domotics sulla
+porta `8080`, alla pagina `acc` e inviando la KEY di comunicazione dell'Arduino (AC-Client-KEY) con il parametro `key` con il valore della KEY.
+
+Per le richieste di invio di dati bisogna inserire il parametro `type` a `send`, questo per
+segnalare che &egrave; una richiesta HTTP di invio dati, poi settare il parametro `pin` al numero del pin (nel caso sia un pin analogico inserire un `a` prima del numero) ed infine settare il parametro `value` al valore del pin.
+
+Il server ritorner&agrave; una risposta simile alla seguente.
+
+```JSON
+{
+    "response": "OK",
+    "message": ""
+}
+```
+
+Il parametro `response` della risposta del server, segnala se la richiesta &egrave; stata ricevuta
+correttamente altrimenti ritorna `FAILED` con un messaggio d'errore.
+
+**Comunicazione ACC-Server -> ACC-Client:**
+
+La comunicazione fra i due elementi avviene anche qui tramite http, le richieste dovranno essere
+effettuate con il metodo GET e le risposte saranno dei file JSON.
+
+Le richieste potranno essere di due tipi:
+
+- `send`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
+- `get`, che serve per richiedere dei dati all'Arduino, per esempio richiedere il valore di un pin
+
+Esempio di richiesta _send_:
+
+```
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=send&pin=4&value=1
+```
+
+risposta:
+
+```JSON
+{
+    "pin":4,
+    "value":1
+}
+```
+
+Esempio di richiesta _get_:
+
+```
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=get&pin=a0
+```
+
+risposta:
+
+```JSON
+{
+    "pin":"a0",
+    "value":"123"
+}
+```
+
+**ACC-AutoConfiguation:**
+
+Siccome si vuole avere un sistema di comunicazione autonomo. Il quale deve essere in grado di
+richiedere al server la sua configuazione, che sarà richiesta dall'arduino al server
+tramite la ACC-Authentication-Request.
+
+Se il server gi&agrave; conosce l'Arduino (ACC-Client-ID), gli invia la chiave, e nel caso sia
+cambiato l'IP del server lo aggiona sul database (questo per permettere un buon funzionamento con
+DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
+`ACC-Client-KEY-Generator` una KEY.
+
+In oltre viene inviata la configurazione dei vari pin. 
+Che dovrebbe essere simile a questa:
+
+```JSON
+{
+    "acc-client-id": "<ACC-Client-ID>",
+    "acc-client-key": "<ACC-Client-KEY>",
+    "digital": [
+        {
+            "pin": 13,
+            "type": "out"
+        },
+        {
+            "pin": 13,
+            "type": "out"
+        }
+    ]
+}
+```
 
 ## 3 Implementazione
 
@@ -447,6 +602,7 @@ Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un per
 Ecco un esempio di DN:
 CN=john.doe,OU=People,DC=example,DC=com
 CN è il nome utente, OU è l'unita organizzativa a cui deve puntare (che possono essere più di una) mentre il primo DC rappresenta le componenti del dominio.
+Per creare il DN prendiamo l'username e lo uniamo con il percorso dell'unità organizzativa che ricaviamo con getBase();
 ```java
     private String getDn(String username) {
         return "CN=" + username + "," + getBase();
@@ -457,7 +613,7 @@ I parametri che andranno inviati sono:
 DEFAULT_INITIAL_CONTEXT_FACTORY, Connessione iniziale predefinita del contesto iniziale di fabbrica.
 getConnectionString(), stringa di connessione.
 getDn(username), percorso a cui deve puntare.
-password, password con cui si è tentato di accedere e che deve essere controllata.
+password, con cui si è tentato di accedere e che deve essere controllata.
 ```java
     private Hashtable<String, String> getEnvironment(String username, String password) {
         Hashtable<String, String> environment = new Hashtable<String, String>();
@@ -543,11 +699,30 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### 4.1 Protocollo di test
 
+|Test Case      | TC-002                               |
+|---------------|--------------------------------------|
+|**Nome**       | Varificare che le luci si accendono e si spengono|
+|**Riferimento**| REQ-13                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere le luci tramite i pulsanti appositi.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai relay da aprire o chiudere per accender o spegnere le luci</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale delle luci si devono accendere o spegnere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       |                                      |
-|**Riferimento**|                                      |
-|**Descrizione**|                                      |
-|**Prerequisiti**|                                     |
-|**Procedura**     |                                   |
-|**Risultati attesi** |                                |
+|**Nome**       | Varificare che le tende si aprono e si chiudono|
+|**Riferimento**| REQ-14                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e aprire e poi chiudere le tende tramite i pulsanti nel sito.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori da gestire che poi muoveranno le tende</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale le tende si devono aprire o chiudere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
+|Test Case      | TC-002                               |
+|---------------|--------------------------------------|
+|**Nome**       | Varificare che il beamer si accende e si spegne|
+|**Riferimento**| REQ-14                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere il beamer tramite i pulsanti appositi.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox del beamer e selezionarlo</li><li>Aspettare che il beamer si accende o si spegne</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale del beamer si deve accendere o spegnere la prima volta che viene premuto il checkbox e la seconda deve fare il contrario della prima.</li></ul> |
+
