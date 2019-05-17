@@ -66,3 +66,27 @@ La risposta sar&agrave;:
 {"status":"OK","message":"<valoreSettato>"}
 ```
 
+## ACC-Client (Arduino Connection Controller - Client)
+
+Anche L'ACC-Client, &egrave; composto di un server HTTP ed un client, il server rimane in ascolto
+sulla porta `8080`, per la ricezione delle richieste dell'ACC-Server, mentre il client esegue le
+richieste all'ACC-Server, quando cambia lo stato di un bottone (o di un pin digitale di input).
+
+### ACC-Client-ID
+
+Codice identificativo di un ACC-Client, formato da 12 numeri esadecimali:
+
+```
+1234567890ABCD
+```
+
+### ACC-Client-KEY
+
+&Egrave; un codice di comunicazione fra il ACC-Client e ACC-Server, viene utilizzato per riconoscere
+che le informazioni sono autentiche. Questa viene generata dal ACC-Server ed inviata al client al
+momento della configuazione. Anch'essa è formata da 12 numeri esadecimali:
+
+```
+1234567890ABCD
+```
+
