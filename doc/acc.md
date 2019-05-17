@@ -20,3 +20,30 @@ l'ACC-server, la chiave &egrave; una stringa esadecimale di 12 caratteri. Quando
 sicura &egrave; abilitata, per richiedere i valori al microcontrollore o settare dei valori sui pin,
 mentre nella modalit&agrave; senza l'ACC-Server, chiunque conosce l'indirizzo IP del server ed il
 funzionamento del protocollo pu&ograve; inviare comandi o richiedere valori all'ACC-Client.
+
+## ACC-Server (Arduino Connection Controller - Server)
+
+L'ACC-Server, &egrave; composto di un server HTTP ed un elemento per creare le richieste HTTP. Il
+server HTTP, ha bisogno di una pagina, la quale deve essere in grado di interpretare due richiste:
+- autoconf: Questa richiesta richiede tramite il suo ID, la quale ritorna la chiave di comunicazione.
+- set: Questa richiesta deve contenere, la chiave di comunicazione, il pin ed il valore, questa
+serve per aggiornare l'ACC-Server nel caso in cui un pin (per esempio bottone), cambia stato.
+
+### ACC-Server - autoconf
+
+La richiesta deve essere:
+
+```
+http://<serverAddress>:<serverPort>/acc?autoconf&id=<ACC-Client-ID>
+```
+
+E la risposta sar&agrave;
+
+```
+{"id":"<ACC-Client-ID>", "key":"<ACC-Client-KEY>", "server_address":"<serverAddress>:<serverPort>"}
+```
+
+Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
+parte del client.
+
+<small>ACC-Client-ID e ACC-Client-KEY sono spiegati nel capitolo successivo</small>
