@@ -699,11 +699,30 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### 4.1 Protocollo di test
 
+|Test Case      | TC-002                               |
+|---------------|--------------------------------------|
+|**Nome**       | Varificare che le luci si accendono e si spengono|
+|**Riferimento**| REQ-13                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere le luci tramite i pulsanti appositi.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai relay da aprire o chiudere per accender o spegnere le luci</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale delle luci si devono accendere o spegnere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le tende si aprono e si chiudono|
-|**Riferimento**| REQ-15                               |
+|**Riferimento**| REQ-14                               |
 |**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e aprire e poi chiudere le tende tramite i pulsanti nel sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori da gestire che poi muoveranno le tende</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
-|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale le tende si devono aprire o chiudere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prim</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale le tende si devono aprire o chiudere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
+|Test Case      | TC-002                               |
+|---------------|--------------------------------------|
+|**Nome**       | Varificare che il beamer si accende e si spegne|
+|**Riferimento**| REQ-14                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere il beamer tramite i pulsanti appositi.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox del beamer e selezionarlo</li><li>Aspettare che il beamer si accende o si spegne</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale del beamer si deve accendere o spegnere la prima volta che viene premuto il checkbox e la seconda deve fare il contrario della prima.</li></ul> |
+
