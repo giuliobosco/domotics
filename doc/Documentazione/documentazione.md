@@ -704,6 +704,15 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 ### 4.1 Protocollo di test
 
+|Test Case      | TC-001                               |
+|---------------|--------------------------------------|
+|**Nome**       | Pagina di login   |
+|**Riferimento**| REQ-12                               |
+|**Descrizione**| Verificare che la pagina di login funzioni correttamente e che quindi fa accedere solo i docenti.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
+|**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
+
 <br>
 
 |Test Case      | TC-001                               |
