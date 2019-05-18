@@ -706,12 +706,12 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verifica accessi   |
+|**Nome**       | Pagina di login   |
 |**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
-|**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li></ul> |
+|**Risultati attesi** | <ul><li>Deve comparire una pagina di login che richiede username e password.</li></ul> |
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
@@ -721,6 +721,15 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effettuare il login con i permessi giusti.</li></ul> |
 |**Risultati attesi** | <ul><li>Il sito web deve portare alla dashboard di tutte le aule collegate il quale per ognuna è possibile gestire tutti i vari moduli.</li></ul> |
+
+|Test Case      | TC-001                               |
+|---------------|--------------------------------------|
+|**Nome**       | Verifica accessi   |
+|**Riferimento**| REQ-12                               |
+|**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
+|**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
 
 <br>
 
