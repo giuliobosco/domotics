@@ -246,7 +246,7 @@ Requisiti cambiati:
 
 |		   |ID: REQ-8    |	    		               |
 |:---------|:-------------|:---------------------------|
-|Nome:     |Simulazione luci con lampadine            ||
+|Nome:     |Simulazione luci                          ||
 |Priorità: |1                                         ||
 |Versione: |1.0                                       ||
 |Note:     |                                          ||
@@ -267,17 +267,6 @@ Requisiti cambiati:
 <br>
 
 |		   |ID: REQ-10    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Server in Python                        ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Gestione dell'automatizzazione          ||
-
-<br>
-
-|		   |ID: REQ-11    |	    		             |
 |:---------|:-------------|:--------------------------|
 |Nome:     |Modulo luci                              ||
 |Priorità: |3                                        ||
@@ -288,7 +277,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-12    |      		               |
+|		   |ID: REQ-11    |      		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Modulo tende                              ||
 |Priorità: |3                                         ||
@@ -299,7 +288,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-13    |	    		             |
+|		   |ID: REQ-12    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Modulo beamer                           ||
 |Priorità: |3                                       ||
@@ -310,7 +299,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-014    |	    		                             |
+|		   |ID: REQ-013    |	    		                             |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -719,8 +708,19 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 |Test Case      | TC-002                               |
 |---------------|--------------------------------------|
+|**Nome**       | Verific|
+|**Riferimento**| REQ-12                               |
+|**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere i led tramite i checkbox presenti.|
+|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai relay da aprire o chiudere per accender o spegnere le luci</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
+|**Risultati attesi** | <ul><li>A dipendenza dello stato iniziale delle luci si devono accendere o spegnere la prima volta che viene premuto il checkbox e la seconda devono fare il contrario della prima</li></ul> |
+
+<br>
+
+|Test Case      | TC-002                               |
+|---------------|--------------------------------------|
 |**Nome**       | Varificare che le luci si accendono e si spengono|
-|**Riferimento**| REQ-13                               |
+|**Riferimento**| REQ-12                               |
 |**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e accendere e spegnere le luci tramite i pulsanti appositi.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai relay da aprire o chiudere per accender o spegnere le luci</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
@@ -731,7 +731,7 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le tende si aprono e si chiudono|
-|**Riferimento**| REQ-14                               |
+|**Riferimento**| REQ-13                               |
 |**Descrizione**| Connettersi al sito web, fare l'accesso, scegliere l'aula desiderata e aprire e poi chiudere le tende tramite i pulsanti nel sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori da gestire che poi muoveranno le tende</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Andare nel checkbox delle tende e selezionarlo</li><li>Aspettare che le tende si aprono o si chiudono</li><li>Ripremere il checkbox nuovamente</li></ul> |
