@@ -66,6 +66,22 @@ La risposta sar&agrave;:
 {"status":"OK","message":"<valoreSettato>"}
 ```
 
+#### ACC-Server - set toggle
+
+In alcuni casi potrebbe essere comodo avere una funzione toggle, per esempio per i bottoni, eseguire
+la richiesta `set`, la quale semplicemente indica che il pin ha cambiato stato. Per eseguire questa
+richiesta:
+
+```
+http://<serverAddress>:<serverPort>/acc?key=<ACC-Client-KEY>&pin=<chang>&set=toggle
+```
+
+La risposta sar&agrave;:
+
+```
+{"status":"OK","message":"<valoreSettato>"}
+```
+
 ## ACC-Client (Arduino Connection Controller - Client)
 
 Anche L'ACC-Client, &egrave; composto di un server HTTP ed un client, il server rimane in ascolto
