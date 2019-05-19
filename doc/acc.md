@@ -1,6 +1,6 @@
 # ACC (Arduino Connection Controller)
 
-&Egrave; un protocollo che abbiamo ideato per comunicare con facilita con l'Arduino, dopo averlo
+&Egrave; un protocollo che abbiamo ideato per comunicare con facilita con l'Arduino,
 mentre lo stavamo progettando ci siamo accorti che questo protocollo pu&ograve; essere esteso per
 qualunque micro controllore che possa essere connesso ad una rete LAN, siccome &egrave; basato sul
 protocollo HTTP, per poterlo utilizzare basta un server HTTP personalizzato ed un client HTTP per
