@@ -135,3 +135,18 @@ La relativa risposta sar&agrave;:
 ```
 {"status":"OK","message":"<settedValue>"}
 ```
+
+### ACC-Client - get
+
+Per richiedere all'arduino dei valori di dei pin di input o output, bisogna eseguire la seguente
+richiesta all'ACC-Client:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/acc?key=<ACC-Client-KEY>&pin=<requiredPin>
+```
+
+La relativa risposta sar&agrave;:
+
+```
+{"status":"OK","message":"<value>"}
+```
