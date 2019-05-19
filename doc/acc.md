@@ -85,6 +85,16 @@ La risposta sar&agrave;:
 {"status":"OK","message":"<valoreSettato>"}
 ```
 
+### ACC-Server - il codice
+
+Nel caso di domotics l'ACC-Server, &egrave; stato implementato in java, per poterlo integrare
+direttamente con il modulo del web e per riutilizzare in questi due ambienti gli
+stessi modelli dei dati.
+
+Quindi &egrave; stata creata una pagina del web server, con le funzionalit&agrave; dell'ACC-Server
+(`src/acc/AccServlet.java`), la quale sar&agrave; resa disponibile dal webserver all'indirizzo:
+`http://<serverAddress>:<serverPort>/acc`.
+
 ## ACC-Client (Arduino Connection Controller - Client)
 
 Anche L'ACC-Client, &egrave; composto di un server HTTP ed un client, il server rimane in ascolto
