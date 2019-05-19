@@ -180,4 +180,4 @@ dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come que
 codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
 che rappresenta il diagramma delle classi.
 
-![ACC-Client.py class diagram](../../img/acc/acc-client-classes.png)
+![ACC-Client.py class diagram](../img/acc/acc-client-classes.png)

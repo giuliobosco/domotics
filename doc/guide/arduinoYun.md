@@ -8,7 +8,7 @@ Ethernet ed al modulo Wi-Fi.
 I due moduli sono collegati fra solo tramite un bridge. Il quale permette di strasferire dei dati
 fra i due chip.
 
-![Arduino Yun Logincal Schema](img/arduino/BridgeBlockDiag.png)
+![Arduino Yun Logincal Schema](../img/arduino/BridgeBlockDiag.png)
 
 Per iniziare a configurare l'Arduino Yun bisogna accedere alla shell, per configurare la password di
 root e vedere l'indirizzo IP. Per eseguire queste operazioni bisogna caricare sull'Arduino un
