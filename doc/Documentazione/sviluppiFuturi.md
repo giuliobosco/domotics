@@ -16,3 +16,8 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 
 - ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di
 un ACC-Server nella rete.
+
+## WEB
+
+- aggiungere lo stato di ogni arduino in una pagina
+- poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
