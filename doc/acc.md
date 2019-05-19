@@ -27,7 +27,10 @@ L'ACC-Server, &egrave; composto di un server HTTP ed un elemento per creare le r
 server HTTP, ha bisogno di una pagina, la quale deve essere in grado di interpretare due richiste:
 - autoconf: Questa richiesta richiede tramite il suo ID, la quale ritorna la chiave di comunicazione.
 - set: Questa richiesta deve contenere, la chiave di comunicazione, il pin ed il valore, questa
-serve per aggiornare l'ACC-Server nel caso in cui un pin (per esempio bottone), cambia stato.
+serve per aggiornare l'ACC-Server nel caso in cui un pin (per esempio bottone), cambia stato.  
+L'ACC-Server, si basa sul un database, che viene utilizzato per risolvere le richieste, per esempio
+quale input deve accendere o spegnere quale luce. Per il database &egrave; stata fatta una guida
+apposita: `doc/Documentazione/Guide/GuidaFunzionamentoDatabase.md`.
 
 ### ACC-Server - autoconf
 
