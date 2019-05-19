@@ -7,14 +7,14 @@ Paolo Guebeli
 Per il frontend abbiamo scelto una paletta di colori di base per tutti i siti.
 
 <p style="text-align:center;">
-	<img src="../img/sito/ColoriFE.PNG" style="width:400px">
+	<img src="../img/sito/ColoriFE.PNG" style="width:400px" width="400">
 </p>
 
 La pagina di login contiene un semplice form composto da un campo testo, un campo password e un pulsante di submit.
 
 <p style="text-align:center;">
-	<img src="../../img/views/desktop_login.png" style="width:400px">
-	<img src="../../img/views/mobile_login.png" style="width:100px">
+	<img src="../../img/views/desktop_login.png" style="width:400px" width="400">
+	<img src="../../img/views/mobile_login.png" style="width:100px" width="100">
 </p>
 
 La pagina principale &egrave; composta da due parti, la dashboard e il corpo principale contenente le aule.
@@ -22,9 +22,9 @@ La dashboard contiene le pagine del sito (al momento solo una) e la gestione del
 Invece il corpo della pagina permette di gestire le aule, vedere la tempereatura e spegnere/accendere le luci.
 
 <p style="text-align:center;">
-	<img src="../../img/views/desktop_rooms.png" style="width:400px">
-	<img src="../../img/views/mobile_rooms.png" style="width:100px">
-	<img src="../../img/views/mobile_menu.png" style="width:100px">
+	<img src="../../img/views/desktop_rooms.png" style="width:400px" width="400">
+	<img src="../../img/views/mobile_rooms.png" style="width:100px" width="100">
+	<img src="../../img/views/mobile_menu.png" style="width:100px" width="100">
 </p>
 
 ## Implementazione
@@ -120,59 +120,54 @@ Tutte le richieste vanno inserite in un oggetto, il quale verr&agrave; poi ritor
 
 ### Views
 
-Per gestire le pagine vengono usate delle views che vengono caricate da app.js nel body della pagina Index.html.
+Per gestire le pagine vengono usate delle views che vengono caricate da `app.js` nel body della
+pagina `index.html`, queste vengono gestite dal modulo angular `ngRoute`.
 
-
-app.jscontiene una funzione usa uno switch che a seconda di quello che viene passato nella stringa http carica la pagina corretta.
-
-```js
+```javascript
 app.config(function ($routeProvider) {
-```
+	// index
+	$routeProvider.when('/', {
+		templateUrl: 'views/index.html'
+	});
 
-Se non viene passato niente viene caricato l'index.
+	// login
+	$routeProvider.when('/login', {
+		templateUrl: 'views/login.html'
+	});
 
-```js
-// index
-$routeProvider.when('/', {
-  templateUrl: 'views/index.html'
-});
-```
+	// rooms
+	$routeProvider.when('/rooms', {
+		templateUrl: 'views/rooms.html'
+	});
 
-Se viene passato un valore esistente viene caricata la pagina apposita.
+	// settings
+	$routeProvider.when('/settings', {
+		templateUrl: 'views/settings.html'
+	});
 
-```js
-// login
-$routeProvider.when('/login', {
-  templateUrl: 'views/login.html'
-});
-
-// rooms
-$routeProvider.when('/rooms', {
-  templateUrl: 'views/rooms.html'
-});
-
-// settings
-$routeProvider.when('/settings', {
-  templateUrl: 'views/settings.html'
-});
-```
-
-Se viene passato qualcosa che non esiste vien caricato l'index.
-
-```
-// else
-$routeProvider.otherwise({
-  redirectTo: '/'
-});
+	// else
+	$routeProvider.otherwise({
+		redirectTo: '/'
+	});
 }).run(function ($rootScope, $route) {
-$rootScope.$route = $route;
+	$rootScope.$route = $route;
 });
 ```
+
+Per configuare `ngRoute`, bisogna congiurarlo con una funziona da inserire nel metodo `config()`
+dell'app. Al quale viene passato l'oggetto `$routeProvider`, il quale ha un metodo `when()`, questo
+metodo permette di settare ad uno specifico url (dopo il simbolo `#`, per esempio
+`localhost#!/test`), una view da caricare. Ed utilizzare anche un metodo `otherwise()`, che viene
+utilizzato nel caso in cui viene inserito un url non specificato prima.  
+Infine avviare la web app con le routes configurate precedentemente.
 
 ### Stile
 
-Per lo stile delle pagine usiamo bootstrap (https://getbootstrap.com) e fontawesome (https://fontawesome.com).
-Abbiamo usato Fontawesome per aggiungere delle icone al sito, abbiamo usato Fontawesome al posto delle immagini perché le icone che contiene sono dei caratteri che quindi sono più leggeri e più facili da usare delle immagini.
+Per lo stile delle pagine usiamo bootstrap (https://getbootstrap.com) e fontawesome
+(https://fontawesome.com).  
+Abbiamo usato Fontawesome per aggiungere delle icone al sito, abbiamo usato Fontawesome al posto
+delle immagini perché le icone che contiene sono dei caratteri che quindi sono più leggeri e più
+facili da usare delle immagini.  
 Ecco un esempio di view implementata usando bootstrap e fontawesome.
 
 ```html
