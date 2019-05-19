@@ -21,3 +21,5 @@ un ACC-Server nella rete.
 
 - aggiungere lo stato di ogni arduino in una pagina
 - poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
+- modifica (aggiungere/togliere/modificare) delle luci, degli arduino, e dei bottoni (interazione
+    con il db).
