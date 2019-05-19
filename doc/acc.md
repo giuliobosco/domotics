@@ -163,3 +163,21 @@ La relativa risposta sar&agrave;:
 ```
 {"status":"OK","message":"<value>"}
 ```
+
+### ACC-Client -il codice
+
+Nel caso dell'ACC-Client il codice &egrave; stato scritto in python, siccome l'Arduino Y&Uacute;N
+(Lilino) permette di scrivere il codice in python ed eseguirlo a stretto contatto con il codice sul
+lato Arduino. Per una spiegazione pi&ugrave; accurata del funzionamento dell'Arduino, usare la guida
+`doc/Documentazione/Guide/arduinoYun.md`.
+
+Principalmente il codice &egrave; strutturato in due parti, il codice eseguito sull'Arduino, che
+semplicemente aggiorna lo stato dei pin di output (prendendo i valori dal Bridge condiviso con la
+parte Lilino) e aggiorna lo stato del bridge con i pin di input. Codice:
+`ino/ACC-Client.ino/ACC-Client.ino.ino`.  
+Mentre il codice relativo a Lilino, si occupa di eseguire il web server, esaudire le richieste
+dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come quelli dei bottoni. Il
+codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
+che rappresenta il diagramma delle classi.
+
+![ACC-Client.py class diagram](./img/acc/acc-client-classes.png)
