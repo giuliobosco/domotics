@@ -311,7 +311,7 @@ Requisiti cambiati:
 
 ###  1.6 Pianificazione
 
-![Gantt](img/Gantt/Gantt.jpg)
+![Gantt](img/gantt/Gantt.jpg)
 
 Il progetto ci è stato commissionato il 13 Febbraio 2019 re programmiamo di completarlo il 17 Maggio 2019.
 Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
@@ -362,13 +362,20 @@ LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuat
 
 ### 2.2 Design dell'interfaccia di login
 
-![Login](img/sito/Login.JPG)
+<p style="text-align:center;">
+	<img src="img/views/desktop_login.png" style="width:400px" width="400">
+	<img src="img/views/mobile_login.png" style="width:100px" width="100">
+</p>
 
 Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto semplice infatti ci sar&agrave; un form di login che richieder&agrave; nome utente e password.
 
 ### 2.3 Design della dashboard del sito web
 
-![Login](img/sito/Portal.JPG)
+<p style="text-align:center;">
+	<img src="../../img/views/desktop_rooms.png" style="width:400px" width="400">
+	<img src="../../img/views/mobile_rooms.png" style="width:100px" width="100">
+	<img src="../../img/views/mobile_menu.png" style="width:100px" width="100">
+</p>
 
 Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
 
@@ -393,7 +400,7 @@ Nella classe ci saranno i seguenti attributi statici: la porta di default del se
 All'inizio del progetto ci siamo trovati a dover scegliere quale arduino utilizzare per controllare i vari moduli delle aule, innanzitutto abbiamo deciso di utilizzare la connessione ethernet per comunicare tra interfaccia web e l'arduino, questo per un fattore di comodità infatti
 per utilizzare una connessione wirelless avremmo dovuto usare il fishino che però non abbiamo mai utilizzato e quindi sarebbe potuto essere un problema in più, inoltre tramite connessione ethernet non avremmo avuto problemi di delay e avremmo avuto più stabilità.
 
-![SchemaArduino](img/arduino/SchemaArduino.PNG)
+![SchemaArduino](img/arduino/schema_arduino.png)
 
 Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
@@ -406,7 +413,7 @@ Siccome si utilizza l'arduino Yun e una parte di codice dovrà essere eseguite s
 - arduino: ACC-Client.ino
 - python: ACC.Client.py
 
-#### Protocollo 
+#### Protocollo
 
 Il Protocollo ACC per domotics &egrave; molto semplice, essendo basato su un codice univoco
 (ACC-Client-ID) perogni Arduino, ed una chiave di comunicazione (ACC-Client-KEY) di comunicazione
@@ -429,7 +436,7 @@ generati sul server semplicemente perch&egrave; ha pi&ugrve; potenza di calcolo.
 **Authentication Discover:**  
 
 L'ACC-Client invier&agrave; un messaggio di broad-cast sulla rete simile al seguente sulla porta
-`6137`, tramite la chiave l'arduino capirà se il messaggio è destinato a lui o no. La chiave contenente l' ACC-Client-ID più `-REQUEST` che come dice il nome è la rchiesta che viene fatta all'arduino. 
+`6137`, tramite la chiave l'arduino capirà se il messaggio è destinato a lui o no. La chiave contenente l' ACC-Client-ID più `-REQUEST` che come dice il nome è la rchiesta che viene fatta all'arduino.
 
 ```
 DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST
@@ -527,7 +534,7 @@ cambiato l'IP del server lo aggiona sul database (questo per permettere un buon 
 DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
 `ACC-Client-KEY-Generator` una KEY.
 
-In oltre viene inviata la configurazione dei vari pin. 
+In oltre viene inviata la configurazione dei vari pin.
 Che dovrebbe essere simile a questa:
 
 ```JSON
@@ -810,5 +817,3 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul> |
 |**Risultati attesi** | <ul><li>Il beamer deve spegnersi.</li></ul> |
-
-
