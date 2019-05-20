@@ -372,9 +372,9 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 ### 2.3 Design della dashboard del sito web
 
 <p style="text-align:center;">
-	<img src="../../img/views/desktop_rooms.png" style="width:400px" width="400">
-	<img src="../../img/views/mobile_rooms.png" style="width:100px" width="100">
-	<img src="../../img/views/mobile_menu.png" style="width:100px" width="100">
+	<img src="img/views/desktop_rooms.png" style="width:400px" width="400">
+	<img src="img/views/mobile_rooms.png" style="width:100px" width="100">
+	<img src="img/views/mobile_menu.png" style="width:100px" width="100">
 </p>
 
 Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
