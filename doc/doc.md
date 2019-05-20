@@ -981,17 +981,17 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 | Test Case | Nome              | Descrizione | Risultato      |
 |-----------|-------------------|-------------|----------------|
-|TC-001     |Pagina login       |             |                |              
-|TC-002     |Pagina dashboard   |             |                |  
-|TC-003     |Verifica accessi   |             |                |  
-|TC-004     |Accendere led      |             |                |  
-|TC-005     |Spegnere led       |             |                |  
-|TC-006     |Accendere luci     |             |                |  
-|TC-007     |Spegnere luci      |             |                |  
-|TC-008     |Aprire tende       |             |                |  
-|TC-009     |Chiudere tende     |             |                |  
-|TC-010     |Accendere beamer   |             |                |  
-|TC-011     |Spegnere beamer    |             |                |           
+|TC-001     |Pagina login       |Verificare che la pagina di login venga rappresentata correttamente.|OK|              
+|TC-002     |Pagina dashboard   |Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|OK|  
+|TC-003     |Verifica accessi   |Verificare che il controllo dei dati di accesso avvenga correttamente.|OK|  
+|TC-004     |Accendere led      |Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|OK|  
+|TC-005     |Spegnere led       |Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|OK|  
+|TC-006     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
+|TC-007     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
+|TC-008     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
+|TC-009     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
+|TC-010     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
+|TC-011     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
 
 ### 4.3 Mancanze/limitazioni conosciute
 
