@@ -815,7 +815,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul> |
 |**Risultati attesi** | <ul><li>Il beamer deve spegnersi.</li></ul> |
 
-### 4.2 Risultati Test 
+### 4.2 Risultati Test
 
 |Test Case | Nome  | Descrizione | Risultato      |
 |----------|-------|-------------|----------------|
@@ -824,4 +824,8 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 |          |       |             |                |  
 |          |       |             |                |                                         
 |          |       |             |                |     
-|          |       |             |                |          
+|          |       |             |                |     
+
+## 5 Consuntivo
+
+### 5.1 Gantt Consuntivo
