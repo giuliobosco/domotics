@@ -132,7 +132,6 @@ package acc.models {
         - ip : String
         - key : String
         - rootPassword : String
-        - room : Room
         + getId() : String
         + getIp() : String
         + getKey() : String
@@ -149,12 +148,12 @@ package acc.models {
         + static getArduinosByRoom(jdbcConnector : JdbcConnector, roomName : String)
         + static main(args : String[]) : void
     }
+    Room o-- Arduino
 
     class Light {
         + LIGHT_ON : int
         + LIGHT_OFF : int
         - pin : int
-        - arduino : Arduino
         - name : String
         + getPin() : int
         + getArduino() : Arduino
@@ -176,11 +175,11 @@ package acc.models {
         + static getLights(connector : JdbcConnector, room : Room) : List<Light>
         + static main(args : String[]) : void
     }
+    Arduino o-- Light
 
     class LightButton {
         - buttonPin : int
         - light : Light
-        - arduino : Arduino
         + getButtonPin() : int
         + getLight() : Light
         + getArduino() : Arduino
@@ -190,9 +189,9 @@ package acc.models {
         - loadLight(connector : JdbcConnector) : void
         + static main(args : String[]) : void
     }
+    Arduino o-- LightButton
 
     class Thermometer {
-        - arduino : Arduino
         - pin : String
         - type : String
         + Thermometer(pin : String, arduinoId : String, connector : JdbcConnector)
@@ -202,6 +201,7 @@ package acc.models {
         + static getTemperatureByRoom(room : Room, connector : JdbcConnector) : double
         + static main(args : String[]) : void
     }
+    Arduino o-- Thermometer
 
 }
 
