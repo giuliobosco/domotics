@@ -164,9 +164,6 @@ Requisiti cambiati:
     * Priorità: 1 => 3     
 
 
-
-#### Requisiti iniziali
-
 |		   |ID: REQ-01    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Pagina di login                         ||
@@ -299,7 +296,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-013    |	    		                             |
+|		   |ID: REQ-013    |	    		                         |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -817,3 +814,14 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul> |
 |**Risultati attesi** | <ul><li>Il beamer deve spegnersi.</li></ul> |
+
+### 4.2 Risultati Test 
+
+|Test Case | Nome  | Descrizione | Risultato      |
+|----------|-------|-------------|----------------|
+|          |       |             |                |              
+|          |       |             |                |     
+|          |       |             |                |  
+|          |       |             |                |                                         
+|          |       |             |                |     
+|          |       |             |                |          
