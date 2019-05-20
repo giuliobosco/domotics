@@ -311,7 +311,7 @@ Requisiti cambiati:
 ![Gantt](img/gantt/GanttIniziale.PNG)
 
 Il progetto ci è stato commissionato il 13 Febbraio 2019 programmiamo di completarlo il 17 Maggio 2019.
-Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend che comunicherÀ a sua volta con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
+Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend che comunicherà a sua volta con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
 
 ### 1.7 Analisi dei mezzi
 
@@ -369,9 +369,9 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 ### 2.3 Design della dashboard del sito web
 
 <p style="text-align:center;">
-	<img src="../../img/views/desktop_rooms.png" style="width:400px" width="400">
-	<img src="../../img/views/mobile_rooms.png" style="width:100px" width="100">
-	<img src="../../img/views/mobile_menu.png" style="width:100px" width="100">
+	<img src="img/views/desktop_rooms.png" style="width:400px" width="400">
+	<img src="img/views/mobile_rooms.png" style="width:100px" width="100">
+	<img src="img/views/mobile_menu.png" style="width:100px" width="100">
 </p>
 
 Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
@@ -389,7 +389,7 @@ Per connetterci al database della scuola abbiamo deciso di utilizzare LDAP Conne
 
 ![LDAP](img/ldap/uml.png)
 
-La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
+La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
 Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autenticazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove deve andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci sono tre costruttori, uno a cui viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno a cui non viene passato il tipo di sicurezza e nel terzo viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione, e getDirContext ritorna se l'utente ha i permessi o no.
 
 ### 2.6 Architettura Arduino Yun
