@@ -199,7 +199,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-04     |	    		             |
+|		   |ID: REQ-04    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -212,12 +212,12 @@ Requisiti cambiati:
 
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |Connettersi al database in java                  ||
+|Nome:     |Ricavare dati dal database                       ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 |          |Sotto requisiti                                   |
-|001:      |Connetersi con java al database domotics         ||
+|001:      |Tramite java                                     ||
 
 <br>
 
@@ -253,7 +253,7 @@ Requisiti cambiati:
 <br>
 
 |		   |ID: REQ-09     |	                                      |
-|:---------|:-------------|:--------------------------------------|
+|:---------|:--------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |3                                                    ||
 |Versione: |1.0                                                  ||
@@ -739,16 +739,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-004                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che i led si accendono    |
+|**Nome**       | Accendere i led                      |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><p>(Questi passaggi sono da fare due volte dato che i led sono due)</p><li>Premere il checkbox della luce.</li></ul> |
 |**Risultati attesi** | <ul><li>I due led devono accendersi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-005                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che i led si spengono     |
+|**Nome**       | Spegnere i led                       |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
@@ -759,16 +761,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-006                               |
 |---------------|--------------------------------------|
-|**Nome**       | Varificare che le luci si accendono  |
+|**Nome**       | Accendere luci                       |
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-007                               |
 |---------------|--------------------------------------|
-|**Nome**       | Varificare che le luci si spengono   |
+|**Nome**       | Spegnere luci                        |
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere accese.</li></ul>|
@@ -779,16 +783,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-008                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le tende si aprono    |
+|**Nome**       | Aprire Tende                         |
 |**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere chiuse.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
 |**Risultati attesi** | <ul><li>Le tende devono aprirsi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-009                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le tende si chiudono  |
+|**Nome**       | Chiudere Tende                       |
 |**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere aperte.</li></ul>|
@@ -799,7 +805,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-010                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che il beamer si accende  |
+|**Nome**       | Accendere beamer                     |
 |**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li><li>Il beamer deve essere spento.</li></ul>|
@@ -808,7 +814,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-011                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che il beamer si spegne   |
+|**Nome**       | Spegnere beamer                      |
 |**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
@@ -817,11 +823,31 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ### 4.2 Risultati Test 
 
-|Test Case | Nome  | Descrizione | Risultato      |
-|----------|-------|-------------|----------------|
-|          |       |             |                |              
-|          |       |             |                |     
-|          |       |             |                |  
-|          |       |             |                |                                         
-|          |       |             |                |     
-|          |       |             |                |          
+|Test Case| Nome  | Descrizione | Risultato      |
+|---------|-------|-------------|----------------|
+|TC-001   |       |             |                |              
+|TC-002   |       |             |                |  
+|TC-003   |       |             |                |  
+|TC-004   |       |             |                |  
+|TC-005   |       |             |                |  
+|TC-006   |       |             |                |  
+|TC-007   |       |             |                |  
+|TC-008   |       |             |                |  
+|TC-009   |       |             |                |  
+|TC-010   |       |             |                |  
+|TC-011   |       |             |                |           
+
+### 4.3 Mancanze/limitazioni conosciute
+
+## 5 Consuntivo
+
+## 6 Conclusioni
+
+### 6.1 Considerazioni finali
+
+## 7 Bibliografia
+
+### 7.1 Sitografia
+
+## 8 Allegati
+
