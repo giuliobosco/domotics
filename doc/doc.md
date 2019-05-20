@@ -164,9 +164,6 @@ Requisiti cambiati:
     * Priorità: 1 => 3     
 
 
-
-#### Rquisiti iniziali
-
 |		   |ID: REQ-01    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Pagina di login                         ||
@@ -202,7 +199,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-4     |	    		             |
+|		   |ID: REQ-04     |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -244,7 +241,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-8    |	    		               |
+|		   |ID: REQ-08    |	    		               |
 |:---------|:-------------|:---------------------------|
 |Nome:     |Simulazione luci                          ||
 |Priorità: |1                                         ||
@@ -255,7 +252,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-9     |	                                      |
+|		   |ID: REQ-09     |	                                      |
 |:---------|:-------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |3                                                    ||
@@ -299,7 +296,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-013    |	    		                             |
+|		   |ID: REQ-013    |	    		                         |
 |:---------|:-------------|:-----------------------------------------|
 |Nome:     |Guide di utilizzo                                       ||
 |Priorità: |2                                                       ||
@@ -311,10 +308,10 @@ Requisiti cambiati:
 
 ###  1.6 Pianificazione
 
-![Gantt](img/gantt/Gantt.jpg)
+![Gantt](img/gantt/GanttIniziale.PNG)
 
-Il progetto ci è stato commissionato il 13 Febbraio 2019 re programmiamo di completarlo il 17 Maggio 2019.
-Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend e con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
+Il progetto ci è stato commissionato il 13 Febbraio 2019 programmiamo di completarlo il 17 Maggio 2019.
+Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend che comunicherÀ a sua volta con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
 
 ### 1.7 Analisi dei mezzi
 
@@ -341,7 +338,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 *   Giulio Bosco:
     Mac Book Pro 2018 i7 CPU 3.1GHz RAM 16GB
 
-*   Paolo Gübli
+*   Paolo Gübeli:
     HP Omen 17 i7-6700HQ CPU 2.6GHz RAM 16GB
 
 *   Arduino Yun 7300
@@ -416,9 +413,9 @@ Siccome si utilizza l'arduino Yun e una parte di codice dovrà essere eseguite s
 #### Protocollo
 
 Il Protocollo ACC per domotics &egrave; molto semplice, essendo basato su un codice univoco
-(ACC-Client-ID) perogni Arduino, ed una chiave di comunicazione (ACC-Client-KEY) di comunicazione
+(ACC-Client-ID) per ogni Arduino, ed una chiave di comunicazione (ACC-Client-KEY) di comunicazione
 scelta dal server. Il codice univoco sar&agrave; salvato in una costante sull'Arduino, e
-servir&agrave; per identificare l'Arduino quando si connette alla rete e mentre ricerca il server. Invece la KEY viene inviata dal server all'Arduino, il quale verr&agrave; utilizzata dal server e dall'Arduino per token per avere una comunicazione sicura, verr&agrave; inviata assieme a tutti i messaggi che i due si scambieranno.
+servir&agrave; per identificare l'Arduino quando si connette alla rete e mentre ricerca il server. Invece la KEY viene inviata dal server all'Arduino, la quale verr&agrave; utilizzata dal server e dall'Arduino come token per avere una comunicazione sicura, verr&agrave; inviata assieme a tutti i messaggi che i due si scambieranno.
 
 
 **ACC-Client-ID:**
@@ -694,7 +691,7 @@ public ResultSet query(String query) throws SQLException {
 }
 ```
 
-Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
+Nel caso dovessero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
 *   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
 *   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario apparteneteWS:
     ```Sql
@@ -713,46 +710,46 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       | Pagina di login   |
-|**Riferimento**| REQ-12                               |
+|**Nome**       | Pagina di login                      |
+|**Riferimento**| REQ-01                               |
 |**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li></ul> |
 |**Risultati attesi** | <ul><li>Deve comparire una pagina di login che richiede username e password.</li></ul> |
 
-|Test Case      | TC-001                               |
+|Test Case      | TC-002                               |
 |---------------|--------------------------------------|
 |**Nome**       | Pagina con la dashboard              |
-|**Riferimento**| REQ-12                               |
+|**Riferimento**| REQ-02                               |
 |**Descrizione**| Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effettuare il login con i permessi giusti.</li></ul> |
 |**Risultati attesi** | <ul><li>Il sito web deve portare alla dashboard di tutte le aule collegate il quale per ognuna è possibile gestire tutti i vari moduli.</li></ul> |
 
-|Test Case      | TC-001                               |
+|Test Case      | TC-003                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verifica accessi   |
-|**Riferimento**| REQ-12                               |
-|**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
+|**Nome**       | Verifica accessi                     |
+|**Riferimento**| REQ-06                               |
+|**Descrizione**| Verificare che il controllo dei dati di accesso avvenga correttamente.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
 |**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
 
 <br>
 
-|Test Case      | TC-001                               |
+|Test Case      | TC-004                               |
 |---------------|--------------------------------------|
 |**Nome**       | Verificare che i led si accendono    |
-|**Riferimento**| REQ-12                               |
+|**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><p>(Questi passaggi sono da fare due volte dato che i led sono due)</p><li>Premere il checkbox della luce.</li></ul> |
 |**Risultati attesi** | <ul><li>I due led devono accendersi.</li></ul> |
 
-|Test Case      | TC-002                               |
+|Test Case      | TC-005                               |
 |---------------|--------------------------------------|
 |**Nome**       | Verificare che i led si spengono     |
-|**Riferimento**| REQ-12                               |
+|**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
@@ -760,19 +757,19 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 <br>
 
-|Test Case      | TC-003                               |
+|Test Case      | TC-006                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le luci si accendono  |
-|**Riferimento**| REQ-12                               |
+|**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
 
-|Test Case      | TC-004                               |
+|Test Case      | TC-007                               |
 |---------------|--------------------------------------|
 |**Nome**       | Varificare che le luci si spengono   |
-|**Riferimento**| REQ-12                               |
+|**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere accese.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
@@ -780,19 +777,19 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 <br>
 
-|Test Case      | TC-005                               |
+|Test Case      | TC-008                               |
 |---------------|--------------------------------------|
 |**Nome**       | Verificare che le tende si aprono    |
-|**Riferimento**| REQ-13                               |
+|**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere chiuse.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
 |**Risultati attesi** | <ul><li>Le tende devono aprirsi.</li></ul> |
 
-|Test Case      | TC-006                               |
+|Test Case      | TC-009                               |
 |---------------|--------------------------------------|
 |**Nome**       | Verificare che le tende si chiudono  |
-|**Riferimento**| REQ-13                               |
+|**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere aperte.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
@@ -800,20 +797,31 @@ Nel caso dov'essero esserci errori con i driver provare a seguire i seguenti pro
 
 <br>
 
-|Test Case      | TC-007                               |
+|Test Case      | TC-010                               |
 |---------------|--------------------------------------|
-|**Nome**       | Varificare che il beamer si accende  |
-|**Riferimento**| REQ-14                               |
+|**Nome**       | Verificare che il beamer si accende  |
+|**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li><li>Il beamer deve essere spento.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul>|
 |**Risultati attesi** | <ul><li>Il beamer deve accendersi.</li></ul> |
 
-|Test Case      | TC-008                               |
+|Test Case      | TC-011                               |
 |---------------|--------------------------------------|
-|**Nome**       | Varificare che il beamer si spegne   |
-|**Riferimento**| REQ-14                               |
+|**Nome**       | Verificare che il beamer si spegne   |
+|**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul> |
 |**Risultati attesi** | <ul><li>Il beamer deve spegnersi.</li></ul> |
+
+### 4.2 Risultati Test 
+
+|Test Case | Nome  | Descrizione | Risultato      |
+|----------|-------|-------------|----------------|
+|          |       |             |                |              
+|          |       |             |                |     
+|          |       |             |                |  
+|          |       |             |                |                                         
+|          |       |             |                |     
+|          |       |             |                |          
