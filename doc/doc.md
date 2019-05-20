@@ -866,7 +866,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       | Pagina di login                      |
+|**Nome**       | Pagina login                         |
 |**Riferimento**| REQ-01                               |
 |**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
@@ -875,7 +875,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-002                               |
 |---------------|--------------------------------------|
-|**Nome**       | Pagina con la dashboard              |
+|**Nome**       | Pagina dashboard                     |
 |**Riferimento**| REQ-02                               |
 |**Descrizione**| Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
@@ -895,7 +895,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-004                               |
 |---------------|--------------------------------------|
-|**Nome**       | Accendere i led                      |
+|**Nome**       | Accendere led                        |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
@@ -906,7 +906,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-005                               |
 |---------------|--------------------------------------|
-|**Nome**       | Spegnere i led                       |
+|**Nome**       | Spegnere led                         |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
@@ -979,19 +979,19 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ### 4.2 Risultati Test 
 
-|Test Case| Nome  | Descrizione | Risultato      |
-|---------|-------|-------------|----------------|
-|TC-001   |       |             |                |              
-|TC-002   |       |             |                |  
-|TC-003   |       |             |                |  
-|TC-004   |       |             |                |  
-|TC-005   |       |             |                |  
-|TC-006   |       |             |                |  
-|TC-007   |       |             |                |  
-|TC-008   |       |             |                |  
-|TC-009   |       |             |                |  
-|TC-010   |       |             |                |  
-|TC-011   |       |             |                |           
+| Test Case | Nome              | Descrizione | Risultato      |
+|-----------|-------------------|-------------|----------------|
+|TC-001     |Pagina login       |             |                |              
+|TC-002     |Pagina dashboard   |             |                |  
+|TC-003     |Verifica accessi   |             |                |  
+|TC-004     |Accendere led      |             |                |  
+|TC-005     |Spegnere led       |             |                |  
+|TC-006     |Accendere luci     |             |                |  
+|TC-007     |Spegnere luci      |             |                |  
+|TC-008     |Aprire tende       |             |                |  
+|TC-009     |Chiudere tende     |             |                |  
+|TC-010     |Accendere beamer   |             |                |  
+|TC-011     |Spegnere beamer    |             |                |           
 
 ### 4.3 Mancanze/limitazioni conosciute
 
