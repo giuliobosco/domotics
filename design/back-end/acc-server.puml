@@ -1,0 +1,57 @@
+@startuml
+
+package javax.servlet.http {
+    class HttpServlet {
+
+    }
+}
+
+package acc {
+    class JsonBuilder {
+        + static ERROR : String
+        + static OK : String
+        + static getJsonResponse(status : String, message : String) : String
+        + static getJsonResponseError(message : String) : String
+        + static getJsonResponseOk(message : String) : String
+    }
+
+    class AccServlet {
+        - AUTOCONF : String
+        - REQUEST : String
+        - doPost(request : HttpServletRequest, response : HttpServletResponse) : void
+        - doGet(request : HttpServletRequest, response : HttpServletResponse) : void
+    }
+    HttpServlet <|-- AccServlet
+
+    class Autoconf {
+        - arduinoId : String
+        - arduinoKey : String
+        - serverAddress : String
+        - serverPort : String
+        + getJson() : String
+        + Autoconf(idManager : IdManager, arduinoId : String, arduinoIp : String, serverAddress : String, serverPort : int)
+    }
+
+    class ControllerServlet {
+        # doPost(request : HttpServletRequest, response : HttpServletResponse) : void
+        # doGet(request : HttpServletRequest, response : HttpServletResponse) : void
+    }
+    HttpServlet <|-- ControllerServlet
+
+    class GetRequest {
+        + get(urlString : String) : String
+    }
+
+    class IdManager {
+        + CLIENT_KEY_LENGTH : int
+        - connector : JdbcConnector
+        + IdManager(connector JdbcConnector)
+        + checkIp(id : String, ip : String) : void
+        + getAccClientKey(id : String) : String
+        + getRoomById(id : String) : Room
+        + static createKey() : String
+        + static main(args : String[]) : void
+    }
+}
+
+@enduml
