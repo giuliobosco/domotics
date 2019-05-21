@@ -973,7 +973,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ## 5 Consuntivo
 
-![SchemaArduino](img/gantt/GanttConsuntivo.PNG)
+![Gantt consuntivo](img/gantt/GanttConsuntivo.PNG)
 
 I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione. I più grandi cambiamenti sono nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno temp del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi dei test non erano necessari. Abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Per integrare i moduli ci abbiamo messo meno del tempo previsto nella progettazione tempo che abbiamo potuto dedicare alla documentazione.
 
@@ -981,7 +981,20 @@ I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi 
 
 ### 6.1 Considerazioni finali
 
-Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in questo mondo. Durante il progetto abbiamo fatto molte cose dato che è suddiviso in molte parti differenti il quale ci hanno permesso di imparare nuove cose che ci hanno permesso di allargare le nostre conoscenze in vari campi. Per tutti è stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre, all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto alcuni imprevisti che non ci hanno permesso di portare a termine il lavoro, per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima persona che ci lavorerà o gruppo possa capire in fretta come funziona il nostro progetto.
+Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato
+assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più
+in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in
+questo mondo. Durante il progetto abbiamo dovuto studiare e progettare molte componenti da dover
+collegare assieme, dato che è suddiviso in molte parti differenti. Il quale ci hanno permesso di
+fare esperienza con un progetto di dimensioni maggiori a quelle di cui siamo abbituati. Per tutti
+&egrave; stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre,
+all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma
+nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto svariati
+imprevisti che non ci hanno permesso di portare a termine il lavoro, durante il corso del lavoro,
+sono stati cambiati i requisiti (le loro priorit&agrave;). La sfida pi&grave; di questo progetto,
+&egrave; stata svilupparlo interamente modulare, per poter reciclare il codice.  
+Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima
+persona che ci lavorerà o gruppo possa capire in fretta come funziona il nostro progetto.
 
 ## 7 Bibliografia
 
