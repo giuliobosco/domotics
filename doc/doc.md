@@ -1005,6 +1005,8 @@ I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi 
 
 ### 6.1 Considerazioni finali
 
+Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in questo mondo. Durante il progetto abbiamo fatto molte cose dato che è suddiviso in molte parti differenti il quale ci hanno permesso di imparare nuove cose che ci hanno permesso di allargare le nostre conoscenze in vari campi. Per tutti è stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre, all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto alcuni imprevisti che non ci hanno permesso di portare a termine il lavoro.
+
 ## 7 Bibliografia
 
 ### 7.1 Sitografia
