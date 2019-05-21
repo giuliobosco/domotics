@@ -1,6 +1,26 @@
-Mattia Ruberto
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida Modulo</small><br>
+    ldap
+</div>
 
-# Guida Lightweight Directory Access Protocol (LDAP)
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Progettazione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Implementazione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+</div>
+
+<div class="page-break"></div>
+
+# Guida Lightweight Directory Access Protocol
 
 ## Progettazione
 
@@ -9,9 +29,9 @@ soluzione più facile e sicura da implementare dato che passi le credenziali per
 alla scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente sul database
 per evitare problemi.
 
-
-![LDAP](../img/ldap/uml.png)
-
+<div style="text-align:center;">
+    <img src="../img/ldap/uml.png" style="width:400px"><br><br>
+</div>
 
 La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le
 credenziali che mette vengono prese e e vengono confrontate con le credenziali del database della
@@ -91,6 +111,8 @@ private String getConnectionString() {
     return "ldap://" + getDomain() + ":" + getPort();
 }
 ```
+
+<div class="page-break"></div>
 
 Questo metodo viene utilizzato per creare e poi ritornare DN, è simile a un percorso assoluto solo c
 he invece di scendere l'albero da sinistra scende da destra.  
