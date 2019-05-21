@@ -114,7 +114,7 @@ package portal.authentication {
     HttpServlet <|-- LogoutServlet
 }
 
-package acc.models {
+package models {
     class Room {
         - name : String
         + getName() : String
@@ -259,6 +259,7 @@ package data {
         # doGet(request : HttpServletRequest, response : HttpServletResponse) : void
         - getJsonRoom(room : Room, connector : JdbcConnector) : JSONObject
     }
+    HttpServlet <|-- RoomsServlet
 }
 
 @enduml

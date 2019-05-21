@@ -1,0 +1,94 @@
+@startuml
+
+package models {
+    class Room {
+        - name : String
+        + getName() : String
+        + Room(name : String)
+        + getJson() : JSONObject
+        + getJsonString() : String
+        + static getRooms(sqlResultSet : ResultSet) : List<Room>
+        + static get(name : String) : Room
+        + static get(name : String, jdbcConnector : JdbcConnector) : Room
+        + static main(args : String[]) : void
+    }
+
+    class Arduino {
+        - id : String
+        - ip : String
+        - key : String
+        - rootPassword : String
+        + getId() : String
+        + getIp() : String
+        + getKey() : String
+        + getRoom() : Room
+        + Arduino(id : String, ip : String, key : String, rootPassword : String, room : Room)
+        + Arduino(idManager : IdManager, id : String, ip : String)
+        + Arduino(connector : JdbcConnector, id : String)
+        + Arduino(connector : JdbcConnector, ip : String, key : String)
+        + set(resultSet : ResultSet) : void
+        + getJson() : JSONObject
+        + getJsonString() : String
+        + isAlive() : boolean
+        + static getArduinos(sqlResultSet : ResultSet) : List<Arduino>
+        + static getArduinosByRoom(jdbcConnector : JdbcConnector, roomName : String)
+        + static main(args : String[]) : void
+    }
+    Room o-- Arduino
+
+    class Light {
+        + LIGHT_ON : int
+        + LIGHT_OFF : int
+        - pin : int
+        - name : String
+        + getPin() : int
+        + getArduino() : Arduino
+        + getName() : String
+        + getId() : String
+        + isOn() : boolean
+        + Light(pin : int, arduino : Arduino, name : String)
+        + Light(pin : int, arduino : Arduino, connector JdbcConnector)
+        + getJson() : JSONObject
+        + getJsonString() : String
+        - getRequestString(status : int) : String
+        - getRequestString() : String
+        + turnOn() : void
+        + turnOff() : void
+        + getStatus() : int
+        + toggleLight() : void
+        + static getLights(rs : ResultSet) : List<Light>
+        + static getJsonLights(lights : List<Light>) : JSONArray
+        + static getLights(connector : JdbcConnector, room : Room) : List<Light>
+        + static main(args : String[]) : void
+    }
+    Arduino o-- Light
+
+    class LightButton {
+        - buttonPin : int
+        - light : Light
+        + getButtonPin() : int
+        + getLight() : Light
+        + getArduino() : Arduino
+        + LightButton(buttonPin : int, ip : String, key : String, connector : JdbcConnector)
+        + LightButton(buttonPin : int, id : String, connector : JdbcConnector)
+        - checkPin(int pin, connector : JdbcConnector) : void
+        - loadLight(connector : JdbcConnector) : void
+        + static main(args : String[]) : void
+    }
+    Arduino o-- LightButton
+
+    class Thermometer {
+        - pin : String
+        - type : String
+        + Thermometer(pin : String, arduinoId : String, connector : JdbcConnector)
+        + getValue() : double
+        + getValue(decimals : int) : double
+        - getRequestString() : String
+        + static getTemperatureByRoom(room : Room, connector : JdbcConnector) : double
+        + static main(args : String[]) : void
+    }
+    Arduino o-- Thermometer
+
+}
+
+@enduml
