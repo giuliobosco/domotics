@@ -32,3 +32,10 @@ sia presente la libreria `mysql-connector-java-8.0.13.jar`.
 questo progetto.
 
 ![back-end jdbc diagramma delle classi](../../design/back-end/jdbc.png)
+
+Dopo aver sviluppato il modulo della connessione al database, sono state progettate le classi che
+rappresentano le istanze dei database e che ci interaggiscono direttamente.  
+Per ogni tabella del database, &egrave; stata creata una classe. La quale servir&agrave; per aiutare
+l'interazione con il database e gli altri moduli. Le classi sono:
+
+![back-end modelli del database, diagramma delle classi](../../design/back-end/models.png)
