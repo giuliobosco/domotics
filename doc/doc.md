@@ -1005,8 +1005,21 @@ I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi 
 
 ### 6.1 Considerazioni finali
 
+Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in questo mondo. Durante il progetto abbiamo fatto molte cose dato che è suddiviso in molte parti differenti il quale ci hanno permesso di imparare nuove cose che ci hanno permesso di allargare le nostre conoscenze in vari campi. Per tutti è stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre, all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto alcuni imprevisti che non ci hanno permesso di portare a termine il lavoro, per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima persona che ci lavorerà o gruppo possa capire in fretta come funziona il nostro progetto.
+
 ## 7 Bibliografia
 
 ### 7.1 Sitografia
+
+-https://stackoverflow.com/
+-https://www.w3schools.com/
+-https://getbootstrap.com/docs/4.3/getting-started/introduction/
+-http://www-db.deis.unibo.it/courses/BDPG/JDBC.pdf
+-https://www.html.it/pag/15159/jdbc-introduzione/
+-https://www.theserverside.com/definition/Java-Database-Connectivity-JDBC
+-https://searchmobilecomputing.techtarget.com/definition/LDAP
+-https://www.gracion.com/server/whatldap.html
+-https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
+-https://www.arduino.cc/
 
 ## 8 Allegati
