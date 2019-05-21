@@ -33,9 +33,20 @@ questo progetto.
 
 ![back-end jdbc diagramma delle classi](../../design/back-end/jdbc.png)
 
-Dopo aver sviluppato il modulo della connessione al database, sono state progettate le classi che
+Dopo aver progettato il modulo della connessione al database, sono state progettate le classi che
 rappresentano le istanze dei database e che ci interaggiscono direttamente.  
 Per ogni tabella del database, &egrave; stata creata una classe. La quale servir&agrave; per aiutare
 l'interazione con il database e gli altri moduli. Le classi sono:
 
 ![back-end modelli del database, diagramma delle classi](../../design/back-end/models.png)
+
+Dopo aver progettato le classi modello per il database, &egrave; stato progettato il modulo dell'ACC
+lato server, sono state progettate le classi di cui avrebbe necessitato, per poter funzionare
+correttamente con gli elementi gi&agrave; esistenti. Queste classi sono state studiate, in maniera
+da mantenere i vari elementi pi&ugrave; separati possibile, cos&igrave; da poter sostituire o
+modificare i vari elementi pi&ugrave; facilmente possibile. Infatti le richieste vengono
+interpretate dalla servlet (`AccServlet`), i controlli sui micro controllori vengono eseguiti dalla
+classe preposta (`IdManager`), le richieste HTTP ai microcontrollori vengono eseguite tramite la
+classe `GetRequest` e le configurazioni per i microcontrollori vengono generate dal `Autoconf`.
+
+![back-end acc-server, diagramma delle classi](../../design/back-end/acc-server.png)
