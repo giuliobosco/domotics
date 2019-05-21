@@ -1,3 +1,47 @@
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida Modulo</small><br>
+    back-end
+</div>
+
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Introduzione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Design</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;LDAP</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;JDBC</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Modelli database</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;ACC-Server</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Dati per front-end (JSON)</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Implementazione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;LDAP</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;JDBC</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Modelli database</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;ACC-Server</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">10</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Dati per front-end (JSON)</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">10</div>
+</div>
+
+<div class="page-break"></div>
+
 # back-end
 
 L'unione di tutti i moduli del progetto avviene nel back-end, il quale deve collegare il front-end,
@@ -25,7 +69,9 @@ con facilit&agrave;
 
 ![back-end autenticazione &amp; ldap diagramma delle classi](../../design/back-end/authentication.png)
 
-#### JDBC
+<div class="page-break"></div>
+
+#### JDBC
 
 Dopo di che &egrave; stato progettato il modulo relativo al database, quindi l'utilizzo di JDBC, il
 driver per connnettersi ai database MySQL con Java.  
@@ -45,7 +91,14 @@ rappresentano le istanze dei database e che ci interaggiscono direttamente.
 Per ogni tabella del database, &egrave; stata creata una classe. La quale servir&agrave; per aiutare
 l'interazione con il database e gli altri moduli. Le classi sono:
 
-![back-end modelli del database, diagramma delle classi](../../design/back-end/models.png)
+<div class="page-break"></div>
+
+<br><br><br><br><br><br>
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="../../design/back-end/models.png" style="widht:450px;margin-top:60px">
+</div>
+
+<div class="page-break"></div>
 
 #### ACC-Server
 
@@ -58,7 +111,14 @@ interpretate dalla servlet (`AccServlet`), i controlli sui micro controllori ven
 classe preposta (`IdManager`), le richieste HTTP ai microcontrollori vengono eseguite tramite la
 classe `GetRequest` e le configurazioni per i microcontrollori vengono generate dal `Autoconf`.
 
-![back-end acc-server, diagramma delle classi](../../design/back-end/acc-server.png)
+<div class="page-break"></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="../../design/back-end/acc-server.png" style="widht:450px;margin-top:60px">
+</div>
+
+<div class="page-break"></div>
 
 #### Dati per front-end (JSON)
 
@@ -68,6 +128,8 @@ Questa classe, semplicemente richiede al dababase (tramite le classi modello), t
 le relative luci. E trasforma tutto in un file JSON, che viene inviato come risposta.
 
 ![back-end data, diagramma delle classi](../../design/back-end/data.png)
+
+<div class="page-break"></div>
 
 ## Implementazione
 
@@ -131,13 +193,15 @@ Per i modelli del database, sono semplicemente state riprese le tabelle del data
 relativi oggetti. Dopo di che, sono stati aggiunti alcuni metodo per eseguire pi&ugrave; facilmente
 determinate operazioni.
 
+<div class="page-break"></div>
+
 #### ACC-Server
 
 Per l'ACC-Server sono state implementate le varie classi, le sono principalmente `IdManager`, che
 si occupa di controllare che siano autentici gli Id, gli Ip e le key dei microcontrollori, e la
 classe AccServlet, che si occupa soddisfare le richieste provenienti dall'ACC-Client.
 
-#### Dati per il front-end
+#### Dati per il front-end (JSON)
 
 Per la genrazione del file JSON da ritornare al front-end come dati, la maggior parte di questo
 processo avviene nel metodo `getJsonRoom()` della classe `RoomsServlet`, il quale richiede lo stato
