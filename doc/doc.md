@@ -420,10 +420,11 @@ servir&agrave; per identificare l'Arduino quando si connette alla rete e mentre 
 
 **ACC-Client-ID:**
 
+Codice identificativo di un ACC-Client, formato da 12 numeri esadecimali:
+
 ```
-DMTSID0ABCDEFABCDEF-<IndirizzoIP>
+1234567890ABCD
 ```
-La chiave è composta da tre parti, la prima  inizia con `DMTS` che sta per Domotics, poi `ID0`, che sta per ID  e 0 che è il separatore dopodiché il codice che è composto da 12 caratteri esadecimali un trattino ed infine l'IP dell'arduino.
 
 **ACC-Client-KEY:**
 
@@ -432,23 +433,12 @@ generati sul server semplicemente perch&egrave; ha pi&ugrve; potenza di calcolo.
 
 **Authentication Discover:**  
 
-L'ACC-Client invier&agrave; un messaggio di broad-cast sulla rete simile al seguente sulla porta
-`6137`, tramite la chiave l'arduino capirà se il messaggio è destinato a lui o no. La chiave contenente l' ACC-Client-ID più `-REQUEST` che come dice il nome è la rchiesta che viene fatta all'arduino.
+&Egrave; un codice di comunicazione fra il ACC-Client e ACC-Server, viene utilizzato per riconoscere
+che le informazioni sono autentiche. Questa viene generata dal ACC-Server ed inviata al client al
+momento della configuazione. Anch'essa è formata da 12 numeri esadecimali:
 
 ```
-DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST
-```
-
-**Authentication Response:**
-
-L'ACC-Server risponde al messagio discover con una richiesta HTTP sulla porta `8080` e inviando il
-messaggio che ha ricevuto come richiesta, ci aggiunge un trattino e la ACC-Client-KEY, che deve
-essere generata se l'Arduino non &egrave; mai stato collegato al server Domotics, altrimenti deve
-essere presa quella gia presente sul database (e deve essere aggiornato l'IP nel caso sia diverso).
-Ed infine deve aggiungere il suo indirizzo IP e la stringa `-ACCEPTED` (L'indirizzo IP e la KEY dovranno essere salvati in delle variabili sull Arduino e sul database).
-
-```
-DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST-ABCDEFABCDEF-192.168.1.2-ACCEPTED
+1234567890ABCD
 ```
 
 **Comunicazione ACC-Client -> ACC-Server:**
@@ -459,7 +449,7 @@ risposta dovr&agrave; essere un file JSON.
 Per esempio quando viene cliccato un bottone l'ACC-Client, invia una richiesta al server simile a questa:
 
 ```
-http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&type=send&pin=13&value=1
+http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&pin=13&set=1
 ```
 
 Tutte le richieste destinate all'ACC dovranno essere fatte verso l'IP del server domotics sulla
@@ -473,7 +463,7 @@ Il server ritorner&agrave; una risposta simile alla seguente.
 ```JSON
 {
     "response": "OK",
-    "message": ""
+    "message": "<value>"
 }
 ```
 
@@ -487,69 +477,55 @@ effettuate con il metodo GET e le risposte saranno dei file JSON.
 
 Le richieste potranno essere di due tipi:
 
-- `send`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
+- `set`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
 - `get`, che serve per richiedere dei dati all'Arduino, per esempio richiedere il valore di un pin
 
-Esempio di richiesta _send_:
+Esempio di richiesta _set_:
 
 ```
-http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=send&pin=4&value=1
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&pin=4&set=1
 ```
 
 risposta:
 
 ```JSON
 {
-    "pin":4,
-    "value":1
+    "response":"OK",
+    "message":"<value>"
 }
 ```
 
 Esempio di richiesta _get_:
 
 ```
-http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=get&pin=a0
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&pin=A0
 ```
 
 risposta:
 
 ```JSON
 {
-    "pin":"a0",
-    "value":"123"
+    "response":"OK",
+    "message":"<value>"
 }
 ```
 
 **ACC-AutoConfiguation:**
 
-Siccome si vuole avere un sistema di comunicazione autonomo. Il quale deve essere in grado di
-richiedere al server la sua configuazione, che sarà richiesta dall'arduino al server
-tramite la ACC-Authentication-Request.
+La richiesta deve essere:
 
-Se il server gi&agrave; conosce l'Arduino (ACC-Client-ID), gli invia la chiave, e nel caso sia
-cambiato l'IP del server lo aggiona sul database (questo per permettere un buon funzionamento con
-DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
-`ACC-Client-KEY-Generator` una KEY.
-
-In oltre viene inviata la configurazione dei vari pin.
-Che dovrebbe essere simile a questa:
-
-```JSON
-{
-    "acc-client-id": "<ACC-Client-ID>",
-    "acc-client-key": "<ACC-Client-KEY>",
-    "digital": [
-        {
-            "pin": 13,
-            "type": "out"
-        },
-        {
-            "pin": 13,
-            "type": "out"
-        }
-    ]
-}
 ```
+http://<serverAddress>:<serverPort>/acc?autoconf&id=<ACC-Client-ID>
+```
+
+E la risposta sar&agrave;
+
+```
+{"id":"<ACC-Client-ID>", "key":"<ACC-Client-KEY>", "server_address":"<serverAddress>:<serverPort>"}
+```
+
+Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
+parte del client.
 
 ## 3 Implementazione
 
