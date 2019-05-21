@@ -1,0 +1,84 @@
+@startuml
+
+package javax.servlet.http {
+    class HttpServlet {
+
+    }
+}
+
+package ldap {
+    class LdapConnector {
+        + final DEFAULT_PORT : int
+        + static DEFAULT_SECURITY_AUTHENTICATION : String
+        + static DEFAULT_INITIAL_CONTEXT_FACTORY : String
+        - domain : String
+        - port : int
+        - base : String
+        - security : String
+        - setDomain(domain : String) : void
+        + getDomain() : String
+        - setPort(port : int) : void
+        + getPort() : int
+        - setBase(base : String) : void
+        + getBase() : String
+        - setSecurity(security : String)
+        + getSecurity() : String
+        + LdapConnector(domain : String, port : int, base : String, security : String)
+        + LdapConnector(domain : String, port : int, base : String)
+        + LdapConnector(domain : String, base : String, security : String)
+        + LdapConnector(domain : String, base : String)
+        - getConnectionString() : String
+        - getDn(username : String) : String
+        - getEnvironment(username : String, password : String) : Hashtable<String, String>
+        + getDirContext(username : String, password : String) : DirContext
+        + static main(args : String[]) : void
+    }
+}
+
+package portal.authentication {
+
+    interface Authenticator {
+        authenticate(username : String, password : String) : boolean
+    }
+
+    class SqlAuthenticator {
+        + authenticate(username : String, password : String) : boolean
+    }
+    Authenticator <|.. SqlAuthenticator
+
+    class LdapAuthenticator {
+        - static DOMAIN : String
+        - static PORT : int
+        - static BASE_OU : String
+        - static SECURITY : String
+        - subOu : String
+        - getBaseOu() : String
+        + LdapAuthenticator(subOu : String)
+        + LdapAuthenticator()
+        - getLdapConnector() : LdapConnector
+        + authenticate(username : String, password : String) : boolean
+        + static main(args : String[]) : void
+    }
+    Authenticator <|.. LdapAuthenticator
+
+    class AuthenticationChecker {
+        - session : HttpSession
+        + AuthenticationChecker(session : HttpSession)
+        + isValidSession() : boolean
+        + getSessionUsername() : String
+    }
+
+    class LoginServlet {
+        # doPost(request : HttpServletRequest, response : HttpServletResponse) : void
+        # doGet(request : HttpServletRequest, response : HttpServletResponse) : void
+    }
+    HttpServlet <|-- LoginServlet
+
+    class LogoutServlet {
+        # doPost(request : HttpServletRequest, response : HttpServletResponse) : void
+        # doGet(request : HttpServletRequest, response : HttpServletResponse) : void
+    }
+    HttpServlet <|-- LogoutServlet
+}
+
+@enduml
