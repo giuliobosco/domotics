@@ -151,7 +151,7 @@ Questa applicazione permette di controllare a distanza luci, tende e beamer dell
 
 ### 1.5 Analisi e specifica dei requisiti
 
-Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte tutte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
+Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
 
 Requisiti cambiati:
 -   Simulazione tende
@@ -248,7 +248,7 @@ Requisiti cambiati:
 |Versione: |1.0                                       ||
 |Note:     |                                          ||
 |          |Sotto requisiti                            |
-|001:      |Controllare delle lampadine dalla 220v tramite i relay||
+|001:      |Controllare delle lampadine da 220v tramite i relay||
 
 <br>
 
@@ -385,7 +385,7 @@ In questo modo grazie alla chiave che ogni arduino ha, il server riesce a ricono
 
 ### 2.5 Connessione al database della scuola
 
-Per connetterci al database della scuola abbiamo deciso di utilizzare LDAP Connector perché era la soluzione più facile e sicura da implementare dato che passi le credenziali per entrare nel database alla scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente sul database per evitare problemi.
+Per connetterci al database della scuola abbiamo deciso di utilizzare LDAP Connector perché era la soluzione più facile e sicura da implementare dato che passi le credenziali all sistema ADDS della scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente sul database per evitare problemi.
 
 ![LDAP](img/ldap/uml.png)
 
