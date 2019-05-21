@@ -50,3 +50,10 @@ classe preposta (`IdManager`), le richieste HTTP ai microcontrollori vengono ese
 classe `GetRequest` e le configurazioni per i microcontrollori vengono generate dal `Autoconf`.
 
 ![back-end acc-server, diagramma delle classi](../../design/back-end/acc-server.png)
+
+Da ultimo &egrave; stato progettato il modulo relativo ai dati, i dati da inviare al front-end. Che
+&egrave; composto dalla classe `RoomsServlet`, in futuro potrebbe venir anche ingrandito.
+Questa classe, semplicemente richiede al dababase (tramite le classi modello), tutte le `Room`, con
+le relative luci. E trasforma tutto in un file JSON, che viene inviato come risposta.
+
+![back-end data, diagramma delle classi](../../design/back-end/data.png)
