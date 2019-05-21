@@ -1011,4 +1011,15 @@ Il progetto è stato molto interessante anche se impegnativo dato che il progett
 
 ### 7.1 Sitografia
 
+-https://stackoverflow.com/
+-https://www.w3schools.com/
+-https://getbootstrap.com/docs/4.3/getting-started/introduction/
+-http://www-db.deis.unibo.it/courses/BDPG/JDBC.pdf
+-https://www.html.it/pag/15159/jdbc-introduzione/
+-https://www.theserverside.com/definition/Java-Database-Connectivity-JDBC
+-https://searchmobilecomputing.techtarget.com/definition/LDAP
+-https://www.gracion.com/server/whatldap.html
+-https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
+-https://www.arduino.cc/
+
 ## 8 Allegati
