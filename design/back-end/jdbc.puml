@@ -1,0 +1,36 @@
+@startuml
+
+package jdbc {
+    class JdbcConnector {
+        + static DEFAULT_PORT = 3306 : int
+        + TIMEZONE_UTC : String
+        - username : String
+        - password : String
+        - hostname : String
+        - port : int
+        - database : String
+        - statement : Statement
+        + JdbcConnector(String username, String password, String host, int port, String database)
+        + JdbcConnector(String username, String password, String host, String database)
+        # getDbConnection(String username, String password, String host, int port, String database) : Connection
+        + createStatement() : void
+        + closeStatement() : void
+        + openConnection() : void
+        + query(query : String) : ResultSet
+        + update(update : String) : void
+        + closeConnection() : void
+        + static main(args : String[]) : void
+    }
+
+    class DomoticsJdbcC {
+        - static USERNAME : String
+        - static PASSWORD : String
+        - static HOSTNAME : String
+        - static PORT : int
+        - static DATABASE : String
+        + static getConnector() : JdbcConnector
+        + static getIdManager() : IdManager
+    }
+}
+
+@enduml
