@@ -1,0 +1,18 @@
+@startuml
+
+package javax.servlet.http {
+    class HttpServlet {
+
+    }
+}
+
+package data {
+    class RoomsServlet {
+        # doPost(request : HttpServletRequest, response : HttpServletResponse) : void
+        # doGet(request : HttpServletRequest, response : HttpServletResponse) : void
+        - getJsonRoom(room : Room, connector : JdbcConnector) : JSONObject
+    }
+    HttpServlet <|-- RoomsServlet
+}
+
+@enduml
