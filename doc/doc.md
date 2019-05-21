@@ -199,7 +199,7 @@ Requisiti cambiati:
 
 <br>
 
-|		   |ID: REQ-04     |	    		             |
+|		   |ID: REQ-04    |	    		             |
 |:---------|:-------------|:-------------------------|
 |Nome:     |Server in Python                        ||
 |Priorità: |1                                       ||
@@ -212,12 +212,12 @@ Requisiti cambiati:
 
 |		   |ID: REQ-05    |	    		                      |
 |:---------|:-------------|:----------------------------------|
-|Nome:     |Connettersi al database in java                  ||
+|Nome:     |Ricavare dati dal database                       ||
 |Priorità: |1                                                ||
 |Versione: |1.0                                              ||
 |Note:     |                                                 ||
 |          |Sotto requisiti                                   |
-|001:      |Connetersi con java al database domotics         ||
+|001:      |Tramite java                                     ||
 
 <br>
 
@@ -253,7 +253,7 @@ Requisiti cambiati:
 <br>
 
 |		   |ID: REQ-09     |	                                      |
-|:---------|:-------------|:--------------------------------------|
+|:---------|:--------------|:--------------------------------------|
 |Nome:     |Simulazione tende                                    ||
 |Priorità: |3                                                    ||
 |Versione: |1.0                                                  ||
@@ -553,9 +553,165 @@ Che dovrebbe essere simile a questa:
 
 ## 3 Implementazione
 
-### 3.1 Login del sito web
+### 3.1 Sito web
 
-### 3.2 Dashboard del sito web
+#### WEB-APP
+
+Il front-end di domotics, &egrave; stato pensato come una web app costruita su moduli, quindi
+per facilitare questo metodo di sviluppo &egrave; stato deciso di basarlo su AngularJS, un
+framework, che permette di aggiungere e togliere moduli indipendenti senza andare ad intaccare gli altri. Questo &egrave; stato pensato per poter usare questo sistema come base per un portale al quale si possono aggiungere altri moduli.
+
+##### moduli presenti
+
+Al momento sono presenti solamente due moduli, quelli di base per il l'interazione con il modulo
+domotics:
+
+- Login: modulo per il login basato su LDAP.
+- Rooms: Controllo delle luci di domotics.
+
+##### AngularJS
+
+La web-app basata su AngularJS, &egrave; formata dalla pagina index.html, la quale carica tutte le librerie e i framework utilizzati dal progetto, per esempio AngularJS, jQuery e bootstrap. In oltre carica l'applicazione Angular, configura le routes delle pagine ed inifine carica i controller ed i services.
+
+Per ogni pagina bisogna creare un controller, il quale richieda i services di cui necessita ed
+inserisca i valori nella view.
+
+Per inizializzare la web app:
+
+```javascript
+var app = angular.module('ViewsAPP', ['ngRoute','ngSanitize']);
+```
+
+Questa stringa di codice inizializza l'applicazione angular, con il nome `ViewsAPP` e le configura le librerie `ngRoute`, che serve per caricare le giuste routes, richiede al server la giusta view, dato l'url. Mentre `ngSanitize`, serve per stampare del codice html scaricato tramite un service, per esempio all'interno di un file JSON.
+
+#### Creare un controller
+
+I controller servono, per trasferire i dati dal servizio alla view (e nel caso in cui necessario
+eseguire delle operazioni su di essi). Un controller si crea come segue:
+
+```javascript
+app.controller('Controller', ['$scope', '$sce', 'Service', function ($scope, $sce, service) {
+	service.getFromService().then(function (data) {
+		$scope.data = data;
+	});
+}]);
+```
+
+Creando un controller, bisogna inserire il suo nome, poi un array contenente gli elementi che
+necessita il controller, ed infine la funzione del controller, con i parametri richiesti
+precedentemente.
+
+Dopo di che eseguire le operazioni che si necessitano nel controller, la variabile `$scope`, viene utilizzata per passare i valori fra i controller e le view.
+
+### Creare un service
+
+I service servono per eseguire le richieste al server, queste possono essere per esempio richieste
+HTTP.
+
+```javascript
+app.factory('Service', ['$http', function($http) {
+	var service = [];
+	var urlBase = "/data/rooms";
+
+	service.getFromService = function () {
+		return $http({
+			method: 'GET',
+			url: url
+		}).then(function (response){
+			return response.data;
+		},function (error){
+			return error;
+		});
+	};
+
+	return service;
+}]);
+```
+
+Un service richiede il nome, ed un array, con gli oggetti di angular di cui necessita, quindi per
+esempio `$http`, che sarebbe la libreria, per eseguire le richieste HTTP. In ogni service
+solitamente si mette una sola richiesta, che pu&ograve; essere eseguita in modalit&agrave; diverse,
+quindi per ogni modalit&agrave; si crea una funzione per eseguire la richiesta.
+
+Tutte le richieste vanno inserite in un oggetto, il quale verr&agrave; poi ritornato.
+
+### Views
+
+Per gestire le pagine vengono usate delle views che vengono caricate da `app.js` nel body della
+pagina `index.html`, queste vengono gestite dal modulo angular `ngRoute`.
+
+```javascript
+app.config(function ($routeProvider) {
+	// index
+	$routeProvider.when('/', {
+		templateUrl: 'views/index.html'
+	});
+
+	// login
+	$routeProvider.when('/login', {
+		templateUrl: 'views/login.html'
+	});
+
+	// rooms
+	$routeProvider.when('/rooms', {
+		templateUrl: 'views/rooms.html'
+	});
+
+	// settings
+	$routeProvider.when('/settings', {
+		templateUrl: 'views/settings.html'
+	});
+
+	// else
+	$routeProvider.otherwise({
+		redirectTo: '/'
+	});
+}).run(function ($rootScope, $route) {
+	$rootScope.$route = $route;
+});
+```
+
+Per configuare `ngRoute`, bisogna congiurarlo con una funziona da inserire nel metodo `config()`
+dell'app. Al quale viene passato l'oggetto `$routeProvider`, il quale ha un metodo `when()`, questo
+metodo permette di settare ad uno specifico url (dopo il simbolo `#`, per esempio
+`localhost#!/test`), una view da caricare. Ed utilizzare anche un metodo `otherwise()`, che viene
+utilizzato nel caso in cui viene inserito un url non specificato prima.  
+Infine avviare la web app con le routes configurate precedentemente.
+
+### Stile
+
+Per lo stile delle pagine usiamo bootstrap (https://getbootstrap.com) e fontawesome
+(https://fontawesome.com).  
+Abbiamo usato Fontawesome per aggiungere delle icone al sito, abbiamo usato Fontawesome al posto
+delle immagini perché le icone che contiene sono dei caratteri che quindi sono più leggeri e più
+facili da usare delle immagini.  
+Ecco un esempio di view implementata usando bootstrap e fontawesome.
+
+```html
+<div class="navbar">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+<div class="sidebar">
+	<div class="col-md-12">
+
+		<h2>portal<i class="pull-right fa fa-times"></i></h2>
+		<ul class="a-white">
+			<li><a href="#!/rooms">rooms</a></li>
+		</ul>
+	</div>
+	<div class="bottom col-md-12 a-white">
+    <a href="#!/settings"><i class="fa fa-cog fa-2x"></i></a>
+    <a href="/Logout"><i class="fa fa-sign-out pull-right fa-2x"></i></a>
+  </div>
+</div>
+<script src="assets/js/scripts/sidebar.js"></script>
+```
+
+Fontawesome usa il tag <i> per inserire le icone. Per definire l'icona bisogna inserire nel attributo class: fa che definisce l'uso di fontawesome, fa-[nome icona] che definisce quale icona si vuole usare, e se si vuole la grandezza dell'icona
+
+```html
+<i class="fa fa-cog fa-2x">
+```
 
 ### 3.3 Database
 
@@ -710,7 +866,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-001                               |
 |---------------|--------------------------------------|
-|**Nome**       | Pagina di login                      |
+|**Nome**       | Pagina login                         |
 |**Riferimento**| REQ-01                               |
 |**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
@@ -719,7 +875,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-002                               |
 |---------------|--------------------------------------|
-|**Nome**       | Pagina con la dashboard              |
+|**Nome**       | Pagina dashboard                     |
 |**Riferimento**| REQ-02                               |
 |**Descrizione**| Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
@@ -739,16 +895,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-004                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che i led si accendono    |
+|**Nome**       | Accendere led                        |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><p>(Questi passaggi sono da fare due volte dato che i led sono due)</p><li>Premere il checkbox della luce.</li></ul> |
 |**Risultati attesi** | <ul><li>I due led devono accendersi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-005                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che i led si spengono     |
+|**Nome**       | Spegnere led                         |
 |**Riferimento**| REQ-08                               |
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
@@ -759,16 +917,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-006                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le luci si accendono  |
+|**Nome**       | Accendere luci                       |
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-007                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le luci si spengono   |
+|**Nome**       | Spegnere luci                        |
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere accese.</li></ul>|
@@ -779,16 +939,18 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-008                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le tende si aprono    |
+|**Nome**       | Aprire Tende                         |
 |**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere chiuse.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
 |**Risultati attesi** | <ul><li>Le tende devono aprirsi.</li></ul> |
 
+<br>
+
 |Test Case      | TC-009                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che le tende si chiudono  |
+|**Nome**       | Chiudere Tende                       |
 |**Riferimento**| REQ-11                               |
 |**Descrizione**| Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere aperte.</li></ul>|
@@ -799,7 +961,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-010                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che il beamer si accende  |
+|**Nome**       | Accendere beamer                     |
 |**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li><li>Il beamer deve essere spento.</li></ul>|
@@ -808,7 +970,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 |Test Case      | TC-011                               |
 |---------------|--------------------------------------|
-|**Nome**       | Verificare che il beamer si spegne   |
+|**Nome**       | Spegnere beamer                      |
 |**Riferimento**| REQ-12                               |
 |**Descrizione**| Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
@@ -817,15 +979,30 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ### 4.2 Risultati Test
 
-|Test Case | Nome  | Descrizione | Risultato      |
-|----------|-------|-------------|----------------|
-|          |       |             |                |              
-|          |       |             |                |     
-|          |       |             |                |  
-|          |       |             |                |                                         
-|          |       |             |                |     
-|          |       |             |                |     
+| Test Case | Nome              | Descrizione | Risultato      |
+|-----------|-------------------|-------------|----------------|
+|TC-001     |Pagina login       |Verificare che la pagina di login venga rappresentata correttamente.|OK|              
+|TC-002     |Pagina dashboard   |Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|OK|  
+|TC-003     |Verifica accessi   |Verificare che il controllo dei dati di accesso avvenga correttamente.|OK|  
+|TC-004     |Accendere led      |Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|OK|  
+|TC-005     |Spegnere led       |Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|OK|  
+|TC-006     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
+|TC-007     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
+|TC-008     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
+|TC-009     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
+|TC-010     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
+|TC-011     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
+
+### 4.3 Mancanze/limitazioni conosciute
 
 ## 5 Consuntivo
 
-### 5.1 Gantt Consuntivo
+## 6 Conclusioni
+
+### 6.1 Considerazioni finali
+
+## 7 Bibliografia
+
+### 7.1 Sitografia
+
+## 8 Allegati
