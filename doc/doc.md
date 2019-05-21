@@ -997,6 +997,10 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ## 5 Consuntivo
 
+![SchemaArduino](img/gantt/GanttConsuntivo.PNG)
+
+I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione. I più grandi cambiamenti sono nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno temp del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi dei test non erano necessari. Abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Per integrare i moduli ci abbiamo messo meno del tempo previsto nella progettazione tempo che abbiamo potuto dedicare alla documentazione.
+
 ## 6 Conclusioni
 
 ### 6.1 Considerazioni finali
