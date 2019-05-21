@@ -22,3 +22,13 @@ con facilit&agrave;
 
 ![back-end autenticazione &amp; ldap diagramma delle classi](../../design/back-end/authentication.png)
 
+Dopo di che &egrave; stato progettato il modulo relativo al database, quindi l'utilizzo di JDBC, il
+driver per connnettersi ai database MySQL con Java.  
+Il quale &egrave; composto delle seguenti classi:
+
+- `JdbcConnector`, gestisce le connessioni al server MySQL, per poter funzionare necessita che vi
+sia presente la libreria `mysql-connector-java-8.0.13.jar`.
+- `DomoticsJdbcC`, &egrave; una classe che istanzia `JdbcConnector` nella maniera corretta per
+questo progetto.
+
+![back-end jdbc diagramma delle classi](../../design/back-end/jdbc.png)
