@@ -1,7 +1,7 @@
 <div style="font-size:36px;text-align:center">
     <br><br><br><br><br>
     <small style="font-size:18px;">Guida Modulo</small><br>
-    ldap
+    LDAP
 </div>
 
 <div class="page-break"></div>
