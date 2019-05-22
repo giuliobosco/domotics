@@ -1027,7 +1027,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-004                               |
+|Test Case      | TC-006                               |
 |---------------|--------------------------------------|
 |**Nome**       | Rotazione dei motori in senso orario |
 |**Riferimento**| REQ-09                               |
@@ -1038,7 +1038,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-005                                    |
+|Test Case      | TC-007                                    |
 |---------------|-------------------------------------------|
 |**Nome**       | Rotazione dei motori in senso antiorario  |
 |**Riferimento**| REQ-09                                    |
@@ -1049,7 +1049,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-006                               |
+|Test Case      | TC-008                               |
 |---------------|--------------------------------------|
 |**Nome**       | Accendere luci                       |
 |**Riferimento**| REQ-10                               |
@@ -1060,7 +1060,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-007                               |
+|Test Case      | TC-009                               |
 |---------------|--------------------------------------|
 |**Nome**       | Spegnere luci                        |
 |**Riferimento**| REQ-10                               |
@@ -1071,7 +1071,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-008                               |
+|Test Case      | TC-010                               |
 |---------------|--------------------------------------|
 |**Nome**       | Aprire Tende                         |
 |**Riferimento**| REQ-11                               |
@@ -1082,7 +1082,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-009                               |
+|Test Case      | TC-011                               |
 |---------------|--------------------------------------|
 |**Nome**       | Chiudere Tende                       |
 |**Riferimento**| REQ-11                               |
@@ -1093,7 +1093,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-010                               |
+|Test Case      | TC-012                               |
 |---------------|--------------------------------------|
 |**Nome**       | Accendere beamer                     |
 |**Riferimento**| REQ-12                               |
@@ -1102,7 +1102,7 @@ che rappresenta il diagramma delle classi.
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul>|
 |**Risultati attesi** | <ul><li>Il beamer deve accendersi.</li></ul> |
 
-|Test Case      | TC-011                               |
+|Test Case      | TC-013                               |
 |---------------|--------------------------------------|
 |**Nome**       | Spegnere beamer                      |
 |**Riferimento**| REQ-12                               |
@@ -1120,12 +1120,14 @@ che rappresenta il diagramma delle classi.
 |TC-003     |Verifica accessi   |Verificare che il controllo dei dati di accesso avvenga correttamente.|OK|  
 |TC-004     |Accendere led      |Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|OK|  
 |TC-005     |Spegnere led       |Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|OK|  
-|TC-006     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
-|TC-007     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
-|TC-008     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
-|TC-009     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
-|TC-010     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
-|TC-011     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
+|TC-006     |Rotazione dei motori in senso orario|Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.|FAILED|
+|TC-007     |Rotazione dei motori in senso antiorario|Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.|FAILED|
+|TC-008     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
+|TC-009     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
+|TC-010     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
+|TC-011     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
+|TC-012     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
+|TC-013     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
 
 ### 4.3 Mancanze/limitazioni conosciute
 
