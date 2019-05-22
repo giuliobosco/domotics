@@ -128,9 +128,28 @@ th, td {
         </div>
         <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
     <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
-        6 Allegati
+        6 Conclusioni
     </div>
     <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;6.1 Considerazioni finali
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;6.2 Sviluppi futuri
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;7 Bibliografia
+    </div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;7.1 Sitografia
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">44</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;8 Allegati
+    </div>
 </div>
 
 ## 1 Introduzione
