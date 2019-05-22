@@ -1,8 +1,10 @@
+<head>
 <style>
 th, td {
     padding:2px 5px!important;
 }
 </style>
+<head>
 
 # Domotizzazione dell'aula
 
@@ -147,7 +149,7 @@ Lo scopo del progetto è quello di domotizzare le aule della scuola arti e mesti
 
 ### 1.4 Analisi del dominio
 
-Questa applicazione permette di controllare a distanza luci, tende e beamer delle aule delle scuole. Infatti il suo contesto principale di utilizzo sono proprio le scuole dato che è un sistema molto semplice e a basso prezzo che fa proprio a caso delle scuole. Infatti l'idea è di implementare e testare quest'applicazione inizialmente in una singola aula dopdichè se funziona bene si può implementarlo in tutte le aule della scuola. Prodotti simili esistono già ma non specifici per le aule del CPT, inoltre il nostro sistema va ad interagire direttamente con il server della scuola per controllare chi di quelli che fa il login è un docente e quindi chi di essi potrà accedere al pannello di controllo o no. Senza il nostro prodotto gli utenti delle varie aule, docenti e allievi tribulano di continuo con i pulsanti delle luci che funzionano a caso.  
+Questa applicazione permette di controllare a distanza luci, tende e beamer delle aule delle scuole. Infatti il suo contesto principale di utilizzo sono proprio le scuole dato che è un sistema molto semplice e a basso costo che fa proprio caso alle scuole. Infatti l'idea è di implementare e testare quest'applicazione inizialmente in una singola aula dopdichè se funziona bene si può implementarlo in tutte le aule della scuola. Prodotti simili esistono già ma non specifici per le aule del CPT, inoltre il nostro sistema va ad interagire direttamente con l'Active Directory Domain Service della scuola per controllare se chi fa il login è un docente e quindi se può accedere al pannello di controllo o no. Senza il nostro prodotto gli utenti delle varie aule, docenti e allievi tribulano di continuo con i pulsanti delle luci che funzionano a caso e sono in posizioni difficili da raggiungere.  
 
 ### 1.5 Analisi e specifica dei requisiti
 
@@ -353,9 +355,9 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 Questo è lo schema che rappresenta il nostro progetto.
 Il nostro progetto è strutturato nel seguente modo:
 Nella parte fisica ci saranno i vari componenti dell'aula, come le luci, il beamer, le tende e i vari sensori.
-Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login, una volta che si accede al sito porta l'utente alla dashboard iniziale dove è possibile vedere tutte le aule presenti e selezionare quella che si vuole gestire.
-Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro database dove salviamo le seguenti informazioni.
-LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del server della scuola per controllare che l'utente che sta cercando di accedere al pannello di controllo sia un account di un docente.
+Nella parte Control l'arduino viene controllato tramite l'Arduino Connection Controller Server e Client che gli permettono di comunicare con il sito web, da cui si può accedere tramite il login. Una volta che si accede il sito porta l'utente alla dashboard iniziale dove è possibile vedere e gestire tutte le aule presenti.
+Il sito web è caricato sul web server in Tomcat mentre domotics server si occupa di auto configurare gli arduino presenti sulla rete, di trovarli e di memorizzare porta, indirizzo e chiave che poi salverà sul nostro database.
+LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuato lui andrà a confrontare le credenziali con quelle del AD-DS della scuola per controllare che l'utente che sta cercando di accedere al sito sia un account di un docente.
 
 ### 2.2 Design dell'interfaccia di login
 
@@ -380,33 +382,33 @@ Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che 
 
 ![DataBase](img/db/DbDiagram.png)
 
-Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro identificatore, per ogni aula viene associato un arduino di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati i suoi pin e le luci. Ogni arduino gestisce le luci, il beamer, le tende e i sensori che ci sono all'interno dell'aula di cui vengono memorizzati i pin.
+Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro identificatore, un arduino associato di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati il suo pin e la luce che controlla. Ogni arduino gestisce le luci, il beamer, le tende e i sensori che ci sono all'interno dell'aula di cui vengono memorizzati i pin.
 In questo modo grazie alla chiave che ogni arduino ha, il server riesce a riconoscerli e identificarli per poi ricavare lo stato di tutti i suoi moduli, quindi luci, tende, beamer e sensori andando a ricercare le varie informazione nel database.
 
 ### 2.5 Connessione al database della scuola
 
-Per connetterci al database della scuola abbiamo deciso di utilizzare LDAP Connector perché era la soluzione più facile e sicura da implementare dato che passi le credenziali all sistema ADDS della scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente sul database per evitare problemi.
+Per ricavare le credenziali dei docenti abbiamo deciso di utilizzare LDAP Connector perché era la soluzione più facile e sicura da implementare dato che passi le credenziali all sistema AD-DS della scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente al AD-DS per evitare problemi.
 
 ![LDAP](img/ldap/uml.png)
 
-La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
+La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi se ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
 Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autenticazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove deve andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci sono tre costruttori, uno a cui viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno a cui non viene passato il tipo di sicurezza e nel terzo viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione, e getDirContext ritorna se l'utente ha i permessi o no.
 
 ### 2.6 Architettura Arduino Yun
 
 All'inizio del progetto ci siamo trovati a dover scegliere quale arduino utilizzare per controllare i vari moduli delle aule, innanzitutto abbiamo deciso di utilizzare la connessione ethernet per comunicare tra interfaccia web e l'arduino, questo per un fattore di comodità infatti
-per utilizzare una connessione wirelless avremmo dovuto usare il fishino che però non abbiamo mai utilizzato e quindi sarebbe potuto essere un problema in più, inoltre tramite connessione ethernet non avremmo avuto problemi di delay e avremmo avuto più stabilità.
+per utilizzare una connessione wireless avremmo dovuto usare il fishino che però non abbiamo mai utilizzato e quindi sarebbe potuto essere un problema in più, inoltre tramite connessione ethernet non avremmo avuto problemi di delay e avremmo avuto più stabilità.
 
 ![SchemaArduino](img/arduino/schema_arduino.png)
 
-Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays che permettono di collegarsi alle luci. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
+Questo è il design dello schema dell'arduino, come si può notare questo schema rappresenta una simulazione di ciò che poi si dovrà implementare fisicamente, infatti i motori delle tende sono stati sostituiti con dei servomotor che rappresenteranno poi i motori che verranno utilizzati per muovere le tende. Le luci invece vengono controllate tramite dei relays. Per le simulazioni si può sostituire i relays con dei LED. Gli interruttori delle luci delle aule vengono simulati con dei bottoni in pull-down. Nello schema c'è anche il sensore di temperatura e il sensore di luce che possono essere usati per dare dati in più sull'aula.
 
 ### 2.7 Comunicazione Arduino Server
 
 Per comunicare tra l'arduino e il server abbiamo deciso di creare un sistema chiamato Arduino Connection Controller (ACC) che verr&agrave; utilizzato per comunicare fra gli arduino e il server Domotics, quindi questo modulo sarà diviso in due parti, una sviluppata in Java (ACC-Server) mentre l'altra sviluppata in Arduino (ACC-Client).
 
-In modo tale che quando l'arduino si collegherà ad una rete l'ACC dovr&agrave; preoccuparsi di collegarsi alla rete con il DHCP, questo per permettere il corretto funzionamento del sistema in ogni caso. Dopo aver collegato entrambi sulla stessa rete, l'ACC dovrà ricercare il nostro server domotics tramite (ACC-Client-Discover), il quale servirà per registrare l'arduino sul server e poterlo configurare dal server. Dopo che l'arduino si è collegato al server o se questo è già collegato il server configura l'arduino in modo tale che poi possono iniziare a lavorare.
-Siccome si utilizza l'arduino Yun e una parte di codice dovrà essere eseguite sull'arduino mentre un altra su OpenWRT è per questo che il programma sarà diviso in due parti come detto in precedenza:
+In modo tale che quando l'arduino si collegherà ad una rete l'ACC dovr&agrave; preoccuparsi di collegarsi alla rete con il DHCP, questo per permettere il corretto funzionamento del sistema in ogni caso. Dopo aver collegato entrambi sulla stessa rete, l'ACC dovrà ricercare il nostro server domotics tramite (ACC-Client-Discover), il quale servirà per registrare l'arduino sul server e per poterlo configurare dal server. Dopo che l'arduino si è collegato al server o se questo è già collegato il server configura l'arduino in modo tale che poi possono iniziare a lavorare.
+Siccome si utilizza l'arduino Yun che è suddiviso in due parti arduino e OpenWRT il codice sar&agrave; suddiviso in due parti come detto in precedenza:
 - arduino: ACC-Client.ino
 - python: ACC.Client.py
 
@@ -832,9 +834,140 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
     ```
 
 
-### Arduino Connection Controller Client
+### Arduino Connection Controller
 
-### Arduino Connection Controller Server
+&Egrave; un protocollo che abbiamo ideato per comunicare con facilita con l'Arduino,
+mentre lo stavamo progettando ci siamo accorti che questo protocollo pu&ograve; essere esteso per
+qualunque micro controllore che possa essere connesso ad una rete LAN, siccome &egrave; basato sul
+protocollo HTTP, per poterlo utilizzare basta un server HTTP personalizzato ed un client HTTP per
+eseguire le richieste al server ACC.  
+Il server HTTP e il client, sono entrambi sia sul server ACC che sul client ACC (Microcontrollore).  
+Per semplicit&agrave; il server verr&agrave; chiamato `ACC-Server` mentre il lato client verr&agrave;
+denominato `ACC-Client`.
+
+Questo protocollo, come un modulo a se stante, dal progetto `domotics`, quindi potrà venir
+utilizzato anche da altri progetti.  
+L'idea del funzionamento di questo modulo, &egrave; poter inviare dei valori da settare sui pin,
+oppure richiedere lo stato dei pin. Questo protocollo deve funzionare in maniera "sicura" se vi
+&egrave; presente un ACC-Server, oppure in maniera autonoma se il suo server.
+
+La modalit&agrave; `sicura` utilizza una chiave per scambiare i valori fra l'ACC-Client e
+l'ACC-server, la chiave &egrave; una stringa esadecimale di 12 caratteri. Quando la modali&agrave;
+sicura &egrave; abilitata, per richiedere i valori al microcontrollore o settare dei valori sui pin,
+mentre nella modalit&agrave; senza l'ACC-Server, chiunque conosce l'indirizzo IP del server ed il
+funzionamento del protocollo pu&ograve; inviare comandi o richiedere valori all'ACC-Client.
+
+#### ACC-Server (Arduino Connection Controller - Server)
+
+L'ACC-Server, &egrave; composto di un server HTTP ed un elemento per creare le richieste HTTP. Il
+server HTTP, ha bisogno di una pagina, la quale deve essere in grado di interpretare due richiste:
+- autoconf: Questa richiesta richiede tramite il suo ID, la quale ritorna la chiave di comunicazione.
+- set: Questa richiesta deve contenere, la chiave di comunicazione, il pin ed il valore, questa
+serve per aggiornare l'ACC-Server nel caso in cui un pin (per esempio bottone), cambia stato.  
+L'ACC-Server, si basa sul un database, che viene utilizzato per risolvere le richieste, per esempio
+quale input deve accendere o spegnere quale luce. Per il database &egrave; stata fatta una guida
+apposita: `doc/Documentazione/Guide/GuidaFunzionamentoDatabase.md`.
+
+##### ACC-Server - autoconf
+
+Il comando autoconf serve ad auto configurare l'arduino per poter comunicare con il server.
+La richiesta deve essere:
+
+```
+http://<serverAddress>:<serverPort>/acc?autoconf&id=<ACC-Client-ID>
+```
+
+E la risposta sar&agrave;
+
+```
+{"id":"<ACC-Client-ID>", "key":"<ACC-Client-KEY>", "server_address":"<serverAddress>:<serverPort>"}
+```
+
+Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
+parte del client.
+
+##### ACC-Server - set e set toggle
+
+Quando cambia lo stato di un pin digitale di input sull'arduino, (per esempio la pressione di un
+bottone) questo deve notificarlo al server, per permettere al server di eseguire le guiste
+operazioni, per esempio modificare lo stato di altri pin.
+
+In alcuni casi potrebbe essere comodo avere una funzione toggle, per esempio per i bottoni, eseguire
+la richiesta `set`, la quale semplicemente indica che il pin ha cambiato stato.
+
+##### ACC-Server - il codice
+
+Nel caso di domotics l'ACC-Server, &egrave; stato implementato in java, per poterlo integrare
+direttamente con il modulo del web e per riutilizzare in questi due ambienti gli
+stessi modelli dei dati.
+
+Quindi &egrave; stata creata una pagina del web server, con le funzionalit&agrave; dell'ACC-Server
+(`src/acc/AccServlet.java`), la quale sar&agrave; resa disponibile dal webserver all'indirizzo:
+`http://<serverAddress>:<serverPort>/acc`.
+
+#### ACC-Client (Arduino Connection Controller - Client)
+
+Anche L'ACC-Client, &egrave; composto di un server HTTP ed un client, il server rimane in ascolto
+sulla porta `8080`, per la ricezione delle richieste dell'ACC-Server, mentre il client esegue le
+richieste all'ACC-Server, quando cambia lo stato di un bottone (o di un pin digitale di input).
+Per identificare il client esso contiene un ID formato da 12 numeri esadecimali.
+
+##### ACC-Client-KEY
+
+&Egrave; un codice di comunicazione fra il ACC-Client e ACC-Server, viene utilizzato per riconoscere
+se le informazioni sono autentiche. Questa viene generata dal ACC-Server ed inviata al client al
+momento della configuazione. Anch'essa è formata da 12 numeri esadecimali.
+
+### ACC-Client - alive
+
+Questo comando serve per controllare che l'arduino sia attivo e funzioni correttamente, per il quale eseguire la seguente
+richiesta:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/alive
+```
+
+La relativa risposta sar&agrave;:
+
+```
+{"status":"OK"}
+```
+
+### ACC-Client - get e set
+
+Sono due comandi che servono a ricevere o impostare i valori sui pin del arduino.
+Per impostare i valori si usa la seguente richiesta:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/acc?key=<ACC-Client-KEY>&pin=<pinToSet>&set=<valueToSet>
+```
+Invece per riceverli si usa questa richiesta:
+
+```
+http://<ACC-ClientIP>:<ACC-ClientPort>/acc?key=<ACC-Client-KEY>&pin=<requiredPin>
+```
+
+La risposta &egrave; in entrambi i casi in questo formato:
+
+```
+{"status":"OK","message":"<value>"}
+```
+
+### ACC-Client - il codice
+
+Nel caso dell'ACC-Client il codice &egrave; stato scritto in python, siccome l'Arduino Y&Uacute;N
+(Lilino) permette di scrivere il codice in python ed eseguirlo a stretto contatto con il codice sul
+lato Arduino. Per una spiegazione pi&ugrave; accurata del funzionamento dell'Arduino, usare la guida
+`doc/Documentazione/Guide/arduinoYun.md`.
+
+Principalmente il codice &egrave; strutturato in due parti, il codice eseguito sull'Arduino, che
+semplicemente aggiorna lo stato dei pin di output (prendendo i valori dal Bridge condiviso con la
+parte Lilino) e aggiorna lo stato del bridge con i pin di input. Codice:
+`ino/ACC-Client.ino/ACC-Client.ino.ino`.  
+Mentre il codice relativo a Lilino, si occupa di eseguire il web server, esaudire le richieste
+dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come quelli dei bottoni. Il
+codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
+che rappresenta il diagramma delle classi.
 
 ## 4 test
 
@@ -975,7 +1108,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ![Gantt consuntivo](img/gantt/GanttConsuntivo.PNG)
 
-I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione.Per iniziare abbiamo avuto 5 giorni in più per consegnare il progetto quindi al posto del 17.05.2019 abbiamo consegnato il progetto il 22.05.2019. Uno dei più grandi cambiamenti è nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno tempo del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi dei test non erano necessari. Abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Per integrare i moduli ci abbiamo messo meno del tempo previsto nella progettazione tempo che abbiamo potuto dedicare alla documentazione.
+I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione. Per iniziare abbiamo avuto 5 giorni in più per consegnare il progetto quindi al posto del 17.05.2019 abbiamo consegnato il progetto il 22.05.2019. Poi uno dei più grandi cambiamenti è nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno tempo del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi alcuni test non erano necessari. Per esempio abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Anche per integrare i moduli ci abbiamo messo meno del tempo visto che i moduli sono minori di quello che abbiamo previsto nella progettazione.
 
 ## 6 Conclusioni
 
@@ -990,11 +1123,10 @@ Il quale ci hanno permesso di fare esperienza con un progetto di dimensioni magg
 siamo abbituati. Per tutti è stata la prima volta a fare un progetto intero in un gruppo da tre,
 all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno di noi era abituato al
 lavoro di gruppo ma nell'ultimo periodo siamo migliorati e la velocità di lavoro è aumentata.
-Purtroppo durante il progetto abbiamo avuto svariati imprevisti che non ci hanno permesso di
-portare a termine il lavoro.
-Durante il corso del lavoro, sono stati cambiati i requisiti (le loro priorit&agrave;).
 La sfida pi&ugrave; grande di questo progetto, &egrave; stata svilupparlo interamente modulare,
-per poter riciclare il codice.  
+per poter riciclare il codice. Purtroppo durante il progetto abbiamo avuto svariati imprevisti
+che non ci hanno permesso di portare a termine il lavoro.
+Quindi durante il corso del lavoro, abbiamo cambiato le priorit&agrave; di certi requisiti.
 Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che
 la prossima persona o gruppo che ci lavorerà possa capire in fretta come funziona il nostro progetto e
 quindi possa completarlo e migliorarlo.
