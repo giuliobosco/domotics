@@ -1136,6 +1136,7 @@ che rappresenta il diagramma delle classi.
 - ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
 - Aggiungere lo stato di ogni arduino in una pagina
 - Poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
+- Il server non funziona.
 
 ## 5 Consuntivo
 
