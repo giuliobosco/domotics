@@ -4,7 +4,7 @@ th, td {
     padding:2px 5px!important;
 }
 </style>
-<head>
+</head>
 
 # Domotizzazione dell'aula
 
@@ -431,7 +431,7 @@ Codice identificativo di un ACC-Client, formato da 12 numeri esadecimali:
 **ACC-Client-KEY:**
 
 Ogni KEY sar&agrave; composta di un codice esadecimale di 12 caratteri, casuali, quali vengono
-generati sul server semplicemente perch&egrave; ha pi&ugrve; potenza di calcolo.
+generati sul server semplicemente perch&egrave; ha pi&ugrave; potenza di calcolo.
 
 **Authentication Discover:**  
 
@@ -533,7 +533,7 @@ parte del client.
 
 ### 3.1 Sito web
 
-#### WEB-APP
+#### WEB-APP
 
 Il front-end di domotics, &egrave; stato pensato come una web app costruita su moduli, quindi
 per facilitare questo metodo di sviluppo &egrave; stato deciso di basarlo su AngularJS, un
@@ -564,7 +564,7 @@ Questa stringa di codice inizializza l'applicazione angular, con il nome `ViewsA
 
 #### Creare un controller
 
-I controller servono, per trasferire i dati dal servizio alla view (e nel caso in cui necessario
+I controller servono, per trasferire i dati dal servizio alla view (e nel caso in cui &egrave; necessario
 eseguire delle operazioni su di essi). Un controller si crea come segue:
 
 ```javascript
@@ -685,7 +685,7 @@ Ecco un esempio di view implementata usando bootstrap e fontawesome.
 <script src="assets/js/scripts/sidebar.js"></script>
 ```
 
-Fontawesome usa il tag <i> per inserire le icone. Per definire l'icona bisogna inserire nel attributo class: fa che definisce l'uso di fontawesome, fa-[nome icona] che definisce quale icona si vuole usare, e se si vuole la grandezza dell'icona
+Fontawesome usa il tag "<i>" per inserire le icone. Per definire l'icona bisogna inserire nel attributo class: fa che definisce l'uso di fontawesome, fa-[nome icona] che definisce quale icona si vuole usare, e se si vuole la grandezza dell'icona
 
 ```html
 <i class="fa fa-cog fa-2x">
