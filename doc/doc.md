@@ -1207,3 +1207,13 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 - https://www.instagram.com/awsmcolor/?hl=it
 
 ## 8 Allegati
+
+- Quaderno dei compiti
+- Diari di lavoro
+- Guida ACC
+- Guida ArduinoYun
+- Guida Back-end
+- Guida Front-end
+- Guida database
+- Guida Ldap
+- Guida Tomcat CantOS7
