@@ -305,7 +305,9 @@ Requisiti cambiati:
 |Versione: |1.0                                                     ||
 |Note:     |                                                        ||
 |          |Sotto requisiti                                          |
-|001:      |Documentazione di tutti i moduli che compongono il progetto|                                            ||
+|001:      |Documentazione di tutti i moduli che compongono il progetto|
+
+<br>
 
 ###  1.6 Pianificazione
 
