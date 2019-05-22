@@ -1131,6 +1131,7 @@ che rappresenta il diagramma delle classi.
 
 ### 4.3 Mancanze/limitazioni conosciute
 
+Queste sono le mancanze che conosciamo del nostro progetto:
 - Curtain Managment, aggiungere l'apertura e la chiusura delle tende nell'aula.
 - Beamer Managment, aggiungere l'accensione e lo spegnimento del beamer nell'aula.
 - ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
