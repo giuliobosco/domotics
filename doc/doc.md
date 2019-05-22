@@ -918,7 +918,7 @@ Per identificare il client esso contiene un ID formato da 12 numeri esadecimali.
 se le informazioni sono autentiche. Questa viene generata dal ACC-Server ed inviata al client al
 momento della configuazione. Anch'essa è formata da 12 numeri esadecimali.
 
-### ACC-Client - alive
+##### ACC-Client - alive
 
 Questo comando serve per controllare che l'arduino sia attivo e funzioni correttamente, per il quale eseguire la seguente
 richiesta:
@@ -933,7 +933,7 @@ La relativa risposta sar&agrave;:
 {"status":"OK"}
 ```
 
-### ACC-Client - get e set
+##### ACC-Client - get e set
 
 Sono due comandi che servono a ricevere o impostare i valori sui pin del arduino.
 Per impostare i valori si usa la seguente richiesta:
@@ -953,7 +953,7 @@ La risposta &egrave; in entrambi i casi in questo formato:
 {"status":"OK","message":"<value>"}
 ```
 
-### ACC-Client - il codice
+##### ACC-Client - il codice
 
 Nel caso dell'ACC-Client il codice &egrave; stato scritto in python, siccome l'Arduino Y&Uacute;N
 (Lilino) permette di scrivere il codice in python ed eseguirlo a stretto contatto con il codice sul
