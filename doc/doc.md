@@ -1009,10 +1009,10 @@ che rappresenta il diagramma delle classi.
 |---------------|--------------------------------------|
 |**Nome**       | Accendere led                        |
 |**Riferimento**| REQ-08                               |
-|**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
+|**Descrizione**| Verificare la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><p>(Questi passaggi sono da fare due volte dato che i led sono due)</p><li>Premere il checkbox della luce.</li></ul> |
-|**Risultati attesi** | <ul><li>I due led devono accendersi.</li></ul> |
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i led devono accendersi</li></ul> |
 
 <br>
 
@@ -1023,7 +1023,29 @@ che rappresenta il diagramma delle classi.
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i led devono accendersi.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i led devono spegnersi.</li></ul> |
+
+<br>--------------------------------
+
+|Test Case      | TC-004                               |
+|---------------|--------------------------------------|
+|**Nome**       | Rotazione dei motori in senso orario |
+|**Riferimento**| REQ-09                               |
+|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 0°.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso orario.</li></ul> |
+
+<br>
+
+|Test Case      | TC-005                                    |
+|---------------|-------------------------------------------|
+|**Nome**       | Rotazione dei motori in senso antiorario  |
+|**Riferimento**| REQ-09                                    |
+|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 360°.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso antiorario.</li></ul> |
 
 <br>
 
@@ -1033,7 +1055,7 @@ che rappresenta il diagramma delle classi.
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
 
 <br>
