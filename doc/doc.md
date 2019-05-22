@@ -691,7 +691,7 @@ Fontawesome usa il tag <i> per inserire le icone. Per definire l'icona bisogna i
 <i class="fa fa-cog fa-2x">
 ```
 
-### 3.3 Database
+### 3.2 Database
 
 Per realizzare il database abbiamo utilizzato MySQL.
 Prima di tutto bisogna creare il database tramite il seguente comando.
@@ -732,7 +732,7 @@ CREATE TABLE domotics.light (
 );
 ```
 
-### 3.4 Lightweight Directory Access Protocol (LDAP)
+### 3.3 Lightweight Directory Access Protocol (LDAP)
 Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul database della scuola e controlla se le credenziali corrispondono a un docente o no.
 
 Per fare questo serve una stringa di connessione che dice a LDAP dove andare a connettersi. Questa stringa deve contenere il dominio e la porta del server ADDS.
@@ -777,7 +777,7 @@ public DirContext getDirContext(String username, String password) throws NamingE
         return new InitialDirContext(getEnvironment(username, password));
     }
 ```
-### 3.5 Implementazione Java DataBase Connectivity (JDBC)
+### 3.4 Implementazione Java DataBase Connectivity (JDBC)
 Java DataBase Connectivity viene utilizzato per connettersi tramite java al database e ricavarne le informazione che si vogliono sapere.<br>
 La prima cosa da fare è scaricare i driver corretti per MySql, quindi andando sul sito: https://dev.mysql.com/downloads/connector/j/
 selezionare il proprio sistema operativo e scaricare i driver della stessa versione di MySQL sul proprio computer (Consigliata 8.0.15).
@@ -826,15 +826,15 @@ public ResultSet query(String query) throws SQLException {
 ```
 
 Nel caso dovessero esserci errori con i driver provare a seguire i seguenti procedimenti:<br>
-*   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versione non lo contiene.
-*   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario apparteneteWS:
+*   Se vi dice che "Loading class com.mysql.jdbc.Driver. This is deprecated." è perché dalla nuova versione la stringa dentro Class.forName() contiene cj invece nelle vecchie versioni non lo contiene.
+*   Se vi dice che la zona oraria non è valida basta scrivere dentro a MySQl Workbench indicando a quale fuso orario appartenete:
     ```Sql
     SET @@global.time_zone = '+01:00';
     SET @@session.time_zone = '+01:00';
     ```
 
 
-### Arduino Connection Controller
+### 3.5 Arduino Connection Controller
 
 &Egrave; un protocollo che abbiamo ideato per comunicare con facilita con l'Arduino,
 mentre lo stavamo progettando ci siamo accorti che questo protocollo pu&ograve; essere esteso per
@@ -849,7 +849,7 @@ Questo protocollo, come un modulo a se stante, dal progetto `domotics`, quindi p
 utilizzato anche da altri progetti.  
 L'idea del funzionamento di questo modulo, &egrave; poter inviare dei valori da settare sui pin,
 oppure richiedere lo stato dei pin. Questo protocollo deve funzionare in maniera "sicura" se vi
-&egrave; presente un ACC-Server, oppure in maniera autonoma se il suo server.
+&egrave; presente un ACC-Server, oppure in maniera autonoma se il suo server non c'è.
 
 La modalit&agrave; `sicura` utilizza una chiave per scambiare i valori fra l'ACC-Client e
 l'ACC-server, la chiave &egrave; una stringa esadecimale di 12 caratteri. Quando la modali&agrave;
@@ -865,12 +865,11 @@ server HTTP, ha bisogno di una pagina, la quale deve essere in grado di interpre
 - set: Questa richiesta deve contenere, la chiave di comunicazione, il pin ed il valore, questa
 serve per aggiornare l'ACC-Server nel caso in cui un pin (per esempio bottone), cambia stato.  
 L'ACC-Server, si basa sul un database, che viene utilizzato per risolvere le richieste, per esempio
-quale input deve accendere o spegnere quale luce. Per il database &egrave; stata fatta una guida
-apposita: `doc/Documentazione/Guide/GuidaFunzionamentoDatabase.md`.
+quale input deve accendere o spegnere quale luce.
 
 ##### ACC-Server - autoconf
 
-Il comando autoconf serve ad auto configurare l'arduino per poter comunicare con il server.
+Il comando autoconf serve per autoconfigurare l'arduino così da permettergli di comunicare con il server.
 La richiesta deve essere:
 
 ```
@@ -883,13 +882,13 @@ E la risposta sar&agrave;
 {"id":"<ACC-Client-ID>", "key":"<ACC-Client-KEY>", "server_address":"<serverAddress>:<serverPort>"}
 ```
 
-Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
+Tutte le risposte saranno inviate in formato JSON, questo per facilitare l'interpretazione da
 parte del client.
 
 ##### ACC-Server - set e set toggle
 
 Quando cambia lo stato di un pin digitale di input sull'arduino, (per esempio la pressione di un
-bottone) questo deve notificarlo al server, per permettere al server di eseguire le guiste
+bottone) questo deve notificarlo al server, per permettere al server di eseguire le giuste
 operazioni, per esempio modificare lo stato di altri pin.
 
 In alcuni casi potrebbe essere comodo avere una funzione toggle, per esempio per i bottoni, eseguire
@@ -969,6 +968,10 @@ dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come que
 codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
 che rappresenta il diagramma delle classi.
 
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="../img/acc/acc-client-classes.png" style="widht:450px;">
+</div>
+
 ## 4 test
 
 ### 4.1 Protocollo di test
@@ -987,7 +990,7 @@ che rappresenta il diagramma delle classi.
 |**Nome**       | Pagina dashboard                     |
 |**Riferimento**| REQ-02                               |
 |**Descrizione**| Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effettuare il login con i permessi giusti.</li></ul> |
 |**Risultati attesi** | <ul><li>Il sito web deve portare alla dashboard di tutte le aule collegate il quale per ognuna è possibile gestire tutti i vari moduli.</li></ul> |
 
@@ -996,7 +999,7 @@ che rappresenta il diagramma delle classi.
 |**Nome**       | Verifica accessi                     |
 |**Riferimento**| REQ-06                               |
 |**Descrizione**| Verificare che il controllo dei dati di accesso avvenga correttamente.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li></ul>|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
 |**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
 
@@ -1147,8 +1150,7 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 
 #### ACC
 
-- ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di
-un ACC-Server nella rete.
+- ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
 
 #### WEB
 

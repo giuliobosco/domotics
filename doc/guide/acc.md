@@ -76,7 +76,7 @@ Questo protocollo, come un modulo a se stante, dal progetto `domotics`, quindi p
 utilizzato anche da altri progetti.  
 L'idea del funzionamento di questo modulo, &egrave; poter inviare dei valori da settare sui pin,
 oppure richiedere lo stato dei pin. Questo protocollo deve funzionare in maniera "sicura" se vi
-&egrave; presente un ACC-Server, oppure in maniera autonoma se il suo server.
+&egrave; presente un ACC-Server, oppure in maniera autonoma se il suo server non c'è.
 
 La modalit&agrave; `sicura` utilizza una chiave per scambiare i valori fra l'ACC-Client e
 l'ACC-server, la chiave &egrave; una stringa esadecimale di 12 caratteri. Quando la modali&agrave;
