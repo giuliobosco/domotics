@@ -685,7 +685,7 @@ Ecco un esempio di view implementata usando bootstrap e fontawesome.
 <script src="assets/js/scripts/sidebar.js"></script>
 ```
 
-Fontawesome usa il tag "<i>" per inserire le icone. Per definire l'icona bisogna inserire nel attributo class: fa che definisce l'uso di fontawesome, fa-[nome icona] che definisce quale icona si vuole usare, e se si vuole la grandezza dell'icona
+Fontawesome usa il tag "i" per inserire le icone. Per definire l'icona bisogna inserire nel attributo class: fa che definisce l'uso di fontawesome, fa-[nome icona] che definisce quale icona si vuole usare, e se si vuole la grandezza dell'icona
 
 ```html
 <i class="fa fa-cog fa-2x">
@@ -1106,6 +1106,12 @@ che rappresenta il diagramma delle classi.
 |TC-011     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
 
 ### 4.3 Mancanze/limitazioni conosciute
+
+- Curtain Managment, aggiungere l'apertura e la chiusura delle tende nell'aula.
+- Beamer Managment, aggiungere l'accensione e lo spegnimento del beamer nell'aula.
+- ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
+- Aggiungere lo stato di ogni arduino in una pagina
+- Poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
 
 ## 5 Consuntivo
 
