@@ -981,20 +981,23 @@ I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi 
 
 ### 6.1 Considerazioni finali
 
-Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato
-assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più
-in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in
-questo mondo. Durante il progetto abbiamo dovuto studiare e progettare molte componenti da dover
-collegare assieme, dato che è suddiviso in molte parti differenti. Il quale ci hanno permesso di
-fare esperienza con un progetto di dimensioni maggiori a quelle di cui siamo abbituati. Per tutti
-&egrave; stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre,
-all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma
-nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto svariati
-imprevisti che non ci hanno permesso di portare a termine il lavoro, durante il corso del lavoro,
-sono stati cambiati i requisiti (le loro priorit&agrave;). La sfida pi&grave; di questo progetto,
-&egrave; stata svilupparlo interamente modulare, per poter reciclare il codice.  
-Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima
-persona che ci lavorerà o gruppo possa capire in fretta come funziona il nostro progetto.
+Il progetto è stato molto interessante anche se impegnativo, ci è stato assegnato un progetto
+molto utile e funzionale che negli anni futuri aumenterà sempre di più in tutte le case, uffici
+e industrie. Grazie a questo progetto è stato possibile entrare nel mondo della domotica che
+necessita conoscenze varie nell'ambito dell'informatica. Durante il progetto abbiamo dovuto studiare
+e progettare molte componenti da dover collegare assieme, dato che è suddiviso in molte parti differenti.
+Il quale ci hanno permesso di fare esperienza con un progetto di dimensioni maggiori a quelle di cui
+siamo abbituati. Per tutti è stata la prima volta a fare un progetto intero in un gruppo da tre,
+all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno di noi era abituato al
+lavoro di gruppo ma nell'ultimo periodo siamo migliorati e la velocità di lavoro è aumentata.
+Purtroppo durante il progetto abbiamo avuto svariati imprevisti che non ci hanno permesso di
+portare a termine il lavoro.
+Durante il corso del lavoro, sono stati cambiati i requisiti (le loro priorit&agrave;).
+La sfida pi&ugrave; grande di questo progetto, &egrave; stata svilupparlo interamente modulare,
+per poter riciclare il codice.  
+Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che
+la prossima persona o gruppo che ci lavorerà possa capire in fretta come funziona il nostro progetto e
+quindi possa completarlo e migliorarlo.
 
 ## 7 Bibliografia
 
