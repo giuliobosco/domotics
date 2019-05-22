@@ -94,7 +94,7 @@ th, td {
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
             &emsp;3.4 Lightweight Directory Access Protocol
         </div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">33</div><div class="page-break"></div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">33</div>
     <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
         4 Test
     </div>
@@ -152,6 +152,8 @@ th, td {
     </div>
 </div>
 
+<div class="page-break"></div>
+
 ## 1 Introduzione
 
 ### 1.1 Informazioni sul progetto
@@ -170,6 +172,8 @@ Lo scopo del progetto è quello di domotizzare le aule della scuola arti e mesti
 
 Questa applicazione permette di controllare a distanza luci, tende e beamer delle aule delle scuole. Infatti il suo contesto principale di utilizzo sono proprio le scuole dato che è un sistema molto semplice e a basso costo che fa proprio caso alle scuole. Infatti l'idea è di implementare e testare quest'applicazione inizialmente in una singola aula dopdichè se funziona bene si può implementarlo in tutte le aule della scuola. Prodotti simili esistono già ma non specifici per le aule del CPT, inoltre il nostro sistema va ad interagire direttamente con l'Active Directory Domain Service della scuola per controllare se chi fa il login è un docente e quindi se può accedere al pannello di controllo o no. Senza il nostro prodotto gli utenti delle varie aule, docenti e allievi tribulano di continuo con i pulsanti delle luci che funzionano a caso e sono in posizioni difficili da raggiungere.  
 
+<div class="page-break"></div>
+
 ### 1.5 Analisi e specifica dei requisiti
 
 Questi sono i requisiti iniziali, dato che all'inizio avevamo programmato di riuscire a fare tutto. Ma durante lo sviluppo del progetto ci siamo accorti che le cose da fare erano tante di cui la maggior parte cose che non avevamo mai visto quindi abbiamo deciso di cambiare le priorità di alcuni requisiti.
@@ -185,152 +189,334 @@ Requisiti cambiati:
     * Priorità: 1 => 3     
 
 
-|		   |ID: REQ-01    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Pagina di login                         ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Input username e password               ||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-01</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Pagina di login</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Input username e password</td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-02</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Pagina gestionale aule</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Modificare lo stato delle luci</td>
+    </tr>
+    <tr>
+        <td>002:</td><td>Modificare lo stato delle tende</td>
+    </tr>
+    <tr>
+        <td>003:</td><td>Modificare lo stato del beamer</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-02    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Pagina gestione aule                    ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Modificare lo stato delle luci          ||
-|002:      |Modificare lo stato delle tende         ||
-|003:      |Modificare lo stato del beamer          ||
+<div class="page-break"></div>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-03</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Web Server</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Gestione dalla parte web</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-03    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Web Server                              ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Gestione della parte web                ||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-04</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Server in Python</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Gestione dall'automatizzazione</td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-05</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Ricavare dati dal database</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Tramite java</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-04    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Server in Python                        ||
-|Priorità: |1                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Gestione dell'automatizzazione          ||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-06</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Verificare i permessi degli utenti</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.</td>
+    </tr>
+</table>
 
-<br>
+<div class="page-break"></div>
 
-|		   |ID: REQ-05    |	    		                      |
-|:---------|:-------------|:----------------------------------|
-|Nome:     |Ricavare dati dal database                       ||
-|Priorità: |1                                                ||
-|Versione: |1.0                                              ||
-|Note:     |                                                 ||
-|          |Sotto requisiti                                   |
-|001:      |Tramite java                                     ||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-07</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Comunicazione parte web con l'Arduino</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-08</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Simulazione luci</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Controllare delle lampadine da 220v tramite i relay</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-06    |	    		                      |
-|:---------|:-------------|:----------------------------------|
-|Nome:     |Verificare i permessi degli utenti               ||
-|Priorità: |1                                                ||
-|Versione: |1.0                                              ||
-|Note:     |                                                 ||
-|          |Sotto requisiti                                   |
-|001:      |Verificare sul database della scuola che l'utente che sta cercando di fare il login sia un docente.||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-09</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Simulazione tende</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>3</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Controllo dei motori tramite l'Arduino</td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-10</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Modulo luci</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>3</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Implementazione modulo fisico delle luci</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-07    |	    		                      |
-|:---------|:-------------|:----------------------------------|
-|Nome:     |Comunicazione parte web con l'arduino            ||
-|Priorità: |1                                                ||
-|Versione: |1.0                                              ||
-|Note:     |                                                 ||
+<div class="page-break"></div>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-11</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Modulo tende</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>3</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Implementazione modulo fisico delle tende.</td>
+    </tr>
+</table>
 
-|		   |ID: REQ-08    |	    		               |
-|:---------|:-------------|:---------------------------|
-|Nome:     |Simulazione luci                          ||
-|Priorità: |1                                         ||
-|Versione: |1.0                                       ||
-|Note:     |                                          ||
-|          |Sotto requisiti                            |
-|001:      |Controllare delle lampadine da 220v tramite i relay||
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-12</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Modulo beamer</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>1</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Implementazione modulo fisico del beamer</td>
+    </tr>
+</table>
 
-<br>
-
-|		   |ID: REQ-09     |	                                      |
-|:---------|:--------------|:--------------------------------------|
-|Nome:     |Simulazione tende                                    ||
-|Priorità: |3                                                    ||
-|Versione: |1.0                                                  ||
-|Note:     |                                                     ||
-|          |Sotto requisiti                                       |
-|001:      |Controllo dei motori tramite l'arduino               ||
-
-<br>
-
-|		   |ID: REQ-10    |	    		             |
-|:---------|:-------------|:--------------------------|
-|Nome:     |Modulo luci                              ||
-|Priorità: |3                                        ||
-|Versione: |1.0                                      ||
-|Note:     |                                         ||
-|          |Sotto requisiti                           |
-|001:      |Implementazione modulo fisico delle luci ||
-
-<br>
-
-|		   |ID: REQ-11    |      		               |
-|:---------|:-------------|:---------------------------|
-|Nome:     |Modulo tende                              ||
-|Priorità: |3                                         ||
-|Versione: |1.0                                       ||
-|Note:     |                                          ||
-|          |Sotto requisiti                            |
-|001:      |Implementazione modulo fisico delle tende ||
-
-<br>
-
-|		   |ID: REQ-12    |	    		             |
-|:---------|:-------------|:-------------------------|
-|Nome:     |Modulo beamer                           ||
-|Priorità: |3                                       ||
-|Versione: |1.0                                     ||
-|Note:     |                                        ||
-|          |Sotto requisiti                          |
-|001:      |Implementazione modulo fisico del beamer||
-
-<br>
-
-|		   |ID: REQ-013    |	    		                         |
-|:---------|:-------------|:-----------------------------------------|
-|Nome:     |Guide di utilizzo                                       ||
-|Priorità: |2                                                       ||
-|Versione: |1.0                                                     ||
-|Note:     |                                                        ||
-|          |Sotto requisiti                                          |
-|001:      |Documentazione di tutti i moduli che compongono il progetto|
-
-<br>
+<table>
+    <tr>
+        <th style="width:100px"></th><th>ID: REQ-13</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Guide di utilizzo</td>
+    </tr>
+    <tr>
+        <td>Priorit&agrave;:</td><td>2</td>
+    </tr>
+    <tr>
+        <td>Versione:</td><td>1.0</td>
+    </tr>
+    <tr>
+        <td>Note:</td><td></td>
+    </tr>
+    <tr>
+        <td></td><td>Sotto requisiti</td>
+    </tr>
+    <tr>
+        <td>001:</td><td>Documentazione di tutti i moduli che compongono il progetto</td>
+    </tr>
+</table>
 
 ###  1.6 Pianificazione
 
-![Gantt](img/gantt/GanttIniziale.PNG)
+<div class="page-break"></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="img/gantt/GanttIniziale.PNG" style="widht:450px;">
+</div>
+
+<div class="page-break"></div>
 
 Il progetto ci è stato commissionato il 13 Febbraio 2019 programmiamo di completarlo il 17 Maggio 2019.
 Questo è il gantt che rappresenta la nostra pianificazione iniziale. È strutturato in modo tale che la documentazione viene portata a pari passo con tutto il progetto, poi dal 15 Febbraio al 29 Marzo arriva la progettazione dove viene fatta la stesura del gantt, viene fatta l'analisi del dominio, dei requisiti, e si inizia a fare la progettazione di come sarà l'intera rete, come sarà il design del frontend, il design del backend e come sarà lo schema dell'arduino. Dopo la progettazione incomincia la parte di implementazione che va dal 13 Febbraio al 8 Maggio infatti essendo un gruppo da tre quando qualcuno finirà la progettazione qualcuno potrà già iniziare con l'implementazione dei vari moduli. Nel gantt viene mostrato come inizieremo ad implementare prima il frontend, ci occuperemo dell'arduino ed infine ci concentreremo sull'implementazione del backend. Dopo l'implementazione ci sarà l'integrazione di tutti i moduli dal frontend che dovrà comunicare con il backend che comunicherà a sua volta con l'arduino. Dopodiché verranno effettuati i test ed infine viene fatta la presentazione.
@@ -365,6 +551,7 @@ Questo è il gantt che rappresenta la nostra pianificazione iniziale. È struttu
 
 *   Arduino Yun 7300
 
+<div class="page-break"></div>
 
 ## 2 Progettazione
 
@@ -388,6 +575,8 @@ LDAP connector invece gestisce il login, infatti ogni volta che verrà effettuat
 
 Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto semplice infatti ci sar&agrave; un form di login che richieder&agrave; nome utente e password.
 
+<div class="page-break"></div>
+
 ### 2.3 Design della dashboard del sito web
 
 <p style="text-align:center;">
@@ -398,6 +587,8 @@ Questo è l'architettura iniziale del login del sito web, l'interfaccia è molto
 
 Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che le credenziali sono state convalidate e confermate. In questa pagina si posssono visualizzare le varie aule con la possibilità di vedere la temperatura e accendere/spengenere le luci.
 
+<div class="page-break"></div>
+
 ### 2.4 Architettura Database
 
 ![DataBase](img/db/DbDiagram.png)
@@ -405,14 +596,21 @@ Questo &egrave; il design del sito web dopo che si ha fatto il login e dopo che 
 Questo è il design del database, il database è formato da sette tabelle. La tabella room rappresenta le aule di cui viene salvato il loro identificatore, un arduino associato di cui viene memorizzato l'id, l'indirizzo ip, la password e la chiave per il client. Per ogni arduino si gestiscono i bottoni delle luci, di cui vengono memorizzati il suo pin e la luce che controlla. Ogni arduino gestisce le luci, il beamer, le tende e i sensori che ci sono all'interno dell'aula di cui vengono memorizzati i pin.
 In questo modo grazie alla chiave che ogni arduino ha, il server riesce a riconoscerli e identificarli per poi ricavare lo stato di tutti i suoi moduli, quindi luci, tende, beamer e sensori andando a ricercare le varie informazione nel database.
 
+<div class="page-break"></div>
+
 ### 2.5 Connessione al database della scuola
 
 Per ricavare le credenziali dei docenti abbiamo deciso di utilizzare LDAP Connector perché era la soluzione più facile e sicura da implementare dato che passi le credenziali all sistema AD-DS della scuola, gli dici cosa vuoi sapere e fa tutto lui così nessuno accede direttamente al AD-DS per evitare problemi.
 
+<div style="text-align:center;">
+    <img src="img/ldap/uml.png" style="width:300px">
+</div>
 ![LDAP](img/ldap/uml.png)
 
 La classe LdapConnector viene utilizzata nel login, infatti quando l'utente si loggerà le credenziali che mette vengono prese e vengono confrontate con le credenziali del database della scuola dove vede se l'utente è un docente e quindi se ha i permessi per accederci o è un allievo e quindi non ha i permessi. LDAP permette di mantenere anche una certa sicurezza essendo che la comunicazione &egrave; criptata.
 Nella classe ci saranno i seguenti attributi statici: la porta di default del server, la chiave di autenticazione, e una variabile che rappresenta il contesto iniziale del LDAP. Poi nelle variabili domain viene salvato il dominio del server LDAP, nella variabile port la porta del server se è diversa da quella di dafault, la variabile base rappresenta il livello del server nelle unità organizzative dove deve andare a controllare le credenziali e security rappresenta il tipo di sicurezza che viene utilizzata per connettersi. Nella classe vengono implementati poi tutti i vari get e set per settare o ritornare i valori delle variabili, ci sono tre costruttori, uno a cui viene passato il dominio, la porta, l'unità organizzativa e il tipo di sicurezza, uno a cui non viene passato il tipo di sicurezza e nel terzo viene passato solo il dominio e l'unità organizzativa. Il metodo getEnvironment ritorna l'ambiente hashtable della connessione, getConnectionString ritorna la stringa di connessione, getDN ritorna una stringa con le credenziali e l'unita organizzativa da inviare nel metodo getEnvironment per creare la connessione, e getDirContext ritorna se l'utente ha i permessi o no.
+
+<div class="page-break"></div>
 
 ### 2.6 Architettura Arduino Yun
 
@@ -477,6 +675,8 @@ http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&pin=13&set=1
 Tutte le richieste destinate all'ACC dovranno essere fatte verso l'IP del server domotics sulla
 porta `8080`, alla pagina `acc` e inviando la KEY di comunicazione dell'Arduino (AC-Client-KEY) con il parametro `key` con il valore della KEY.
 
+<div class="page-break"></div>
+
 Per le richieste di invio di dati bisogna inserire il parametro `type` a `send`, questo per
 segnalare che &egrave; una richiesta HTTP di invio dati, poi settare il parametro `pin` al numero del pin (nel caso sia un pin analogico inserire un `a` prima del numero) ed infine settare il parametro `value` al valore del pin.
 
@@ -532,6 +732,8 @@ risposta:
 }
 ```
 
+<div class="page-break"></div>
+
 **ACC-AutoConfiguation:**
 
 La richiesta deve essere:
@@ -548,6 +750,8 @@ E la risposta sar&agrave;
 
 Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
 parte del client.
+
+<div class="page-break"></div>
 
 ## 3 Implementazione
 
@@ -600,6 +804,8 @@ necessita il controller, ed infine la funzione del controller, con i parametri r
 precedentemente.
 
 Dopo di che eseguire le operazioni che si necessitano nel controller, la variabile `$scope`, viene utilizzata per passare i valori fra i controller e le view.
+
+<div class="page-break"></div>
 
 ### Creare un service
 
@@ -711,6 +917,8 @@ Fontawesome usa il tag "i" per inserire le icone. Per definire l'icona bisogna i
 <i class="fa fa-cog fa-2x">
 ```
 
+<div class="page-break"></div>
+
 ### 3.2 Database
 
 Per realizzare il database abbiamo utilizzato MySQL.
@@ -751,6 +959,8 @@ CREATE TABLE domotics.light (
 	FOREIGN KEY (arduino) REFERENCES domotics.arduino(client_id)
 );
 ```
+
+<div class="page-break"></div>
 
 ### 3.3 Lightweight Directory Access Protocol (LDAP)
 Per controllare se l'utente che sta provando a fare il login sia veramente un docente e quindi con i permessi per accedere si usa LDAP, che va sul database della scuola e controlla se le credenziali corrispondono a un docente o no.
@@ -797,6 +1007,9 @@ public DirContext getDirContext(String username, String password) throws NamingE
         return new InitialDirContext(getEnvironment(username, password));
     }
 ```
+
+<div class="page-break"></div>
+
 ### 3.4 Implementazione Java DataBase Connectivity (JDBC)
 Java DataBase Connectivity viene utilizzato per connettersi tramite java al database e ricavarne le informazione che si vogliono sapere.<br>
 La prima cosa da fare è scaricare i driver corretti per MySql, quindi andando sul sito: https://dev.mysql.com/downloads/connector/j/
@@ -960,6 +1173,8 @@ Per impostare i valori si usa la seguente richiesta:
 ```
 http://<ACC-ClientIP>:<ACC-ClientPort>/acc?key=<ACC-Client-KEY>&pin=<pinToSet>&set=<valueToSet>
 ```
+<div class="page-break"></div>
+
 Invece per riceverli si usa questa richiesta:
 
 ```
@@ -988,148 +1203,340 @@ dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come que
 codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
 che rappresenta il diagramma delle classi.
 
+<div class="page-break"></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
-    <img src="../img/acc/acc-client-classes.png" style="widht:450px;">
+    <img src="img/acc/acc-client-classes.png" style="widht:450px;">
 </div>
+
+<div class="page-break"></div>
 
 ## 4 test
 
 ### 4.1 Protocollo di test
 
-|Test Case      | TC-001                               |
-|---------------|--------------------------------------|
-|**Nome**       | Pagina login                         |
-|**Riferimento**| REQ-01                               |
-|**Descrizione**| Verificare che la pagina di login venga rappresentata correttamente.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li></ul> |
-|**Risultati attesi** | <ul><li>Deve comparire una pagina di login che richiede username e password.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-001</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Pagina login</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-01</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che la pagina di login venga rappresentata correttamente.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Deve comparire una pagina di login che richiede username e password.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-002                               |
-|---------------|--------------------------------------|
-|**Nome**       | Pagina dashboard                     |
-|**Riferimento**| REQ-02                               |
-|**Descrizione**| Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effettuare il login con i permessi giusti.</li></ul> |
-|**Risultati attesi** | <ul><li>Il sito web deve portare alla dashboard di tutte le aule collegate il quale per ognuna è possibile gestire tutti i vari moduli.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-002</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Pagina dashboard</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-02</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che una volta eseguito il login vengano rappresentate tutte le aule presenti con tutti i moduli che si possono gestire.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effettuare il login con i permessi giusti.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Il sito web deve portare alla dashboard di tutte le aule collegate il quale per ognuna è possibile gestire tutti i vari moduli.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-003                               |
-|---------------|--------------------------------------|
-|**Nome**       | Verifica accessi                     |
-|**Riferimento**| REQ-06                               |
-|**Descrizione**| Verificare che il controllo dei dati di accesso avvenga correttamente.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul> |
-|**Risultati attesi** | <ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-003</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Verifica accessi</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-06</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che il controllo dei dati di accesso avvenga correttamente.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Far effettuare il login ad un docente della scuola.</li><li>Far effettuare il login ad un allievo della scuola.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Nel primo caso il login deve far accedere l'utente.</li><li>Nel secondo caso il login deve dare errore.</li></ul></td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-004</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Accendere led</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-08</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> </td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi i led devono accendersi</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-004                               |
-|---------------|--------------------------------------|
-|**Nome**       | Accendere led                        |
-|**Riferimento**| REQ-08                               |
-|**Descrizione**| Verificare la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i led devono accendersi</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-005</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Spegnere led</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-08</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi i led devono spegnersi.</li></ul></td>
+    </tr>
+</table>
 
-<br>
+<div class="page-break"></div>
 
-|Test Case      | TC-005                               |
-|---------------|--------------------------------------|
-|**Nome**       | Spegnere led                         |
-|**Riferimento**| REQ-08                               |
-|**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i led devono spegnersi.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-006</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Rotazione dei motori in senso orario</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-09</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 0°.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi i motorini devo ruotare di 360° in senso orario.</li></ul></td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-007</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Rotazione dei motori in senso antiorario</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-09</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 360°.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi i motorini devo ruotare di 360° in senso antiorario.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-006                               |
-|---------------|--------------------------------------|
-|**Nome**       | Rotazione dei motori in senso orario |
-|**Riferimento**| REQ-09                               |
-|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 0°.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso orario.</li></ul> |
+<div class="page-break"></div>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-008</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Accendere luci</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-10</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-007                                    |
-|---------------|-------------------------------------------|
-|**Nome**       | Rotazione dei motori in senso antiorario  |
-|**Riferimento**| REQ-09                                    |
-|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 360°.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso antiorario.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-009</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Spegnere luci</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-10</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere accese.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Entrambi le luci dell'aula devono spegnersi.</li></ul></td>
+    </tr>
+</table>
 
-<br>
+<div class="page-break"></div>
 
-|Test Case      | TC-008                               |
-|---------------|--------------------------------------|
-|**Nome**       | Accendere luci                       |
-|**Riferimento**| REQ-10                               |
-|**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-010</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Aprire Tende</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-11</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere chiuse.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Le tende devono aprirsi.</li></ul></td>
+    </tr>
+</table>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-011</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Chiudere Tende</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-11</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere aperte.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Le tende devono chiudersi.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-009                               |
-|---------------|--------------------------------------|
-|**Nome**       | Spegnere luci                        |
-|**Riferimento**| REQ-10                               |
-|**Descrizione**| Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere accese.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono spegnersi.</li></ul> |
+<div class="page-break"></div>
 
-<br>
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-012</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Accendere beamer</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-12</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li><li>Il beamer deve essere spento.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Il beamer deve accendersi.</li></ul></td>
+    </tr>
+</table>
 
-|Test Case      | TC-010                               |
-|---------------|--------------------------------------|
-|**Nome**       | Aprire Tende                         |
-|**Riferimento**| REQ-11                               |
-|**Descrizione**| Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere chiuse.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
-|**Risultati attesi** | <ul><li>Le tende devono aprirsi.</li></ul> |
+<table>
+    <tr>
+        <th style="width:100px">Test Case</th><th>TC-013</th>
+    </tr>
+    <tr>
+        <td>Nome:</td><td>Spegnere beamer</td>
+    </tr>
+    <tr>
+        <td>Riferimento:</td><td>REQ-12</td>
+    </tr>
+    <tr>
+        <td>Descrizione:</td><td>Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.</td>
+    </tr>
+    <tr>
+        <td>Prerequisiti:</td><td><ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Procedura:</td><td><ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul></td>
+    </tr>
+    <tr>
+        <td>Risultati attesi</td><td><ul><li>Il beamer deve spegnersi.</li></ul></td>
+    </tr>
+</table>
 
-<br>
-
-|Test Case      | TC-011                               |
-|---------------|--------------------------------------|
-|**Nome**       | Chiudere Tende                       |
-|**Riferimento**| REQ-11                               |
-|**Descrizione**| Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato ai motori che muovono le tende.</li><li>Le tende devono essere aperte.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox delle tende.</li></ul> |
-|**Risultati attesi** | <ul><li>Le tende devono chiudersi.</li></ul>|
-
-<br>
-
-|Test Case      | TC-012                               |
-|---------------|--------------------------------------|
-|**Nome**       | Accendere beamer                     |
-|**Riferimento**| REQ-12                               |
-|**Descrizione**| Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo spegnerà o accenderà</li><li>Il beamer deve essere spento.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul>|
-|**Risultati attesi** | <ul><li>Il beamer deve accendersi.</li></ul> |
-
-|Test Case      | TC-013                               |
-|---------------|--------------------------------------|
-|**Nome**       | Spegnere beamer                      |
-|**Riferimento**| REQ-12                               |
-|**Descrizione**| Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|
-|**Prerequisiti**|<ul><li>Sito web deve essere funzionante, quindi login, portale per la gestione delle aule</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa</li><li>L'arduino deve essere collegato al beamer che poi lo accenderà o spegnerà</li><li>Il beamer deve essere acceso.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul> |
-|**Risultati attesi** | <ul><li>Il beamer deve spegnersi.</li></ul> |
+<div class="page-break"></div>
 
 ### 4.2 Risultati Test
 
@@ -1161,9 +1568,13 @@ Queste sono le mancanze che conosciamo del nostro progetto:
 
 ## 5 Consuntivo
 
-![Gantt consuntivo](img/gantt/GanttConsuntivo.PNG)
+<br><br><br><br><br>
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="img/gantt/GanttConsuntivo.PNG" style="widht:450px; margin-top:70px;"><br><br>
+    I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione. Per iniziare abbiamo avuto 5 giorni in più per consegnare il progetto quindi al posto del 17.05.2019 abbiamo consegnato il progetto il 22.05.2019. Poi uno dei più grandi cambiamenti è nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno tempo del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi alcuni test non erano necessari. Per esempio abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Anche per integrare i moduli ci abbiamo messo meno del tempo visto che i moduli sono minori di quello che abbiamo previsto nella progettazione.
+</div>
 
-I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione. Per iniziare abbiamo avuto 5 giorni in più per consegnare il progetto quindi al posto del 17.05.2019 abbiamo consegnato il progetto il 22.05.2019. Poi uno dei più grandi cambiamenti è nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno tempo del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi alcuni test non erano necessari. Per esempio abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Anche per integrare i moduli ci abbiamo messo meno del tempo visto che i moduli sono minori di quello che abbiamo previsto nella progettazione.
+<div class="page-break"></div>
 
 ## 6 Conclusioni
 
@@ -1188,8 +1599,6 @@ quindi possa completarlo e migliorarlo.
 
 ### 6.2 Sviluppi futuri
 
-Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per moduli)
-
 #### Nuove funzionalità
 
 - Poter gestire le assenze sia da parte dei docenti sia da parte degli allievi tramite sito della domotica presente.
@@ -1210,6 +1619,8 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 - poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
 - modifica (aggiungere/togliere/modificare) delle luci, degli arduino, e dei bottoni (interazione
     con il db).
+
+<div class="page-break"></div>
 
 ## 7 Bibliografia
 
