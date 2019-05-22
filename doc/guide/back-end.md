@@ -25,19 +25,19 @@
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;ACC-Server</div>
         <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Dati per front-end (JSON)</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">7</div>
     <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Implementazione</div>
-    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;LDAP</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;JDBC</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Modelli database</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;ACC-Server</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">10</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
         <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Dati per front-end (JSON)</div>
-        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">10</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
 </div>
 
 <div class="page-break"></div>
@@ -111,12 +111,9 @@ interpretate dalla servlet (`AccServlet`), i controlli sui micro controllori ven
 classe preposta (`IdManager`), le richieste HTTP ai microcontrollori vengono eseguite tramite la
 classe `GetRequest` e le configurazioni per i microcontrollori vengono generate dal `Autoconf`.
 
-<div class="page-break"></div>
+![back-end acc, diagramma delle classi](../../design/back-end/acc-server-0.png)
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
-    <img src="../../design/back-end/acc-server.png" style="widht:450px;margin-top:60px">
-</div>
+![back-end acc, diagramma delle classi](../../design/back-end/acc-server-1.png)
 
 <div class="page-break"></div>
 
