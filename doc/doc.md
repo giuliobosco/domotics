@@ -1025,7 +1025,7 @@ che rappresenta il diagramma delle classi.
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi i led devono spegnersi.</li></ul> |
 
-<br>--------------------------------
+<br>
 
 |Test Case      | TC-004                               |
 |---------------|--------------------------------------|
