@@ -1009,10 +1009,10 @@ che rappresenta il diagramma delle classi.
 |---------------|--------------------------------------|
 |**Nome**       | Accendere led                        |
 |**Riferimento**| REQ-08                               |
-|**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
+|**Descrizione**| Verificare la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere spenti.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><p>(Questi passaggi sono da fare due volte dato che i led sono due)</p><li>Premere il checkbox della luce.</li></ul> |
-|**Risultati attesi** | <ul><li>I due led devono accendersi.</li></ul> |
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i led devono accendersi</li></ul> |
 
 <br>
 
@@ -1023,22 +1023,44 @@ che rappresenta il diagramma delle classi.
 |**Descrizione**| Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai led per poterli controllare.</li><li>I led devono essere accesi.</li></ul>|
 |**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
-|**Risultati attesi** | <ul><li>Entrambi i led devono accendersi.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i led devono spegnersi.</li></ul> |
 
 <br>
 
 |Test Case      | TC-006                               |
 |---------------|--------------------------------------|
+|**Nome**       | Rotazione dei motori in senso orario |
+|**Riferimento**| REQ-09                               |
+|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 0°.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso orario.</li></ul> |
+
+<br>
+
+|Test Case      | TC-007                                    |
+|---------------|-------------------------------------------|
+|**Nome**       | Rotazione dei motori in senso antiorario  |
+|**Riferimento**| REQ-09                                    |
+|**Descrizione**| Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.|
+|**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai motorini.</li><li>I motori devono a 360°.</li></ul>|
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
+|**Risultati attesi** | <ul><li>Entrambi i motorini devo ruotare di 360° in senso antiorario.</li></ul> |
+
+<br>
+
+|Test Case      | TC-008                               |
+|---------------|--------------------------------------|
 |**Nome**       | Accendere luci                       |
 |**Riferimento**| REQ-10                               |
 |**Descrizione**| Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|
 |**Prerequisiti**|<ul><li>Sito web deve essere attivo e funzionante.</li><li>Tutta la parte di comunicazione tra sito web, server e arduino deve funzionare anch'essa.</li><li>L'arduino deve essere collegato ai relay delle luci dell'aula.</li><li>Le luci devono essere spente.</li></ul>|
-|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox della prima luce.</li><li>Premere il checkbox della seconda luce.</li></ul> |
+|**Procedura** | <ul><li>Aprire il sito web.</li><li>Effetuare il login con i permessi.</li><li>Selezionare l'aula desiderata.</li><li>Premere il checkbox delle tende.</li></ul> |
 |**Risultati attesi** | <ul><li>Entrambi le luci dell'aula devono accendersi.</li></ul> |
 
 <br>
 
-|Test Case      | TC-007                               |
+|Test Case      | TC-009                               |
 |---------------|--------------------------------------|
 |**Nome**       | Spegnere luci                        |
 |**Riferimento**| REQ-10                               |
@@ -1049,7 +1071,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-008                               |
+|Test Case      | TC-010                               |
 |---------------|--------------------------------------|
 |**Nome**       | Aprire Tende                         |
 |**Riferimento**| REQ-11                               |
@@ -1060,7 +1082,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-009                               |
+|Test Case      | TC-011                               |
 |---------------|--------------------------------------|
 |**Nome**       | Chiudere Tende                       |
 |**Riferimento**| REQ-11                               |
@@ -1071,7 +1093,7 @@ che rappresenta il diagramma delle classi.
 
 <br>
 
-|Test Case      | TC-010                               |
+|Test Case      | TC-012                               |
 |---------------|--------------------------------------|
 |**Nome**       | Accendere beamer                     |
 |**Riferimento**| REQ-12                               |
@@ -1080,7 +1102,7 @@ che rappresenta il diagramma delle classi.
 |**Procedura** | <ul><li>Aprire il sito web</li><li>Effetuare il login</li><li>Selezionare l'aula desiderata</li><li>Premere il checkbox del beamer.</li></ul>|
 |**Risultati attesi** | <ul><li>Il beamer deve accendersi.</li></ul> |
 
-|Test Case      | TC-011                               |
+|Test Case      | TC-013                               |
 |---------------|--------------------------------------|
 |**Nome**       | Spegnere beamer                      |
 |**Riferimento**| REQ-12                               |
@@ -1098,12 +1120,14 @@ che rappresenta il diagramma delle classi.
 |TC-003     |Verifica accessi   |Verificare che il controllo dei dati di accesso avvenga correttamente.|OK|  
 |TC-004     |Accendere led      |Verificare che la simulazione delle luci tramite dei led provando ad accenderli tramite il sito.|OK|  
 |TC-005     |Spegnere led       |Verificare che la simulazione delle luci tramite dei led provando a spegnerli tramite il sito.|OK|  
-|TC-006     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
-|TC-007     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
-|TC-008     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
-|TC-009     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
-|TC-010     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
-|TC-011     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
+|TC-006     |Rotazione dei motori in senso orario|Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 0° a 360°.|FAILED|
+|TC-007     |Rotazione dei motori in senso antiorario|Verificare che la simulazione delle tende funzioni correttamente ruotando i motori da 360° a 0°.|FAILED|
+|TC-008     |Accendere luci     |Verificare il funzionamento reale delle luci provando ad accenderle tramite il sito.|FAILED|  
+|TC-009     |Spegnere luci      |Verificare il funzionamento delle luci dell'aula provando a spegnerle tramite il sito.|FAILED|  
+|TC-010     |Aprire tende       |Verificare il funzionamento delle tende dell'aula provando ad aprirle tramite il sito.|FAILED|  
+|TC-011     |Chiudere tende     |Verificare il funzionamento delle tende dell'aula provando a chiuderle tramite il sito.|FAILED|  
+|TC-012     |Accendere beamer   |Verificare il funzionamento del beamer dell'aula provando ad accenderlo tramite il sito.|FAILED|  
+|TC-013     |Spegnere beamer    |Verificare il funzionamento del beamer dell'aula provando a spegnerlo tramite il sito.|FAILED|           
 
 ### 4.3 Mancanze/limitazioni conosciute
 
@@ -1112,6 +1136,7 @@ che rappresenta il diagramma delle classi.
 - ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
 - Aggiungere lo stato di ogni arduino in una pagina
 - Poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
+- Il server non funziona.
 
 ## 5 Consuntivo
 
@@ -1158,7 +1183,7 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 
 - ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di un ACC-Server nella rete.
 
-#### WEB
+#### WEB
 
 - aggiungere lo stato di ogni arduino in una pagina
 - poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
