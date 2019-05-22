@@ -1,3 +1,66 @@
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida Modulo</small><br>
+    ACC
+</div>
+
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">ACC (Arduino Connection Controller)</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;ACC-Server - autoconf
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;ACC-Server - set
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+                <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                    &emsp;&emsp;&emsp;ACC-Server - set toggle
+                </div>
+                <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+            <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+                &emsp;&emsp;ACC-Server - il codice
+            </div>
+            <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">ACC-Client (Arduino Connection Controller - Client)</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client-ID
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client-Key
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client - alive
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client - set
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client - get
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">
+            &emsp;&emsp;ACC-Client - il codice
+        </div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+</div>
+
+<div class="page-break"></div>
+
 # ACC (Arduino Connection Controller)
 
 &Egrave; un protocollo che abbiamo ideato per comunicare con facilita con l'Arduino,
@@ -85,7 +148,7 @@ La risposta sar&agrave;:
 {"status":"OK","message":"<valoreSettato>"}
 ```
 
-### ACC-Server - il codice
+### ACC-Server - il codice
 
 Nel caso di domotics l'ACC-Server, &egrave; stato implementato in java, per poterlo integrare
 direttamente con il modulo del web e per riutilizzare in questi due ambienti gli
@@ -94,6 +157,8 @@ stessi modelli dei dati.
 Quindi &egrave; stata creata una pagina del web server, con le funzionalit&agrave; dell'ACC-Server
 (`src/acc/AccServlet.java`), la quale sar&agrave; resa disponibile dal webserver all'indirizzo:
 `http://<serverAddress>:<serverPort>/acc`.
+
+<div class="page-break"></div>
 
 ## ACC-Client (Arduino Connection Controller - Client)
 
@@ -149,6 +214,8 @@ La relativa risposta sar&agrave;:
 {"status":"OK","message":"<settedValue>"}
 ```
 
+<div class="page-break"></div>
+
 ### ACC-Client - get
 
 Per richiedere all'arduino dei valori di dei pin di input o output, bisogna eseguire la seguente
@@ -164,7 +231,7 @@ La relativa risposta sar&agrave;:
 {"status":"OK","message":"<value>"}
 ```
 
-### ACC-Client -il codice
+### ACC-Client - il codice
 
 Nel caso dell'ACC-Client il codice &egrave; stato scritto in python, siccome l'Arduino Y&Uacute;N
 (Lilino) permette di scrivere il codice in python ed eseguirlo a stretto contatto con il codice sul
@@ -180,4 +247,9 @@ dell'ACC-Server e di inviare al server, i cambiamenti dei pin di input, come que
 codice: `py/acc-client.py/`. Il tutto &egrave; strutturato come mostrato nell'immagine sottostante,
 che rappresenta il diagramma delle classi.
 
-![ACC-Client.py class diagram](../img/acc/acc-client-classes.png)
+<div class="page-break"></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);width:650px;">
+    <img src="../img/acc/acc-client-classes.png" style="widht:450px;">
+</div>

@@ -420,10 +420,11 @@ servir&agrave; per identificare l'Arduino quando si connette alla rete e mentre 
 
 **ACC-Client-ID:**
 
+Codice identificativo di un ACC-Client, formato da 12 numeri esadecimali:
+
 ```
-DMTSID0ABCDEFABCDEF-<IndirizzoIP>
+1234567890ABCD
 ```
-La chiave è composta da tre parti, la prima  inizia con `DMTS` che sta per Domotics, poi `ID0`, che sta per ID  e 0 che è il separatore dopodiché il codice che è composto da 12 caratteri esadecimali un trattino ed infine l'IP dell'arduino.
 
 **ACC-Client-KEY:**
 
@@ -432,23 +433,12 @@ generati sul server semplicemente perch&egrave; ha pi&ugrve; potenza di calcolo.
 
 **Authentication Discover:**  
 
-L'ACC-Client invier&agrave; un messaggio di broad-cast sulla rete simile al seguente sulla porta
-`6137`, tramite la chiave l'arduino capirà se il messaggio è destinato a lui o no. La chiave contenente l' ACC-Client-ID più `-REQUEST` che come dice il nome è la rchiesta che viene fatta all'arduino.
+&Egrave; un codice di comunicazione fra il ACC-Client e ACC-Server, viene utilizzato per riconoscere
+che le informazioni sono autentiche. Questa viene generata dal ACC-Server ed inviata al client al
+momento della configuazione. Anch'essa è formata da 12 numeri esadecimali:
 
 ```
-DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST
-```
-
-**Authentication Response:**
-
-L'ACC-Server risponde al messagio discover con una richiesta HTTP sulla porta `8080` e inviando il
-messaggio che ha ricevuto come richiesta, ci aggiunge un trattino e la ACC-Client-KEY, che deve
-essere generata se l'Arduino non &egrave; mai stato collegato al server Domotics, altrimenti deve
-essere presa quella gia presente sul database (e deve essere aggiornato l'IP nel caso sia diverso).
-Ed infine deve aggiungere il suo indirizzo IP e la stringa `-ACCEPTED` (L'indirizzo IP e la KEY dovranno essere salvati in delle variabili sull Arduino e sul database).
-
-```
-DMTSID0ABCDEFABCDEF-192.168.1.34-REQUEST-ABCDEFABCDEF-192.168.1.2-ACCEPTED
+1234567890ABCD
 ```
 
 **Comunicazione ACC-Client -> ACC-Server:**
@@ -459,7 +449,7 @@ risposta dovr&agrave; essere un file JSON.
 Per esempio quando viene cliccato un bottone l'ACC-Client, invia una richiesta al server simile a questa:
 
 ```
-http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&type=send&pin=13&value=1
+http://192.168.1.2:8080/acc?key=ABCDEFABCDEF&pin=13&set=1
 ```
 
 Tutte le richieste destinate all'ACC dovranno essere fatte verso l'IP del server domotics sulla
@@ -473,7 +463,7 @@ Il server ritorner&agrave; una risposta simile alla seguente.
 ```JSON
 {
     "response": "OK",
-    "message": ""
+    "message": "<value>"
 }
 ```
 
@@ -487,69 +477,55 @@ effettuate con il metodo GET e le risposte saranno dei file JSON.
 
 Le richieste potranno essere di due tipi:
 
-- `send`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
+- `set`, che serve per inviare dei dati all'arduino, per esempio il valore che deve assumere un pin
 - `get`, che serve per richiedere dei dati all'Arduino, per esempio richiedere il valore di un pin
 
-Esempio di richiesta _send_:
+Esempio di richiesta _set_:
 
 ```
-http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=send&pin=4&value=1
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&pin=4&set=1
 ```
 
 risposta:
 
 ```JSON
 {
-    "pin":4,
-    "value":1
+    "response":"OK",
+    "message":"<value>"
 }
 ```
 
 Esempio di richiesta _get_:
 
 ```
-http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&type=get&pin=a0
+http://192.168.1.34:18086/acc?key=ABCDEFABCDEF&pin=A0
 ```
 
 risposta:
 
 ```JSON
 {
-    "pin":"a0",
-    "value":"123"
+    "response":"OK",
+    "message":"<value>"
 }
 ```
 
 **ACC-AutoConfiguation:**
 
-Siccome si vuole avere un sistema di comunicazione autonomo. Il quale deve essere in grado di
-richiedere al server la sua configuazione, che sarà richiesta dall'arduino al server
-tramite la ACC-Authentication-Request.
+La richiesta deve essere:
 
-Se il server gi&agrave; conosce l'Arduino (ACC-Client-ID), gli invia la chiave, e nel caso sia
-cambiato l'IP del server lo aggiona sul database (questo per permettere un buon funzionamento con
-DHCP). Altrimenti viene aggiunto al DB l'arduino con il suo ID e viene generata con il
-`ACC-Client-KEY-Generator` una KEY.
-
-In oltre viene inviata la configurazione dei vari pin.
-Che dovrebbe essere simile a questa:
-
-```JSON
-{
-    "acc-client-id": "<ACC-Client-ID>",
-    "acc-client-key": "<ACC-Client-KEY>",
-    "digital": [
-        {
-            "pin": 13,
-            "type": "out"
-        },
-        {
-            "pin": 13,
-            "type": "out"
-        }
-    ]
-}
 ```
+http://<serverAddress>:<serverPort>/acc?autoconf&id=<ACC-Client-ID>
+```
+
+E la risposta sar&agrave;
+
+```
+{"id":"<ACC-Client-ID>", "key":"<ACC-Client-KEY>", "server_address":"<serverAddress>:<serverPort>"}
+```
+
+Tutte le risposte saranno inviate in formato JSON, questo per facilitare il l'interpretazione da
+parte del client.
 
 ## 3 Implementazione
 
@@ -997,7 +973,7 @@ Nel caso dovessero esserci errori con i driver provare a seguire i seguenti proc
 
 ## 5 Consuntivo
 
-![SchemaArduino](img/gantt/GanttConsuntivo.PNG)
+![Gantt consuntivo](img/gantt/GanttConsuntivo.PNG)
 
 I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi dell'implementazione.Per iniziare abbiamo avuto 5 giorni in più per consegnare il progetto quindi al posto del 17.05.2019 abbiamo consegnato il progetto il 22.05.2019. Uno dei più grandi cambiamenti è nell'implementazione della parte Database/JDBC che hanno richiesto molto meno tempo del previsto. Un'altro cambiamento abbastanza grande si vede nella parte finale dell'implementazione dove si può notare che i test prendono meno tempo del previsto, questo cambiamento è causato principalmente dal fatto che una parte dei requisiti non è stata implementata quindi dei test non erano necessari. Abbiamo rimosso l'attività "installazione Arduino nell'aula" perché non abbiamo avuto il tempo di farla. Per integrare i moduli ci abbiamo messo meno del tempo previsto nella progettazione tempo che abbiamo potuto dedicare alla documentazione.
 
@@ -1005,7 +981,20 @@ I cambiamenti più grandi avvenuti dalla pianificazione iniziale sono nei tempi 
 
 ### 6.1 Considerazioni finali
 
-Il progetto è stato molto interessante anche se impegnativo, ci è stato assegnato un progetto molto utile e funzionale che negli anni futuri aumenterà sempre di più in tutte le case, uffici e industrie. Grazie a questo progetto è stato possibile entrare nel mondo della domotica che necessita conoscenze varie nell'ambito dell'informatica. Durante il progetto abbiamo sondato nuovi linguaggi e librerie dato che è suddiviso in molte parti differenti che ci hanno permesso di imparare cose nuove in vari campi. Per tutti è stata la prima volta a fare un progetto intero in un gruppo da tre, all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno di noi era abituato al lavoro di gruppo ma nell'ultimo periodo siamo migliorati e la velocità di lavoro è aumentata. Purtroppo durante il progetto abbiamo avuto alcuni imprevisti che non ci hanno permesso di portare a termine il lavoro, per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima persona o gruppo che ci lavorerà possa capire in fretta come funziona il nostro progetto e quindi possa completarlo e migliorarlo.
+Il progetto è stato molto interessante anche se impegnativo dato che il progetto che ci è stato
+assegnato da fare è una cosa molto utile e funzionale che negli anni futuri aumenterà sempre di più
+in tutte le case, uffici e industrie il quale grazie a questo progetto è stato possibile entrare in
+questo mondo. Durante il progetto abbiamo dovuto studiare e progettare molte componenti da dover
+collegare assieme, dato che è suddiviso in molte parti differenti. Il quale ci hanno permesso di
+fare esperienza con un progetto di dimensioni maggiori a quelle di cui siamo abbituati. Per tutti
+&egrave; stata la prima volta che ci siamo ritrovati a fare un progetto intero in un gruppo da tre,
+all'inizio l'organizzazione è stata un po' difficoltosa dato che nessuno dei tre era abituato ma
+nell'ultimo periodo siamo migliorati, purtroppo durante il progetto abbiamo avuto svariati
+imprevisti che non ci hanno permesso di portare a termine il lavoro, durante il corso del lavoro,
+sono stati cambiati i requisiti (le loro priorit&agrave;). La sfida pi&grave; di questo progetto,
+&egrave; stata svilupparlo interamente modulare, per poter reciclare il codice.  
+Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo tale che la prossima
+persona che ci lavorerà o gruppo possa capire in fretta come funziona il nostro progetto.
 
 ## 7 Bibliografia
 

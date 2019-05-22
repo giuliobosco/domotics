@@ -1,3 +1,39 @@
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida installazione</small><br>
+    Apache Tomcat 9
+</div>
+
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Introduzione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Install Java</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Install Tomcat</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Download Tomcat</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Configure firewall</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Test tomcat</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">enable service</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">7</div>
+        <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;conf tomcat user</div>
+        <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">8</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">configure Apache Reverse Proxy</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">9</div>
+</div>
+
+<div class="page-break"></div>
+
 # Install Tomcat 9.0.13
 
 ## Introduction
@@ -41,6 +77,8 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jr
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
+<div class="page-break"></div>
+
 reload the profile bash script
 ```
 source ~/.bash_profile
@@ -55,6 +93,8 @@ It should return something like this
 ```
 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b15.el7_2.x86_64/jre
 ```
+
+<div class="page-break"></div>
 
 ## Install Tomcat
 
@@ -97,6 +137,8 @@ change owner of all the files under the tomcat home directory
 chwon -hR tomcat:tomcat tomcat
 ```
 
+<div class="page-break"></div>
+
 ## Configure firewall
 
 Install, start and enable the firewall
@@ -131,6 +173,8 @@ If the reserver shows the page, shut it down
 ```
 ./shutdown.sh
 ```
+
+<div class="page-break"></div>
 
 ## enable service
 
@@ -170,6 +214,8 @@ check service status
 ```
 systemctl status tomcat
 ```
+
+<div class="page-break"></div>
 
 ## conf tomcat user
 
@@ -211,6 +257,8 @@ comment the rows 19,20:
 ```
 
 reboot the server and try to connect again on `ip:8080`
+
+<div class="page-break"></div>
 
 ## configure Apache Reverse Proxy
 
@@ -266,6 +314,8 @@ Then restart tomcat:
 /opt/tomcat/bin/shutdown.sh
 /opt/tomcat/bin/startup.sh
 ```
+
+<div class="page-break"></div>
 
 Before you test if everything works open the port 80 on the firewall, with the command:
 

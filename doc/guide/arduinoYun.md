@@ -1,3 +1,30 @@
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida utilizzo</small><br>
+    Arduino Y&Ugrave;N
+</div>
+
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Arduino Y&Ugrave;N</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Inizializzare Arduino</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">4</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Lato arduino</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Lato lilino</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+
+</div>
+
+<div class="page-break"></div>
+
 # Arduino Yun
 
 L'Arduino Yun è una scheda con incoroparti due sistemi indipendenti ma collegati fra loro. Uno è
@@ -9,6 +36,10 @@ I due moduli sono collegati fra solo tramite un bridge. Il quale permette di str
 fra i due chip.
 
 ![Arduino Yun Logincal Schema](../img/arduino/BridgeBlockDiag.png)
+
+<div class="page-break"></div>
+
+## Inizializzare Arduino
 
 Per iniziare a configurare l'Arduino Yun bisogna accedere alla shell, per configurare la password di
 root e vedere l'indirizzo IP. Per eseguire queste operazioni bisogna caricare sull'Arduino un
@@ -80,7 +111,7 @@ Dal lato Lilino invece bisogna utilizzare python. Per comunicare fra le due part
 sviluppato un sistema di bridge, che permette trasferire dei valori tramite delle variabili
 accessibili da entrambe le parti.
 
-### Lato arduino
+## Lato arduino
 
 Per capire come funziona, creare un esempio di blick sul pin 13, comandato tramite il bridge.  
 Utilizzare il seguente codice:
@@ -126,7 +157,9 @@ void loop() {
 
 ```
 
-### Lato Lilino
+<div class="page-break"></div>
+
+## Lato Lilino
 
 Mentre dal lato di Lilino, bisogna creare un programma in python, che setti in maniera alternata il
 valore di D13 ad `1` e `0` ogni secondo, tramite il bridge.

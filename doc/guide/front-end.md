@@ -1,6 +1,40 @@
-Paolo Guebeli
+<div style="font-size:36px;text-align:center">
+    <br><br><br><br><br>
+    <small style="font-size:18px;">Guida Modulo</small><br>
+    front-end
+</div>
 
-# Guida di funzionamento e implementazione del frontend
+<div class="page-break"></div>
+
+<div class="clearfix index">
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Capitolo</h5></div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;"><h5>Pagina</h5></div>
+    <div style="margin-top:5px;widht:100%;"> </div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Indice</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">2</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Design</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">3</div>
+    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">Implementazione</div>
+    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+	    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;WEB-APP</div>
+	    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+		    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;&emsp;moduli presenti</div>
+		    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+		    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;&emsp;AngularJS</div>
+		    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+	    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Creare un controller</div>
+	    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+	    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;Creare un service</div>
+	    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">6</div>
+	    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;views</div>
+	    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">5</div>
+	    <div class="capitle" style="width:80%;float:left;border-bottom:1px dotted #DDDDDD;">&emsp;stile</div>
+	    <div class="page" style="text-align:right;width:20%;float:left;border-bottom:1px dotted #DDDDDD;">7</div>
+</div>
+
+<div class="page-break"></div>
+
+# front-end
 
 ## Design
 
@@ -17,19 +51,23 @@ La pagina di login contiene un semplice form composto da un campo testo, un camp
 	<img src="../img/views/mobile_login.png" style="width:100px" width="100">
 </p>
 
+<div class="page-break"></div>
+
 La pagina principale &egrave; composta da due parti, la dashboard e il corpo principale contenente le aule.
 La dashboard contiene le pagine del sito (al momento solo una) e la gestione del account.
 Invece il corpo della pagina permette di gestire le aule, vedere la tempereatura e spegnere/accendere le luci.
 
 <p style="text-align:center;">
-	<img src="../img/views/desktop_rooms.png" style="width:400px" width="400">
-	<img src="../img/views/mobile_rooms.png" style="width:100px" width="100">
-	<img src="../img/views/mobile_menu.png" style="width:100px" width="100">
+	<img src="../img/views/desktop_rooms.png" style="width:450px" width="400"><br><br>
+	<img src="../img/views/mobile_rooms.png" style="width:150px" width="100">
+	<img src="../img/views/mobile_menu.png" style="width:150px" width="100">
 </p>
+
+<div class="page-break"></div>
 
 ## Implementazione
 
-### WEB-APP
+### WEB-APP
 
 Il front-end di domotics, &egrave; stato pensato come una web, app costruita su moduli, quindi
 per facilitare questo metodo di sviluppo &egrave; stato deciso di basarlo su AngularJS, un
@@ -85,6 +123,8 @@ precedentemente.
 
 Dopo di che eseguire le operazioni che si necessitano nel controller, la variabile `$scope`, viene
 utilizzata per passare i valori fra i controller e le view.
+
+<div class="page-break"></div>
 
 ### creare un service
 
