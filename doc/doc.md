@@ -1131,19 +1131,45 @@ Per questo abbiamo documentato tutto ciò che abbiamo fatto passo passo in modo 
 la prossima persona o gruppo che ci lavorerà possa capire in fretta come funziona il nostro progetto e
 quindi possa completarlo e migliorarlo.
 
+### 6.2 Sviluppi futuri
+
+Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per moduli)
+
+#### Nuove funzionalità
+
+- Poter gestire le assenze sia da parte dei docenti sia da parte degli allievi tramite sito della domotica presente.
+- Poter gestire l'apertura e la chiusura della rete tramite sito della domotica presente.
+
+#### Moduli Arduino
+
+- Curtain Managment, aggiungere l'apertura e la chiusura delle tende nell'aula.
+- Beamer Managment, aggiungere l'accensione e lo spegnimento del beamer nell'aula.
+
+#### ACC
+
+- ACC-Client Full-AutoConfiguation, aggiungere all'ACC-Client la funzionalit&agrave; di ricerca di
+un ACC-Server nella rete.
+
+#### WEB
+
+- aggiungere lo stato di ogni arduino in una pagina
+- poter inviare dei comandi di reboot agli arduino direttamente dall'interfaccia web.
+- modifica (aggiungere/togliere/modificare) delle luci, degli arduino, e dei bottoni (interazione
+    con il db).
+
 ## 7 Bibliografia
 
 ### 7.1 Sitografia
 
--https://stackoverflow.com/
--https://www.w3schools.com/
--https://getbootstrap.com/docs/4.3/getting-started/introduction/
--http://www-db.deis.unibo.it/courses/BDPG/JDBC.pdf
--https://www.html.it/pag/15159/jdbc-introduzione/
--https://www.theserverside.com/definition/Java-Database-Connectivity-JDBC
--https://searchmobilecomputing.techtarget.com/definition/LDAP
--https://www.gracion.com/server/whatldap.html
--https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
--https://www.arduino.cc/
+- https://stackoverflow.com/
+- https://www.w3schools.com/
+- https://getbootstrap.com/docs/4.3/getting-started/introduction/
+- http://www-db.deis.unibo.it/courses/BDPG/JDBC.pdf
+- https://www.html.it/pag/15159/jdbc-introduzione/
+- https://www.theserverside.com/definition/Java-Database-Connectivity-JDBC
+- https://searchmobilecomputing.techtarget.com/definition/LDAP
+- https://www.gracion.com/server/whatldap.html
+- https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
+- https://www.arduino.cc/
 
 ## 8 Allegati
