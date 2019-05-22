@@ -305,8 +305,7 @@ Requisiti cambiati:
 |Versione: |1.0                                                     ||
 |Note:     |                                                        ||
 |          |Sotto requisiti                                          |
-|001:      |Arduino yun                                             ||
-|002:      |Server in Tomcat                                        ||
+|001:      |Documentazione di tutti i moduli che compongono il progetto|                                            ||
 
 ###  1.6 Pianificazione
 
