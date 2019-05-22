@@ -1204,5 +1204,6 @@ Idee di sviluppi futuri, (aggiungerle qui quando vengono in mente suddivise per 
 - https://www.gracion.com/server/whatldap.html
 - https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
 - https://www.arduino.cc/
+- https://www.instagram.com/awsmcolor/?hl=it
 
 ## 8 Allegati
